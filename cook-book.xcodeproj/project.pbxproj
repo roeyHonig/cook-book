@@ -14,9 +14,12 @@
 		6DFFF48320D5737700368A45 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 6DFFF48220D5737700368A45 /* Assets.xcassets */; };
 		6DFFF48620D5737700368A45 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 6DFFF48420D5737700368A45 /* LaunchScreen.storyboard */; };
 		6DFFF48E20D57A0300368A45 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 6DFFF48D20D57A0200368A45 /* GoogleService-Info.plist */; };
+		FF24C585519231558D0CF3FB /* Pods_cook_book.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 67128A0D94A1433C0F3E32B8 /* Pods_cook_book.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		2CEB553098BC10CAAE16CE05 /* Pods-cook-book.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-cook-book.release.xcconfig"; path = "Pods/Target Support Files/Pods-cook-book/Pods-cook-book.release.xcconfig"; sourceTree = "<group>"; };
+		67128A0D94A1433C0F3E32B8 /* Pods_cook_book.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_cook_book.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		6DFFF47520D5737700368A45 /* cook-book.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "cook-book.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		6DFFF47820D5737700368A45 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		6DFFF47A20D5737700368A45 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -26,6 +29,7 @@
 		6DFFF48520D5737700368A45 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		6DFFF48720D5737700368A45 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		6DFFF48D20D57A0200368A45 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		C0B1711A7F7CFAF08D93524E /* Pods-cook-book.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-cook-book.debug.xcconfig"; path = "Pods/Target Support Files/Pods-cook-book/Pods-cook-book.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -33,17 +37,28 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				FF24C585519231558D0CF3FB /* Pods_cook_book.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		5705A812DE81B7B61B477C4E /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				67128A0D94A1433C0F3E32B8 /* Pods_cook_book.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 		6DFFF46C20D5737700368A45 = {
 			isa = PBXGroup;
 			children = (
 				6DFFF47720D5737700368A45 /* cook-book */,
 				6DFFF47620D5737700368A45 /* Products */,
+				B84B74379D9E83655E5B7490 /* Pods */,
+				5705A812DE81B7B61B477C4E /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -70,6 +85,15 @@
 			path = "cook-book";
 			sourceTree = "<group>";
 		};
+		B84B74379D9E83655E5B7490 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				C0B1711A7F7CFAF08D93524E /* Pods-cook-book.debug.xcconfig */,
+				2CEB553098BC10CAAE16CE05 /* Pods-cook-book.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -77,9 +101,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 6DFFF48A20D5737700368A45 /* Build configuration list for PBXNativeTarget "cook-book" */;
 			buildPhases = (
+				1781AAF5FC15A44DD81B2092 /* [CP] Check Pods Manifest.lock */,
 				6DFFF47120D5737700368A45 /* Sources */,
 				6DFFF47220D5737700368A45 /* Frameworks */,
 				6DFFF47320D5737700368A45 /* Resources */,
+				4216E57BB430DC663A6FD627 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -137,6 +163,47 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		1781AAF5FC15A44DD81B2092 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-cook-book-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		4216E57BB430DC663A6FD627 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${SRCROOT}/Pods/Target Support Files/Pods-cook-book/Pods-cook-book-frameworks.sh",
+				"${BUILT_PRODUCTS_DIR}/GoogleToolboxForMac/GoogleToolboxForMac.framework",
+				"${BUILT_PRODUCTS_DIR}/nanopb/nanopb.framework",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GoogleToolboxForMac.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/nanopb.framework",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-cook-book/Pods-cook-book-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		6DFFF47120D5737700368A45 /* Sources */ = {
@@ -280,6 +347,7 @@
 		};
 		6DFFF48B20D5737700368A45 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = C0B1711A7F7CFAF08D93524E /* Pods-cook-book.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
@@ -294,6 +362,7 @@
 		};
 		6DFFF48C20D5737700368A45 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 2CEB553098BC10CAAE16CE05 /* Pods-cook-book.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
