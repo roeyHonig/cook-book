@@ -13,6 +13,7 @@
 		6DFFF48120D5737700368A45 /* cook_book.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 6DFFF47F20D5737700368A45 /* cook_book.xcdatamodeld */; };
 		6DFFF48320D5737700368A45 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 6DFFF48220D5737700368A45 /* Assets.xcassets */; };
 		6DFFF48620D5737700368A45 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 6DFFF48420D5737700368A45 /* LaunchScreen.storyboard */; };
+		6DFFF48E20D57A0300368A45 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 6DFFF48D20D57A0200368A45 /* GoogleService-Info.plist */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -24,6 +25,7 @@
 		6DFFF48220D5737700368A45 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		6DFFF48520D5737700368A45 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		6DFFF48720D5737700368A45 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		6DFFF48D20D57A0200368A45 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -56,6 +58,7 @@
 		6DFFF47720D5737700368A45 /* cook-book */ = {
 			isa = PBXGroup;
 			children = (
+				6DFFF48D20D57A0200368A45 /* GoogleService-Info.plist */,
 				6DFFF47820D5737700368A45 /* AppDelegate.swift */,
 				6DFFF47A20D5737700368A45 /* ViewController.swift */,
 				6DFFF47C20D5737700368A45 /* Main.storyboard */,
@@ -127,6 +130,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				6DFFF48620D5737700368A45 /* LaunchScreen.storyboard in Resources */,
+				6DFFF48E20D57A0300368A45 /* GoogleService-Info.plist in Resources */,
 				6DFFF48320D5737700368A45 /* Assets.xcassets in Resources */,
 				6DFFF47E20D5737700368A45 /* Main.storyboard in Resources */,
 			);
