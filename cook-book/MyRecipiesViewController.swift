@@ -10,6 +10,7 @@ import UIKit
 
 class MyRecipiesViewController: UIViewController {
     @IBOutlet weak var segmentedControl: UISegmentedControl!
+    @IBOutlet weak var containerView: UIView!
     
     lazy var signInViewController: SignInViewController = {
         let storyboard = UIStoryboard(name: "Main", bundle: Bundle.main)
@@ -63,10 +64,18 @@ class MyRecipiesViewController: UIViewController {
     
     func addViewControllerAsChildViewController(childViewController: UIViewController) {
         addChildViewController(childViewController)
-        self.view.addSubview(childViewController.view)
         
+        // uncomment the follwoing if you want the childViewController to populate the entire view of the parent viewController
+        /*
+        self.view.addSubview(childViewController.view)
         childViewController.view.frame = self.view.bounds
         childViewController.view.autoresizingMask = [.flexibleWidth, .flexibleHeight]
+        */
+        
+        containerView.addSubview(childViewController.view)
+        childViewController.view.frame = containerView.bounds
+        childViewController.view.autoresizingMask = [.flexibleWidth, .flexibleHeight]
+        
         
         childViewController.didMove(toParentViewController: self)
     }
