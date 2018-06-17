@@ -11,6 +11,19 @@ import UIKit
 class MyRecipiesViewController: UIViewController {
     @IBOutlet weak var segmentedControl: UISegmentedControl!
     
+    lazy var signInViewController: SignInViewController = {
+        let storyboard = UIStoryboard(name: "Main", bundle: Bundle.main)
+        var viewController = storyboard.instantiateViewController(withIdentifier: "SignInViewController") as! SignInViewController
+        self.addViewControllerAsChildViewController(childViewController: viewController)
+        return viewController
+    }()
+    
+    lazy var CurrentUserRecipiesViewController: CurrentUserRecipiesViewController = {
+        let storyboard = UIStoryboard(name: "Main", bundle: Bundle.main)
+        var viewController = storyboard.instantiateViewController(withIdentifier: "CurrentUserRecipiesViewController") as! CurrentUserRecipiesViewController
+        self.addViewControllerAsChildViewController(childViewController: viewController)
+        return viewController
+    }()
    
 
     override func viewDidLoad() {
@@ -26,19 +39,36 @@ class MyRecipiesViewController: UIViewController {
 
     func setupView() {
         setupSegmentedControl()
+        updateView()
     }
     
     func setupSegmentedControl() {
         segmentedControl.removeAllSegments()
         segmentedControl.insertSegment(withTitle: "Sign In", at: 0, animated: false)
-        segmentedControl.insertSegment(withTitle: "Sign In", at: 1, animated: false)
+        segmentedControl.insertSegment(withTitle: "Recipies", at: 1, animated: false)
         segmentedControl.addTarget(self, action: #selector(selectionDidChanged(sender:)), for: UIControlEvents.valueChanged )
         
         segmentedControl.selectedSegmentIndex = 0
     }
     
     @objc func selectionDidChanged(sender: UISegmentedControl) {
+        updateView()
+    }
+    
+    func updateView() {
         print("SC changed")
+        signInViewController.view.isHidden = !(segmentedControl.selectedSegmentIndex == 0)
+        CurrentUserRecipiesViewController.view.isHidden = (segmentedControl.selectedSegmentIndex == 0)
+    }
+    
+    func addViewControllerAsChildViewController(childViewController: UIViewController) {
+        addChildViewController(childViewController)
+        self.view.addSubview(childViewController.view)
+        
+        childViewController.view.frame = self.view.bounds
+        childViewController.view.autoresizingMask = [.flexibleWidth, .flexibleHeight]
+        
+        childViewController.didMove(toParentViewController: self)
     }
 
 }

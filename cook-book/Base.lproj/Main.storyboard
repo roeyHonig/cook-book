@@ -39,11 +39,12 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
+            <point key="canvasLocation" x="-15" y="30"/>
         </scene>
         <!--Sign In View Controller-->
         <scene sceneID="OKi-DH-Qsz">
             <objects>
-                <viewController id="KXS-AV-tZt" customClass="SignInViewController" customModule="cook_book" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="SignInViewController" id="KXS-AV-tZt" customClass="SignInViewController" customModule="cook_book" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="Yb9-9X-kjA">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -58,7 +59,7 @@
         <!--Current User Recipies View Controller-->
         <scene sceneID="9uO-sn-GxD">
             <objects>
-                <viewController id="tUF-PB-ZeI" customClass="CurrentUserRecipiesViewController" customModule="cook_book" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="CurrentUserRecipiesViewController" id="tUF-PB-ZeI" customClass="CurrentUserRecipiesViewController" customModule="cook_book" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="X1p-c7-po7">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
