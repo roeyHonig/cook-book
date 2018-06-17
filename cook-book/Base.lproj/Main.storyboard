@@ -9,33 +9,66 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--View Controller-->
+        <!--My Recipies View Controller-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="cook_book" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="BYZ-38-t0r" customClass="MyRecipiesViewController" customModule="cook_book" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="FireBase" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="R0h-Ik-Jxp">
-                                <rect key="frame" x="16" y="299" width="343" height="69.5"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="58"/>
-                                <color key="textColor" red="1" green="0.65867885973833673" blue="0.0010313478113763708" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                <nil key="highlightedColor"/>
-                            </label>
+                            <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="kYd-uW-xaA">
+                                <rect key="frame" x="0.0" y="20" width="375" height="29"/>
+                                <segments>
+                                    <segment title="First"/>
+                                    <segment title="Second"/>
+                                </segments>
+                            </segmentedControl>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
-                            <constraint firstItem="R0h-Ik-Jxp" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="16" id="A8J-IZ-ZYi"/>
-                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="R0h-Ik-Jxp" secondAttribute="trailing" constant="16" id="lw6-eF-DTX"/>
-                            <constraint firstItem="R0h-Ik-Jxp" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" id="n02-om-UGN"/>
-                            <constraint firstItem="R0h-Ik-Jxp" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="smt-ZX-Xmu"/>
+                            <constraint firstItem="kYd-uW-xaA" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" id="IgS-q3-yPu"/>
+                            <constraint firstItem="kYd-uW-xaA" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="JJU-5I-AF8"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="kYd-uW-xaA" secondAttribute="trailing" id="Y2W-bp-fM1"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
+                    <connections>
+                        <outlet property="segmentedControl" destination="kYd-uW-xaA" id="DNG-Gi-gqn"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
+        </scene>
+        <!--Sign In View Controller-->
+        <scene sceneID="OKi-DH-Qsz">
+            <objects>
+                <viewController id="KXS-AV-tZt" customClass="SignInViewController" customModule="cook_book" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="Yb9-9X-kjA">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" red="1" green="0.65990817863924867" blue="0.087172153839438771" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <viewLayoutGuide key="safeArea" id="Y8B-n2-NHO"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="zjC-bl-GqY" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="751" y="31"/>
+        </scene>
+        <!--Current User Recipies View Controller-->
+        <scene sceneID="9uO-sn-GxD">
+            <objects>
+                <viewController id="tUF-PB-ZeI" customClass="CurrentUserRecipiesViewController" customModule="cook_book" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="X1p-c7-po7">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" red="1" green="0.25357913097713969" blue="0.96946313759506442" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <viewLayoutGuide key="safeArea" id="3zP-MU-r6W"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="RM7-8C-q7v" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1490" y="29"/>
         </scene>
     </scenes>
 </document>
