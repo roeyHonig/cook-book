@@ -63,18 +63,30 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Hello..." textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Eqn-vy-hkC">
+                                <rect key="frame" x="0.0" y="221" width="375" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" red="1" green="0.25357913097713969" blue="0.96946313759506442" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
                             <constraint firstItem="3zP-MU-r6W" firstAttribute="trailing" secondItem="SDB-8o-ooP" secondAttribute="trailing" id="LCc-po-pwg"/>
+                            <constraint firstItem="Eqn-vy-hkC" firstAttribute="leading" secondItem="3zP-MU-r6W" secondAttribute="leading" id="PEF-9x-5nI"/>
                             <constraint firstItem="SDB-8o-ooP" firstAttribute="leading" secondItem="3zP-MU-r6W" secondAttribute="leading" id="S5e-Zc-rbw"/>
                             <constraint firstItem="j2H-bm-RvV" firstAttribute="leading" secondItem="3zP-MU-r6W" secondAttribute="leading" id="ZSI-L1-KzH"/>
                             <constraint firstItem="3zP-MU-r6W" firstAttribute="trailing" secondItem="j2H-bm-RvV" secondAttribute="trailing" id="dlN-ta-SRz"/>
+                            <constraint firstItem="3zP-MU-r6W" firstAttribute="trailing" secondItem="Eqn-vy-hkC" secondAttribute="trailing" id="hwP-n4-C1G"/>
                             <constraint firstItem="SDB-8o-ooP" firstAttribute="top" secondItem="3zP-MU-r6W" secondAttribute="top" constant="50" id="jIQ-gY-Rw2"/>
                             <constraint firstItem="j2H-bm-RvV" firstAttribute="top" secondItem="SDB-8o-ooP" secondAttribute="bottom" constant="50" id="rm7-rf-O0v"/>
+                            <constraint firstItem="Eqn-vy-hkC" firstAttribute="top" secondItem="j2H-bm-RvV" secondAttribute="bottom" constant="50" id="uAz-d7-cS8"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="3zP-MU-r6W"/>
                     </view>
+                    <connections>
+                        <outlet property="GreetingLabel" destination="Eqn-vy-hkC" id="131-Up-Pfu"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="RM7-8C-q7v" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>

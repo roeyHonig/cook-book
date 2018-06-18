@@ -13,7 +13,7 @@ import GoogleSignIn
 class MyRecipiesViewController: UIViewController , GIDSignInUIDelegate {
     var handle : AuthStateDidChangeListenerHandle!
    
-   
+    var signedUser: User?
     
     lazy var signInViewController: SignInViewController = {
         let storyboard = UIStoryboard(name: "Main", bundle: Bundle.main)
@@ -32,10 +32,12 @@ class MyRecipiesViewController: UIViewController , GIDSignInUIDelegate {
 
     override func viewWillAppear(_ animated: Bool) {
         handle = Auth.auth().addStateDidChangeListener { (auth, user) in
-            if user != nil {
+            if  user != nil {
                 // User is signed in.
                 print("Hi, There Is A user!!!")
                 print("The user name is: \(user!.displayName!)")
+                self.signedUser = user
+                self.setUpCurrentUserRecipiesViewController(user: self.signedUser!)
                 self.signInViewController.view.isHidden = true
                 self.CurrentUserRecipiesViewController.view.isHidden = false
                 
@@ -88,6 +90,10 @@ class MyRecipiesViewController: UIViewController , GIDSignInUIDelegate {
         */
         
         childViewController.didMove(toParentViewController: self)
+    }
+    
+    func setUpCurrentUserRecipiesViewController(user: User) {
+        CurrentUserRecipiesViewController.GreetingLabel.text = "Hello \(user.displayName!)"
     }
 
 }

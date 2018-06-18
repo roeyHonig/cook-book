@@ -11,6 +11,7 @@ import Firebase
 import GoogleSignIn
 
 class CurrentUserRecipiesViewController: UIViewController, GIDSignInUIDelegate {
+    @IBOutlet weak var GreetingLabel: UILabel!
     @IBAction func signOut(_ sender: UIButton) {
         let firebaseAuth = Auth.auth()
         do {
