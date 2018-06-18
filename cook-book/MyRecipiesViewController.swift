@@ -14,7 +14,7 @@ class MyRecipiesViewController: UIViewController , GIDSignInUIDelegate {
     var handle : AuthStateDidChangeListenerHandle!
    
     
-    @IBOutlet weak var segmentedControl: UISegmentedControl!
+   // @IBOutlet weak var segmentedControl: UISegmentedControl!
     @IBOutlet weak var containerView: UIView!
     
     lazy var signInViewController: SignInViewController = {
@@ -70,7 +70,7 @@ class MyRecipiesViewController: UIViewController , GIDSignInUIDelegate {
         
        
         
-        setupView()
+        //setupView()
     }
 
     override func didReceiveMemoryWarning() {
@@ -79,20 +79,19 @@ class MyRecipiesViewController: UIViewController , GIDSignInUIDelegate {
     }
 
     func setupView() {
-        setupSegmentedControl()
+        //setupSegmentedControl()
         //updateView()
     }
     
+    /*
     func setupSegmentedControl() {
         segmentedControl.removeAllSegments()
         segmentedControl.insertSegment(withTitle: "Sign In", at: 0, animated: false)
         segmentedControl.insertSegment(withTitle: "Recipies", at: 1, animated: false)
        // segmentedControl.addTarget(self, action: #selector(selectionDidChanged(sender:)), for: UIControlEvents.valueChanged )
         
-        
-        
-        
     }
+ */
     
     /*
     @objc func selectionDidChanged(sender: UISegmentedControl) {
