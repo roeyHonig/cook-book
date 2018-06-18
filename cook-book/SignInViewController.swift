@@ -23,6 +23,8 @@ class SignInViewController: UIViewController, GIDSignInUIDelegate, FBSDKLoginBut
         // ... facebook login sucess??
        
         if FBSDKAccessToken.current() == nil {
+            // Maybe the user hit cancel on the FB SDK
+            // it's no error but the current loggedIn FB user is still nil and we can't proceed any further
             return
         }
         
