@@ -7,6 +7,7 @@ target 'cook-book' do
 
   # Pods for cook-book
 pod 'Firebase/Core'
-
+pod 'Firebase/Auth'
+pod 'GoogleSignIn'
 
 end
