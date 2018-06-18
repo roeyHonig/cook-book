@@ -9,6 +9,6 @@ target 'cook-book' do
 pod 'Firebase/Core'
 pod 'Firebase/Auth'
 pod 'GoogleSignIn'
-
-
+pod 'FBSDKLoginKit'
+    
 end
