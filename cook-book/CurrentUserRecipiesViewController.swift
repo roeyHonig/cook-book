@@ -9,6 +9,8 @@
 import UIKit
 import Firebase
 import GoogleSignIn
+import FBSDKCoreKit
+import FBSDKLoginKit
 
 class CurrentUserRecipiesViewController: UIViewController, GIDSignInUIDelegate {
     @IBOutlet weak var GreetingLabel: UILabel!
@@ -17,6 +19,7 @@ class CurrentUserRecipiesViewController: UIViewController, GIDSignInUIDelegate {
         do {
             try firebaseAuth.signOut()
             GIDSignIn.sharedInstance().signOut()
+            FBSDKLoginManager().logOut()
             print("signed out?")
         } catch let signOutError as NSError {
             print ("Error signing out: %@", signOutError)
