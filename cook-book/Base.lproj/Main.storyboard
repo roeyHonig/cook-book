@@ -16,23 +16,9 @@
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <subviews>
-                            <containerView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="GOj-z9-NDe">
-                                <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
-                            </containerView>
-                        </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                        <constraints>
-                            <constraint firstItem="GOj-z9-NDe" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="6Y8-or-Jlw"/>
-                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="GOj-z9-NDe" secondAttribute="trailing" id="BMQ-Vq-Scj"/>
-                            <constraint firstItem="GOj-z9-NDe" firstAttribute="top" secondItem="8bC-Xf-vdC" secondAttribute="top" id="NYk-8G-jZw"/>
-                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="GOj-z9-NDe" secondAttribute="bottom" id="Y9Y-ms-Ipy"/>
-                        </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
-                    <connections>
-                        <outlet property="containerView" destination="GOj-z9-NDe" id="cQM-X6-hJc"/>
-                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
@@ -45,24 +31,7 @@
                     <view key="view" contentMode="scaleToFill" id="Yb9-9X-kjA">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <subviews>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="DBo-ps-iF8">
-                                <rect key="frame" x="0.0" y="70" width="375" height="30"/>
-                                <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                <state key="normal" title="Sign Out">
-                                    <color key="titleColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
-                                </state>
-                                <connections>
-                                    <action selector="SignOut:" destination="KXS-AV-tZt" eventType="touchUpInside" id="jry-PG-cic"/>
-                                </connections>
-                            </button>
-                        </subviews>
                         <color key="backgroundColor" red="1" green="0.65990817863924867" blue="0.087172153839438771" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                        <constraints>
-                            <constraint firstItem="Y8B-n2-NHO" firstAttribute="trailing" secondItem="DBo-ps-iF8" secondAttribute="trailing" id="FL6-Qf-Ar0"/>
-                            <constraint firstItem="DBo-ps-iF8" firstAttribute="top" secondItem="Y8B-n2-NHO" secondAttribute="top" constant="50" id="Flb-ux-cPD"/>
-                            <constraint firstItem="DBo-ps-iF8" firstAttribute="leading" secondItem="Y8B-n2-NHO" secondAttribute="leading" id="KCN-3d-Dct"/>
-                        </constraints>
                         <viewLayoutGuide key="safeArea" id="Y8B-n2-NHO"/>
                     </view>
                 </viewController>
