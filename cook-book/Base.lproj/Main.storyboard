@@ -56,7 +56,24 @@
                     <view key="view" contentMode="scaleToFill" id="Yb9-9X-kjA">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="DBo-ps-iF8">
+                                <rect key="frame" x="0.0" y="70" width="375" height="30"/>
+                                <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <state key="normal" title="Sign Out">
+                                    <color key="titleColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="SignOut:" destination="KXS-AV-tZt" eventType="touchUpInside" id="jry-PG-cic"/>
+                                </connections>
+                            </button>
+                        </subviews>
                         <color key="backgroundColor" red="1" green="0.65990817863924867" blue="0.087172153839438771" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstItem="Y8B-n2-NHO" firstAttribute="trailing" secondItem="DBo-ps-iF8" secondAttribute="trailing" id="FL6-Qf-Ar0"/>
+                            <constraint firstItem="DBo-ps-iF8" firstAttribute="top" secondItem="Y8B-n2-NHO" secondAttribute="top" constant="50" id="Flb-ux-cPD"/>
+                            <constraint firstItem="DBo-ps-iF8" firstAttribute="leading" secondItem="Y8B-n2-NHO" secondAttribute="leading" id="KCN-3d-Dct"/>
+                        </constraints>
                         <viewLayoutGuide key="safeArea" id="Y8B-n2-NHO"/>
                     </view>
                 </viewController>

@@ -7,8 +7,12 @@
 //
 
 import UIKit
+import Firebase
+import GoogleSignIn
 
-class MyRecipiesViewController: UIViewController {
+class MyRecipiesViewController: UIViewController , GIDSignInUIDelegate {
+    
+    
     @IBOutlet weak var segmentedControl: UISegmentedControl!
     @IBOutlet weak var containerView: UIView!
     
@@ -30,6 +34,14 @@ class MyRecipiesViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
+        GIDSignIn.sharedInstance().uiDelegate = self
+        //GIDSignIn.sharedInstance().signIn()
+        
+        //SignIn Button
+        let googleSignInBtn = GIDSignInButton()
+        googleSignInBtn.frame = CGRect(x: 60, y: 500, width: view.frame.width - 50, height: 50)
+        view.addSubview(googleSignInBtn)
+        
         setupView()
     }
 

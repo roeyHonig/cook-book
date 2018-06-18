@@ -7,9 +7,21 @@
 //
 
 import UIKit
+import Firebase
+import GoogleSignIn
 
-class SignInViewController: UIViewController {
-
+class SignInViewController: UIViewController, GIDSignInUIDelegate {
+    @IBAction func SignOut(_ sender: UIButton) {
+        let firebaseAuth = Auth.auth()
+        do {
+            try firebaseAuth.signOut()
+            GIDSignIn.sharedInstance().signOut()
+            print("signed out?")
+        } catch let signOutError as NSError {
+            print ("Error signing out: %@", signOutError)
+        }
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
