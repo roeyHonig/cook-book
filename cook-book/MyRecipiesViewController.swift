@@ -11,7 +11,8 @@ import Firebase
 import GoogleSignIn
 
 class MyRecipiesViewController: UIViewController , GIDSignInUIDelegate {
-    
+    var handle : AuthStateDidChangeListenerHandle!
+   
     
     @IBOutlet weak var segmentedControl: UISegmentedControl!
     @IBOutlet weak var containerView: UIView!
@@ -31,6 +32,25 @@ class MyRecipiesViewController: UIViewController , GIDSignInUIDelegate {
     }()
    
 
+    override func viewWillAppear(_ animated: Bool) {
+        handle = Auth.auth().addStateDidChangeListener { (auth, user) in
+            if user != nil {
+                // User is signed in.
+                print("Hi, There Is A user!!!")
+            } else {
+                // No user is signed in.
+                print("No User, please sign in")
+            }
+        }
+        
+        
+        
+    }
+    
+    override func viewWillDisappear(_ animated: Bool) {
+        Auth.auth().removeStateDidChangeListener(handle)
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
@@ -41,6 +61,8 @@ class MyRecipiesViewController: UIViewController , GIDSignInUIDelegate {
         let googleSignInBtn = GIDSignInButton()
         googleSignInBtn.frame = CGRect(x: 60, y: 500, width: view.frame.width - 50, height: 50)
         view.addSubview(googleSignInBtn)
+        
+       
         
         setupView()
     }
@@ -61,7 +83,15 @@ class MyRecipiesViewController: UIViewController , GIDSignInUIDelegate {
         segmentedControl.insertSegment(withTitle: "Recipies", at: 1, animated: false)
         segmentedControl.addTarget(self, action: #selector(selectionDidChanged(sender:)), for: UIControlEvents.valueChanged )
         
-        segmentedControl.selectedSegmentIndex = 0
+        if Auth.auth().currentUser != nil {
+            // User is signed in.
+            segmentedControl.selectedSegmentIndex = 1
+        } else {
+            // No user is signed in.
+            segmentedControl.selectedSegmentIndex = 0
+        }
+        
+        
     }
     
     @objc func selectionDidChanged(sender: UISegmentedControl) {

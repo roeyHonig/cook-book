@@ -11,7 +11,17 @@ import Firebase
 import GoogleSignIn
 
 class CurrentUserRecipiesViewController: UIViewController, GIDSignInUIDelegate {
-
+    @IBAction func signOut(_ sender: UIButton) {
+        let firebaseAuth = Auth.auth()
+        do {
+            try firebaseAuth.signOut()
+            GIDSignIn.sharedInstance().signOut()
+            print("signed out?")
+        } catch let signOutError as NSError {
+            print ("Error signing out: %@", signOutError)
+        }
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 

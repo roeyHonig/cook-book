@@ -88,7 +88,24 @@
                     <view key="view" contentMode="scaleToFill" id="X1p-c7-po7">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="SDB-8o-ooP">
+                                <rect key="frame" x="0.0" y="70" width="375" height="30"/>
+                                <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <state key="normal" title="Sign Out">
+                                    <color key="titleColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="signOut:" destination="tUF-PB-ZeI" eventType="touchUpInside" id="x7a-Ti-dEX"/>
+                                </connections>
+                            </button>
+                        </subviews>
                         <color key="backgroundColor" red="1" green="0.25357913097713969" blue="0.96946313759506442" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstItem="3zP-MU-r6W" firstAttribute="trailing" secondItem="SDB-8o-ooP" secondAttribute="trailing" id="LCc-po-pwg"/>
+                            <constraint firstItem="SDB-8o-ooP" firstAttribute="leading" secondItem="3zP-MU-r6W" secondAttribute="leading" id="S5e-Zc-rbw"/>
+                            <constraint firstItem="SDB-8o-ooP" firstAttribute="top" secondItem="3zP-MU-r6W" secondAttribute="top" constant="50" id="jIQ-gY-Rw2"/>
+                        </constraints>
                         <viewLayoutGuide key="safeArea" id="3zP-MU-r6W"/>
                     </view>
                 </viewController>
