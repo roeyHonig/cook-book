@@ -37,9 +37,15 @@ class MyRecipiesViewController: UIViewController , GIDSignInUIDelegate {
             if user != nil {
                 // User is signed in.
                 print("Hi, There Is A user!!!")
+                print("The user name is: \(user!.displayName!)")
+                self.signInViewController.view.isHidden = true
+                self.CurrentUserRecipiesViewController.view.isHidden = false
+                
             } else {
                 // No user is signed in.
                 print("No User, please sign in")
+                self.signInViewController.view.isHidden = false
+                self.CurrentUserRecipiesViewController.view.isHidden = true
             }
         }
         
@@ -74,35 +80,33 @@ class MyRecipiesViewController: UIViewController , GIDSignInUIDelegate {
 
     func setupView() {
         setupSegmentedControl()
-        updateView()
+        //updateView()
     }
     
     func setupSegmentedControl() {
         segmentedControl.removeAllSegments()
         segmentedControl.insertSegment(withTitle: "Sign In", at: 0, animated: false)
         segmentedControl.insertSegment(withTitle: "Recipies", at: 1, animated: false)
-        segmentedControl.addTarget(self, action: #selector(selectionDidChanged(sender:)), for: UIControlEvents.valueChanged )
+       // segmentedControl.addTarget(self, action: #selector(selectionDidChanged(sender:)), for: UIControlEvents.valueChanged )
         
-        if Auth.auth().currentUser != nil {
-            // User is signed in.
-            segmentedControl.selectedSegmentIndex = 1
-        } else {
-            // No user is signed in.
-            segmentedControl.selectedSegmentIndex = 0
-        }
+        
         
         
     }
     
+    /*
     @objc func selectionDidChanged(sender: UISegmentedControl) {
         updateView()
     }
-    
+     */
+ 
+    /*
     func updateView() {
         print("SC changed")
         signInViewController.view.isHidden = !(segmentedControl.selectedSegmentIndex == 0)
         CurrentUserRecipiesViewController.view.isHidden = (segmentedControl.selectedSegmentIndex == 0)
     }
+    */
     
     func addViewControllerAsChildViewController(childViewController: UIViewController) {
         addChildViewController(childViewController)

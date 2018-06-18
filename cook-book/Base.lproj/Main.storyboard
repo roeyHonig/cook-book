@@ -99,12 +99,21 @@
                                     <action selector="signOut:" destination="tUF-PB-ZeI" eventType="touchUpInside" id="x7a-Ti-dEX"/>
                                 </connections>
                             </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="SignOut Screen" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="j2H-bm-RvV">
+                                <rect key="frame" x="0.0" y="150" width="375" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" red="1" green="0.25357913097713969" blue="0.96946313759506442" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
                             <constraint firstItem="3zP-MU-r6W" firstAttribute="trailing" secondItem="SDB-8o-ooP" secondAttribute="trailing" id="LCc-po-pwg"/>
                             <constraint firstItem="SDB-8o-ooP" firstAttribute="leading" secondItem="3zP-MU-r6W" secondAttribute="leading" id="S5e-Zc-rbw"/>
+                            <constraint firstItem="j2H-bm-RvV" firstAttribute="leading" secondItem="3zP-MU-r6W" secondAttribute="leading" id="ZSI-L1-KzH"/>
+                            <constraint firstItem="3zP-MU-r6W" firstAttribute="trailing" secondItem="j2H-bm-RvV" secondAttribute="trailing" id="dlN-ta-SRz"/>
                             <constraint firstItem="SDB-8o-ooP" firstAttribute="top" secondItem="3zP-MU-r6W" secondAttribute="top" constant="50" id="jIQ-gY-Rw2"/>
+                            <constraint firstItem="j2H-bm-RvV" firstAttribute="top" secondItem="SDB-8o-ooP" secondAttribute="bottom" constant="50" id="rm7-rf-O0v"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="3zP-MU-r6W"/>
                     </view>
