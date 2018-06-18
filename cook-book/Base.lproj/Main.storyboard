@@ -31,13 +31,73 @@
                     <view key="view" contentMode="scaleToFill" id="Yb9-9X-kjA">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="fao-h7-R5g">
+                                <rect key="frame" x="0.0" y="70" width="375" height="30"/>
+                                <state key="normal" title="Button"/>
+                                <connections>
+                                    <action selector="signIn:" destination="KXS-AV-tZt" eventType="touchUpInside" id="NKW-wy-W2v"/>
+                                </connections>
+                            </button>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="vUY-Aq-Vtk">
+                                <rect key="frame" x="0.0" y="150" width="375" height="60"/>
+                                <subviews>
+                                    <stackView opaque="NO" contentMode="scaleToFill" distribution="fillProportionally" alignment="center" spacing="12" translatesAutoresizingMaskIntoConstraints="NO" id="gGw-e6-COJ">
+                                        <rect key="frame" x="10" y="0.0" width="355" height="60"/>
+                                        <subviews>
+                                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="700" verticalHuggingPriority="251" image="googleSignIn.png" translatesAutoresizingMaskIntoConstraints="NO" id="6Gi-sD-ami">
+                                                <rect key="frame" x="0.0" y="10" width="40" height="40"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="height" constant="40" id="ARl-Ds-oNc"/>
+                                                    <constraint firstAttribute="width" constant="40" id="qyj-FU-hxF"/>
+                                                </constraints>
+                                            </imageView>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="1" verticalHuggingPriority="251" text="Sign In With Your Google Account" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="nls-0X-Hit">
+                                                <rect key="frame" x="52" y="19.5" width="303" height="21.5"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="18"/>
+                                                <nil key="textColor"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                        </subviews>
+                                        <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="60" id="P2K-Vu-4za"/>
+                                        </constraints>
+                                    </stackView>
+                                </subviews>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <gestureRecognizers/>
+                                <constraints>
+                                    <constraint firstItem="gGw-e6-COJ" firstAttribute="centerY" secondItem="vUY-Aq-Vtk" secondAttribute="centerY" id="Us5-tT-mDI"/>
+                                    <constraint firstAttribute="trailing" secondItem="gGw-e6-COJ" secondAttribute="trailing" constant="10" id="j6L-tV-asE"/>
+                                    <constraint firstItem="gGw-e6-COJ" firstAttribute="leading" secondItem="vUY-Aq-Vtk" secondAttribute="leading" constant="10" id="lzJ-nJ-893"/>
+                                    <constraint firstAttribute="height" constant="60" id="s3u-UW-vdW"/>
+                                </constraints>
+                                <connections>
+                                    <outletCollection property="gestureRecognizers" destination="asb-Cs-Kc6" appends="YES" id="LVP-Bc-JKE"/>
+                                </connections>
+                            </view>
+                        </subviews>
                         <color key="backgroundColor" red="1" green="0.65990817863924867" blue="0.087172153839438771" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstItem="fao-h7-R5g" firstAttribute="top" secondItem="Y8B-n2-NHO" secondAttribute="top" constant="50" id="87l-TA-pEt"/>
+                            <constraint firstItem="Y8B-n2-NHO" firstAttribute="trailing" secondItem="fao-h7-R5g" secondAttribute="trailing" id="DXe-wz-i14"/>
+                            <constraint firstItem="fao-h7-R5g" firstAttribute="leading" secondItem="Y8B-n2-NHO" secondAttribute="leading" id="MDq-3Q-jal"/>
+                            <constraint firstItem="Y8B-n2-NHO" firstAttribute="trailing" secondItem="vUY-Aq-Vtk" secondAttribute="trailing" id="Yg9-Wv-lSQ"/>
+                            <constraint firstItem="vUY-Aq-Vtk" firstAttribute="top" secondItem="fao-h7-R5g" secondAttribute="bottom" constant="50" id="qBH-kL-0b9"/>
+                            <constraint firstItem="vUY-Aq-Vtk" firstAttribute="leading" secondItem="Y8B-n2-NHO" secondAttribute="leading" id="yDT-KS-xLh"/>
+                        </constraints>
                         <viewLayoutGuide key="safeArea" id="Y8B-n2-NHO"/>
                     </view>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="zjC-bl-GqY" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <tapGestureRecognizer id="asb-Cs-Kc6">
+                    <connections>
+                        <action selector="signInWithCustomButtone:" destination="KXS-AV-tZt" id="0yX-70-Bsy"/>
+                    </connections>
+                </tapGestureRecognizer>
             </objects>
-            <point key="canvasLocation" x="751" y="31"/>
+            <point key="canvasLocation" x="749.60000000000002" y="30.134932533733135"/>
         </scene>
         <!--Current User Recipies View Controller-->
         <scene sceneID="9uO-sn-GxD">
@@ -93,4 +153,7 @@
             <point key="canvasLocation" x="1490" y="29"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="googleSignIn.png" width="512" height="512"/>
+    </resources>
 </document>

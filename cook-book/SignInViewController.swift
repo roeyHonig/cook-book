@@ -11,14 +11,27 @@ import Firebase
 import GoogleSignIn
 
 class SignInViewController: UIViewController, GIDSignInUIDelegate {
+   
+    @IBAction func signInWithCustomButtone(_ sender: UITapGestureRecognizer) {
+        print("custome Button!!!!!")
+        GIDSignIn.sharedInstance().signIn()
+    }
+    
+    
+    @IBAction func signIn(_ sender: UIButton) {
+        GIDSignIn.sharedInstance().signIn()
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
         //SignIn Button
         let googleSignInBtn = GIDSignInButton()
+        
         googleSignInBtn.frame = CGRect(x: 0, y: 500, width: view.frame.width, height: 50)
         view.addSubview(googleSignInBtn)
+        
+        
     }
 
     override func didReceiveMemoryWarning() {

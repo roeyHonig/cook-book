@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		6D15368420D7E7CC007B311C /* googleSignIn.png in Resources */ = {isa = PBXBuildFile; fileRef = 6D15368320D7E7CC007B311C /* googleSignIn.png */; };
 		6DB056AE20D6EB9700A32956 /* SignInViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6DB056AD20D6EB9700A32956 /* SignInViewController.swift */; };
 		6DB056B020D6EC6A00A32956 /* CurrentUserRecipiesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6DB056AF20D6EC6A00A32956 /* CurrentUserRecipiesViewController.swift */; };
 		6DFFF47920D5737700368A45 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6DFFF47820D5737700368A45 /* AppDelegate.swift */; };
@@ -22,6 +23,7 @@
 /* Begin PBXFileReference section */
 		2CEB553098BC10CAAE16CE05 /* Pods-cook-book.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-cook-book.release.xcconfig"; path = "Pods/Target Support Files/Pods-cook-book/Pods-cook-book.release.xcconfig"; sourceTree = "<group>"; };
 		67128A0D94A1433C0F3E32B8 /* Pods_cook_book.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_cook_book.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		6D15368320D7E7CC007B311C /* googleSignIn.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = googleSignIn.png; sourceTree = "<group>"; };
 		6DB056AD20D6EB9700A32956 /* SignInViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignInViewController.swift; sourceTree = "<group>"; };
 		6DB056AF20D6EC6A00A32956 /* CurrentUserRecipiesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CurrentUserRecipiesViewController.swift; sourceTree = "<group>"; };
 		6DFFF47520D5737700368A45 /* cook-book.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "cook-book.app"; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -77,6 +79,7 @@
 		6DFFF47720D5737700368A45 /* cook-book */ = {
 			isa = PBXGroup;
 			children = (
+				6D15368320D7E7CC007B311C /* googleSignIn.png */,
 				6DFFF48D20D57A0200368A45 /* GoogleService-Info.plist */,
 				6DFFF47820D5737700368A45 /* AppDelegate.swift */,
 				6DFFF47A20D5737700368A45 /* MyRecipiesViewController.swift */,
@@ -164,6 +167,7 @@
 			files = (
 				6DFFF48620D5737700368A45 /* LaunchScreen.storyboard in Resources */,
 				6DFFF48E20D57A0300368A45 /* GoogleService-Info.plist in Resources */,
+				6D15368420D7E7CC007B311C /* googleSignIn.png in Resources */,
 				6DFFF48320D5737700368A45 /* Assets.xcassets in Resources */,
 				6DFFF47E20D5737700368A45 /* Main.storyboard in Resources */,
 			);
