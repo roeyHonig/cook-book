@@ -21,19 +21,26 @@ class SignInViewController: UIViewController, GIDSignInUIDelegate, FBSDKLoginBut
             return
         }
         // ... facebook login sucess??
-        let credential = FacebookAuthProvider.credential(withAccessToken: FBSDKAccessToken.current().tokenString)
-        
-        Auth.auth().signInAndRetrieveData(with: credential) { (authResult, error) in
-            if let error = error {
-                // ...
-                print("Error logging into firebase with facebook: \(error.localizedDescription)")
-                return
-            }
-            // User is signed in
-            // ...
-            
-            print("Success Loggedin to firebase with facebook user: \(Auth.auth().currentUser!.displayName!)")
+       
+        if FBSDKAccessToken.current() == nil {
+            return
         }
+        
+        let credential = FacebookAuthProvider.credential(withAccessToken: (FBSDKAccessToken.current().tokenString))
+        
+            Auth.auth().signInAndRetrieveData(with: credential) { (authResult, error) in
+                if let error = error {
+                    // ...
+                    print("Error logging into firebase with facebook: \(error.localizedDescription)")
+                    return
+                }
+                // User is signed in
+                // ...
+                
+                print("Success Loggedin to firebase with facebook user: \(Auth.auth().currentUser!.displayName!)")
+            }
+            
+        
     }
     
     func loginButtonDidLogOut(_ loginButton: FBSDKLoginButton!) {
