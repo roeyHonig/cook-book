@@ -47,6 +47,7 @@ class SignInViewController: UIViewController, GIDSignInUIDelegate, FBSDKLoginBut
     
     func loginButtonDidLogOut(_ loginButton: FBSDKLoginButton!) {
         //...
+        print("out!!!!!")
     }
     
    
