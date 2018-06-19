@@ -86,6 +86,7 @@ class SignInViewController: UIViewController, GIDSignInUIDelegate, FBSDKLoginBut
         
         let fbButtonText = NSAttributedString(string: "your FB text here")
         faceBookLoginButton.setAttributedTitle(fbButtonText, for: .normal)
+        faceBookLoginButton.titleLabel?.font = UIFont(name: "System", size: 30)
         
     }
 
