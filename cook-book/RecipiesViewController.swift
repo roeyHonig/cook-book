@@ -1,33 +1,16 @@
 //
-//  CurrentUserRecipiesViewController.swift
+//  RecipiesViewController.swift
 //  cook-book
 //
-//  Created by hackeru on 4 Tamuz 5778.
+//  Created by hackeru on 6 Tamuz 5778.
 //  Copyright © 5778 student.roey.honig. All rights reserved.
 //
-// This is the user own recipies
-// TODO: add a tableView
+// This are the recipies from the API
 
 import UIKit
-import Firebase
-import GoogleSignIn
-import FBSDKCoreKit
-import FBSDKLoginKit
 
-class CurrentUserRecipiesViewController: UIViewController, GIDSignInUIDelegate {
-    @IBOutlet weak var GreetingLabel: UILabel!
-    @IBAction func signOut(_ sender: UIButton) {
-        let firebaseAuth = Auth.auth()
-        do {
-            try firebaseAuth.signOut()
-            GIDSignIn.sharedInstance().signOut()
-            FBSDKLoginManager().logOut()
-            print("signed out?")
-        } catch let signOutError as NSError {
-            print ("Error signing out: %@", signOutError)
-        }
-    }
-    
+class RecipiesViewController: UIViewController {
+
     override func viewDidLoad() {
         super.viewDidLoad()
 

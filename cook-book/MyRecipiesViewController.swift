@@ -5,6 +5,10 @@
 //  Created by hackeru on 3 Tamuz 5778.
 //  Copyright © 5778 student.roey.honig. All rights reserved.
 //
+// this is basically a container
+// users will reach this screen when the "My Recipies" tab will be pressed
+// but the only purpose here is to determine if a FireBase user is sineg in or not
+// that way, we know which ViewController to hide and which to present (sigin In \ user's recipies)
 
 import UIKit
 import Firebase

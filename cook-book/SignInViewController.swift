@@ -5,6 +5,9 @@
 //  Created by hackeru on 4 Tamuz 5778.
 //  Copyright © 5778 student.roey.honig. All rights reserved.
 //
+// This is the sigin Screen users will see
+// siging is requiered to manage users and present them thier own custom recipies
+// TODO: copy the Any.Do login page
 
 import UIKit
 import Firebase
