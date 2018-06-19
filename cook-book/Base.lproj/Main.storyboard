@@ -47,6 +47,7 @@
                                         <subviews>
                                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="700" verticalHuggingPriority="251" image="googleSignIn.png" translatesAutoresizingMaskIntoConstraints="NO" id="6Gi-sD-ami">
                                                 <rect key="frame" x="0.0" y="10" width="40" height="40"/>
+                                                <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="40" id="ARl-Ds-oNc"/>
                                                     <constraint firstAttribute="width" constant="40" id="qyj-FU-hxF"/>
@@ -65,7 +66,7 @@
                                         </constraints>
                                     </stackView>
                                 </subviews>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <color key="backgroundColor" red="0.24978324770927429" green="0.5399666428565979" blue="0.95790475606918335" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <gestureRecognizers/>
                                 <constraints>
                                     <constraint firstItem="gGw-e6-COJ" firstAttribute="centerY" secondItem="vUY-Aq-Vtk" secondAttribute="centerY" id="Us5-tT-mDI"/>
@@ -89,6 +90,10 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="Y8B-n2-NHO"/>
                     </view>
+                    <connections>
+                        <outlet property="customGoogleButtonIconImage" destination="6Gi-sD-ami" id="c7t-6d-Gfe"/>
+                        <outlet property="googleCustomSignInBtn" destination="vUY-Aq-Vtk" id="xaY-xR-pL3"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="zjC-bl-GqY" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <tapGestureRecognizer id="asb-Cs-Kc6">

@@ -15,6 +15,7 @@ import FBSDKLoginKit
 
 
 class SignInViewController: UIViewController, GIDSignInUIDelegate, FBSDKLoginButtonDelegate {
+    @IBOutlet weak var customGoogleButtonIconImage: UIImageView!
     func loginButton(_ loginButton: FBSDKLoginButton!, didCompleteWith result: FBSDKLoginManagerLoginResult!, error: Error!) {
         if let error = error {
             print(error.localizedDescription)
@@ -51,6 +52,7 @@ class SignInViewController: UIViewController, GIDSignInUIDelegate, FBSDKLoginBut
     }
     
    
+    @IBOutlet weak var googleCustomSignInBtn: UIView!
     @IBAction func signInWithCustomButtone(_ sender: UITapGestureRecognizer) {
         print("custome Button!!!!!")
         GIDSignIn.sharedInstance().signIn()
@@ -66,6 +68,9 @@ class SignInViewController: UIViewController, GIDSignInUIDelegate, FBSDKLoginBut
         // Do any additional setup after loading the view.
         //SignIn Button
         let googleSignInBtn = GIDSignInButton()
+        googleSignInBtn.colorScheme  = GIDSignInButtonColorScheme.dark
+        
+        
         
         googleSignInBtn.frame = CGRect(x: 0, y: 500, width: view.frame.width, height: 50)
         view.addSubview(googleSignInBtn)
@@ -74,7 +79,14 @@ class SignInViewController: UIViewController, GIDSignInUIDelegate, FBSDKLoginBut
         faceBookLoginButton.delegate = self
         self.view.addSubview(faceBookLoginButton)
         // position at center
+        
+        faceBookLoginButton.frame.size.height = googleSignInBtn.frame.size.height
+        faceBookLoginButton.frame.size.width = googleSignInBtn.frame.size.width
         faceBookLoginButton.center = self.view.center
+        
+        let fbButtonText = NSAttributedString(string: "your FB text here")
+        faceBookLoginButton.setAttributedTitle(fbButtonText, for: .normal)
+        
     }
 
     override func didReceiveMemoryWarning() {
