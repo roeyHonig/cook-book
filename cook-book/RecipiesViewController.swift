@@ -9,17 +9,33 @@
 
 import UIKit
 
-class RecipiesViewController: UIViewController {
-    @IBOutlet weak var parentView: UIView!
-    @IBOutlet weak var titleRec: UIView!
-    @IBOutlet weak var typeOfRecipiesRec: UIView!
+class RecipiesViewController: UIViewController, UICollectionViewDelegate, UICollectionViewDataSource {
+    
+    
+    @IBOutlet weak var parentView: UIView! // consider to delete
+    @IBOutlet weak var titleRec: UIView!   // consider to delete
+    @IBOutlet weak var typeOfRecipiesRec: UIView!  // consider to delete
+    @IBOutlet weak var recipiesCollection: UICollectionView!
+    
+    let testarray = ["1" , "2" , "3" , "4" , "5" , "6" , "7" , "8" , "9" , "10"]   // needs to be retrived from a Database
     
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
-        
+        recipiesCollection.delegate = self
+        recipiesCollection.dataSource = self
         
        
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+        return testarray.count
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "singleRecipe", for: indexPath) as! RecipeCollectionViewCell
+        cell.lab.text = testarray[indexPath.row]
+        return cell
     }
 
     override func didReceiveMemoryWarning() {

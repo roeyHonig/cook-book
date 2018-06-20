@@ -63,7 +63,50 @@
                                     </view>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="l8M-I4-aab">
                                         <rect key="frame" x="0.0" y="120" width="375" height="478.5"/>
+                                        <subviews>
+                                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="aeg-CB-Buq">
+                                                <rect key="frame" x="0.0" y="0.0" width="375" height="478.5"/>
+                                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                                <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="Xyi-Lb-1qn">
+                                                    <size key="itemSize" width="50" height="50"/>
+                                                    <size key="headerReferenceSize" width="0.0" height="0.0"/>
+                                                    <size key="footerReferenceSize" width="0.0" height="0.0"/>
+                                                    <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
+                                                </collectionViewFlowLayout>
+                                                <cells>
+                                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="singleRecipe" id="bUY-cX-bfs" customClass="RecipeCollectionViewCell" customModule="cook_book" customModuleProvider="target">
+                                                        <rect key="frame" x="0.0" y="0.0" width="50" height="50"/>
+                                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                        <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO">
+                                                            <rect key="frame" x="0.0" y="0.0" width="50" height="50"/>
+                                                            <autoresizingMask key="autoresizingMask"/>
+                                                            <subviews>
+                                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="obF-Qk-6MR">
+                                                                    <rect key="frame" x="4" y="14.5" width="42" height="21"/>
+                                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                                    <nil key="textColor"/>
+                                                                    <nil key="highlightedColor"/>
+                                                                </label>
+                                                            </subviews>
+                                                        </view>
+                                                        <constraints>
+                                                            <constraint firstItem="obF-Qk-6MR" firstAttribute="centerY" secondItem="bUY-cX-bfs" secondAttribute="centerY" id="cjr-kg-Onf"/>
+                                                            <constraint firstItem="obF-Qk-6MR" firstAttribute="centerX" secondItem="bUY-cX-bfs" secondAttribute="centerX" id="rse-Yf-9Ze"/>
+                                                        </constraints>
+                                                        <connections>
+                                                            <outlet property="lab" destination="obF-Qk-6MR" id="pcW-0P-FW1"/>
+                                                        </connections>
+                                                    </collectionViewCell>
+                                                </cells>
+                                            </collectionView>
+                                        </subviews>
                                         <color key="backgroundColor" red="1" green="0.25357913100000001" blue="0.96946313760000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <constraints>
+                                            <constraint firstAttribute="trailing" secondItem="aeg-CB-Buq" secondAttribute="trailing" id="8RO-YB-azk"/>
+                                            <constraint firstItem="aeg-CB-Buq" firstAttribute="top" secondItem="l8M-I4-aab" secondAttribute="top" id="IJ0-1g-L8A"/>
+                                            <constraint firstItem="aeg-CB-Buq" firstAttribute="leading" secondItem="l8M-I4-aab" secondAttribute="leading" id="eSA-lg-E6d"/>
+                                            <constraint firstAttribute="bottom" secondItem="aeg-CB-Buq" secondAttribute="bottom" id="nYS-jb-8JM"/>
+                                        </constraints>
                                     </view>
                                 </subviews>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -95,6 +138,7 @@
                     <tabBarItem key="tabBarItem" title="Recipies" id="xZh-6V-xf4"/>
                     <connections>
                         <outlet property="parentView" destination="0FF-ZS-9lx" id="7CL-0K-1DP"/>
+                        <outlet property="recipiesCollection" destination="aeg-CB-Buq" id="Nya-hm-Jnd"/>
                         <outlet property="titleRec" destination="psX-p2-1BR" id="UaT-34-2va"/>
                         <outlet property="typeOfRecipiesRec" destination="4gV-Nm-9Fh" id="bUu-wZ-PA9"/>
                     </connections>
