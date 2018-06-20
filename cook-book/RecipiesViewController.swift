@@ -10,11 +10,19 @@
 import UIKit
 
 class RecipiesViewController: UIViewController {
-
+    @IBOutlet weak var recta: UIView!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-
         // Do any additional setup after loading the view.
+        
+        guard let width = recta.superview?.frame.size.width , let _ = recta.superview?.frame.size.height  else {return}
+        
+        let origPoint = 0.5 * width
+        recta.frame.origin.x = origPoint
+        
+       
+        
     }
 
     override func didReceiveMemoryWarning() {
