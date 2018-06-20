@@ -17,7 +17,7 @@ class RecipiesViewController: UIViewController, UICollectionViewDelegate, UIColl
     @IBOutlet weak var typeOfRecipiesRec: UIView!  // consider to delete
     @IBOutlet weak var recipiesCollection: UICollectionView!
     
-    let testarray = ["1" , "2" , "3" , "4" , "5" , "6" , "7" , "8" , "9" , "10"]   // needs to be retrived from a Database
+    let testarray = ["1" , "2" , "3" , "4" , "5" , "6" , "7" , "8" , "9"]   // needs to be retrived from a Database
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -35,6 +35,7 @@ class RecipiesViewController: UIViewController, UICollectionViewDelegate, UIColl
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "singleRecipe", for: indexPath) as! RecipeCollectionViewCell
         cell.lab.text = testarray[indexPath.row]
+        
         return cell
     }
 

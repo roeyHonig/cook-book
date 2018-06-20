@@ -68,28 +68,34 @@
                                                 <rect key="frame" x="0.0" y="0.0" width="375" height="478.5"/>
                                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                 <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="Xyi-Lb-1qn">
-                                                    <size key="itemSize" width="50" height="50"/>
-                                                    <size key="headerReferenceSize" width="0.0" height="0.0"/>
-                                                    <size key="footerReferenceSize" width="0.0" height="0.0"/>
-                                                    <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
+                                                    <size key="itemSize" width="172.5" height="172.5"/>
+                                                    <size key="headerReferenceSize" width="0.0" height="10"/>
+                                                    <size key="footerReferenceSize" width="0.0" height="10"/>
+                                                    <inset key="sectionInset" minX="10" minY="0.0" maxX="10" maxY="0.0"/>
                                                 </collectionViewFlowLayout>
                                                 <cells>
                                                     <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="singleRecipe" id="bUY-cX-bfs" customClass="RecipeCollectionViewCell" customModule="cook_book" customModuleProvider="target">
-                                                        <rect key="frame" x="0.0" y="0.0" width="50" height="50"/>
+                                                        <rect key="frame" x="10" y="10" width="172.5" height="172.5"/>
                                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                         <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO">
-                                                            <rect key="frame" x="0.0" y="0.0" width="50" height="50"/>
+                                                            <rect key="frame" x="0.0" y="0.0" width="172.5" height="172.5"/>
                                                             <autoresizingMask key="autoresizingMask"/>
                                                             <subviews>
                                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="obF-Qk-6MR">
-                                                                    <rect key="frame" x="4" y="14.5" width="42" height="21"/>
+                                                                    <rect key="frame" x="65.5" y="76" width="42" height="21"/>
                                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                                     <nil key="textColor"/>
                                                                     <nil key="highlightedColor"/>
                                                                 </label>
+                                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="icons8-cooking_pot_filled" translatesAutoresizingMaskIntoConstraints="NO" id="9Hn-Wn-pAt">
+                                                                    <rect key="frame" x="49" y="49" width="75" height="75"/>
+                                                                </imageView>
                                                             </subviews>
                                                         </view>
+                                                        <color key="backgroundColor" red="1" green="1" blue="0.40000000600000002" alpha="1" colorSpace="calibratedRGB"/>
                                                         <constraints>
+                                                            <constraint firstItem="9Hn-Wn-pAt" firstAttribute="centerX" secondItem="bUY-cX-bfs" secondAttribute="centerX" id="2Vm-FG-E6h"/>
+                                                            <constraint firstItem="9Hn-Wn-pAt" firstAttribute="centerY" secondItem="bUY-cX-bfs" secondAttribute="centerY" id="Gsb-fi-nQo"/>
                                                             <constraint firstItem="obF-Qk-6MR" firstAttribute="centerY" secondItem="bUY-cX-bfs" secondAttribute="centerY" id="cjr-kg-Onf"/>
                                                             <constraint firstItem="obF-Qk-6MR" firstAttribute="centerX" secondItem="bUY-cX-bfs" secondAttribute="centerX" id="rse-Yf-9Ze"/>
                                                         </constraints>
@@ -98,6 +104,14 @@
                                                         </connections>
                                                     </collectionViewCell>
                                                 </cells>
+                                                <collectionReusableView key="sectionHeaderView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="RsK-5y-HAn">
+                                                    <rect key="frame" x="0.0" y="0.0" width="375" height="10"/>
+                                                    <autoresizingMask key="autoresizingMask"/>
+                                                </collectionReusableView>
+                                                <collectionReusableView key="sectionFooterView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="lh1-Dv-4he">
+                                                    <rect key="frame" x="0.0" y="182.5" width="375" height="10"/>
+                                                    <autoresizingMask key="autoresizingMask"/>
+                                                </collectionReusableView>
                                             </collectionView>
                                         </subviews>
                                         <color key="backgroundColor" red="1" green="0.25357913100000001" blue="0.96946313760000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -319,5 +333,6 @@
     </scenes>
     <resources>
         <image name="googleSignIn.png" width="512" height="512"/>
+        <image name="icons8-cooking_pot_filled" width="75" height="75"/>
     </resources>
 </document>
