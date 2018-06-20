@@ -32,29 +32,49 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="w9m-Uq-T7C">
-                                <rect key="frame" x="0.0" y="20" width="375" height="647"/>
-                                <subviews>
-                                    <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="PjJ-BR-XVl">
-                                        <rect key="frame" x="0.0" y="150" width="375" height="128"/>
-                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                        <color key="backgroundColor" red="1" green="0.25357913100000001" blue="0.96946313760000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                    </view>
-                                </subviews>
-                                <color key="backgroundColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="uYb-5P-jWg">
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="128"/>
+                                <color key="backgroundColor" red="1" green="0.65990817859999995" blue="0.087172153840000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="128" id="zxt-LQ-jgx"/>
+                                </constraints>
+                            </view>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Yt2-Oz-R5u">
+                                <rect key="frame" x="0.0" y="128" width="375" height="128"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="128" id="juC-FD-QAw"/>
+                                </constraints>
+                            </view>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="b9m-KW-b7p">
+                                <rect key="frame" x="0.0" y="256" width="375" height="128"/>
+                                <color key="backgroundColor" red="1" green="0.25357913100000001" blue="0.96946313760000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="128" id="Rp8-Mx-vBf"/>
+                                </constraints>
                             </view>
                         </subviews>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <color key="backgroundColor" red="0.15959769100000001" green="1" blue="0.18528526889999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
-                            <constraint firstItem="w9m-Uq-T7C" firstAttribute="top" secondItem="tNa-Ly-Bwj" secondAttribute="top" id="0TG-P5-Qeb"/>
-                            <constraint firstItem="w9m-Uq-T7C" firstAttribute="trailing" secondItem="tNa-Ly-Bwj" secondAttribute="trailing" id="HiW-qx-nnI"/>
-                            <constraint firstItem="w9m-Uq-T7C" firstAttribute="leading" secondItem="tNa-Ly-Bwj" secondAttribute="leading" id="LpV-gH-H1k"/>
-                            <constraint firstItem="w9m-Uq-T7C" firstAttribute="bottom" secondItem="tNa-Ly-Bwj" secondAttribute="bottom" id="aHO-59-83C"/>
+                            <constraint firstItem="b9m-KW-b7p" firstAttribute="top" secondItem="Yt2-Oz-R5u" secondAttribute="bottom" id="4cY-ky-lEF"/>
+                            <constraint firstItem="tNa-Ly-Bwj" firstAttribute="trailing" secondItem="b9m-KW-b7p" secondAttribute="trailing" id="Dt9-7o-bGb"/>
+                            <constraint firstItem="tNa-Ly-Bwj" firstAttribute="trailing" secondItem="Yt2-Oz-R5u" secondAttribute="trailing" id="EYl-3j-3TT"/>
+                            <constraint firstItem="uYb-5P-jWg" firstAttribute="top" secondItem="abD-gT-8tI" secondAttribute="top" id="Qzw-dn-dPD"/>
+                            <constraint firstItem="Yt2-Oz-R5u" firstAttribute="top" secondItem="uYb-5P-jWg" secondAttribute="bottom" id="geA-wd-r1M"/>
+                            <constraint firstItem="tNa-Ly-Bwj" firstAttribute="trailing" secondItem="uYb-5P-jWg" secondAttribute="trailing" id="gj5-6b-zYJ"/>
+                            <constraint firstItem="b9m-KW-b7p" firstAttribute="leading" secondItem="tNa-Ly-Bwj" secondAttribute="leading" id="lUL-qe-Wmp"/>
+                            <constraint firstItem="Yt2-Oz-R5u" firstAttribute="leading" secondItem="tNa-Ly-Bwj" secondAttribute="leading" id="q9o-hD-1nT"/>
+                            <constraint firstItem="uYb-5P-jWg" firstAttribute="leading" secondItem="tNa-Ly-Bwj" secondAttribute="leading" id="rtI-9C-ALz"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="tNa-Ly-Bwj"/>
                     </view>
                     <connections>
-                        <outlet property="recta" destination="PjJ-BR-XVl" id="Cg8-tg-Oov"/>
+                        <outlet property="rec1" destination="uYb-5P-jWg" id="lhx-FM-yUg"/>
+                        <outlet property="rec1H" destination="zxt-LQ-jgx" id="fax-Rx-Ihs"/>
+                        <outlet property="rec2" destination="Yt2-Oz-R5u" id="7VZ-iN-jy2"/>
+                        <outlet property="rec2H" destination="juC-FD-QAw" id="s7G-f3-M9N"/>
+                        <outlet property="rec3" destination="b9m-KW-b7p" id="gu4-5W-ZQx"/>
+                        <outlet property="rec3H" destination="Rp8-Mx-vBf" id="0LW-oq-Qat"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="z9d-mq-M1y" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -205,6 +225,19 @@
                     </view>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="puG-9m-4ki" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+        </scene>
+        <!--View Controller-->
+        <scene sceneID="j1y-lU-bqc">
+            <objects>
+                <viewController id="iyP-FL-uOg" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="GTz-MF-OfE">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Y8V-f3-Z1x" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
         </scene>
     </scenes>
