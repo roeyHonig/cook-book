@@ -9,13 +9,15 @@
 
 import UIKit
 
-class RecipiesViewController: UIViewController, UICollectionViewDelegate, UICollectionViewDataSource {
+class RecipiesViewController: UIViewController, UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout  {
     
     
     @IBOutlet weak var parentView: UIView! // consider to delete
     @IBOutlet weak var titleRec: UIView!   // consider to delete
     @IBOutlet weak var typeOfRecipiesRec: UIView!  // consider to delete
     @IBOutlet weak var recipiesCollection: UICollectionView!
+    
+    
     
     let testarray = ["1" , "2" , "3" , "4" , "5" , "6" , "7" , "8" , "9"]   // needs to be retrived from a Database
     
@@ -25,7 +27,13 @@ class RecipiesViewController: UIViewController, UICollectionViewDelegate, UIColl
         recipiesCollection.delegate = self
         recipiesCollection.dataSource = self
         
+        
+        
        
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
+        return CGSize(width: 172.5, height: 172.5)
     }
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
