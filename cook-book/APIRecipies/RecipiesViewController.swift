@@ -5,7 +5,7 @@
 //  Created by hackeru on 6 Tamuz 5778.
 //  Copyright © 5778 student.roey.honig. All rights reserved.
 //
-// This are the recipies from the API
+// This are the recipies from the API //
 
 import UIKit
 
