@@ -62,6 +62,25 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
+		6DF6FA7320DB8A9F00D210C6 /* APIRecipies */ = {
+			isa = PBXGroup;
+			children = (
+				6D5D4B1B20D95DC800390BFB /* RecipiesViewController.swift */,
+				6D5D4B1D20DA80EF00390BFB /* RecipeCollectionViewCell.swift */,
+			);
+			path = APIRecipies;
+			sourceTree = "<group>";
+		};
+		6DF6FA7420DB8B2500D210C6 /* userRecipies */ = {
+			isa = PBXGroup;
+			children = (
+				6DFFF47A20D5737700368A45 /* MyRecipiesViewController.swift */,
+				6DB056AD20D6EB9700A32956 /* SignInViewController.swift */,
+				6DB056AF20D6EC6A00A32956 /* CurrentUserRecipiesViewController.swift */,
+			);
+			path = userRecipies;
+			sourceTree = "<group>";
+		};
 		6DFFF46C20D5737700368A45 = {
 			isa = PBXGroup;
 			children = (
@@ -86,16 +105,13 @@
 				6D15368320D7E7CC007B311C /* googleSignIn.png */,
 				6DFFF48D20D57A0200368A45 /* GoogleService-Info.plist */,
 				6DFFF47820D5737700368A45 /* AppDelegate.swift */,
-				6DFFF47A20D5737700368A45 /* MyRecipiesViewController.swift */,
 				6DFFF47C20D5737700368A45 /* Main.storyboard */,
 				6DFFF48220D5737700368A45 /* Assets.xcassets */,
 				6DFFF48420D5737700368A45 /* LaunchScreen.storyboard */,
 				6DFFF48720D5737700368A45 /* Info.plist */,
 				6DFFF47F20D5737700368A45 /* cook_book.xcdatamodeld */,
-				6DB056AD20D6EB9700A32956 /* SignInViewController.swift */,
-				6DB056AF20D6EC6A00A32956 /* CurrentUserRecipiesViewController.swift */,
-				6D5D4B1B20D95DC800390BFB /* RecipiesViewController.swift */,
-				6D5D4B1D20DA80EF00390BFB /* RecipeCollectionViewCell.swift */,
+				6DF6FA7420DB8B2500D210C6 /* userRecipies */,
+				6DF6FA7320DB8A9F00D210C6 /* APIRecipies */,
 			);
 			path = "cook-book";
 			sourceTree = "<group>";
