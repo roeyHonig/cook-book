@@ -9,10 +9,12 @@
 import UIKit
 
 class RecipeDetailsViewController: UIViewController {
-
+    var numofRecipie = ""
+    @IBOutlet weak var lab: UILabel!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        lab.text = "You selected recipiy# : \(numofRecipie)"
         // Do any additional setup after loading the view.
     }
 

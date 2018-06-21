@@ -53,9 +53,23 @@ class RecipiesViewController: UIViewController, UICollectionViewDelegate, UIColl
         return cell
     }
     
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.destination is RecipeDetailsViewController {
+            // a cell representing a recipy was clicked - that's the sender
+            let recpDetails = segue.destination as! RecipeDetailsViewController
+            let cell = sender as! RecipeCollectionViewCell
+            guard let txt = cell.lab.text else {
+                return
+            }
+            recpDetails.numofRecipie = txt
+
+        }
+    }
+    
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         let cell = collectionView.cellForItem(at: indexPath) as! RecipeCollectionViewCell
         print(cell.lab.text!)
+        
         // no need for "performe" because the segue is autmetically trigered upon selecting a cell
         //performSegue(withIdentifier: "toRecipyDetails", sender: cell)
     }
