@@ -32,6 +32,12 @@ class RecipiesViewController: UIViewController, UICollectionViewDelegate, UIColl
        
     }
     
+    // we've manually configuered this func to return the CGSize we want for the cells in the collection view - and not the hardcoded dimension
+    // in the storyboard IB
+    // the cell frame will be of size with respect to the device screen size and there will be 2 cells columbs
+    // the storyboard IB has 10 points margins bwteen cells and left \ righ margin, so 3 margins & 2 cells
+    // total width = 3 * 10 + 2 * cell width
+    // 
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
         return CGSize(width: (collectionView.frame.size.width - 30) / 2, height: (collectionView.frame.size.width - 30) / 2)
     }
