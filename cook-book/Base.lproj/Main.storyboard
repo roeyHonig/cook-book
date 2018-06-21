@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13196" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="MTd-RG-I4j">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13196" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="f1N-gz-ajN">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
@@ -24,9 +24,9 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="rcr-9c-YQh" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-644" y="26.53673163418291"/>
+            <point key="canvasLocation" x="34.399999999999999" y="26.53673163418291"/>
         </scene>
-        <!--Account-->
+        <!--Item-->
         <scene sceneID="tne-QT-ifu">
             <objects>
                 <viewController id="BYZ-38-t0r" customClass="MyRecipiesViewController" customModule="cook_book" customModuleProvider="target" sceneMemberID="viewController">
@@ -36,13 +36,13 @@
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
-                    <tabBarItem key="tabBarItem" title="Account" id="q1Z-Dn-Y1g"/>
+                    <tabBarItem key="tabBarItem" title="Item" id="clo-5n-7M7"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="324" y="29.23538230884558"/>
+            <point key="canvasLocation" x="1002.4" y="29.23538230884558"/>
         </scene>
-        <!--Recipies-->
+        <!--Recipies View Controller-->
         <scene sceneID="v3q-Kf-H2w">
             <objects>
                 <viewController id="Hft-ft-9u5" customClass="RecipiesViewController" customModule="cook_book" customModuleProvider="target" sceneMemberID="viewController">
@@ -51,21 +51,21 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="0FF-ZS-9lx">
-                                <rect key="frame" x="0.0" y="20" width="375" height="598"/>
+                                <rect key="frame" x="0.0" y="64" width="375" height="554"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="psX-p2-1BR">
-                                        <rect key="frame" x="0.0" y="0.0" width="375" height="60"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="375" height="55.5"/>
                                         <color key="backgroundColor" red="1" green="0.65990817859999995" blue="0.087172153840000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                     </view>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="4gV-Nm-9Fh">
-                                        <rect key="frame" x="0.0" y="60" width="375" height="60"/>
+                                        <rect key="frame" x="0.0" y="55.5" width="375" height="55.5"/>
                                         <color key="backgroundColor" red="0.24978324769999999" green="0.53996664289999996" blue="0.95790475610000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                     </view>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="l8M-I4-aab">
-                                        <rect key="frame" x="0.0" y="120" width="375" height="478.5"/>
+                                        <rect key="frame" x="0.0" y="111" width="375" height="443.5"/>
                                         <subviews>
                                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="aeg-CB-Buq">
-                                                <rect key="frame" x="0.0" y="0.0" width="375" height="478.5"/>
+                                                <rect key="frame" x="0.0" y="0.0" width="375" height="443.5"/>
                                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                 <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="Xyi-Lb-1qn">
                                                     <size key="itemSize" width="100" height="100"/>
@@ -149,7 +149,7 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="tNa-Ly-Bwj"/>
                     </view>
-                    <tabBarItem key="tabBarItem" title="Recipies" id="xZh-6V-xf4"/>
+                    <navigationItem key="navigationItem" id="Ep7-dX-9SA"/>
                     <connections>
                         <outlet property="parentView" destination="0FF-ZS-9lx" id="7CL-0K-1DP"/>
                         <outlet property="recipiesCollection" destination="aeg-CB-Buq" id="Nya-hm-Jnd"/>
@@ -159,7 +159,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="z9d-mq-M1y" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-2911.1999999999998" y="28.335832083958024"/>
+            <point key="canvasLocation" x="-2232.8000000000002" y="28.335832083958024"/>
         </scene>
         <!--Item-->
         <scene sceneID="Lw0-wh-eko">
@@ -175,7 +175,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="qRn-X0-bXD" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-1748" y="27.436281859070466"/>
+            <point key="canvasLocation" x="-1069.5999999999999" y="27.436281859070466"/>
         </scene>
         <!--Sign In View Controller-->
         <scene sceneID="OKi-DH-Qsz">
@@ -310,29 +310,49 @@
             </objects>
             <point key="canvasLocation" x="401" y="727"/>
         </scene>
-        <!--Tab Bar Controller-->
-        <scene sceneID="jbq-UY-p8r">
+        <!--APIRecipies-->
+        <scene sceneID="XuT-Rm-NAS">
             <objects>
-                <tabBarController automaticallyAdjustsScrollViewInsets="NO" id="MTd-RG-I4j" sceneMemberID="viewController">
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="iWC-b4-rX7" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" title="APIRecipies" image="icons8-cooking_pot" id="iWa-fe-Pwb"/>
                     <toolbarItems/>
-                    <tabBar key="tabBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="6le-xk-43b">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="b4Y-LD-FFX">
+                        <rect key="frame" x="0.0" y="20" width="375" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="Hft-ft-9u5" kind="relationship" relationship="rootViewController" id="Ui6-eX-ZDs"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="K2U-C6-qUr" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-2996" y="29.23538230884558"/>
+        </scene>
+        <!--Tab Bar Controller-->
+        <scene sceneID="5Gf-Y1-M5k">
+            <objects>
+                <tabBarController automaticallyAdjustsScrollViewInsets="NO" id="f1N-gz-ajN" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <tabBar key="tabBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="cLN-i6-WEm">
                         <autoresizingMask key="autoresizingMask"/>
                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                     </tabBar>
                     <connections>
-                        <segue destination="tAA-Mf-DuQ" kind="relationship" relationship="viewControllers" id="9A5-Px-6WF"/>
-                        <segue destination="a0Z-xd-4ap" kind="relationship" relationship="viewControllers" id="aPE-NC-xxw"/>
-                        <segue destination="Hft-ft-9u5" kind="relationship" relationship="viewControllers" id="TQa-vH-I0x"/>
-                        <segue destination="BYZ-38-t0r" kind="relationship" relationship="viewControllers" id="CcS-IW-ZQM"/>
+                        <segue destination="iWC-b4-rX7" kind="relationship" relationship="viewControllers" id="Zz1-zu-czX"/>
+                        <segue destination="a0Z-xd-4ap" kind="relationship" relationship="viewControllers" id="rat-xB-IIJ"/>
+                        <segue destination="tAA-Mf-DuQ" kind="relationship" relationship="viewControllers" id="tHH-dg-GQJ"/>
+                        <segue destination="BYZ-38-t0r" kind="relationship" relationship="viewControllers" id="qch-jI-hhP"/>
                     </connections>
                 </tabBarController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="Zu3-jo-6vh" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="0yg-LL-aWd" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-1106" y="-998"/>
+            <point key="canvasLocation" x="-319" y="-1112"/>
         </scene>
     </scenes>
     <resources>
         <image name="googleSignIn.png" width="512" height="512"/>
+        <image name="icons8-cooking_pot" width="24" height="24"/>
         <image name="icons8-cooking_pot_filled" width="75" height="75"/>
     </resources>
 </document>
