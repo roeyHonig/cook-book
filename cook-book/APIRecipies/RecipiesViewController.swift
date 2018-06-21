@@ -52,6 +52,13 @@ class RecipiesViewController: UIViewController, UICollectionViewDelegate, UIColl
         
         return cell
     }
+    
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        let cell = collectionView.cellForItem(at: indexPath) as! RecipeCollectionViewCell
+        print(cell.lab.text!)
+        // no need for "performe" because the segue is autmetically trigered upon selecting a cell
+        //performSegue(withIdentifier: "toRecipyDetails", sender: cell)
+    }
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()

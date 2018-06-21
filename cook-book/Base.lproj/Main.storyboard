@@ -101,6 +101,7 @@
                                                         </constraints>
                                                         <connections>
                                                             <outlet property="lab" destination="obF-Qk-6MR" id="pcW-0P-FW1"/>
+                                                            <segue destination="eIG-Bg-bsK" kind="show" identifier="toRecipyDetails" id="v1e-vz-WhT"/>
                                                         </connections>
                                                     </collectionViewCell>
                                                 </cells>
@@ -176,6 +177,21 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="qRn-X0-bXD" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="-1069.5999999999999" y="27.436281859070466"/>
+        </scene>
+        <!--View Controller-->
+        <scene sceneID="4BR-90-nrg">
+            <objects>
+                <viewController id="eIG-Bg-bsK" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="BeK-QD-9mD">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <viewLayoutGuide key="safeArea" id="AXb-pI-aM6"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="253-MQ-322" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-1326" y="816"/>
         </scene>
         <!--Sign In View Controller-->
         <scene sceneID="OKi-DH-Qsz">
@@ -255,7 +271,7 @@
                     </connections>
                 </tapGestureRecognizer>
             </objects>
-            <point key="canvasLocation" x="-319" y="728"/>
+            <point key="canvasLocation" x="1002" y="817"/>
         </scene>
         <!--Current User Recipies View Controller-->
         <scene sceneID="9uO-sn-GxD">
@@ -308,7 +324,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="RM7-8C-q7v" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="401" y="727"/>
+            <point key="canvasLocation" x="1726" y="816"/>
         </scene>
         <!--APIRecipies-->
         <scene sceneID="XuT-Rm-NAS">
@@ -335,6 +351,7 @@
                 <tabBarController automaticallyAdjustsScrollViewInsets="NO" id="f1N-gz-ajN" sceneMemberID="viewController">
                     <toolbarItems/>
                     <tabBar key="tabBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="cLN-i6-WEm">
+                        <rect key="frame" x="0.0" y="0.0" width="1000" height="1000"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                     </tabBar>
