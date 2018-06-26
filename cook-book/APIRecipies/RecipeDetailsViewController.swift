@@ -12,10 +12,14 @@ class RecipeDetailsViewController: UIViewController {
     var numofRecipie = ""
     @IBOutlet weak var lab: UILabel!
     
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         lab.text = "You selected recipiy# : \(numofRecipie)"
         // Do any additional setup after loading the view.
+        self.navigationItem.title = "roey" // TODO: configure this according to the title of the recipe
+        
+       
     }
 
     override func didReceiveMemoryWarning() {

@@ -24,6 +24,8 @@ class RecipiesViewController: UIViewController, UICollectionViewDelegate, UIColl
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
+        self.navigationItem.title = "sea food" // TODO: configure this according to the type of recipes currenttly selected
+        
         recipiesCollection.delegate = self
         recipiesCollection.dataSource = self
         
@@ -62,7 +64,7 @@ class RecipiesViewController: UIViewController, UICollectionViewDelegate, UIColl
                 return
             }
             recpDetails.numofRecipie = txt
-
+             
         }
     }
     

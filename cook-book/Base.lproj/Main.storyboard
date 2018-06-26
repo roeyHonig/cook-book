@@ -42,7 +42,7 @@
             </objects>
             <point key="canvasLocation" x="1002.4" y="29.23538230884558"/>
         </scene>
-        <!--Recipies View Controller-->
+        <!--Beef-->
         <scene sceneID="v3q-Kf-H2w">
             <objects>
                 <viewController id="Hft-ft-9u5" customClass="RecipiesViewController" customModule="cook_book" customModuleProvider="target" sceneMemberID="viewController">
@@ -150,7 +150,7 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="tNa-Ly-Bwj"/>
                     </view>
-                    <navigationItem key="navigationItem" id="Ep7-dX-9SA"/>
+                    <navigationItem key="navigationItem" title="Beef" id="Ep7-dX-9SA"/>
                     <connections>
                         <outlet property="parentView" destination="0FF-ZS-9lx" id="7CL-0K-1DP"/>
                         <outlet property="recipiesCollection" destination="aeg-CB-Buq" id="Nya-hm-Jnd"/>
