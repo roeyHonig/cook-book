@@ -18,6 +18,7 @@ class RecipeDetailsViewController: UIViewController {
         lab.text = "You selected recipiy# : \(numofRecipie)"
         // Do any additional setup after loading the view.
         self.navigationItem.title = "roey" // TODO: configure this according to the title of the recipe
+        //self.navigationController!.navigationBar.topItem!.title = "Back"
         
        
     }
@@ -26,6 +27,7 @@ class RecipeDetailsViewController: UIViewController {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
+    
     
 
     /*

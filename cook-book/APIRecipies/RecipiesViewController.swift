@@ -15,7 +15,7 @@ class RecipiesViewController: UIViewController, UICollectionViewDelegate, UIColl
     @IBOutlet weak var parentView: UIView! // consider to delete
     @IBOutlet weak var typeOfRecipiesRec: UIView!  // consider to delete
     @IBOutlet weak var recipiesCollection: UICollectionView!
-    
+    let customBackButton = UIBarButtonItem(title: "Back", style: UIBarButtonItemStyle.done, target: self, action:nil)
     
     
     let testarray = ["1" , "2" , "3" , "4" , "5" , "6" , "7" , "8" , "9"]   // needs to be retrived from a Database
@@ -24,14 +24,12 @@ class RecipiesViewController: UIViewController, UICollectionViewDelegate, UIColl
         super.viewDidLoad()
         // Do any additional setup after loading the view.
         self.navigationItem.title = "sea food" // TODO: configure this according to the type of recipes currenttly selected
-        
+        self.navigationItem.backBarButtonItem = customBackButton
+       
         recipiesCollection.delegate = self
         recipiesCollection.dataSource = self
-        
-        
-        
-       
     }
+   
     
     // we've manually configuered this func to return the CGSize we want for the cells in the collection view - and not the hardcoded dimension
     // in the storyboard IB
