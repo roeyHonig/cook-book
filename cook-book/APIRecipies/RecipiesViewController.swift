@@ -13,7 +13,6 @@ class RecipiesViewController: UIViewController, UICollectionViewDelegate, UIColl
     
     
     @IBOutlet weak var parentView: UIView! // consider to delete
-    @IBOutlet weak var titleRec: UIView!   // consider to delete
     @IBOutlet weak var typeOfRecipiesRec: UIView!  // consider to delete
     @IBOutlet weak var recipiesCollection: UICollectionView!
     

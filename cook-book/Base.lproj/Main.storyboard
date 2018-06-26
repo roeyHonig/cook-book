@@ -53,19 +53,15 @@
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="0FF-ZS-9lx">
                                 <rect key="frame" x="0.0" y="64" width="375" height="554"/>
                                 <subviews>
-                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="psX-p2-1BR">
-                                        <rect key="frame" x="0.0" y="0.0" width="375" height="55.5"/>
-                                        <color key="backgroundColor" red="1" green="0.65990817859999995" blue="0.087172153840000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                    </view>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="4gV-Nm-9Fh">
-                                        <rect key="frame" x="0.0" y="55.5" width="375" height="55.5"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="375" height="55.5"/>
                                         <color key="backgroundColor" red="0.24978324769999999" green="0.53996664289999996" blue="0.95790475610000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                     </view>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="l8M-I4-aab">
-                                        <rect key="frame" x="0.0" y="111" width="375" height="443.5"/>
+                                        <rect key="frame" x="0.0" y="55.5" width="375" height="498.5"/>
                                         <subviews>
                                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="aeg-CB-Buq">
-                                                <rect key="frame" x="0.0" y="0.0" width="375" height="443.5"/>
+                                                <rect key="frame" x="0.0" y="0.0" width="375" height="498.5"/>
                                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                 <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="Xyi-Lb-1qn">
                                                     <size key="itemSize" width="100" height="100"/>
@@ -126,17 +122,13 @@
                                 </subviews>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <constraints>
-                                    <constraint firstItem="psX-p2-1BR" firstAttribute="height" secondItem="0FF-ZS-9lx" secondAttribute="height" multiplier="0.1" id="4WM-3e-Tj7"/>
-                                    <constraint firstAttribute="trailing" secondItem="psX-p2-1BR" secondAttribute="trailing" id="5G0-rd-MYs"/>
-                                    <constraint firstItem="psX-p2-1BR" firstAttribute="leading" secondItem="0FF-ZS-9lx" secondAttribute="leading" id="6zq-jm-vXz"/>
-                                    <constraint firstItem="l8M-I4-aab" firstAttribute="height" secondItem="0FF-ZS-9lx" secondAttribute="height" multiplier="0.8" id="7WI-Y8-6K0"/>
+                                    <constraint firstItem="l8M-I4-aab" firstAttribute="height" secondItem="0FF-ZS-9lx" secondAttribute="height" multiplier="0.9" id="7WI-Y8-6K0"/>
+                                    <constraint firstItem="4gV-Nm-9Fh" firstAttribute="top" secondItem="0FF-ZS-9lx" secondAttribute="top" id="7sT-nq-I9R"/>
                                     <constraint firstItem="4gV-Nm-9Fh" firstAttribute="height" secondItem="0FF-ZS-9lx" secondAttribute="height" multiplier="0.1" id="LMZ-k7-MYG"/>
-                                    <constraint firstItem="4gV-Nm-9Fh" firstAttribute="top" secondItem="psX-p2-1BR" secondAttribute="bottom" id="OuJ-xh-45r"/>
                                     <constraint firstItem="4gV-Nm-9Fh" firstAttribute="leading" secondItem="0FF-ZS-9lx" secondAttribute="leading" id="SjF-eO-ih6"/>
                                     <constraint firstItem="l8M-I4-aab" firstAttribute="top" secondItem="4gV-Nm-9Fh" secondAttribute="bottom" id="SvK-HZ-gub"/>
                                     <constraint firstAttribute="trailing" secondItem="4gV-Nm-9Fh" secondAttribute="trailing" id="YRn-GP-gVi"/>
                                     <constraint firstAttribute="trailing" secondItem="l8M-I4-aab" secondAttribute="trailing" id="ZXW-1e-4SP"/>
-                                    <constraint firstItem="psX-p2-1BR" firstAttribute="top" secondItem="0FF-ZS-9lx" secondAttribute="top" id="khY-ZS-bhX"/>
                                     <constraint firstItem="l8M-I4-aab" firstAttribute="leading" secondItem="0FF-ZS-9lx" secondAttribute="leading" id="p3Y-1L-D3i"/>
                                 </constraints>
                             </view>
@@ -154,7 +146,6 @@
                     <connections>
                         <outlet property="parentView" destination="0FF-ZS-9lx" id="7CL-0K-1DP"/>
                         <outlet property="recipiesCollection" destination="aeg-CB-Buq" id="Nya-hm-Jnd"/>
-                        <outlet property="titleRec" destination="psX-p2-1BR" id="UaT-34-2va"/>
                         <outlet property="typeOfRecipiesRec" destination="4gV-Nm-9Fh" id="bUu-wZ-PA9"/>
                     </connections>
                 </viewController>
