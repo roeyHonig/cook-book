@@ -16,14 +16,20 @@ class RecipiesViewController: UIViewController, UICollectionViewDelegate, UIColl
     @IBOutlet weak var typeOfRecipiesRec: UIView!  // consider to delete
     @IBOutlet weak var recipiesCollection: UICollectionView!
     let customBackButton = UIBarButtonItem(title: "Back", style: UIBarButtonItemStyle.done, target: self, action:nil)
-    
+    @IBOutlet var recipyType: UISegmentedControl!
     
     let testarray = ["1" , "2" , "3" , "4" , "5" , "6" , "7" , "8" , "9"]   // needs to be retrived from a Database
     
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
-        self.navigationItem.title = "sea food" // TODO: configure this according to the type of recipes currenttly selected
+        recipyType.selectedSegmentIndex = 0
+        self.navigationItem.title = "Beef"
+        
+        
+        let font = UIFont(name: "Helvetica", size: 42)! // TODO: it might be wise to provide some fallback fonts in case not all devices carry this
+        self.navigationController?.navigationBar.titleTextAttributes = [ NSAttributedStringKey.font: font]
+        
         self.navigationItem.backBarButtonItem = customBackButton
        
         recipiesCollection.delegate = self
@@ -79,6 +85,39 @@ class RecipiesViewController: UIViewController, UICollectionViewDelegate, UIColl
     }
     
 
+    @IBAction func toggelRecipyType(_ sender: UISegmentedControl) {
+        
+        switch sender.selectedSegmentIndex {
+        case 0:
+            print("Beef")
+            self.navigationItem.title = "Beef"
+        case 1:
+            print("Pork")
+            self.navigationItem.title = "Pork"
+        case 2:
+            print("Poultry")
+            self.navigationItem.title = "Poultry"
+        case 3:
+            print("Seafood")
+            self.navigationItem.title = "Seafood"
+        case 4:
+            print("Vegetarian")
+            self.navigationItem.title = "Vegetarian"
+        case 5:
+            print("Side Dish")
+            self.navigationItem.title = "Side Dish"
+        case 6:
+            print("Salad")
+            self.navigationItem.title = "Salad"
+        case 7:
+            print("Dessert")
+            self.navigationItem.title = "Dessert"
+        default:
+            print("don't know")
+            self.navigationItem.title = "don't know"
+        }
+        
+    }
     /*
     // MARK: - Navigation
 

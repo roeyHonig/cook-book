@@ -65,15 +65,18 @@
                                                             <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="ytq-cj-mNP">
                                                                 <rect key="frame" x="0.0" y="2" width="550" height="54"/>
                                                                 <segments>
-                                                                    <segment title="" image="beef"/>
-                                                                    <segment title="" image="pork"/>
-                                                                    <segment title="" image="polutary"/>
-                                                                    <segment title="" image="icons8-fish_food"/>
-                                                                    <segment title="" image="vegetarian"/>
-                                                                    <segment title="" image="sidedish"/>
-                                                                    <segment title="" image="icons8-salad"/>
-                                                                    <segment title="" image="deasert"/>
+                                                                    <segment title="" image="beef50"/>
+                                                                    <segment title="" image="pork50"/>
+                                                                    <segment title="" image="polutary50"/>
+                                                                    <segment title="" image="fisf-food50"/>
+                                                                    <segment title="" image="vegetarian50"/>
+                                                                    <segment title="" image="side-dish50"/>
+                                                                    <segment title="" image="salad50"/>
+                                                                    <segment title="" image="real-deasert50"/>
                                                                 </segments>
+                                                                <connections>
+                                                                    <action selector="toggelRecipyType:" destination="Hft-ft-9u5" eventType="valueChanged" id="xxM-gq-3by"/>
+                                                                </connections>
                                                             </segmentedControl>
                                                         </subviews>
                                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -192,6 +195,7 @@
                     <connections>
                         <outlet property="parentView" destination="0FF-ZS-9lx" id="7CL-0K-1DP"/>
                         <outlet property="recipiesCollection" destination="aeg-CB-Buq" id="Nya-hm-Jnd"/>
+                        <outlet property="recipyType" destination="ytq-cj-mNP" id="72i-Vf-GgV"/>
                         <outlet property="typeOfRecipiesRec" destination="4gV-Nm-9Fh" id="bUu-wZ-PA9"/>
                     </connections>
                 </viewController>
@@ -422,16 +426,16 @@
         </scene>
     </scenes>
     <resources>
-        <image name="beef" width="25" height="25"/>
-        <image name="deasert" width="25" height="25"/>
+        <image name="beef50" width="48" height="48"/>
+        <image name="fisf-food50" width="50" height="50"/>
         <image name="googleSignIn.png" width="512" height="512"/>
         <image name="icons8-cooking_pot" width="24" height="24"/>
         <image name="icons8-cooking_pot_filled" width="75" height="75"/>
-        <image name="icons8-fish_food" width="25" height="25"/>
-        <image name="icons8-salad" width="25" height="25"/>
-        <image name="polutary" width="24" height="24"/>
-        <image name="pork" width="24" height="24"/>
-        <image name="sidedish" width="24" height="24"/>
-        <image name="vegetarian" width="25" height="25"/>
+        <image name="polutary50" width="50" height="50"/>
+        <image name="pork50" width="48" height="48"/>
+        <image name="real-deasert50" width="50" height="50"/>
+        <image name="salad50" width="50" height="50"/>
+        <image name="side-dish50" width="50" height="50"/>
+        <image name="vegetarian50" width="50" height="50"/>
     </resources>
 </document>

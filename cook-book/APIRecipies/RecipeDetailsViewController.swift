@@ -13,6 +13,7 @@ class RecipeDetailsViewController: UIViewController {
     @IBOutlet weak var lab: UILabel!
     
     
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         lab.text = "You selected recipiy# : \(numofRecipie)"
