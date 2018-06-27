@@ -56,34 +56,33 @@
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="4gV-Nm-9Fh">
                                         <rect key="frame" x="0.0" y="0.0" width="375" height="55.5"/>
                                         <subviews>
-                                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" bounces="NO" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" bouncesZoom="NO" translatesAutoresizingMaskIntoConstraints="NO" id="R6H-dD-7Re">
+                                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" alwaysBounceHorizontal="YES" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" bouncesZoom="NO" translatesAutoresizingMaskIntoConstraints="NO" id="R6H-dD-7Re">
                                                 <rect key="frame" x="0.0" y="0.0" width="375" height="55.5"/>
                                                 <subviews>
                                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="5yt-KR-aMA">
                                                         <rect key="frame" x="0.0" y="0.0" width="550" height="55.5"/>
                                                         <subviews>
-                                                            <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="fus-6Q-yqj">
-                                                                <rect key="frame" x="0.0" y="5" width="550" height="44.5"/>
-                                                                <subviews>
-                                                                    <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="icons8-cooking_pot_filled" translatesAutoresizingMaskIntoConstraints="NO" id="LKy-xL-TwH">
-                                                                        <rect key="frame" x="0.0" y="0.0" width="183.5" height="44.5"/>
-                                                                    </imageView>
-                                                                    <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="icons8-cooking_pot_filled" translatesAutoresizingMaskIntoConstraints="NO" id="g4b-Pa-ny6">
-                                                                        <rect key="frame" x="183.5" y="0.0" width="183" height="44.5"/>
-                                                                    </imageView>
-                                                                    <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="icons8-cooking_pot_filled" translatesAutoresizingMaskIntoConstraints="NO" id="Zcj-MC-P7e">
-                                                                        <rect key="frame" x="366.5" y="0.0" width="183.5" height="44.5"/>
-                                                                    </imageView>
-                                                                </subviews>
-                                                            </stackView>
+                                                            <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="ytq-cj-mNP">
+                                                                <rect key="frame" x="0.0" y="1.5" width="550" height="53.5"/>
+                                                                <segments>
+                                                                    <segment title="Beef"/>
+                                                                    <segment title="Fish"/>
+                                                                    <segment title="Desert"/>
+                                                                    <segment title="Side Dish"/>
+                                                                    <segment title="POltary"/>
+                                                                    <segment title="Pork"/>
+                                                                    <segment title="Vegetarian"/>
+                                                                    <segment title="Salad"/>
+                                                                </segments>
+                                                            </segmentedControl>
                                                         </subviews>
                                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                         <constraints>
+                                                            <constraint firstItem="ytq-cj-mNP" firstAttribute="leading" secondItem="5yt-KR-aMA" secondAttribute="leading" id="2BF-82-HsH"/>
                                                             <constraint firstAttribute="width" constant="550" id="Daf-ML-qAd"/>
-                                                            <constraint firstItem="fus-6Q-yqj" firstAttribute="leading" secondItem="5yt-KR-aMA" secondAttribute="leading" id="Rni-KN-8Hp"/>
-                                                            <constraint firstItem="fus-6Q-yqj" firstAttribute="centerY" secondItem="5yt-KR-aMA" secondAttribute="centerY" id="UYA-Yj-XP0"/>
-                                                            <constraint firstAttribute="trailing" secondItem="fus-6Q-yqj" secondAttribute="trailing" id="buj-Sb-2Td"/>
-                                                            <constraint firstItem="fus-6Q-yqj" firstAttribute="height" secondItem="5yt-KR-aMA" secondAttribute="height" multiplier="0.8" id="sxM-Ge-zUd"/>
+                                                            <constraint firstItem="ytq-cj-mNP" firstAttribute="centerY" secondItem="5yt-KR-aMA" secondAttribute="centerY" id="LO9-DS-wag"/>
+                                                            <constraint firstAttribute="trailing" secondItem="ytq-cj-mNP" secondAttribute="trailing" id="Vj5-Vz-3uY"/>
+                                                            <constraint firstItem="ytq-cj-mNP" firstAttribute="height" secondItem="5yt-KR-aMA" secondAttribute="height" multiplier="0.95" id="y87-Fv-zC4"/>
                                                         </constraints>
                                                     </view>
                                                 </subviews>
@@ -96,7 +95,7 @@
                                                 </constraints>
                                             </scrollView>
                                         </subviews>
-                                        <color key="backgroundColor" red="0.24978324769999999" green="0.53996664289999996" blue="0.95790475610000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <color key="backgroundColor" red="0.40000000600000002" green="0.40000000600000002" blue="0.40000000600000002" alpha="1" colorSpace="calibratedRGB"/>
                                         <constraints>
                                             <constraint firstItem="R6H-dD-7Re" firstAttribute="top" secondItem="4gV-Nm-9Fh" secondAttribute="top" id="Cwk-4T-gAb"/>
                                             <constraint firstAttribute="trailing" secondItem="R6H-dD-7Re" secondAttribute="trailing" id="eUm-jN-CWe"/>
