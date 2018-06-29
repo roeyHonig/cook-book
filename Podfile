@@ -10,5 +10,6 @@ pod 'Firebase/Core'
 pod 'Firebase/Auth'
 pod 'GoogleSignIn'
 pod 'FBSDKLoginKit'
+pod 'SDWebImage', '~> 4.0'
     
 end
