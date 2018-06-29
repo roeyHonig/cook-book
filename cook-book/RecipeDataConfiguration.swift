@@ -10,6 +10,7 @@ import Foundation
 
 struct RecipeHeader: Codable {
     var title: String?
+    var img: String?
     var type_of_recipe: String?
     var Prep_Time: Int?
     var Cook_Time: Int?
@@ -22,6 +23,7 @@ struct RecipeHeader: Codable {
     
     enum codingKeys: String, CodingKey {
         case title = "title"
+        case img = "img"
         case type_of_recipe = "type_of_recipe?"
         case Prep_Time = "Prep_Time"
         case Cook_Time = "Cook_Time"

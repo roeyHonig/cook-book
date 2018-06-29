@@ -146,6 +146,7 @@
                                                         </constraints>
                                                         <connections>
                                                             <outlet property="lab" destination="obF-Qk-6MR" id="pcW-0P-FW1"/>
+                                                            <outlet property="recipeImage" destination="9Hn-Wn-pAt" id="vsN-DT-P6S"/>
                                                             <segue destination="eIG-Bg-bsK" kind="show" identifier="toRecipyDetails" id="v1e-vz-WhT"/>
                                                         </connections>
                                                     </collectionViewCell>

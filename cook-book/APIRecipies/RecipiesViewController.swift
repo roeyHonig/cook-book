@@ -8,6 +8,7 @@
 // This are the recipies from the API //
 
 import UIKit
+import SDWebImage
 
 class RecipiesViewController: UIViewController, UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout  {
     
@@ -19,6 +20,8 @@ class RecipiesViewController: UIViewController, UICollectionViewDelegate, UIColl
     @IBOutlet var recipyType: UISegmentedControl!
     
     let testarray = ["1" , "2" , "3" , "4" , "5" , "6" , "7" , "8" , "9"]   // needs to be retrived from a Database
+    
+    var recipeImagesUrls : [String] = []
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -45,6 +48,17 @@ class RecipiesViewController: UIViewController, UICollectionViewDelegate, UIColl
     func retriveData(for table_col_value: String){
         getRecipeHeaderAPI(typeOfRecipyQuery: table_col_value) { (recipeHeaderApi) in
             print(recipeHeaderApi.rows[0].title)
+            self.recipeImagesUrls.removeAll()
+            /*
+            for recipe in recipeHeaderApi.rows {
+                if let image = recipe.img {
+                    self.recipeImagesUrls.append(image)
+                }
+                else {
+                    self.recipeImagesUrls.append("defult")
+                }
+            }
+             */
         }
     }
    
@@ -66,6 +80,17 @@ class RecipiesViewController: UIViewController, UICollectionViewDelegate, UIColl
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "singleRecipe", for: indexPath) as! RecipeCollectionViewCell
         cell.lab.text = testarray[indexPath.row]
+        
+        if recipeImagesUrls.count > 0 {
+            if recipeImagesUrls[indexPath.row] == "defult" {
+                cell.recipeImage.image = #imageLiteral(resourceName: "icons8-cooking_pot_filled")
+            } else {
+                cell.recipeImage.sd_setImage(with: URL(string: recipeImagesUrls[indexPath.row]) , completed: nil)
+            }
+        }
+        
+        
+        
         
         return cell
     }
