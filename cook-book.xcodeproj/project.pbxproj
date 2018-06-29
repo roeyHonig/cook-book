@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		6D0CF14A20E6639F00A2B670 /* favoriteRecipesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6D0CF14920E6639F00A2B670 /* favoriteRecipesViewController.swift */; };
 		6D0CF14C20E6688800A2B670 /* RecipeDataConfiguration.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6D0CF14B20E6688800A2B670 /* RecipeDataConfiguration.swift */; };
+		6D0CF15020E6BC3000A2B670 /* Poultry.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 6D0CF14F20E6BC3000A2B670 /* Poultry.jpg */; };
 		6D15368420D7E7CC007B311C /* googleSignIn.png in Resources */ = {isa = PBXBuildFile; fileRef = 6D15368320D7E7CC007B311C /* googleSignIn.png */; };
 		6D5D4B1C20D95DC800390BFB /* RecipiesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6D5D4B1B20D95DC800390BFB /* RecipiesViewController.swift */; };
 		6D5D4B1E20DA80EF00390BFB /* RecipeCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6D5D4B1D20DA80EF00390BFB /* RecipeCollectionViewCell.swift */; };
@@ -30,6 +31,7 @@
 		67128A0D94A1433C0F3E32B8 /* Pods_cook_book.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_cook_book.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		6D0CF14920E6639F00A2B670 /* favoriteRecipesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = favoriteRecipesViewController.swift; sourceTree = "<group>"; };
 		6D0CF14B20E6688800A2B670 /* RecipeDataConfiguration.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecipeDataConfiguration.swift; sourceTree = "<group>"; };
+		6D0CF14F20E6BC3000A2B670 /* Poultry.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; name = Poultry.jpg; path = ../../../../Downloads/Poultry.jpg; sourceTree = "<group>"; };
 		6D15368320D7E7CC007B311C /* googleSignIn.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = googleSignIn.png; sourceTree = "<group>"; };
 		6D5D4B1B20D95DC800390BFB /* RecipiesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecipiesViewController.swift; sourceTree = "<group>"; };
 		6D5D4B1D20DA80EF00390BFB /* RecipeCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecipeCollectionViewCell.swift; sourceTree = "<group>"; };
@@ -109,6 +111,7 @@
 		6DFFF47720D5737700368A45 /* cook-book */ = {
 			isa = PBXGroup;
 			children = (
+				6D0CF14F20E6BC3000A2B670 /* Poultry.jpg */,
 				6D15368320D7E7CC007B311C /* googleSignIn.png */,
 				6DFFF48D20D57A0200368A45 /* GoogleService-Info.plist */,
 				6DFFF47820D5737700368A45 /* AppDelegate.swift */,
@@ -199,6 +202,7 @@
 				6DFFF48620D5737700368A45 /* LaunchScreen.storyboard in Resources */,
 				6DFFF48E20D57A0300368A45 /* GoogleService-Info.plist in Resources */,
 				6D15368420D7E7CC007B311C /* googleSignIn.png in Resources */,
+				6D0CF15020E6BC3000A2B670 /* Poultry.jpg in Resources */,
 				6DFFF48320D5737700368A45 /* Assets.xcassets in Resources */,
 				6DFFF47E20D5737700368A45 /* Main.storyboard in Resources */,
 			);

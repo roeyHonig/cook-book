@@ -5,6 +5,7 @@
     </device>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13174"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
         <capability name="Constraints with non-1.0 multipliers" minToolsVersion="5.1"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -132,17 +133,19 @@
                                                                     <nil key="textColor"/>
                                                                     <nil key="highlightedColor"/>
                                                                 </label>
-                                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="icons8-cooking_pot_filled" translatesAutoresizingMaskIntoConstraints="NO" id="9Hn-Wn-pAt">
-                                                                    <rect key="frame" x="12.5" y="12.5" width="75" height="75"/>
+                                                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="icons8-cooking_pot_filled" translatesAutoresizingMaskIntoConstraints="NO" id="9Hn-Wn-pAt">
+                                                                    <rect key="frame" x="16" y="20" width="68" height="80"/>
                                                                 </imageView>
                                                             </subviews>
                                                         </view>
                                                         <color key="backgroundColor" red="1" green="1" blue="0.40000000600000002" alpha="1" colorSpace="calibratedRGB"/>
                                                         <constraints>
-                                                            <constraint firstItem="9Hn-Wn-pAt" firstAttribute="centerX" secondItem="bUY-cX-bfs" secondAttribute="centerX" id="2Vm-FG-E6h"/>
-                                                            <constraint firstItem="9Hn-Wn-pAt" firstAttribute="centerY" secondItem="bUY-cX-bfs" secondAttribute="centerY" id="Gsb-fi-nQo"/>
+                                                            <constraint firstAttribute="trailingMargin" secondItem="9Hn-Wn-pAt" secondAttribute="trailing" id="BR2-aM-Fra"/>
+                                                            <constraint firstAttribute="bottomMargin" secondItem="9Hn-Wn-pAt" secondAttribute="bottom" id="aqO-Ri-b1e"/>
                                                             <constraint firstItem="obF-Qk-6MR" firstAttribute="centerY" secondItem="bUY-cX-bfs" secondAttribute="centerY" id="cjr-kg-Onf"/>
+                                                            <constraint firstItem="9Hn-Wn-pAt" firstAttribute="leading" secondItem="bUY-cX-bfs" secondAttribute="leadingMargin" id="f8d-ru-eaX"/>
                                                             <constraint firstItem="obF-Qk-6MR" firstAttribute="centerX" secondItem="bUY-cX-bfs" secondAttribute="centerX" id="rse-Yf-9Ze"/>
+                                                            <constraint firstItem="9Hn-Wn-pAt" firstAttribute="top" secondItem="bUY-cX-bfs" secondAttribute="topMargin" id="uHm-iv-3Sm"/>
                                                         </constraints>
                                                         <connections>
                                                             <outlet property="lab" destination="obF-Qk-6MR" id="pcW-0P-FW1"/>
@@ -212,8 +215,12 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="icons8-cooking_pot_filled" translatesAutoresizingMaskIntoConstraints="NO" id="ZPW-Ri-c3H">
-                                <rect key="frame" x="150" y="296" width="75" height="75"/>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Poultry.jpg" translatesAutoresizingMaskIntoConstraints="NO" id="ZPW-Ri-c3H">
+                                <rect key="frame" x="112.5" y="258.5" width="150" height="150"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="150" id="cjX-tS-bGC"/>
+                                    <constraint firstAttribute="width" constant="150" id="kaB-pw-L8V"/>
+                                </constraints>
                             </imageView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -439,6 +446,7 @@
         </scene>
     </scenes>
     <resources>
+        <image name="Poultry.jpg" width="720" height="405"/>
         <image name="beef50" width="48" height="48"/>
         <image name="fisf-food50" width="50" height="50"/>
         <image name="googleSignIn.png" width="512" height="512"/>
