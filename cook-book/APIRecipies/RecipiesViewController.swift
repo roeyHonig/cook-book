@@ -34,6 +34,11 @@ class RecipiesViewController: UIViewController, UICollectionViewDelegate, UIColl
        
         recipiesCollection.delegate = self
         recipiesCollection.dataSource = self
+        
+        getRecipeHeaderAPI(typeOfRecipyQuery: "Beef") { (recipeHeaderApi) in
+            print(recipeHeaderApi.rows[0].title)
+        }
+        
     }
    
     
