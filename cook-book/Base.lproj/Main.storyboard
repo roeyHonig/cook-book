@@ -206,14 +206,26 @@
         <!--Item-->
         <scene sceneID="Lw0-wh-eko">
             <objects>
-                <viewController id="a0Z-xd-4ap" sceneMemberID="viewController">
+                <viewController id="a0Z-xd-4ap" customClass="favoriteRecipesViewController" customModule="cook_book" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="uLb-Xi-OaV">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="icons8-cooking_pot_filled" translatesAutoresizingMaskIntoConstraints="NO" id="ZPW-Ri-c3H">
+                                <rect key="frame" x="150" y="296" width="75" height="75"/>
+                            </imageView>
+                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="ZPW-Ri-c3H" firstAttribute="centerX" secondItem="uLb-Xi-OaV" secondAttribute="centerX" id="spc-m0-jSF"/>
+                            <constraint firstItem="ZPW-Ri-c3H" firstAttribute="centerY" secondItem="uLb-Xi-OaV" secondAttribute="centerY" id="waG-io-r4x"/>
+                        </constraints>
                         <viewLayoutGuide key="safeArea" id="VWG-gF-mDP"/>
                     </view>
                     <tabBarItem key="tabBarItem" title="Item" id="QaT-tj-fbZ"/>
+                    <connections>
+                        <outlet property="testImage" destination="ZPW-Ri-c3H" id="Hf8-Ld-ri0"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="qRn-X0-bXD" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
