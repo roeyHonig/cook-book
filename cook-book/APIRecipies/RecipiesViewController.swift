@@ -35,10 +35,17 @@ class RecipiesViewController: UIViewController, UICollectionViewDelegate, UIColl
         recipiesCollection.delegate = self
         recipiesCollection.dataSource = self
         
-        getRecipeHeaderAPI(typeOfRecipyQuery: "Beef") { (recipeHeaderApi) in
+        retriveData(for: "Beef")
+        
+        
+        
+        
+    }
+    
+    func retriveData(for table_col_value: String){
+        getRecipeHeaderAPI(typeOfRecipyQuery: table_col_value) { (recipeHeaderApi) in
             print(recipeHeaderApi.rows[0].title)
         }
-        
     }
    
     
@@ -96,27 +103,35 @@ class RecipiesViewController: UIViewController, UICollectionViewDelegate, UIColl
         case 0:
             print("Beef")
             self.navigationItem.title = "Beef"
+            retriveData(for: "Beef")
         case 1:
             print("Pork")
             self.navigationItem.title = "Pork"
+            retriveData(for: "Pork")
         case 2:
             print("Poultry")
             self.navigationItem.title = "Poultry"
+            retriveData(for: "Poultry")
         case 3:
             print("Seafood")
             self.navigationItem.title = "Seafood"
+            retriveData(for: "Seafood")
         case 4:
             print("Vegetarian")
             self.navigationItem.title = "Vegetarian"
+            retriveData(for: "Vegetarian")
         case 5:
             print("Side Dish")
             self.navigationItem.title = "Side Dish"
+            retriveData(for: "Side_Dish")
         case 6:
             print("Salad")
             self.navigationItem.title = "Salad"
+            retriveData(for: "Salad")
         case 7:
             print("Dessert")
             self.navigationItem.title = "Dessert"
+            retriveData(for: "Dessert")
         default:
             print("don't know")
             self.navigationItem.title = "don't know"
