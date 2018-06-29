@@ -76,12 +76,17 @@ class RecipiesViewController: UIViewController, UICollectionViewDelegate, UIColl
     }
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return testarray.count
+        
+        if recipeImagesUrls.count > 0 {
+            return recipeImagesUrls.count
+        }
+        
+        return 1
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "singleRecipe", for: indexPath) as! RecipeCollectionViewCell
-        cell.lab.text = testarray[indexPath.row]
+        cell.lab.text = "\(indexPath.row)"
         
         if recipeImagesUrls.count > 0 {
             if recipeImagesUrls[indexPath.row] == "defult" {
