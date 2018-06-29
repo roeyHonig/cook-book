@@ -22,6 +22,7 @@ class RecipiesViewController: UIViewController, UICollectionViewDelegate, UIColl
     let testarray = ["1" , "2" , "3" , "4" , "5" , "6" , "7" , "8" , "9"]   // needs to be retrived from a Database
     
     var recipeImagesUrls : [String] = []
+    var recipHeaderApi: RecipeHeaderAPI?
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -49,6 +50,8 @@ class RecipiesViewController: UIViewController, UICollectionViewDelegate, UIColl
         getRecipeHeaderAPI(typeOfRecipyQuery: table_col_value) { (recipeHeaderApi) in
             print(recipeHeaderApi.rows[0].title)
             self.recipeImagesUrls.removeAll()
+            
+            self.recipHeaderApi = recipeHeaderApi
             
             for recipe in recipeHeaderApi.rows {
                 if let image = recipe.img {
@@ -87,6 +90,7 @@ class RecipiesViewController: UIViewController, UICollectionViewDelegate, UIColl
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "singleRecipe", for: indexPath) as! RecipeCollectionViewCell
         cell.lab.text = "\(indexPath.row)"
+        cell.recipeHeader = self.recipHeaderApi?.rows[indexPath.row]
         
         if recipeImagesUrls.count > 0 {
             if recipeImagesUrls[indexPath.row] == "defult" {
@@ -115,6 +119,7 @@ class RecipiesViewController: UIViewController, UICollectionViewDelegate, UIColl
                 return
             }
             recpDetails.numofRecipie = txt
+            recpDetails.recipeHeader = cell.recipeHeader
              
         }
     }

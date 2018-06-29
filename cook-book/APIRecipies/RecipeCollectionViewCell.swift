@@ -12,4 +12,6 @@ class RecipeCollectionViewCell: UICollectionViewCell {
     @IBOutlet weak var lab: UILabel!
     @IBOutlet var recipeImage: UIImageView!
     
+    var recipeHeader: RecipeHeader?
+    
 }
