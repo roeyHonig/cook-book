@@ -49,7 +49,7 @@ class RecipiesViewController: UIViewController, UICollectionViewDelegate, UIColl
         getRecipeHeaderAPI(typeOfRecipyQuery: table_col_value) { (recipeHeaderApi) in
             print(recipeHeaderApi.rows[0].title)
             self.recipeImagesUrls.removeAll()
-            /*
+            
             for recipe in recipeHeaderApi.rows {
                 if let image = recipe.img {
                     self.recipeImagesUrls.append(image)
@@ -58,7 +58,9 @@ class RecipiesViewController: UIViewController, UICollectionViewDelegate, UIColl
                     self.recipeImagesUrls.append("defult")
                 }
             }
-             */
+            
+            self.recipiesCollection.reloadData()
+ 
         }
     }
    
