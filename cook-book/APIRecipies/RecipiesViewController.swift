@@ -97,7 +97,11 @@ class RecipiesViewController: UIViewController, UICollectionViewDelegate, UIColl
         }
         
         
-        
+        // change this values if you want to control the width of the yellow (background color for the entire cell) "frame" effect surronding the cell contentview
+        cell.contentView.layoutMargins.bottom = 2
+        cell.contentView.layoutMargins.top = 2
+        cell.contentView.layoutMargins.left = 2
+        cell.contentView.layoutMargins.right = 2
         
         return cell
     }
