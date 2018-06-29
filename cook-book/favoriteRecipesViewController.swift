@@ -4,7 +4,7 @@
 //
 //  Created by hackeru on 16 Tamuz 5778.
 //  Copyright © 5778 student.roey.honig. All rights reserved.
-//
+//  currentlly just an example for loading url image
 
 import UIKit
 import SDWebImage
