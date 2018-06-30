@@ -16,57 +16,25 @@ class RecipiesViewController: UIViewController, UICollectionViewDelegate, UIColl
     @IBOutlet weak var parentView: UIView! // consider to delete
     @IBOutlet weak var typeOfRecipiesRec: UIView!  // consider to delete
     @IBOutlet weak var recipiesCollection: UICollectionView!
-    let customBackButton = UIBarButtonItem(title: "Back", style: UIBarButtonItemStyle.done, target: self, action: #selector(RecipiesViewController.self.click))
+    let customBackButton = UIBarButtonItem(title: "Back", style: UIBarButtonItemStyle.done, target: self, action: nil)
     @IBOutlet var recipyType: UISegmentedControl!
-    
-  
-    
-    let testarray = ["1" , "2" , "3" , "4" , "5" , "6" , "7" , "8" , "9"]   // needs to be retrived from a Database
     
     var recipeImagesUrls : [String] = []
     var recipHeaderApi: RecipeHeaderAPI?
-    
-    @objc func click() {
-        print("The back button was pressedd!")
-    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
         recipyType.selectedSegmentIndex = 0
         self.navigationItem.title = "Beef"
-        
-        
-        
-        /*
-        let font = UIFont(name: "Helvetica", size: 42)! // TODO: it might be wise to provide some fallback fonts in case not all devices carry this
-        self.navigationController?.navigationBar.titleTextAttributes = [ NSAttributedStringKey.font: font]
-        */
-        
-        
-        
         self.navigationItem.backBarButtonItem = customBackButton
-        
-        self.navigationItem.backBarButtonItem!.target = self
-        self.navigationItem.backBarButtonItem!.action = #selector(click)
-        
         self.navigationController?.delegate = self
         
-        
-       
         recipiesCollection.delegate = self
         recipiesCollection.dataSource = self
         
         retriveData(for: "Beef")
-        
-        
-    
-        
     }
-    
-    
-    
-
     
     func navigationController(_ navigationController: UINavigationController, willShow viewController: UIViewController, animated: Bool) {
         if viewController is RecipiesViewController  {
@@ -77,15 +45,11 @@ class RecipiesViewController: UIViewController, UICollectionViewDelegate, UIColl
             let font = UIFont(name: "Helvetica", size: 12)! // TODO: it might be wise to provide some fallback fonts in case not all devices carry this
             navigationController.navigationBar.titleTextAttributes = [ NSAttributedStringKey.font: font]
         }
- 
     }
- 
  
     func retriveData(for table_col_value: String){
         getRecipeHeaderAPI(typeOfRecipyQuery: table_col_value) { (recipeHeaderApi) in
-            print(recipeHeaderApi.rows[0].title)
             self.recipeImagesUrls.removeAll()
-            
             self.recipHeaderApi = recipeHeaderApi
             
             for recipe in recipeHeaderApi.rows {
@@ -114,11 +78,9 @@ class RecipiesViewController: UIViewController, UICollectionViewDelegate, UIColl
     }
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        
         if recipeImagesUrls.count > 0 {
             return recipeImagesUrls.count
         }
-        
         return 0
     }
     
@@ -134,7 +96,6 @@ class RecipiesViewController: UIViewController, UICollectionViewDelegate, UIColl
                 cell.recipeImage.sd_setImage(with: URL(string: recipeImagesUrls[indexPath.row]) , completed: nil)
             }
         }
-        
         
         // change this values if you want to control the width of the yellow (background color for the entire cell) "frame" effect surronding the cell contentview
         cell.contentView.layoutMargins.bottom = 2
@@ -155,18 +116,18 @@ class RecipiesViewController: UIViewController, UICollectionViewDelegate, UIColl
             }
             recpDetails.numofRecipie = txt
             recpDetails.recipeHeader = cell.recipeHeader
-             
         }
     }
     
+    /*
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         let cell = collectionView.cellForItem(at: indexPath) as! RecipeCollectionViewCell
         print(cell.lab.text!)
-        
         // no need for "performe" because the segue is autmetically trigered upon selecting a cell
         //performSegue(withIdentifier: "toRecipyDetails", sender: cell)
     }
-
+    */
+ 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
