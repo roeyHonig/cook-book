@@ -10,19 +10,25 @@
 import UIKit
 import SDWebImage
 
-class RecipiesViewController: UIViewController, UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout  {
+class RecipiesViewController: UIViewController, UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout, UINavigationControllerDelegate  {
     
     
     @IBOutlet weak var parentView: UIView! // consider to delete
     @IBOutlet weak var typeOfRecipiesRec: UIView!  // consider to delete
     @IBOutlet weak var recipiesCollection: UICollectionView!
-    let customBackButton = UIBarButtonItem(title: "Back", style: UIBarButtonItemStyle.done, target: self, action:nil)
+    let customBackButton = UIBarButtonItem(title: "Back", style: UIBarButtonItemStyle.done, target: self, action: #selector(RecipiesViewController.self.click))
     @IBOutlet var recipyType: UISegmentedControl!
+    
+  
     
     let testarray = ["1" , "2" , "3" , "4" , "5" , "6" , "7" , "8" , "9"]   // needs to be retrived from a Database
     
     var recipeImagesUrls : [String] = []
     var recipHeaderApi: RecipeHeaderAPI?
+    
+    @objc func click() {
+        print("The back button was pressedd!")
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -31,10 +37,22 @@ class RecipiesViewController: UIViewController, UICollectionViewDelegate, UIColl
         self.navigationItem.title = "Beef"
         
         
+        
+        /*
         let font = UIFont(name: "Helvetica", size: 42)! // TODO: it might be wise to provide some fallback fonts in case not all devices carry this
         self.navigationController?.navigationBar.titleTextAttributes = [ NSAttributedStringKey.font: font]
+        */
+        
+        
         
         self.navigationItem.backBarButtonItem = customBackButton
+        
+        self.navigationItem.backBarButtonItem!.target = self
+        self.navigationItem.backBarButtonItem!.action = #selector(click)
+        
+        self.navigationController?.delegate = self
+        
+        
        
         recipiesCollection.delegate = self
         recipiesCollection.dataSource = self
@@ -42,10 +60,27 @@ class RecipiesViewController: UIViewController, UICollectionViewDelegate, UIColl
         retriveData(for: "Beef")
         
         
-        
+    
         
     }
     
+    
+    
+
+    
+    func navigationController(_ navigationController: UINavigationController, willShow viewController: UIViewController, animated: Bool) {
+        if viewController is RecipiesViewController  {
+        let font = UIFont(name: "Helvetica", size: 42)! // TODO: it might be wise to provide some fallback fonts in case not all devices carry this
+        navigationController.navigationBar.titleTextAttributes = [ NSAttributedStringKey.font: font]
+            
+        } else if viewController is RecipeDetailsViewController {
+            let font = UIFont(name: "Helvetica", size: 12)! // TODO: it might be wise to provide some fallback fonts in case not all devices carry this
+            navigationController.navigationBar.titleTextAttributes = [ NSAttributedStringKey.font: font]
+        }
+ 
+    }
+ 
+ 
     func retriveData(for table_col_value: String){
         getRecipeHeaderAPI(typeOfRecipyQuery: table_col_value) { (recipeHeaderApi) in
             print(recipeHeaderApi.rows[0].title)
@@ -84,7 +119,7 @@ class RecipiesViewController: UIViewController, UICollectionViewDelegate, UIColl
             return recipeImagesUrls.count
         }
         
-        return 1
+        return 0
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {

@@ -253,13 +253,25 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Artic Artic" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fNP-KT-Vy3">
+                                <rect key="frame" x="125" y="0.0" width="250" height="64"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="250" id="zh8-3u-rY9"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
+                            <constraint firstItem="AXb-pI-aM6" firstAttribute="top" secondItem="fNP-KT-Vy3" secondAttribute="bottom" id="Kk6-Do-qoW"/>
                             <constraint firstItem="AXb-pI-aM6" firstAttribute="trailing" secondItem="zuJ-pU-UKN" secondAttribute="trailing" id="bee-bC-CMg"/>
                             <constraint firstItem="zuJ-pU-UKN" firstAttribute="leading" secondItem="AXb-pI-aM6" secondAttribute="leading" id="fRg-6f-sKW"/>
                             <constraint firstItem="zuJ-pU-UKN" firstAttribute="centerX" secondItem="BeK-QD-9mD" secondAttribute="centerX" id="kiq-P4-uQ9"/>
+                            <constraint firstAttribute="trailing" secondItem="fNP-KT-Vy3" secondAttribute="trailing" id="quM-G8-aUG"/>
                             <constraint firstItem="zuJ-pU-UKN" firstAttribute="centerY" secondItem="BeK-QD-9mD" secondAttribute="centerY" id="tcP-6C-u4l"/>
+                            <constraint firstItem="fNP-KT-Vy3" firstAttribute="top" secondItem="BeK-QD-9mD" secondAttribute="top" id="vGL-L9-k3o"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="AXb-pI-aM6"/>
                     </view>
