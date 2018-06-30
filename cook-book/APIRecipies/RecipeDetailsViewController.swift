@@ -8,11 +8,26 @@
 
 import UIKit
 
-class RecipeDetailsViewController: UIViewController {
+class RecipeDetailsViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
+    
+    
+    
     @IBOutlet var ingridentsBtnView: UIView!
     @IBOutlet var ingridentsTapGesture: UITapGestureRecognizer!
     @IBOutlet var directionsBtnView: UIView!
     @IBOutlet var directionsTapGesture: UITapGestureRecognizer!
+    
+    var ingridentsList: [[String?]?] = [
+        ["garlic", "tyme" , "jucie" , "lemon"],
+        ["potato" , "yam"],
+        ["chicken" , "beak" , "grass" , "wheat" , "most important - have fun!"]
+    ]
+    var ingridentsHeaderTitles = ["for the marindae", "for the souch", "for the chicken"]
+    
+    
+    @IBOutlet var ingridentsTable: UITableView!
+    
+    
     
     
     var numofRecipie = ""
@@ -29,6 +44,8 @@ class RecipeDetailsViewController: UIViewController {
         
         self.navigationItem.title = recipeHeader?.title! // TODO: configure this according to the title of the recipe
         
+        ingridentsTable.delegate = self
+        ingridentsTable.dataSource = self
     }
     
     @objc func showIngridents() {
@@ -56,6 +73,27 @@ class RecipeDetailsViewController: UIViewController {
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
+    }
+    
+    func numberOfSections(in tableView: UITableView) -> Int {
+        return 3
+    }
+    
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        guard let IngridentsInThisSection = ingridentsList[section] else {
+            return 0
+        }
+        return IngridentsInThisSection.count
+    }
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cell = tableView.dequeueReusableCell(withIdentifier: "ingrident_cell") as! IngridientTableViewCell
+        cell.ingridentDescription.text = ingridentsList[indexPath.section]?[indexPath.row]
+        return cell
+    }
+    
+    func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
+       return ingridentsHeaderTitles[section]
     }
     
     
