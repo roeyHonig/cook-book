@@ -9,6 +9,9 @@
 import UIKit
 
 class RecipeDetailsViewController: UIViewController {
+    @IBOutlet var ingridentsBtnView: UIView!
+    @IBOutlet var ingridentsTapGesture: UITapGestureRecognizer!
+    
     var numofRecipie = ""
     
     var recipeHeader: RecipeHeader?
@@ -16,8 +19,15 @@ class RecipeDetailsViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
+        ingridentsTapGesture.addTarget(self, action: #selector(someAction))
+        ingridentsBtnView.addGestureRecognizer(ingridentsTapGesture)
+        
         self.navigationItem.title = recipeHeader?.title! // TODO: configure this according to the title of the recipe
         
+    }
+    
+    @objc func someAction() {
+        print("ingridents was pressed")
     }
     
     override func willMove(toParentViewController parent: UIViewController?) {
