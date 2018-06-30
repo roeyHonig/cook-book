@@ -10,12 +10,11 @@ import UIKit
 
 class RecipeDetailsViewController: UIViewController {
     var numofRecipie = ""
-    @IBOutlet weak var lab: UILabel!
+    
     var recipeHeader: RecipeHeader?
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        lab.text = "You selected recipiy# : \(numofRecipie)"
         // Do any additional setup after loading the view.
         self.navigationItem.title = recipeHeader?.title! // TODO: configure this according to the title of the recipe
         
