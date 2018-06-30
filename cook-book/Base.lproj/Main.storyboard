@@ -272,6 +272,10 @@
                                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="lcz-n4-VWW" userLabel="directionsBtn">
                                                         <rect key="frame" x="37.5" y="0.0" width="37.5" height="38"/>
                                                         <color key="backgroundColor" red="0.80000001190000003" green="0.80000001190000003" blue="0.80000001190000003" alpha="1" colorSpace="calibratedRGB"/>
+                                                        <gestureRecognizers/>
+                                                        <connections>
+                                                            <outletCollection property="gestureRecognizers" destination="5Cd-oZ-bCS" appends="YES" id="uaM-Sw-gZM"/>
+                                                        </connections>
                                                     </view>
                                                 </subviews>
                                             </stackView>
@@ -308,12 +312,15 @@
                         <viewLayoutGuide key="safeArea" id="AXb-pI-aM6"/>
                     </view>
                     <connections>
+                        <outlet property="directionsBtnView" destination="lcz-n4-VWW" id="y6J-Zl-ad7"/>
+                        <outlet property="directionsTapGesture" destination="5Cd-oZ-bCS" id="kx7-Qc-GTh"/>
                         <outlet property="ingridentsBtnView" destination="7vg-e6-Mr5" id="zip-uT-em1"/>
                         <outlet property="ingridentsTapGesture" destination="r1J-bL-88c" id="fM0-uC-005"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="253-MQ-322" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <tapGestureRecognizer id="r1J-bL-88c"/>
+                <tapGestureRecognizer id="5Cd-oZ-bCS"/>
             </objects>
             <point key="canvasLocation" x="-1327.2" y="815.44227886056979"/>
         </scene>
