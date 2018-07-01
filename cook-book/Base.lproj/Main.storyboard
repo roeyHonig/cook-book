@@ -252,11 +252,56 @@
                                 <rect key="frame" x="0.0" y="64" width="375" height="554"/>
                             </imageView>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="n0j-XY-3Lp" userLabel="sliderControl">
-                                <rect key="frame" x="0.0" y="264" width="375" height="55.5"/>
+                                <rect key="frame" x="0.0" y="114" width="375" height="55.5"/>
+                                <subviews>
+                                    <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="YTh-V4-t4H">
+                                        <rect key="frame" x="0.0" y="0.0" width="375" height="55.5"/>
+                                        <subviews>
+                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="fFo-j2-9aI">
+                                                <rect key="frame" x="0.0" y="0.0" width="53.5" height="55.5"/>
+                                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                            </view>
+                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="lGj-gn-eBE">
+                                                <rect key="frame" x="53.5" y="0.0" width="53.5" height="55.5"/>
+                                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                            </view>
+                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="maK-zJ-GDi">
+                                                <rect key="frame" x="107" y="0.0" width="53.5" height="55.5"/>
+                                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                            </view>
+                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="23n-ZM-mYK">
+                                                <rect key="frame" x="160.5" y="0.0" width="54" height="55.5"/>
+                                                <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                                                <gestureRecognizers/>
+                                                <connections>
+                                                    <outletCollection property="gestureRecognizers" destination="E7p-aC-SQW" appends="YES" id="p1A-Bh-lij"/>
+                                                </connections>
+                                            </view>
+                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="3eE-aa-Oe7">
+                                                <rect key="frame" x="214.5" y="0.0" width="53.5" height="55.5"/>
+                                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                            </view>
+                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="iOn-79-HpZ">
+                                                <rect key="frame" x="268" y="0.0" width="53.5" height="55.5"/>
+                                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                            </view>
+                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="I3k-Cd-Qha">
+                                                <rect key="frame" x="321.5" y="0.0" width="53.5" height="55.5"/>
+                                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                            </view>
+                                        </subviews>
+                                    </stackView>
+                                </subviews>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstItem="YTh-V4-t4H" firstAttribute="top" secondItem="n0j-XY-3Lp" secondAttribute="top" id="KvM-vb-1O1"/>
+                                    <constraint firstItem="YTh-V4-t4H" firstAttribute="leading" secondItem="n0j-XY-3Lp" secondAttribute="leading" id="MRx-J7-cPN"/>
+                                    <constraint firstAttribute="bottom" secondItem="YTh-V4-t4H" secondAttribute="bottom" id="T8I-Dl-9Q1"/>
+                                    <constraint firstAttribute="trailing" secondItem="YTh-V4-t4H" secondAttribute="trailing" id="ktw-B8-Je3"/>
+                                </constraints>
                             </view>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="eeJ-fZ-PBc">
-                                <rect key="frame" x="0.0" y="319.5" width="375" height="37.5"/>
+                                <rect key="frame" x="0.0" y="169.5" width="375" height="37.5"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="o9g-vN-sf0" userLabel="left">
                                         <rect key="frame" x="0.0" y="0.0" width="300" height="37.5"/>
@@ -319,7 +364,7 @@
                             <constraint firstItem="n0j-XY-3Lp" firstAttribute="width" secondItem="BeK-QD-9mD" secondAttribute="width" id="aEE-a4-ujc"/>
                             <constraint firstItem="eeJ-fZ-PBc" firstAttribute="height" secondItem="BeK-QD-9mD" secondAttribute="width" multiplier="0.1" id="aMj-OU-vQo"/>
                             <constraint firstItem="T5p-MA-gFT" firstAttribute="leading" secondItem="AXb-pI-aM6" secondAttribute="leading" id="fdo-Vx-RIm"/>
-                            <constraint firstItem="n0j-XY-3Lp" firstAttribute="top" secondItem="AXb-pI-aM6" secondAttribute="top" constant="200" id="qyp-am-Oqx"/>
+                            <constraint firstItem="n0j-XY-3Lp" firstAttribute="top" secondItem="AXb-pI-aM6" secondAttribute="top" constant="50" id="qyp-am-Oqx"/>
                             <constraint firstItem="eeJ-fZ-PBc" firstAttribute="width" secondItem="BeK-QD-9mD" secondAttribute="width" id="sf8-6Y-CZu"/>
                             <constraint firstItem="eeJ-fZ-PBc" firstAttribute="leading" secondItem="AXb-pI-aM6" secondAttribute="leading" id="t6d-Nq-8io"/>
                             <constraint firstItem="AXb-pI-aM6" firstAttribute="bottom" secondItem="T5p-MA-gFT" secondAttribute="bottom" id="x7b-qi-xJU"/>
@@ -334,6 +379,9 @@
                         <outlet property="ingridentsTable" destination="me8-Yo-xuD" id="RKR-7p-O4c"/>
                         <outlet property="ingridentsTapGesture" destination="r1J-bL-88c" id="fM0-uC-005"/>
                         <outlet property="recipeHeaderView" destination="eeJ-fZ-PBc" id="xxR-uL-AkB"/>
+                        <outlet property="sliderControllerBtn" destination="23n-ZM-mYK" id="8vS-GC-w4K"/>
+                        <outlet property="sliderControllerBtnTapGesture" destination="E7p-aC-SQW" id="nOI-RE-Uci"/>
+                        <outlet property="sliderPosition" destination="qyp-am-Oqx" id="Dnr-v3-eoB"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="253-MQ-322" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -371,6 +419,7 @@
                 </tableView>
                 <tapGestureRecognizer id="r1J-bL-88c"/>
                 <tapGestureRecognizer id="5Cd-oZ-bCS"/>
+                <tapGestureRecognizer id="E7p-aC-SQW"/>
             </objects>
             <point key="canvasLocation" x="-1410.4000000000001" y="1347.9760119940031"/>
         </scene>

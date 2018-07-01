@@ -10,7 +10,10 @@ import UIKit
 
 class RecipeDetailsViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
     
+    @IBOutlet var sliderControllerBtnTapGesture: UITapGestureRecognizer!
+    @IBOutlet var sliderPosition: NSLayoutConstraint!
     
+    @IBOutlet var sliderControllerBtn: UIView!
     @IBOutlet var recipeHeaderView: UIView!
     
     @IBOutlet var backgroundImage: UIImageView!
@@ -44,13 +47,21 @@ class RecipeDetailsViewController: UIViewController, UITableViewDelegate, UITabl
         ingridentsBtnView.addGestureRecognizer(ingridentsTapGesture)
         directionsTapGesture.addTarget(self, action: #selector(showDirections))
         directionsBtnView.addGestureRecognizer(directionsTapGesture)
+        sliderControllerBtnTapGesture.addTarget(self, action: #selector(slideAction))
+        sliderControllerBtn.addGestureRecognizer(sliderControllerBtnTapGesture)
         
         self.navigationItem.title = recipeHeader?.title! // TODO: configure this according to the title of the recipe
         
         ingridentsTable.delegate = self
         ingridentsTable.dataSource = self
         
+        sliderPosition.constant  = 300
         
+        
+    }
+    
+    @objc func slideAction() {
+        print("sliding commence")
     }
     
     @objc func showIngridents() {
