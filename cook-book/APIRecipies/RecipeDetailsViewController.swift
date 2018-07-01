@@ -10,7 +10,7 @@ import UIKit
 
 class RecipeDetailsViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
     
-    @IBOutlet var testView: UIView!
+    
     @IBOutlet var recipeHeaderView: UIView!
     
     @IBOutlet var backgroundImage: UIImageView!
@@ -49,52 +49,32 @@ class RecipeDetailsViewController: UIViewController, UITableViewDelegate, UITabl
         
         ingridentsTable.delegate = self
         ingridentsTable.dataSource = self
+        
+        
     }
     
     @objc func showIngridents() {
         print("ingridents was pressed")
         
-        /*
         // show the table view
         self.view.addSubview(ingridentsTable)
         
         // constraints
-        //let tableViewConstraintTop = NSLayoutConstraint(item: ingridentsTable, attribute: NSLayoutAttribute.top, relatedBy: .equal, toItem: recipeHeaderView, attribute: NSLayoutAttribute.bottom , multiplier: 1, constant: 0)
-        //let tableViewConstraintBottom = NSLayoutConstraint(item: ingridentsTable, attribute: NSLayoutAttribute.bottom, relatedBy: .equal, toItem: backgroundImage, attribute: NSLayoutAttribute.bottom , multiplier: 1, constant: 0)
+        let tableViewConstraintTop = NSLayoutConstraint(item: ingridentsTable, attribute: NSLayoutAttribute.top, relatedBy: .equal, toItem: recipeHeaderView, attribute: NSLayoutAttribute.bottom , multiplier: 1, constant: 0)
+        let tableViewConstraintBottom = NSLayoutConstraint(item: ingridentsTable, attribute: NSLayoutAttribute.bottom, relatedBy: .equal, toItem: backgroundImage, attribute: NSLayoutAttribute.bottom , multiplier: 1, constant: 0)
         let tableViewConstraintLeft = NSLayoutConstraint(item: ingridentsTable, attribute: NSLayoutAttribute.trailing, relatedBy: .equal, toItem: recipeHeaderView, attribute: NSLayoutAttribute.trailing , multiplier: 1, constant: 0)
         let tableViewConstraintRight = NSLayoutConstraint(item: ingridentsTable, attribute: NSLayoutAttribute.leading, relatedBy: .equal, toItem: recipeHeaderView, attribute: NSLayoutAttribute.leading , multiplier: 1, constant: 0)
-        // Activate and assign the constraints
-       NSLayoutConstraint.activate([/*tableViewConstraintTop, tableViewConstraintBottom,*/ tableViewConstraintLeft, tableViewConstraintRight])
+       
+       
+        // very important!!!, otherwise the initial dimenstions becomes constraint themself and override our deseiered constraints
+        ingridentsTable.translatesAutoresizingMaskIntoConstraints = false
         
-        //self.view.addConstraint(tableViewConstraintTop)
-        //self.view.addConstraint(tableViewConstraintBottom)
+        // assign the constraint to a coummon annssector
+        self.view.addConstraint(tableViewConstraintTop)
+        self.view.addConstraint(tableViewConstraintBottom)
         self.view.addConstraint(tableViewConstraintLeft)
         self.view.addConstraint(tableViewConstraintRight)
  
-         */
-        
-        // show the table view
-        self.view.addSubview(testView)
-        
-        
-        // constraints
-        let tableViewConstraint1 = NSLayoutConstraint(item: testView, attribute: NSLayoutAttribute.width, relatedBy: .equal, toItem: self.view, attribute: NSLayoutAttribute.width , multiplier: 0.5, constant: 0)
-         let tableViewConstraint2 = NSLayoutConstraint(item: testView, attribute: NSLayoutAttribute.height, relatedBy: .equal, toItem: self.view, attribute: NSLayoutAttribute.height , multiplier: 0.5, constant: 0)
-        let tableViewConstraint3 = NSLayoutConstraint(item: testView, attribute: NSLayoutAttribute.top, relatedBy: .equal, toItem: recipeHeaderView, attribute: NSLayoutAttribute.bottom , multiplier: 1, constant: 0)
-        
-        // Activate and assign the constraints
-        NSLayoutConstraint.activate([tableViewConstraint1, tableViewConstraint2, tableViewConstraint3 ])
-        testView.translatesAutoresizingMaskIntoConstraints = false
-        
-        
-        self.view.addConstraint(tableViewConstraint1)
-        self.view.addConstraint(tableViewConstraint2)
-        self.view.addConstraint(tableViewConstraint3)
-        
-        testView.frame.origin.x = 0
-        
-        
-        
     }
     
     @objc func showDirections() {

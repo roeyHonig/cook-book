@@ -326,17 +326,10 @@
                         <outlet property="ingridentsTable" destination="me8-Yo-xuD" id="RKR-7p-O4c"/>
                         <outlet property="ingridentsTapGesture" destination="r1J-bL-88c" id="fM0-uC-005"/>
                         <outlet property="recipeHeaderView" destination="eeJ-fZ-PBc" id="xxR-uL-AkB"/>
-                        <outlet property="testView" destination="8Qy-7v-dVJ" id="2y4-XM-8tH"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="253-MQ-322" userLabel="First Responder" sceneMemberID="firstResponder"/>
-                <view contentMode="scaleToFill" id="8Qy-7v-dVJ">
-                    <rect key="frame" x="0.0" y="0.0" width="240" height="128"/>
-                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                    <color key="backgroundColor" red="1" green="0.25357913100000001" blue="0.96946313760000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                    <viewLayoutGuide key="safeArea" id="Qsz-I3-753"/>
-                </view>
-                <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="me8-Yo-xuD">
+                <tableView clipsSubviews="YES" contentMode="scaleToFill" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="me8-Yo-xuD">
                     <rect key="frame" x="0.0" y="0.0" width="375" height="516.5"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                     <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
