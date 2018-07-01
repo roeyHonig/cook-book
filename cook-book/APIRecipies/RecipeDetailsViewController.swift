@@ -55,13 +55,21 @@ class RecipeDetailsViewController: UIViewController, UITableViewDelegate, UITabl
         ingridentsTable.delegate = self
         ingridentsTable.dataSource = self
         
-        sliderPosition.constant  = 300
+        let yPosition = backgroundImage.frame.height * 0.3
+        sliderPosition.constant  = yPosition
         
         
     }
     
     @objc func slideAction() {
         print("sliding commence")
+        UIView.animate(withDuration: 2) {
+            // animate stuff
+            self.sliderPosition.constant += 30
+            self.view.layoutIfNeeded()
+        }
+        
+        
     }
     
     @objc func showIngridents() {
