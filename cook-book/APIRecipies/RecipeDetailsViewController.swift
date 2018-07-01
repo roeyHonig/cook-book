@@ -10,6 +10,9 @@ import UIKit
 
 class RecipeDetailsViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
     
+    let sliderControlYPositions: [CGFloat] = [0.3 , 0.1 , 0.8]
+    var currentSliderPositionIndex = 0
+    
     @IBOutlet var sliderControllerBtnTapGesture: UITapGestureRecognizer!
     @IBOutlet var sliderPosition: NSLayoutConstraint!
     
@@ -55,7 +58,7 @@ class RecipeDetailsViewController: UIViewController, UITableViewDelegate, UITabl
         ingridentsTable.delegate = self
         ingridentsTable.dataSource = self
         
-        let yPosition = backgroundImage.frame.height * 0.3
+        let yPosition = backgroundImage.frame.height * sliderControlYPositions[currentSliderPositionIndex]
         sliderPosition.constant  = yPosition
         
         
@@ -63,9 +66,19 @@ class RecipeDetailsViewController: UIViewController, UITableViewDelegate, UITabl
     
     @objc func slideAction() {
         print("sliding commence")
-        UIView.animate(withDuration: 2) {
+        UIView.animate(withDuration: 1) {
             // animate stuff
-            self.sliderPosition.constant += 30
+            if self.currentSliderPositionIndex == self.sliderControlYPositions.count - 1 {
+                self.currentSliderPositionIndex = 0
+                let yPosition = self.backgroundImage.frame.height * self.sliderControlYPositions[self.currentSliderPositionIndex]
+                self.sliderPosition.constant  = yPosition
+            } else {
+                self.currentSliderPositionIndex += 1
+                let yPosition = self.backgroundImage.frame.height * self.sliderControlYPositions[self.currentSliderPositionIndex]
+                self.sliderPosition.constant  = yPosition
+            }
+            
+            
             self.view.layoutIfNeeded()
         }
         
