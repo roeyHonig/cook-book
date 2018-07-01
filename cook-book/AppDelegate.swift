@@ -4,7 +4,7 @@
 //
 //  Created by hackeru on 3 Tamuz 5778.
 //  Copyright © 5778 student.roey.honig. All rights reserved.
-// lets bring the cool page
+// lets bring the cool pullUp Controller
 
 import UIKit
 import CoreData
