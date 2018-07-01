@@ -251,8 +251,12 @@
                             <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Poultry.jpg" translatesAutoresizingMaskIntoConstraints="NO" id="T5p-MA-gFT">
                                 <rect key="frame" x="0.0" y="64" width="375" height="554"/>
                             </imageView>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="n0j-XY-3Lp" userLabel="sliderControl">
+                                <rect key="frame" x="0.0" y="264" width="375" height="55.5"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                            </view>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="eeJ-fZ-PBc">
-                                <rect key="frame" x="0.0" y="64" width="375" height="37.5"/>
+                                <rect key="frame" x="0.0" y="319.5" width="375" height="37.5"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="o9g-vN-sf0" userLabel="left">
                                         <rect key="frame" x="0.0" y="0.0" width="300" height="37.5"/>
@@ -309,9 +313,13 @@
                         <constraints>
                             <constraint firstItem="AXb-pI-aM6" firstAttribute="trailing" secondItem="T5p-MA-gFT" secondAttribute="trailing" id="5SX-Yb-kmY"/>
                             <constraint firstItem="T5p-MA-gFT" firstAttribute="top" secondItem="AXb-pI-aM6" secondAttribute="top" id="EFG-c8-SsM"/>
-                            <constraint firstItem="eeJ-fZ-PBc" firstAttribute="top" secondItem="AXb-pI-aM6" secondAttribute="top" id="Xcb-fS-V3B"/>
+                            <constraint firstItem="n0j-XY-3Lp" firstAttribute="leading" secondItem="AXb-pI-aM6" secondAttribute="leading" id="GeL-kq-NCz"/>
+                            <constraint firstItem="n0j-XY-3Lp" firstAttribute="height" secondItem="AXb-pI-aM6" secondAttribute="height" multiplier="0.1" id="Tak-D4-Yt6"/>
+                            <constraint firstItem="eeJ-fZ-PBc" firstAttribute="top" secondItem="n0j-XY-3Lp" secondAttribute="bottom" id="Xcb-fS-V3B"/>
+                            <constraint firstItem="n0j-XY-3Lp" firstAttribute="width" secondItem="BeK-QD-9mD" secondAttribute="width" id="aEE-a4-ujc"/>
                             <constraint firstItem="eeJ-fZ-PBc" firstAttribute="height" secondItem="BeK-QD-9mD" secondAttribute="width" multiplier="0.1" id="aMj-OU-vQo"/>
                             <constraint firstItem="T5p-MA-gFT" firstAttribute="leading" secondItem="AXb-pI-aM6" secondAttribute="leading" id="fdo-Vx-RIm"/>
+                            <constraint firstItem="n0j-XY-3Lp" firstAttribute="top" secondItem="AXb-pI-aM6" secondAttribute="top" constant="200" id="qyp-am-Oqx"/>
                             <constraint firstItem="eeJ-fZ-PBc" firstAttribute="width" secondItem="BeK-QD-9mD" secondAttribute="width" id="sf8-6Y-CZu"/>
                             <constraint firstItem="eeJ-fZ-PBc" firstAttribute="leading" secondItem="AXb-pI-aM6" secondAttribute="leading" id="t6d-Nq-8io"/>
                             <constraint firstItem="AXb-pI-aM6" firstAttribute="bottom" secondItem="T5p-MA-gFT" secondAttribute="bottom" id="x7b-qi-xJU"/>
