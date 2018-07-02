@@ -14,7 +14,7 @@ class RecipiesViewController: UIViewController, UICollectionViewDelegate, UIColl
     
     
     @IBOutlet weak var parentView: UIView! // consider to delete
-    @IBOutlet weak var typeOfRecipiesRec: UIView!  // consider to delete
+    
     @IBOutlet weak var recipiesCollection: UICollectionView!
     let customBackButton = UIBarButtonItem(title: "Back", style: UIBarButtonItemStyle.done, target: self, action: nil)
     @IBOutlet var recipyType: UISegmentedControl!
