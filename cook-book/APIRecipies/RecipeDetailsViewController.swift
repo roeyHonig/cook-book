@@ -150,6 +150,11 @@ class RecipeDetailsViewController: UIViewController, UITableViewDelegate, UITabl
            cell.contentView.backgroundColor = UIColor.white
         }
         
+        guard var newTextWithBulletain = cell.ingridentDescription.text else {
+            return cell
+        }
+        newTextWithBulletain = "• " + newTextWithBulletain
+        cell.ingridentDescription.text = newTextWithBulletain
         return cell
     }
     
