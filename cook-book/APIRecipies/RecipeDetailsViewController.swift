@@ -32,7 +32,7 @@ class RecipeDetailsViewController: UIViewController, UITableViewDelegate, UITabl
         ["chicken" , "beak" , "grass" , "wheat" , "most important - have fun!"]
     ]
     var ingridentsHeaderTitles = ["for the marindae", "for the souch", "for the chicken"]
-    var evenCellItem = true // a boolean for marking even cell of the ingridents table
+    
     
     @IBOutlet var ingridentsTable: UITableView!
     
@@ -144,12 +144,11 @@ class RecipeDetailsViewController: UIViewController, UITableViewDelegate, UITabl
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "ingrident_cell") as! IngridientTableViewCell
         cell.ingridentDescription.text = ingridentsList[indexPath.section]?[indexPath.row]
-        if evenCellItem {
+        
+        if indexPath.row % 2 == 0 {
             cell.contentView.backgroundColor = UIColor.gray
-            evenCellItem = false
         } else {
            cell.contentView.backgroundColor = UIColor.white
-            evenCellItem = true
         }
         
         return cell
