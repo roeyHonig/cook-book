@@ -41,6 +41,29 @@ struct RecipeHeaderAPI: Codable {
     var rows: [RecipeHeader]
 }
 
+
+
+struct RecipeIngridents: Codable {
+    var recipe_id: Int?
+    var description1: [String?]
+    var description2: [String?]
+    var description3: [String?]
+    var id: Int
+    
+    enum codingKeys: String, CodingKey {
+        case recipe_id = "recipe id# for which this ingridents list reffers to"
+        case description1 = "Ingredients list1"
+        case description2 = "Ingredients list2"
+        case description3 = "Ingredients list3"
+        case id = "id"
+    }
+}
+
+
+struct RecipeIngridentsAPI: Codable {
+    var rows: [RecipeIngridents]
+}
+
 // https://enigmatic-oasis-37206.herokuapp.com/select?table_name=recipes_draft1&col_name=type_of_recipe&value=Pork
 
 
