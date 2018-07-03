@@ -10,7 +10,7 @@ import UIKit
 
 class RecipeDetailsViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
     
-    let sliderControlYPositions: [CGFloat] = [0.3 , 0.1 , 0.8]
+    let sliderControlYPositions: [CGFloat] = [0.5 , 0.2 , 1]
     var currentSliderPositionIndex = 0
     
     @IBOutlet var sliderControllerBtnTapGesture: UITapGestureRecognizer!
@@ -58,7 +58,7 @@ class RecipeDetailsViewController: UIViewController, UITableViewDelegate, UITabl
         ingridentsTable.delegate = self
         ingridentsTable.dataSource = self
         
-        let yPosition = backgroundImage.frame.height * sliderControlYPositions[currentSliderPositionIndex]
+        let yPosition = backgroundImage.frame.height * sliderControlYPositions[currentSliderPositionIndex] - recipeHeaderView.frame.height - sliderControllerBtn.frame.height
         sliderPosition.constant  = yPosition
         
         
@@ -70,15 +70,12 @@ class RecipeDetailsViewController: UIViewController, UITableViewDelegate, UITabl
             // animate stuff
             if self.currentSliderPositionIndex == self.sliderControlYPositions.count - 1 {
                 self.currentSliderPositionIndex = 0
-                let yPosition = self.backgroundImage.frame.height * self.sliderControlYPositions[self.currentSliderPositionIndex]
-                self.sliderPosition.constant  = yPosition
             } else {
                 self.currentSliderPositionIndex += 1
-                let yPosition = self.backgroundImage.frame.height * self.sliderControlYPositions[self.currentSliderPositionIndex]
-                self.sliderPosition.constant  = yPosition
             }
             
-            
+            let yPosition = self.backgroundImage.frame.height * self.sliderControlYPositions[self.currentSliderPositionIndex] - self.recipeHeaderView.frame.height - self.sliderControllerBtn.frame.height
+            self.sliderPosition.constant  = yPosition
             self.view.layoutIfNeeded()
         }
         
