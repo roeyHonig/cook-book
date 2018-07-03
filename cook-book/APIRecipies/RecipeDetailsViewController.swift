@@ -31,13 +31,11 @@ class RecipeDetailsViewController: UIViewController, UITableViewDelegate, UITabl
         ["potato" , "yam"],
         ["chicken" , "beak" , "grass" , "wheat" , "most important - have fun!"]
     ]
-    var ingridentsHeaderTitles = ["for the marindae", "for the souch", "for the chicken"]
     
+    var ingridentsHeaderTitles: [String?] = Array(repeating: nil, count: 3)
+  
     
     @IBOutlet var ingridentsTable: UITableView!
-    
-    
-    
     
     var numofRecipie = ""
     
@@ -60,6 +58,8 @@ class RecipeDetailsViewController: UIViewController, UITableViewDelegate, UITabl
         
         let yPosition = backgroundImage.frame.height * sliderControlYPositions[currentSliderPositionIndex] - recipeHeaderView.frame.height - sliderControllerBtn.frame.height
         sliderPosition.constant  = yPosition
+        
+        ingridentsHeaderTitles = ["for the marindae", "for the souch", "for the chicken"] // TODO: init should come from the db via previus VC
         
         
     }
@@ -155,6 +155,7 @@ class RecipeDetailsViewController: UIViewController, UITableViewDelegate, UITabl
     }
     
     func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
+        
        return ingridentsHeaderTitles[section]
     }
     
