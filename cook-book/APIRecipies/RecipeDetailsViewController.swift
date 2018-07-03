@@ -119,6 +119,7 @@ class RecipeDetailsViewController: UIViewController, UITableViewDelegate, UITabl
             // the back button was pressed - returning to the RecipesViewController
             let font = UIFont(name: "Helvetica", size: 42)! // TODO: it might be wise to provide some fallback fonts in case not all devices carry this
             self.navigationController?.navigationBar.titleTextAttributes = [ NSAttributedStringKey.font: font]
+            backgroundImage.alpha = 0 // otherwise the image lingers
         }
     }
     
