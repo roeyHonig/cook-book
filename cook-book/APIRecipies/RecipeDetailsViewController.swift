@@ -26,7 +26,7 @@ class RecipeDetailsViewController: UIViewController, UITableViewDelegate, UITabl
     @IBOutlet var directionsBtnView: UIView!
     @IBOutlet var directionsTapGesture: UITapGestureRecognizer!
     
-    var ingridentsList: [[String?]] = [[],[],[]]
+    var ingridentsList: [[String?]?] = [[],[],[]]
     
     
     var ingridentsHeaderTitles: [String?] = Array(repeating: nil, count: 3)
@@ -56,14 +56,18 @@ class RecipeDetailsViewController: UIViewController, UITableViewDelegate, UITabl
         let yPosition = backgroundImage.frame.height * sliderControlYPositions[currentSliderPositionIndex] - recipeHeaderView.frame.height - sliderControllerBtn.frame.height
         sliderPosition.constant  = yPosition
         
-        // TODO: init should come from the db via previus VC
-        ingridentsHeaderTitles = ["for the marindae", "for the souch", "for the chicken"]
-        ingridentsList = [
-                         ["garlic", "tyme" , "jucie" , "lemon"],
-                         ["potato" , "yam"],
-                         ["chicken" , "beak" , "grass" , "wheat" , "most important - have fun!"]
-         ]
-        
+        // init from the db via previus VC
+        guard let theCurrentRecipy = recipeHeader else {
+            ingridentsHeaderTitles = ["for the marindae", "for the souch", "for the chicken"]
+            ingridentsList = [
+                ["garlic", "tyme" , "jucie" , "lemon"],
+                ["potato" , "yam"],
+                ["chicken" , "beak" , "grass" , "wheat" , "most important - have fun!"]
+            ]
+            return
+        }
+        ingridentsHeaderTitles = [theCurrentRecipy.ingredient_header1, theCurrentRecipy.ingredient_header2, theCurrentRecipy.ingredient_header3]
+        ingridentsList = [theCurrentRecipy.list1 , theCurrentRecipy.list2, theCurrentRecipy.list3]
     }
     
     @objc func slideAction() {
@@ -137,12 +141,16 @@ class RecipeDetailsViewController: UIViewController, UITableViewDelegate, UITabl
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return ingridentsList[section].count
+       // return ingridentsList[section].count
+        guard let numOfIngridentsInThisSection = ingridentsList[section]?.count else {
+            return 0
+        }
+        return numOfIngridentsInThisSection
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "ingrident_cell") as! IngridientTableViewCell
-        cell.ingridentDescription.text = ingridentsList[indexPath.section][indexPath.row]
+        cell.ingridentDescription.text = ingridentsList[indexPath.section]?[indexPath.row]
         
         if indexPath.row % 2 == 0 {
             cell.contentView.backgroundColor = UIColor.gray

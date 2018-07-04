@@ -49,16 +49,11 @@ class RecipiesViewController: UIViewController, UICollectionViewDelegate, UIColl
  
     func retriveData(for table_col_value: String){
         getRecipeHeaderAPI(typeOfRecipyQuery: table_col_value) { (recipeHeaderApi) in
-            
             self.recipHeaderApi = recipeHeaderApi
-            
-            
             self.recipiesCollection.reloadData()
- 
         }
     }
    
-    
     // we've manually configuered this func to return the CGSize we want for the cells in the collection view - and not the hardcoded dimension
     // in the storyboard IB
     // the cell frame will be of size with respect to the device screen size and there will be 2 cells columbs
