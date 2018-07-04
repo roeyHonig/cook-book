@@ -78,9 +78,7 @@ class RecipiesViewController: UIViewController, UICollectionViewDelegate, UIColl
     }
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        if recipeImagesUrls.count > 0 {
-            return recipeImagesUrls.count
-        }
+        
         
         guard let totalNumOfRecipesInCollection = recipHeaderApi?.rows.count else {
             return 0
