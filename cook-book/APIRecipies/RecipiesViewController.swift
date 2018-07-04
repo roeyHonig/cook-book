@@ -61,7 +61,7 @@ class RecipiesViewController: UIViewController, UICollectionViewDelegate, UIColl
                 }
             }
             
-            //self.recipiesCollection.reloadData()
+            self.recipiesCollection.reloadData()
  
         }
     }
