@@ -78,8 +78,6 @@ class RecipiesViewController: UIViewController, UICollectionViewDelegate, UIColl
     }
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        
-        
         guard let totalNumOfRecipesInCollection = recipHeaderApi?.rows.count else {
             return 0
         }
@@ -91,12 +89,20 @@ class RecipiesViewController: UIViewController, UICollectionViewDelegate, UIColl
         cell.lab.text = "\(indexPath.row)"
         cell.recipeHeader = self.recipHeaderApi?.rows[indexPath.row]
         
+        /*
         if recipeImagesUrls.count > 0 {
             if recipeImagesUrls[indexPath.row] == "defult" {
                 cell.recipeImage.image = #imageLiteral(resourceName: "icons8-cooking_pot_filled")
             } else {
                 cell.recipeImage.sd_setImage(with: URL(string: recipeImagesUrls[indexPath.row]) , completed: nil)
             }
+        }
+        */
+        
+        if let rotem = recipHeaderApi?.rows[indexPath.row].img {
+            cell.recipeImage.sd_setImage(with: URL(string: rotem) , completed: nil)
+        } else {
+            cell.recipeImage.image = #imageLiteral(resourceName: "icons8-cooking_pot_filled")
         }
         
         // change this values if you want to control the width of the yellow (background color for the entire cell) "frame" effect surronding the cell contentview
