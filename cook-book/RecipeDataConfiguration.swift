@@ -11,27 +11,35 @@ import Foundation
 struct RecipeHeader: Codable {
     var title: String?
     var img: String?
-    var type_of_recipe: String?
-    var Prep_Time: Int?
-    var Cook_Time: Int?
-    var Serving: Int?
-    var Author: String?
-    var Ingredient_Header1: String?
-    var Ingredient_Header2: String?
-    var Ingredient_Header3: String?
+    var recipe_type: String?
+    var prep_time: Int?
+    var cook_time: Int?
+    var serving: Int?
+    var author: String?
+    var ingredient_header1: String?
+    var ingredient_header2: String?
+    var ingredient_header3: String?
+    var list1: [String]?
+    var list2: [String]?
+    var list3: [String]?
+    var directions: String?
     var id: Int
     
     enum codingKeys: String, CodingKey {
         case title = "title"
         case img = "img"
-        case type_of_recipe = "type_of_recipe?"
-        case Prep_Time = "Prep_Time"
-        case Cook_Time = "Cook_Time"
-        case Serving = "Serving"
-        case Author = "Author"
-        case Ingredient_Header1 = "Ingredient_Header1"
-        case Ingredient_Header2 = "Ingredient_Header2"
-        case Ingredient_Header3 = "Ingredient_Header3"
+        case recipe_type = "recipe_type"
+        case prep_time = "prep_time"
+        case cook_time = "cook_time"
+        case serving = "serving"
+        case author = "author"
+        case ingredient_header1 = "ingredient_header1"
+        case ingredient_header2 = "ingredient_header2"
+        case ingredient_header3 = "ingredient_header3"
+        case list1 = "list1"
+        case list2 = "list2"
+        case list3 = "list3"
+        case directions = "directions"
         case id = "id"
     }
 }
@@ -41,28 +49,6 @@ struct RecipeHeaderAPI: Codable {
     var rows: [RecipeHeader]
 }
 
-
-
-struct RecipeIngridents: Codable {
-    var recipe_id: Int?
-    var description1: [String?]
-    var description2: [String?]
-    var description3: [String?]
-    var id: Int
-    
-    enum codingKeys: String, CodingKey {
-        case recipe_id = "recipe id# for which this ingridents list reffers to"
-        case description1 = "Ingredients list1"
-        case description2 = "Ingredients list2"
-        case description3 = "Ingredients list3"
-        case id = "id"
-    }
-}
-
-
-struct RecipeIngridentsAPI: Codable {
-    var rows: [RecipeIngridents]
-}
 
 // https://enigmatic-oasis-37206.herokuapp.com/select?table_name=recipes_draft1&col_name=type_of_recipe&value=Pork
 
@@ -74,7 +60,7 @@ typealias Json = Dictionary<String, Any>
 
 func getRecipeHeaderAPI(typeOfRecipyQuery: String,callback: @escaping (RecipeHeaderAPI)-> Void) {
     // This adress will select from the table "recipes_draft1" where the columb "type_of_recipe" is equal to ?  we have to append that value
-    let apiAddress = "https://enigmatic-oasis-37206.herokuapp.com/select?table_name=recipes_draft1&col_name=type_of_recipe&value=\(typeOfRecipyQuery)"
+    let apiAddress = "https://enigmatic-oasis-37206.herokuapp.com/select?table_name=recipes_draft2&col_name=recipe_type&value=\(typeOfRecipyQuery)"
     let apiUrl = URL(string: apiAddress)!
     
     session.dataTask(with: apiUrl) { (data, res, err) in
