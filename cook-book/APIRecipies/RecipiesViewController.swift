@@ -19,7 +19,7 @@ class RecipiesViewController: UIViewController, UICollectionViewDelegate, UIColl
     let customBackButton = UIBarButtonItem(title: "Back", style: UIBarButtonItemStyle.done, target: self, action: nil)
     @IBOutlet var recipyType: UISegmentedControl!
     
-    var recipeImagesUrls : [String] = []
+    
     var recipHeaderApi: RecipeHeaderAPI?
     
     override func viewDidLoad() {
@@ -49,17 +49,9 @@ class RecipiesViewController: UIViewController, UICollectionViewDelegate, UIColl
  
     func retriveData(for table_col_value: String){
         getRecipeHeaderAPI(typeOfRecipyQuery: table_col_value) { (recipeHeaderApi) in
-            self.recipeImagesUrls.removeAll()
+            
             self.recipHeaderApi = recipeHeaderApi
             
-            for recipe in recipeHeaderApi.rows {
-                if let image = recipe.img {
-                    self.recipeImagesUrls.append(image)
-                }
-                else {
-                    self.recipeImagesUrls.append("defult")
-                }
-            }
             
             self.recipiesCollection.reloadData()
  
@@ -89,16 +81,7 @@ class RecipiesViewController: UIViewController, UICollectionViewDelegate, UIColl
         cell.lab.text = "\(indexPath.row)"
         cell.recipeHeader = self.recipHeaderApi?.rows[indexPath.row]
         
-        /*
-        if recipeImagesUrls.count > 0 {
-            if recipeImagesUrls[indexPath.row] == "defult" {
-                cell.recipeImage.image = #imageLiteral(resourceName: "icons8-cooking_pot_filled")
-            } else {
-                cell.recipeImage.sd_setImage(with: URL(string: recipeImagesUrls[indexPath.row]) , completed: nil)
-            }
-        }
-        */
-        
+       
         if let rotem = recipHeaderApi?.rows[indexPath.row].img {
             cell.recipeImage.sd_setImage(with: URL(string: rotem) , completed: nil)
         } else {
