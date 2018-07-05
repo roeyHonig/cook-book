@@ -62,12 +62,14 @@ var myDataTask: URLSessionDataTask?
 // we can give it an alias , a nickname we know
 typealias Json = Dictionary<String, Any>
 
-func getRecipeHeaderAPI(typeOfRecipyQuery: String,callback: @escaping (RecipeHeaderAPI, String , Int)-> Void) {
+func getRecipeHeaderAPI(typeOfRecipyQuery: String , limit: Int, offset: Int,callback: @escaping (RecipeHeaderAPI, String , Int)-> Void) {
     
     myDataTask?.cancel() // cancel any previus tasks
     
-    // This adress will select from the table "recipes_draft1" where the columb "type_of_recipe" is equal to ?  we have to append that value
-    let apiAddress = "https://enigmatic-oasis-37206.herokuapp.com/select?table_name=recipes_draft2&col_name=recipe_type&value=\(typeOfRecipyQuery)"
+    // This adress will select from the table "recipes_draft2" where the columb "recipe_type" is equal to ?  we have to append that value
+    // also we have to append the limit and offset values
+    //https://enigmatic-oasis-37206.herokuapp.com/select?table_name=recipes_draft2&col_name=recipe_type&value=Pork&limit=3&offset=0
+    let apiAddress = "https://enigmatic-oasis-37206.herokuapp.com/select?table_name=recipes_draft2&col_name=recipe_type&value=\(typeOfRecipyQuery)&limit=\(limit)&offset=\(offset)"
     let apiUrl = URL(string: apiAddress)!
     
     myDataTask = session.dataTask(with: apiUrl) { (data, res, err) in

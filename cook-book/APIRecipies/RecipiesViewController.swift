@@ -20,6 +20,7 @@ class RecipiesViewController: UIViewController, UICollectionViewDelegate, UIColl
     var recipHeaderApi: RecipeHeaderAPI? // will be used as the DataSource for the collection
     var recipes: [String: RecipeHeaderAPI?] = ["Beef":nil,"Pork" :nil,"Poultry":nil,"Seafood":nil,"Vegetarian":nil,"Side_Dish":nil,"Salad":nil,"Dessert":nil]
     
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
@@ -32,6 +33,7 @@ class RecipiesViewController: UIViewController, UICollectionViewDelegate, UIColl
         recipiesCollection.dataSource = self
         
         retriveData(for: "Beef")
+        
     }
     
     func navigationController(_ navigationController: UINavigationController, willShow viewController: UIViewController, animated: Bool) {
@@ -49,8 +51,15 @@ class RecipiesViewController: UIViewController, UICollectionViewDelegate, UIColl
         //TODO go imiddiatell to what we have so far and reload data
         self.recipHeaderApi = recipes[table_col_value]! // i'm assuming that table_col_value conforms to 1 of the predefined keys of the dictionary
         self.recipiesCollection.reloadData()
+       
+        // how many db results do we want and freom where to count them
+        let limit = 3
+        var offset = 0
+        if let temp = self.recipHeaderApi {
+            offset = temp.rows.count
+        }
         
-        getRecipeHeaderAPI(typeOfRecipyQuery: table_col_value) { (recipeHeaderApi , theRecipyType, stateCodeForTheTask) in
+        getRecipeHeaderAPI(typeOfRecipyQuery: table_col_value, limit: limit, offset: offset) { (recipeHeaderApi , theRecipyType, stateCodeForTheTask) in
             if self.recipes[theRecipyType]! == nil {
                 // there is no data
                 self.recipes[theRecipyType]! = recipeHeaderApi
