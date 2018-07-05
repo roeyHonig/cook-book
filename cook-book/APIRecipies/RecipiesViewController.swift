@@ -92,15 +92,18 @@ class RecipiesViewController: UIViewController, UICollectionViewDelegate, UIColl
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "singleRecipe", for: indexPath) as! RecipeCollectionViewCell
-        cell.lab.text = "\(indexPath.row)"
+        cell.lab.text = "DB id# \(self.recipHeaderApi?.rows[indexPath.row].id ?? 0)"
         cell.recipeHeader = self.recipHeaderApi?.rows[indexPath.row]
         
        
-        if let rotem = recipHeaderApi?.rows[indexPath.row].img {
-            cell.recipeImage.sd_setImage(with: URL(string: rotem) , completed: nil)
+        if let imgString = recipHeaderApi?.rows[indexPath.row].img {
+            cell.recipeImage.sd_setImage(with: URL(string: imgString) , completed: nil)
         } else {
             cell.recipeImage.image = #imageLiteral(resourceName: "icons8-cooking_pot_filled")
         }
+        
+        cell.recipeImage.alpha = 0.1//TODO: just a test delete this
+        
         
         // change this values if you want to control the width of the yellow (background color for the entire cell) "frame" effect surronding the cell contentview
         cell.contentView.layoutMargins.bottom = 2
