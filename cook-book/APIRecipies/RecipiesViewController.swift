@@ -14,12 +14,13 @@ class RecipiesViewController: UIViewController, UICollectionViewDelegate, UIColl
     
     @IBOutlet weak var parentView: UIView! // consider to delete
     @IBOutlet weak var recipiesCollection: UICollectionView!
+    let myRefreshControl = UIRefreshControl()
     let customBackButton = UIBarButtonItem(title: "Back", style: UIBarButtonItemStyle.done, target: self, action: nil)
     @IBOutlet var recipyType: UISegmentedControl!
     
     var recipHeaderApi: RecipeHeaderAPI? // will be used as the DataSource for the collection
     var recipes: [String: RecipeHeaderAPI?] = ["Beef":nil,"Pork" :nil,"Poultry":nil,"Seafood":nil,"Vegetarian":nil,"Side_Dish":nil,"Salad":nil,"Dessert":nil]
-    
+    var table_col_value = "Beef"
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -31,8 +32,10 @@ class RecipiesViewController: UIViewController, UICollectionViewDelegate, UIColl
         
         recipiesCollection.delegate = self
         recipiesCollection.dataSource = self
-        
-        retriveData(for: "Beef")
+        myRefreshControl.addTarget(self, action: #selector(self.retriveData), for: UIControlEvents.valueChanged)
+        recipiesCollection.refreshControl = myRefreshControl
+        recipiesCollection.refreshControl?.beginRefreshing()
+        retriveData()
         
     }
     
@@ -47,7 +50,7 @@ class RecipiesViewController: UIViewController, UICollectionViewDelegate, UIColl
         }
     }
  
-    func retriveData(for table_col_value: String){
+    @objc func retriveData(){
         //TODO go imiddiatell to what we have so far and reload data
         self.recipHeaderApi = recipes[table_col_value]! // i'm assuming that table_col_value conforms to 1 of the predefined keys of the dictionary
         self.recipiesCollection.reloadData()
@@ -70,6 +73,7 @@ class RecipiesViewController: UIViewController, UICollectionViewDelegate, UIColl
             
             self.recipHeaderApi = self.recipes[theRecipyType]!
             self.recipiesCollection.reloadData()
+            self.recipiesCollection.refreshControl?.endRefreshing()
         }
     }
    
@@ -92,7 +96,7 @@ class RecipiesViewController: UIViewController, UICollectionViewDelegate, UIColl
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "singleRecipe", for: indexPath) as! RecipeCollectionViewCell
-        cell.lab.text = "DB id# \(self.recipHeaderApi?.rows[indexPath.row].id ?? 0)"
+        cell.lab.text = "DB id# \(self.recipHeaderApi?.rows[indexPath.row].id ?? 0)" // 0 is the defult value
         cell.recipeHeader = self.recipHeaderApi?.rows[indexPath.row]
         
        
@@ -148,35 +152,43 @@ class RecipiesViewController: UIViewController, UICollectionViewDelegate, UIColl
         case 0:
             print("Beef")
             self.navigationItem.title = "Beef"
-            retriveData(for: "Beef")
+            table_col_value = "Beef"
+            retriveData()
         case 1:
             print("Pork")
             self.navigationItem.title = "Pork"
-            retriveData(for: "Pork")
+            table_col_value = "Pork"
+            retriveData()
         case 2:
             print("Poultry")
             self.navigationItem.title = "Poultry"
-            retriveData(for: "Poultry")
+            table_col_value = "Poultry"
+            retriveData()
         case 3:
             print("Seafood")
             self.navigationItem.title = "Seafood"
-            retriveData(for: "Seafood")
+             table_col_value = "Seafood"
+            retriveData()
         case 4:
             print("Vegetarian")
             self.navigationItem.title = "Vegetarian"
-            retriveData(for: "Vegetarian")
+            table_col_value = "Vegetarian"
+            retriveData()
         case 5:
             print("Side Dish")
             self.navigationItem.title = "Side Dish"
-            retriveData(for: "Side_Dish")
+            table_col_value = "Side_Dish"
+            retriveData()
         case 6:
             print("Salad")
             self.navigationItem.title = "Salad"
-            retriveData(for: "Salad")
+            table_col_value = "Salad"
+            retriveData()
         case 7:
             print("Dessert")
             self.navigationItem.title = "Dessert"
-            retriveData(for: "Dessert")
+            table_col_value = "Dessert"
+            retriveData()
         default:
             print("don't know")
             self.navigationItem.title = "don't know"
