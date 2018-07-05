@@ -54,29 +54,40 @@ struct RecipeHeaderAPI: Codable {
 
 
 let session = URLSession.shared // sheared session for the app
+var myDataTask: URLSessionDataTask?
+
+// https://www.raywenderlich.com/158106/urlsession-tutorial-getting-started
+
 // lets imagin thier's a class with a very big name
 // we can give it an alias , a nickname we know
 typealias Json = Dictionary<String, Any>
 
-func getRecipeHeaderAPI(typeOfRecipyQuery: String,callback: @escaping (RecipeHeaderAPI)-> Void) {
+func getRecipeHeaderAPI(typeOfRecipyQuery: String,callback: @escaping (RecipeHeaderAPI, String , Int)-> Void) {
+    
+    myDataTask?.cancel() // cancel any previus tasks
+    
     // This adress will select from the table "recipes_draft1" where the columb "type_of_recipe" is equal to ?  we have to append that value
     let apiAddress = "https://enigmatic-oasis-37206.herokuapp.com/select?table_name=recipes_draft2&col_name=recipe_type&value=\(typeOfRecipyQuery)"
     let apiUrl = URL(string: apiAddress)!
     
-    session.dataTask(with: apiUrl) { (data, res, err) in
+    myDataTask = session.dataTask(with: apiUrl) { (data, res, err) in
         guard let data = data else {return}
         // if we got here, we have data
         let decoder = JSONDecoder()
         guard let result = try? decoder.decode(RecipeHeaderAPI.self, from: data) else {return /*SHOW DIALOG*/}
         
+        
         // Run code on the UI Thread
+        
         DispatchQueue.main.async {
-            callback(result)
+            callback(result , typeOfRecipyQuery , myDataTask!.state.rawValue)
         }
         
         
         
         //print(result.rows)
-        }.resume()
-
+    }
+    
+    myDataTask?.resume()
+   
 }

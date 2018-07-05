@@ -48,9 +48,12 @@ class RecipiesViewController: UIViewController, UICollectionViewDelegate, UIColl
     }
  
     func retriveData(for table_col_value: String){
-        getRecipeHeaderAPI(typeOfRecipyQuery: table_col_value) { (recipeHeaderApi) in
+        getRecipeHeaderAPI(typeOfRecipyQuery: table_col_value) { (recipeHeaderApi , theRecipyType, stateCodeForTheTask) in
+            
             self.recipHeaderApi = recipeHeaderApi
             self.recipiesCollection.reloadData()
+            
+            
         }
     }
    
