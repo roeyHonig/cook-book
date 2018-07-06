@@ -85,7 +85,7 @@ class RecipeDetailsViewController: UIViewController, UITableViewDelegate, UITabl
         
         print("The bounds max x is: \(addToShoppingListLabel.bounds.maxX)")
         print("The frame max x is: \(addToShoppingListLabel.frame.maxX)")
-        
+        print("The text width is: \(addToShoppingListLabel.intrinsicContentSize.width)")
     }
     
     @objc func slideAction() {
