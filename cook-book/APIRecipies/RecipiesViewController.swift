@@ -63,20 +63,25 @@ class RecipiesViewController: UIViewController, UICollectionViewDelegate, UIColl
             offset = temp.rows.count
         }
         
-        getRecipeHeaderAPI(typeOfRecipyQuery: table_col_value, limit: limit, offset: offset) { (recipeHeaderApi , theRecipyType, stateCodeForTheTask) in
-            if self.recipes[theRecipyType]! == nil {
-                // there is no data
-                self.recipes[theRecipyType]! = recipeHeaderApi
-            } else {
-                // there is already some data, so we need to append
-                self.recipes[theRecipyType]!!.rows.append(contentsOf: recipeHeaderApi.rows)
+        // only retrive data from the DB if this is the 1st time the recipy item eas clicked or a refreshing task was sent by the user
+        if (yet2bePreseedOnce[table_col_value]! || recipiesCollection.refreshControl!.isRefreshing) {
+            getRecipeHeaderAPI(typeOfRecipyQuery: table_col_value, limit: limit, offset: offset) { (recipeHeaderApi , theRecipyType, stateCodeForTheTask) in
+                if self.recipes[theRecipyType]! == nil {
+                    // there is no data
+                    self.recipes[theRecipyType]! = recipeHeaderApi
+                } else {
+                    // there is already some data, so we need to append
+                    self.recipes[theRecipyType]!!.rows.append(contentsOf: recipeHeaderApi.rows)
+                }
+                
+                self.recipHeaderApi = self.recipes[theRecipyType]!
+                self.recipiesCollection.reloadData()
+                self.recipiesCollection.refreshControl?.endRefreshing()
+                self.yet2bePreseedOnce[theRecipyType]! = false
             }
-            
-            self.recipHeaderApi = self.recipes[theRecipyType]!
-            self.recipiesCollection.reloadData()
-            self.recipiesCollection.refreshControl?.endRefreshing()
-            self.yet2bePreseedOnce[theRecipyType]! = false
         }
+        
+        
     }
    
     // we've manually configuered this func to return the CGSize we want for the cells in the collection view - and not the hardcoded dimension
@@ -163,43 +168,36 @@ class RecipiesViewController: UIViewController, UICollectionViewDelegate, UIColl
             print("Pork")
             self.navigationItem.title = "Pork"
             table_col_value = "Pork"
-            yet2bePreseedOnce["Pork"] = false
             retriveData()
         case 2:
             print("Poultry")
             self.navigationItem.title = "Poultry"
             table_col_value = "Poultry"
-            yet2bePreseedOnce["Poultry"] = false
             retriveData()
         case 3:
             print("Seafood")
             self.navigationItem.title = "Seafood"
              table_col_value = "Seafood"
-            yet2bePreseedOnce["Seafood"] = false
             retriveData()
         case 4:
             print("Vegetarian")
             self.navigationItem.title = "Vegetarian"
             table_col_value = "Vegetarian"
-            yet2bePreseedOnce["Vegetarian"] = false
             retriveData()
         case 5:
             print("Side Dish")
             self.navigationItem.title = "Side Dish"
             table_col_value = "Side_Dish"
-            yet2bePreseedOnce["Side_Dish"] = false
             retriveData()
         case 6:
             print("Salad")
             self.navigationItem.title = "Salad"
             table_col_value = "Salad"
-            yet2bePreseedOnce["Salad"] = false
             retriveData()
         case 7:
             print("Dessert")
             self.navigationItem.title = "Dessert"
             table_col_value = "Dessert"
-            yet2bePreseedOnce["Dessert"] = false
             retriveData()
         default:
             print("don't know")
