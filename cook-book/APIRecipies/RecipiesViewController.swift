@@ -20,7 +20,8 @@ class RecipiesViewController: UIViewController, UICollectionViewDelegate, UIColl
     
     var recipHeaderApi: RecipeHeaderAPI? // will be used as the DataSource for the collection
     var recipes: [String: RecipeHeaderAPI?] = ["Beef":nil,"Pork" :nil,"Poultry":nil,"Seafood":nil,"Vegetarian":nil,"Side_Dish":nil,"Salad":nil,"Dessert":nil]
-    var table_col_value = "Beef"
+    var table_col_value = "Beef" // retrive data to which recipy type?
+    var yet2bePreseedOnce: [String: Bool] = ["Beef":true,"Pork" :true,"Poultry":true,"Seafood":true,"Vegetarian":true,"Side_Dish":true,"Salad":true,"Dessert":true] // we want retrive from DB only when refresshing
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -74,6 +75,7 @@ class RecipiesViewController: UIViewController, UICollectionViewDelegate, UIColl
             self.recipHeaderApi = self.recipes[theRecipyType]!
             self.recipiesCollection.reloadData()
             self.recipiesCollection.refreshControl?.endRefreshing()
+            self.yet2bePreseedOnce[theRecipyType]! = false
         }
     }
    
@@ -155,41 +157,49 @@ class RecipiesViewController: UIViewController, UICollectionViewDelegate, UIColl
             print("Beef")
             self.navigationItem.title = "Beef"
             table_col_value = "Beef"
+
             retriveData()
         case 1:
             print("Pork")
             self.navigationItem.title = "Pork"
             table_col_value = "Pork"
+            yet2bePreseedOnce["Pork"] = false
             retriveData()
         case 2:
             print("Poultry")
             self.navigationItem.title = "Poultry"
             table_col_value = "Poultry"
+            yet2bePreseedOnce["Poultry"] = false
             retriveData()
         case 3:
             print("Seafood")
             self.navigationItem.title = "Seafood"
              table_col_value = "Seafood"
+            yet2bePreseedOnce["Seafood"] = false
             retriveData()
         case 4:
             print("Vegetarian")
             self.navigationItem.title = "Vegetarian"
             table_col_value = "Vegetarian"
+            yet2bePreseedOnce["Vegetarian"] = false
             retriveData()
         case 5:
             print("Side Dish")
             self.navigationItem.title = "Side Dish"
             table_col_value = "Side_Dish"
+            yet2bePreseedOnce["Side_Dish"] = false
             retriveData()
         case 6:
             print("Salad")
             self.navigationItem.title = "Salad"
             table_col_value = "Salad"
+            yet2bePreseedOnce["Salad"] = false
             retriveData()
         case 7:
             print("Dessert")
             self.navigationItem.title = "Dessert"
             table_col_value = "Dessert"
+            yet2bePreseedOnce["Dessert"] = false
             retriveData()
         default:
             print("don't know")
