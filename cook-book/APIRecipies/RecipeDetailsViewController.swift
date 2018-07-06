@@ -164,8 +164,15 @@ class RecipeDetailsViewController: UIViewController, UITableViewDelegate, UITabl
         guard var newTextWithBulletain = cell.ingridentDescription.text else {
             return cell
         }
-        newTextWithBulletain = "• " + newTextWithBulletain
-        cell.ingridentDescription.text = newTextWithBulletain
+        newTextWithBulletain = "•    " + newTextWithBulletain
+        // color only the "•" green
+        let main_string = newTextWithBulletain
+        let string_to_color = "•"
+        let range = (main_string as NSString).range(of: string_to_color)
+        let attribute = NSMutableAttributedString.init(string: main_string)
+        attribute.addAttribute(NSAttributedStringKey.foregroundColor, value: UIColor.green, range: range)
+        cell.ingridentDescription.attributedText = attribute
+        
         return cell
     }
     
