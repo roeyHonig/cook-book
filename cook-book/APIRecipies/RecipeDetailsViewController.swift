@@ -36,6 +36,7 @@ class RecipeDetailsViewController: UIViewController, UITableViewDelegate, UITabl
     @IBOutlet var ingridentsTable: UITableView!
     @IBOutlet var shopinglistContainer: UIView!
     @IBOutlet var addToShoppingListContainerHeight: NSLayoutConstraint!
+    @IBOutlet var addToShoopingListView: UIView!
     
     var numofRecipie = ""
     
@@ -85,7 +86,7 @@ class RecipeDetailsViewController: UIViewController, UITableViewDelegate, UITabl
             self.addToShoppingListContainerHeight.constant = 50
         }
         
-        UIView.animate(withDuration: 1) {
+        UIView.animate(withDuration: 1, animations: {
             // animate stuff
             if self.currentSliderPositionIndex == self.sliderControlYPositions.count - 1 {
                 self.currentSliderPositionIndex = 0
@@ -101,8 +102,18 @@ class RecipeDetailsViewController: UIViewController, UITableViewDelegate, UITabl
             let yPosition = self.backgroundImage.frame.height * self.sliderControlYPositions[self.currentSliderPositionIndex] - self.recipeHeaderView.frame.height - self.sliderControllerBtn.frame.height
             self.sliderPosition.constant  = yPosition
             self.view.layoutIfNeeded()
+        }) { (bool) in
+            // upon animation completation
+            print("sliding stoped")
+            // if we've just finsihed beeing lowed all the way
+            if self.sliderControlYPositions[self.currentSliderPositionIndex] == 1 {
+                self.addToShoopingListView.alpha = 0
+            } else {
+                self.addToShoopingListView.alpha = 1
+            }
+            
+            
         }
-        
         
         
     }

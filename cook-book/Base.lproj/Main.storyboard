@@ -371,9 +371,20 @@
                             </view>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="VWQ-JX-eiW" userLabel="shopinglistContainer">
                                 <rect key="frame" x="0.0" y="568" width="375" height="50"/>
+                                <subviews>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="zk6-Ct-NgE" userLabel="addToShoopingListView">
+                                        <rect key="frame" x="50" y="0.0" width="275" height="50"/>
+                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                    </view>
+                                </subviews>
                                 <color key="backgroundColor" red="0.40000000600000002" green="0.80000001190000003" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="50" id="KgI-2Y-FXH"/>
+                                    <constraint firstAttribute="trailing" secondItem="zk6-Ct-NgE" secondAttribute="trailing" constant="50" id="OoJ-Uc-75c"/>
+                                    <constraint firstAttribute="bottom" secondItem="zk6-Ct-NgE" secondAttribute="bottom" id="SQN-mE-cgr"/>
+                                    <constraint firstItem="zk6-Ct-NgE" firstAttribute="top" secondItem="VWQ-JX-eiW" secondAttribute="top" id="daV-e0-Bv2"/>
+                                    <constraint firstItem="zk6-Ct-NgE" firstAttribute="leading" secondItem="VWQ-JX-eiW" secondAttribute="leading" constant="50" id="eMJ-s4-o6p"/>
+                                    <constraint firstItem="zk6-Ct-NgE" firstAttribute="centerX" secondItem="VWQ-JX-eiW" secondAttribute="centerX" id="zXJ-sP-Naf"/>
                                 </constraints>
                             </view>
                         </subviews>
@@ -398,6 +409,7 @@
                         <viewLayoutGuide key="safeArea" id="AXb-pI-aM6"/>
                     </view>
                     <connections>
+                        <outlet property="addToShoopingListView" destination="zk6-Ct-NgE" id="l7K-tL-b0p"/>
                         <outlet property="addToShoppingListContainerHeight" destination="KgI-2Y-FXH" id="vmL-MG-Ers"/>
                         <outlet property="backgroundImage" destination="T5p-MA-gFT" id="ZTa-Fv-vzK"/>
                         <outlet property="directionsBtnView" destination="lcz-n4-VWW" id="y6J-Zl-ad7"/>
