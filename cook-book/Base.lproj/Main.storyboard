@@ -369,17 +369,27 @@
                                     <constraint firstItem="o9g-vN-sf0" firstAttribute="leading" secondItem="eeJ-fZ-PBc" secondAttribute="leading" id="vH1-uH-Q5w"/>
                                 </constraints>
                             </view>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="VWQ-JX-eiW" userLabel="shopinglistContainer">
+                                <rect key="frame" x="0.0" y="568" width="375" height="50"/>
+                                <color key="backgroundColor" red="0.40000000600000002" green="0.80000001190000003" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="50" id="KgI-2Y-FXH"/>
+                                </constraints>
+                            </view>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstItem="AXb-pI-aM6" firstAttribute="trailing" secondItem="T5p-MA-gFT" secondAttribute="trailing" id="5SX-Yb-kmY"/>
+                            <constraint firstItem="VWQ-JX-eiW" firstAttribute="leading" secondItem="AXb-pI-aM6" secondAttribute="leading" id="CXT-TM-TSe"/>
                             <constraint firstItem="T5p-MA-gFT" firstAttribute="top" secondItem="AXb-pI-aM6" secondAttribute="top" id="EFG-c8-SsM"/>
                             <constraint firstItem="n0j-XY-3Lp" firstAttribute="leading" secondItem="AXb-pI-aM6" secondAttribute="leading" id="GeL-kq-NCz"/>
+                            <constraint firstItem="AXb-pI-aM6" firstAttribute="bottom" secondItem="VWQ-JX-eiW" secondAttribute="bottom" id="KGz-bj-KiO"/>
                             <constraint firstItem="n0j-XY-3Lp" firstAttribute="height" secondItem="AXb-pI-aM6" secondAttribute="height" multiplier="0.1" id="Tak-D4-Yt6"/>
                             <constraint firstItem="eeJ-fZ-PBc" firstAttribute="top" secondItem="n0j-XY-3Lp" secondAttribute="bottom" id="Xcb-fS-V3B"/>
                             <constraint firstItem="n0j-XY-3Lp" firstAttribute="width" secondItem="BeK-QD-9mD" secondAttribute="width" id="aEE-a4-ujc"/>
                             <constraint firstItem="eeJ-fZ-PBc" firstAttribute="height" secondItem="BeK-QD-9mD" secondAttribute="width" multiplier="0.1" id="aMj-OU-vQo"/>
                             <constraint firstItem="T5p-MA-gFT" firstAttribute="leading" secondItem="AXb-pI-aM6" secondAttribute="leading" id="fdo-Vx-RIm"/>
+                            <constraint firstItem="AXb-pI-aM6" firstAttribute="trailing" secondItem="VWQ-JX-eiW" secondAttribute="trailing" id="iah-ga-JHe"/>
                             <constraint firstItem="n0j-XY-3Lp" firstAttribute="top" secondItem="AXb-pI-aM6" secondAttribute="top" constant="50" id="qyp-am-Oqx"/>
                             <constraint firstItem="eeJ-fZ-PBc" firstAttribute="width" secondItem="BeK-QD-9mD" secondAttribute="width" id="sf8-6Y-CZu"/>
                             <constraint firstItem="eeJ-fZ-PBc" firstAttribute="leading" secondItem="AXb-pI-aM6" secondAttribute="leading" id="t6d-Nq-8io"/>
@@ -388,6 +398,7 @@
                         <viewLayoutGuide key="safeArea" id="AXb-pI-aM6"/>
                     </view>
                     <connections>
+                        <outlet property="addToShoppingListContainerHeight" destination="KgI-2Y-FXH" id="vmL-MG-Ers"/>
                         <outlet property="backgroundImage" destination="T5p-MA-gFT" id="ZTa-Fv-vzK"/>
                         <outlet property="directionsBtnView" destination="lcz-n4-VWW" id="y6J-Zl-ad7"/>
                         <outlet property="directionsTapGesture" destination="5Cd-oZ-bCS" id="kx7-Qc-GTh"/>
@@ -395,6 +406,7 @@
                         <outlet property="ingridentsTable" destination="me8-Yo-xuD" id="RKR-7p-O4c"/>
                         <outlet property="ingridentsTapGesture" destination="r1J-bL-88c" id="fM0-uC-005"/>
                         <outlet property="recipeHeaderView" destination="eeJ-fZ-PBc" id="xxR-uL-AkB"/>
+                        <outlet property="shopinglistContainer" destination="VWQ-JX-eiW" id="yZ9-vX-w5C"/>
                         <outlet property="sliderControllerBtn" destination="23n-ZM-mYK" id="8vS-GC-w4K"/>
                         <outlet property="sliderControllerBtnTapGesture" destination="E7p-aC-SQW" id="nOI-RE-Uci"/>
                         <outlet property="sliderPosition" destination="qyp-am-Oqx" id="Dnr-v3-eoB"/>

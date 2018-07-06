@@ -34,6 +34,8 @@ class RecipeDetailsViewController: UIViewController, UITableViewDelegate, UITabl
   
     
     @IBOutlet var ingridentsTable: UITableView!
+    @IBOutlet var shopinglistContainer: UIView!
+    @IBOutlet var addToShoppingListContainerHeight: NSLayoutConstraint!
     
     var numofRecipie = ""
     
@@ -71,10 +73,18 @@ class RecipeDetailsViewController: UIViewController, UITableViewDelegate, UITabl
         }
         ingridentsHeaderTitles = [theCurrentRecipy.ingredient_header1, theCurrentRecipy.ingredient_header2, theCurrentRecipy.ingredient_header3]
         ingridentsList = [theCurrentRecipy.list1 , theCurrentRecipy.list2, theCurrentRecipy.list3]
+        
+        // very important!!!, otherwise the initial dimenstions becomes constraint themself and override our deseiered constraints
+        ingridentsTable.translatesAutoresizingMaskIntoConstraints = false
     }
     
     @objc func slideAction() {
         print("sliding commence")
+        // we're allready lowered all the way and about to move up
+        if self.sliderControlYPositions[self.currentSliderPositionIndex] == 1 {
+            self.addToShoppingListContainerHeight.constant = 50
+        }
+        
         UIView.animate(withDuration: 1) {
             // animate stuff
             if self.currentSliderPositionIndex == self.sliderControlYPositions.count - 1 {
@@ -83,10 +93,16 @@ class RecipeDetailsViewController: UIViewController, UITableViewDelegate, UITabl
                 self.currentSliderPositionIndex += 1
             }
             
+            // we're about to lower all the way
+            if self.sliderControlYPositions[self.currentSliderPositionIndex] == 1 {
+                self.addToShoppingListContainerHeight.constant = 0
+            }
+            
             let yPosition = self.backgroundImage.frame.height * self.sliderControlYPositions[self.currentSliderPositionIndex] - self.recipeHeaderView.frame.height - self.sliderControllerBtn.frame.height
             self.sliderPosition.constant  = yPosition
             self.view.layoutIfNeeded()
         }
+        
         
         
     }
@@ -99,13 +115,12 @@ class RecipeDetailsViewController: UIViewController, UITableViewDelegate, UITabl
         
         // constraints
         let tableViewConstraintTop = NSLayoutConstraint(item: ingridentsTable, attribute: NSLayoutAttribute.top, relatedBy: .equal, toItem: recipeHeaderView, attribute: NSLayoutAttribute.bottom , multiplier: 1, constant: 0)
-        let tableViewConstraintBottom = NSLayoutConstraint(item: ingridentsTable, attribute: NSLayoutAttribute.bottom, relatedBy: .equal, toItem: backgroundImage, attribute: NSLayoutAttribute.bottom , multiplier: 1, constant: 0)
+        let tableViewConstraintBottom = NSLayoutConstraint(item: ingridentsTable, attribute: NSLayoutAttribute.bottom, relatedBy: .equal, toItem: shopinglistContainer, attribute: NSLayoutAttribute.top , multiplier: 1, constant: 0)
         let tableViewConstraintLeft = NSLayoutConstraint(item: ingridentsTable, attribute: NSLayoutAttribute.trailing, relatedBy: .equal, toItem: recipeHeaderView, attribute: NSLayoutAttribute.trailing , multiplier: 1, constant: 0)
         let tableViewConstraintRight = NSLayoutConstraint(item: ingridentsTable, attribute: NSLayoutAttribute.leading, relatedBy: .equal, toItem: recipeHeaderView, attribute: NSLayoutAttribute.leading , multiplier: 1, constant: 0)
        
        
-        // very important!!!, otherwise the initial dimenstions becomes constraint themself and override our deseiered constraints
-        ingridentsTable.translatesAutoresizingMaskIntoConstraints = false
+        
         
         // assign the constraint to a coummon annssector
         self.view.addConstraint(tableViewConstraintTop)
