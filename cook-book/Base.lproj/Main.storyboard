@@ -390,6 +390,7 @@
                                             </label>
                                         </subviews>
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                        <gestureRecognizers/>
                                         <constraints>
                                             <constraint firstItem="Akf-hA-Kds" firstAttribute="leading" secondItem="zk6-Ct-NgE" secondAttribute="leading" id="Efb-A4-Q2M"/>
                                             <constraint firstAttribute="trailing" secondItem="fM5-P3-WUP" secondAttribute="trailing" id="GSO-7L-30i"/>
@@ -400,6 +401,9 @@
                                             <constraint firstAttribute="bottom" secondItem="fM5-P3-WUP" secondAttribute="bottom" id="vQ7-qj-lVb"/>
                                             <constraint firstItem="fM5-P3-WUP" firstAttribute="top" secondItem="zk6-Ct-NgE" secondAttribute="top" id="xOM-rC-hMk"/>
                                         </constraints>
+                                        <connections>
+                                            <outletCollection property="gestureRecognizers" destination="CJr-Bk-JsK" appends="YES" id="nw8-mj-i49"/>
+                                        </connections>
                                     </view>
                                 </subviews>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -437,6 +441,7 @@
                         <outlet property="addToShoopingListView" destination="zk6-Ct-NgE" id="l7K-tL-b0p"/>
                         <outlet property="addToShoppingListContainerHeight" destination="KgI-2Y-FXH" id="vmL-MG-Ers"/>
                         <outlet property="addToShoppingListLabel" destination="fM5-P3-WUP" id="3Si-oM-Ia1"/>
+                        <outlet property="addToShoppingListTapGesture" destination="CJr-Bk-JsK" id="eKH-Vo-9o7"/>
                         <outlet property="backgroundImage" destination="T5p-MA-gFT" id="ZTa-Fv-vzK"/>
                         <outlet property="constraintToEditInOrderToCenterTheAddToShopping" destination="eMJ-s4-o6p" id="TLj-hg-rQI"/>
                         <outlet property="directionsBtnView" destination="lcz-n4-VWW" id="y6J-Zl-ad7"/>
@@ -488,6 +493,7 @@
                 <tapGestureRecognizer id="r1J-bL-88c"/>
                 <tapGestureRecognizer id="5Cd-oZ-bCS"/>
                 <tapGestureRecognizer id="E7p-aC-SQW"/>
+                <tapGestureRecognizer id="CJr-Bk-JsK"/>
             </objects>
             <point key="canvasLocation" x="-1410.4000000000001" y="1347.9760119940031"/>
         </scene>

@@ -45,6 +45,9 @@ class RecipeDetailsViewController: UIViewController, UITableViewDelegate, UITabl
     
     @IBOutlet var constraintToEditInOrderToCenterTheAddToShopping: NSLayoutConstraint!
     
+    @IBOutlet var addToShoppingListTapGesture: UITapGestureRecognizer!
+    
+    
     var numofRecipie = ""
     
     var recipeHeader: RecipeHeader?
@@ -58,6 +61,8 @@ class RecipeDetailsViewController: UIViewController, UITableViewDelegate, UITabl
         directionsBtnView.addGestureRecognizer(directionsTapGesture)
         sliderControllerBtnTapGesture.addTarget(self, action: #selector(slideAction))
         sliderControllerBtn.addGestureRecognizer(sliderControllerBtnTapGesture)
+        addToShoppingListTapGesture.addTarget(self, action: #selector(addToShoppingList))
+        addToShoopingListView.addGestureRecognizer(addToShoppingListTapGesture)
         
         // set title and background image
         self.navigationItem.title = recipeHeader?.title!
@@ -101,6 +106,18 @@ class RecipeDetailsViewController: UIViewController, UITableViewDelegate, UITabl
         ingridentsList = [theCurrentRecipy.list1 , theCurrentRecipy.list2, theCurrentRecipy.list3]
         
         
+    }
+    
+    @objc func addToShoppingList() {
+        print("adding ingridents")
+        showAlertDialog()
+    }
+    
+    func showAlertDialog() {
+        let alertController = UIAlertController(title: nil, message: "Ingredients have been added to your shopping list", preferredStyle: UIAlertControllerStyle.alert)
+        let confirmAction = UIAlertAction(title: "Ok", style: .default, handler: nil)
+        alertController.addAction(confirmAction)
+        self.present(alertController, animated: true)
     }
     
     @objc func slideAction() {
