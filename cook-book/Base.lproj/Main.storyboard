@@ -374,10 +374,35 @@
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="zk6-Ct-NgE" userLabel="addToShoopingListView">
                                         <rect key="frame" x="50" y="0.0" width="275" height="50"/>
+                                        <subviews>
+                                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="addToShoopingListIconGreen" translatesAutoresizingMaskIntoConstraints="NO" id="Akf-hA-Kds">
+                                                <rect key="frame" x="0.0" y="10" width="30" height="30"/>
+                                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="width" constant="30" id="b3z-Kt-h3Z"/>
+                                                </constraints>
+                                            </imageView>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Add to shopping list" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fM5-P3-WUP">
+                                                <rect key="frame" x="40" y="0.0" width="235" height="50"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="23"/>
+                                                <nil key="textColor"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                        </subviews>
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                        <constraints>
+                                            <constraint firstItem="Akf-hA-Kds" firstAttribute="leading" secondItem="zk6-Ct-NgE" secondAttribute="leading" id="Efb-A4-Q2M"/>
+                                            <constraint firstAttribute="trailing" secondItem="fM5-P3-WUP" secondAttribute="trailing" id="GSO-7L-30i"/>
+                                            <constraint firstItem="fM5-P3-WUP" firstAttribute="leading" secondItem="Akf-hA-Kds" secondAttribute="trailing" constant="10" id="KC9-pP-fxb"/>
+                                            <constraint firstItem="Akf-hA-Kds" firstAttribute="top" secondItem="zk6-Ct-NgE" secondAttribute="top" constant="10" id="PaK-pz-Ite"/>
+                                            <constraint firstAttribute="bottom" secondItem="Akf-hA-Kds" secondAttribute="bottom" constant="10" id="Y5l-Wl-4tN"/>
+                                            <constraint firstItem="fM5-P3-WUP" firstAttribute="centerY" secondItem="zk6-Ct-NgE" secondAttribute="centerY" id="j6o-p7-jRg"/>
+                                            <constraint firstAttribute="bottom" secondItem="fM5-P3-WUP" secondAttribute="bottom" id="vQ7-qj-lVb"/>
+                                            <constraint firstItem="fM5-P3-WUP" firstAttribute="top" secondItem="zk6-Ct-NgE" secondAttribute="top" id="xOM-rC-hMk"/>
+                                        </constraints>
                                     </view>
                                 </subviews>
-                                <color key="backgroundColor" red="0.40000000600000002" green="0.80000001190000003" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="50" id="KgI-2Y-FXH"/>
                                     <constraint firstAttribute="trailing" secondItem="zk6-Ct-NgE" secondAttribute="trailing" constant="50" id="OoJ-Uc-75c"/>
@@ -639,6 +664,7 @@
     </scenes>
     <resources>
         <image name="Poultry.jpg" width="720" height="405"/>
+        <image name="addToShoopingListIconGreen" width="50" height="50"/>
         <image name="beef50" width="48" height="48"/>
         <image name="fisf-food50" width="50" height="50"/>
         <image name="googleSignIn.png" width="512" height="512"/>
