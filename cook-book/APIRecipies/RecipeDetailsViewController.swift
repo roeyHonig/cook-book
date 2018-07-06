@@ -77,6 +77,7 @@ class RecipeDetailsViewController: UIViewController, UITableViewDelegate, UITabl
         
         // very important!!!, otherwise the initial dimenstions becomes constraint themself and override our deseiered constraints
         ingridentsTable.translatesAutoresizingMaskIntoConstraints = false
+        showIngridents()
     }
     
     @objc func slideAction() {
