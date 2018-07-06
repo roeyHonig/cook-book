@@ -39,6 +39,11 @@ class RecipeDetailsViewController: UIViewController, UITableViewDelegate, UITabl
     @IBOutlet var addToShoopingListView: UIView!
     @IBOutlet var addToShoppingListLabel: UILabel!
     
+    @IBOutlet var addToShoopingIconImageView: UIImageView!
+    
+    @IBOutlet var distanceBetweenIconAndText: NSLayoutConstraint!
+    
+    @IBOutlet var constraintToEditInOrderToCenterTheAddToShopping: NSLayoutConstraint!
     
     var numofRecipie = ""
     
@@ -86,6 +91,13 @@ class RecipeDetailsViewController: UIViewController, UITableViewDelegate, UITabl
         print("The bounds max x is: \(addToShoppingListLabel.bounds.maxX)")
         print("The frame max x is: \(addToShoppingListLabel.frame.maxX)")
         print("The text width is: \(addToShoppingListLabel.intrinsicContentSize.width)")
+        // center the icon + label of the "Add To Shopping List"
+        let frameWidth = addToShoppingListLabel.frame.maxX
+        let textWidth = addToShoppingListLabel.intrinsicContentSize.width
+        let distanceBetweenTextAndIcon = distanceBetweenIconAndText.constant
+        let iconWidth = addToShoopingIconImageView.frame.size.width
+        constraintToEditInOrderToCenterTheAddToShopping.constant = 0.5 * (frameWidth - (textWidth + distanceBetweenTextAndIcon + iconWidth))
+        print("frameWidth: \(frameWidth) , textWidth: \(textWidth) , distanceBetweenTextAndIcon: \(distanceBetweenTextAndIcon), iconWidth: \(iconWidth), and finally: \(constraintToEditInOrderToCenterTheAddToShopping.constant)  ")
     }
     
     @objc func slideAction() {
