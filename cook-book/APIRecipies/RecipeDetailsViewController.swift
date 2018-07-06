@@ -92,7 +92,7 @@ class RecipeDetailsViewController: UIViewController, UITableViewDelegate, UITabl
         print("The frame max x is: \(addToShoppingListLabel.frame.maxX)")
         print("The text width is: \(addToShoppingListLabel.intrinsicContentSize.width)")
         // center the icon + label of the "Add To Shopping List"
-        let frameWidth = addToShoppingListLabel.frame.maxX
+        let frameWidth = backgroundImage.frame.size.width
         let textWidth = addToShoppingListLabel.intrinsicContentSize.width
         let distanceBetweenTextAndIcon = distanceBetweenIconAndText.constant
         let iconWidth = addToShoopingIconImageView.frame.size.width
