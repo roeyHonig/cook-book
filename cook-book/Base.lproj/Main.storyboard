@@ -267,25 +267,25 @@
                                 <rect key="frame" x="0.0" y="64" width="375" height="554"/>
                             </imageView>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="n0j-XY-3Lp" userLabel="sliderControl">
-                                <rect key="frame" x="0.0" y="114" width="375" height="55"/>
+                                <rect key="frame" x="0.0" y="114" width="375" height="55.5"/>
                                 <subviews>
                                     <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="YTh-V4-t4H">
-                                        <rect key="frame" x="0.0" y="0.0" width="375" height="55"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="375" height="55.5"/>
                                         <subviews>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="fFo-j2-9aI">
-                                                <rect key="frame" x="0.0" y="0.0" width="53.5" height="55"/>
+                                                <rect key="frame" x="0.0" y="0.0" width="53.5" height="55.5"/>
                                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                             </view>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="lGj-gn-eBE">
-                                                <rect key="frame" x="53.5" y="0.0" width="53.5" height="55"/>
+                                                <rect key="frame" x="53.5" y="0.0" width="53.5" height="55.5"/>
                                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                             </view>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="maK-zJ-GDi">
-                                                <rect key="frame" x="107" y="0.0" width="53.5" height="55"/>
+                                                <rect key="frame" x="107" y="0.0" width="53.5" height="55.5"/>
                                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                             </view>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="23n-ZM-mYK">
-                                                <rect key="frame" x="160.5" y="0.0" width="54" height="55"/>
+                                                <rect key="frame" x="160.5" y="0.0" width="54" height="55.5"/>
                                                 <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
                                                 <gestureRecognizers/>
                                                 <connections>
@@ -293,15 +293,15 @@
                                                 </connections>
                                             </view>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="3eE-aa-Oe7">
-                                                <rect key="frame" x="214.5" y="0.0" width="53.5" height="55"/>
+                                                <rect key="frame" x="214.5" y="0.0" width="53.5" height="55.5"/>
                                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                             </view>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="iOn-79-HpZ">
-                                                <rect key="frame" x="268" y="0.0" width="53.5" height="55"/>
+                                                <rect key="frame" x="268" y="0.0" width="53.5" height="55.5"/>
                                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                             </view>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="I3k-Cd-Qha">
-                                                <rect key="frame" x="321.5" y="0.0" width="53.5" height="55"/>
+                                                <rect key="frame" x="321.5" y="0.0" width="53.5" height="55.5"/>
                                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                             </view>
                                         </subviews>
@@ -317,7 +317,7 @@
                                 </constraints>
                             </view>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="eeJ-fZ-PBc">
-                                <rect key="frame" x="0.0" y="169" width="375" height="37.5"/>
+                                <rect key="frame" x="0.0" y="169.5" width="375" height="37.5"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="o9g-vN-sf0" userLabel="left">
                                         <rect key="frame" x="0.0" y="0.0" width="300" height="37.5"/>
@@ -382,9 +382,9 @@
                                                     <constraint firstAttribute="width" constant="30" id="b3z-Kt-h3Z"/>
                                                 </constraints>
                                             </imageView>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Add to shopping list" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fM5-P3-WUP">
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Add to shopping list" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fM5-P3-WUP" userLabel="addToShoppingListLabel">
                                                 <rect key="frame" x="40" y="0.0" width="235" height="50"/>
-                                                <fontDescription key="fontDescription" type="system" pointSize="23"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="20"/>
                                                 <nil key="textColor"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
@@ -436,6 +436,7 @@
                     <connections>
                         <outlet property="addToShoopingListView" destination="zk6-Ct-NgE" id="l7K-tL-b0p"/>
                         <outlet property="addToShoppingListContainerHeight" destination="KgI-2Y-FXH" id="vmL-MG-Ers"/>
+                        <outlet property="addToShoppingListLabel" destination="fM5-P3-WUP" id="3Si-oM-Ia1"/>
                         <outlet property="backgroundImage" destination="T5p-MA-gFT" id="ZTa-Fv-vzK"/>
                         <outlet property="directionsBtnView" destination="lcz-n4-VWW" id="y6J-Zl-ad7"/>
                         <outlet property="directionsTapGesture" destination="5Cd-oZ-bCS" id="kx7-Qc-GTh"/>

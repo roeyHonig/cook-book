@@ -37,6 +37,8 @@ class RecipeDetailsViewController: UIViewController, UITableViewDelegate, UITabl
     @IBOutlet var shopinglistContainer: UIView!
     @IBOutlet var addToShoppingListContainerHeight: NSLayoutConstraint!
     @IBOutlet var addToShoopingListView: UIView!
+    @IBOutlet var addToShoppingListLabel: UILabel!
+    
     
     var numofRecipie = ""
     
@@ -78,6 +80,12 @@ class RecipeDetailsViewController: UIViewController, UITableViewDelegate, UITabl
         // very important!!!, otherwise the initial dimenstions becomes constraint themself and override our deseiered constraints
         ingridentsTable.translatesAutoresizingMaskIntoConstraints = false
         showIngridents()
+        
+        
+        
+        print("The bounds max x is: \(addToShoppingListLabel.bounds.maxX)")
+        print("The frame max x is: \(addToShoppingListLabel.frame.maxX)")
+        
     }
     
     @objc func slideAction() {
