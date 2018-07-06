@@ -373,7 +373,7 @@
                                 <rect key="frame" x="0.0" y="568" width="375" height="50"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="zk6-Ct-NgE" userLabel="addToShoopingListView">
-                                        <rect key="frame" x="50" y="0.0" width="275" height="50"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="375" height="50"/>
                                         <subviews>
                                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="addToShoopingListIconGreen" translatesAutoresizingMaskIntoConstraints="NO" id="Akf-hA-Kds">
                                                 <rect key="frame" x="0.0" y="10" width="30" height="30"/>
@@ -383,7 +383,7 @@
                                                 </constraints>
                                             </imageView>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Add to shopping list" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fM5-P3-WUP" userLabel="addToShoppingListLabel">
-                                                <rect key="frame" x="40" y="0.0" width="235" height="50"/>
+                                                <rect key="frame" x="40" y="0.0" width="335" height="50"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="20"/>
                                                 <nil key="textColor"/>
                                                 <nil key="highlightedColor"/>
@@ -405,11 +405,10 @@
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="50" id="KgI-2Y-FXH"/>
-                                    <constraint firstAttribute="trailing" secondItem="zk6-Ct-NgE" secondAttribute="trailing" constant="50" id="OoJ-Uc-75c"/>
+                                    <constraint firstAttribute="trailing" secondItem="zk6-Ct-NgE" secondAttribute="trailing" id="OoJ-Uc-75c"/>
                                     <constraint firstAttribute="bottom" secondItem="zk6-Ct-NgE" secondAttribute="bottom" id="SQN-mE-cgr"/>
                                     <constraint firstItem="zk6-Ct-NgE" firstAttribute="top" secondItem="VWQ-JX-eiW" secondAttribute="top" id="daV-e0-Bv2"/>
-                                    <constraint firstItem="zk6-Ct-NgE" firstAttribute="leading" secondItem="VWQ-JX-eiW" secondAttribute="leading" constant="50" id="eMJ-s4-o6p"/>
-                                    <constraint firstItem="zk6-Ct-NgE" firstAttribute="centerX" secondItem="VWQ-JX-eiW" secondAttribute="centerX" id="zXJ-sP-Naf"/>
+                                    <constraint firstItem="zk6-Ct-NgE" firstAttribute="leading" secondItem="VWQ-JX-eiW" secondAttribute="leading" id="eMJ-s4-o6p"/>
                                 </constraints>
                             </view>
                         </subviews>
