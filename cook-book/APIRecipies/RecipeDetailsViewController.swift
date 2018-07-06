@@ -69,6 +69,24 @@ class RecipeDetailsViewController: UIViewController, UITableViewDelegate, UITabl
         let yPosition = backgroundImage.frame.height * sliderControlYPositions[currentSliderPositionIndex] - recipeHeaderView.frame.height - sliderControllerBtn.frame.height
         sliderPosition.constant  = yPosition
         
+        
+        // very important!!!, otherwise the initial dimenstions becomes constraint themself and override our deseiered constraints
+        ingridentsTable.translatesAutoresizingMaskIntoConstraints = false
+        showIngridents()
+        
+        
+        // center the icon + label of the "Add To Shopping List"
+        print("The bounds max x is: \(addToShoppingListLabel.bounds.maxX)")
+        print("The frame max x is: \(addToShoppingListLabel.frame.maxX)")
+        print("The text width is: \(addToShoppingListLabel.intrinsicContentSize.width)")
+        let frameWidth = backgroundImage.frame.size.width
+        let textWidth = addToShoppingListLabel.intrinsicContentSize.width
+        let distanceBetweenTextAndIcon = distanceBetweenIconAndText.constant
+        let iconWidth = addToShoopingIconImageView.frame.size.width
+        constraintToEditInOrderToCenterTheAddToShopping.constant = 0.5 * (frameWidth - (textWidth + distanceBetweenTextAndIcon + iconWidth))
+        print("frameWidth: \(frameWidth) , textWidth: \(textWidth) , distanceBetweenTextAndIcon: \(distanceBetweenTextAndIcon), iconWidth: \(iconWidth), and finally: \(constraintToEditInOrderToCenterTheAddToShopping.constant)  ")
+        
+        
         // init from the db via previus VC
         guard let theCurrentRecipy = recipeHeader else {
             ingridentsHeaderTitles = ["for the marindae", "for the souch", "for the chicken"]
@@ -82,22 +100,7 @@ class RecipeDetailsViewController: UIViewController, UITableViewDelegate, UITabl
         ingridentsHeaderTitles = [theCurrentRecipy.ingredient_header1, theCurrentRecipy.ingredient_header2, theCurrentRecipy.ingredient_header3]
         ingridentsList = [theCurrentRecipy.list1 , theCurrentRecipy.list2, theCurrentRecipy.list3]
         
-        // very important!!!, otherwise the initial dimenstions becomes constraint themself and override our deseiered constraints
-        ingridentsTable.translatesAutoresizingMaskIntoConstraints = false
-        showIngridents()
         
-        
-        
-        print("The bounds max x is: \(addToShoppingListLabel.bounds.maxX)")
-        print("The frame max x is: \(addToShoppingListLabel.frame.maxX)")
-        print("The text width is: \(addToShoppingListLabel.intrinsicContentSize.width)")
-        // center the icon + label of the "Add To Shopping List"
-        let frameWidth = backgroundImage.frame.size.width
-        let textWidth = addToShoppingListLabel.intrinsicContentSize.width
-        let distanceBetweenTextAndIcon = distanceBetweenIconAndText.constant
-        let iconWidth = addToShoopingIconImageView.frame.size.width
-        constraintToEditInOrderToCenterTheAddToShopping.constant = 0.5 * (frameWidth - (textWidth + distanceBetweenTextAndIcon + iconWidth))
-        print("frameWidth: \(frameWidth) , textWidth: \(textWidth) , distanceBetweenTextAndIcon: \(distanceBetweenTextAndIcon), iconWidth: \(iconWidth), and finally: \(constraintToEditInOrderToCenterTheAddToShopping.constant)  ")
     }
     
     @objc func slideAction() {
