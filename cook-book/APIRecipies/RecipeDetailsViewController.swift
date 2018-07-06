@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import SDWebImage
 
 class RecipeDetailsViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
     
@@ -48,7 +49,9 @@ class RecipeDetailsViewController: UIViewController, UITableViewDelegate, UITabl
         sliderControllerBtnTapGesture.addTarget(self, action: #selector(slideAction))
         sliderControllerBtn.addGestureRecognizer(sliderControllerBtnTapGesture)
         
-        self.navigationItem.title = recipeHeader?.title! // TODO: configure this according to the title of the recipe
+        // set title and background image
+        self.navigationItem.title = recipeHeader?.title!
+        if let imgString = recipeHeader?.img {backgroundImage.sd_setImage(with: URL(string: imgString), completed: nil)}
         
         ingridentsTable.delegate = self
         ingridentsTable.dataSource = self

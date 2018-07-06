@@ -137,6 +137,9 @@ class RecipiesViewController: UIViewController, UICollectionViewDelegate, UIColl
             }
             recpDetails.numofRecipie = txt
             recpDetails.recipeHeader = cell.recipeHeader
+            
+            
+            
         }
     }
     
