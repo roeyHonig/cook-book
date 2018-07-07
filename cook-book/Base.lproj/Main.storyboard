@@ -407,16 +407,38 @@
                                                 <subviews>
                                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="7vg-e6-Mr5" userLabel="ingridentsBtn">
                                                         <rect key="frame" x="0.0" y="0.0" width="37.5" height="38"/>
+                                                        <subviews>
+                                                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="icons8-ingredients_spring" translatesAutoresizingMaskIntoConstraints="NO" id="jFD-H4-khW">
+                                                                <rect key="frame" x="1.5" y="2" width="33.5" height="34"/>
+                                                            </imageView>
+                                                        </subviews>
                                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                         <gestureRecognizers/>
+                                                        <constraints>
+                                                            <constraint firstItem="jFD-H4-khW" firstAttribute="height" secondItem="7vg-e6-Mr5" secondAttribute="height" multiplier="0.9" id="A8m-fV-Dh0"/>
+                                                            <constraint firstItem="jFD-H4-khW" firstAttribute="width" secondItem="7vg-e6-Mr5" secondAttribute="width" multiplier="0.9" id="Sam-my-2ib"/>
+                                                            <constraint firstItem="jFD-H4-khW" firstAttribute="centerX" secondItem="7vg-e6-Mr5" secondAttribute="centerX" id="Sha-uM-OXT"/>
+                                                            <constraint firstItem="jFD-H4-khW" firstAttribute="centerY" secondItem="7vg-e6-Mr5" secondAttribute="centerY" id="vgW-gi-X8Z"/>
+                                                        </constraints>
                                                         <connections>
                                                             <outletCollection property="gestureRecognizers" destination="r1J-bL-88c" appends="YES" id="U07-3z-CdF"/>
                                                         </connections>
                                                     </view>
                                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="lcz-n4-VWW" userLabel="directionsBtn">
                                                         <rect key="frame" x="37.5" y="0.0" width="37.5" height="38"/>
+                                                        <subviews>
+                                                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="icons8-kitchen_steel" translatesAutoresizingMaskIntoConstraints="NO" id="DUS-l2-cYu">
+                                                                <rect key="frame" x="2.5" y="2" width="33.5" height="34"/>
+                                                            </imageView>
+                                                        </subviews>
                                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                         <gestureRecognizers/>
+                                                        <constraints>
+                                                            <constraint firstItem="DUS-l2-cYu" firstAttribute="centerY" secondItem="lcz-n4-VWW" secondAttribute="centerY" id="BNd-wu-ca8"/>
+                                                            <constraint firstItem="DUS-l2-cYu" firstAttribute="centerX" secondItem="lcz-n4-VWW" secondAttribute="centerX" id="RnJ-iu-Sgd"/>
+                                                            <constraint firstItem="DUS-l2-cYu" firstAttribute="height" secondItem="lcz-n4-VWW" secondAttribute="height" multiplier="0.9" id="Wzg-eD-fp0"/>
+                                                            <constraint firstItem="DUS-l2-cYu" firstAttribute="width" secondItem="lcz-n4-VWW" secondAttribute="width" multiplier="0.9" id="b3h-dR-5JD"/>
+                                                        </constraints>
                                                         <connections>
                                                             <outletCollection property="gestureRecognizers" destination="5Cd-oZ-bCS" appends="YES" id="uaM-Sw-gZM"/>
                                                         </connections>
@@ -590,6 +612,7 @@
                         <outlet property="backgroundImage" destination="T5p-MA-gFT" id="ZTa-Fv-vzK"/>
                         <outlet property="constraintToEditInOrderToCenterTheAddToShopping" destination="eMJ-s4-o6p" id="TLj-hg-rQI"/>
                         <outlet property="directionsBtnView" destination="lcz-n4-VWW" id="y6J-Zl-ad7"/>
+                        <outlet property="directionsIconOmage" destination="DUS-l2-cYu" id="roE-mT-jqP"/>
                         <outlet property="directionsTapGesture" destination="5Cd-oZ-bCS" id="kx7-Qc-GTh"/>
                         <outlet property="directionsTextLabel" destination="TXv-ww-wO4" id="uu1-Y2-jo4"/>
                         <outlet property="directionsUIView" destination="0wV-9Y-5R2" id="6zp-oa-QDa"/>
@@ -597,6 +620,7 @@
                         <outlet property="ingridentsBtnView" destination="7vg-e6-Mr5" id="zip-uT-em1"/>
                         <outlet property="ingridentsTable" destination="me8-Yo-xuD" id="RKR-7p-O4c"/>
                         <outlet property="ingridentsTapGesture" destination="r1J-bL-88c" id="fM0-uC-005"/>
+                        <outlet property="ingridentsiconImage" destination="jFD-H4-khW" id="3bj-Ds-Cpj"/>
                         <outlet property="recipeHeaderView" destination="eeJ-fZ-PBc" id="xxR-uL-AkB"/>
                         <outlet property="shopinglistContainer" destination="VWQ-JX-eiW" id="yZ9-vX-w5C"/>
                         <outlet property="sliderControllerBtn" destination="23n-ZM-mYK" id="8vS-GC-w4K"/>
@@ -828,6 +852,8 @@
         <image name="icons8-cooking_pot" width="24" height="24"/>
         <image name="icons8-cooking_pot_filled" width="75" height="75"/>
         <image name="icons8-expand_arrow_filled" width="50" height="50"/>
+        <image name="icons8-ingredients_spring" width="50" height="50"/>
+        <image name="icons8-kitchen_steel" width="50" height="50"/>
         <image name="polutary50" width="50" height="50"/>
         <image name="pork50" width="48" height="48"/>
         <image name="real-deasert50" width="50" height="50"/>

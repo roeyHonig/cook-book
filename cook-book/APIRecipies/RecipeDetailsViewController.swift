@@ -54,6 +54,14 @@ class RecipeDetailsViewController: UIViewController, UITableViewDelegate, UITabl
     
     @IBOutlet var sliderIconImage: UIImageView!
     
+    
+    
+    @IBOutlet var ingridentsiconImage: UIImageView!
+    
+    
+    @IBOutlet var directionsIconOmage: UIImageView!
+    
+    
     var numofRecipie = ""
     
     var recipeHeader: RecipeHeader?
@@ -187,6 +195,8 @@ class RecipeDetailsViewController: UIViewController, UITableViewDelegate, UITabl
     @objc func showIngridents() {
         directionsUIView.alpha = 0
         print("ingridents was pressed")
+        directionsIconOmage.image = #imageLiteral(resourceName: "icons8-kitchen_steel")
+        ingridentsiconImage.image = #imageLiteral(resourceName: "icons8-ingredients_spring")
         
         // show the table view
         self.view.addSubview(ingridentsTable)
@@ -210,6 +220,8 @@ class RecipeDetailsViewController: UIViewController, UITableViewDelegate, UITabl
     
     @objc func showDirections() {
         print("directions was pressed")
+        directionsIconOmage.image = #imageLiteral(resourceName: "icons8-kitchen_spring")
+        ingridentsiconImage.image = #imageLiteral(resourceName: "icons8-ingredients_steel")
         ingridentsTable.removeFromSuperview()
         directionsUIView.alpha = 1
     }
