@@ -12,7 +12,7 @@ class customDraw1: UIView {
     
     override func draw(_ rect: CGRect) {
         let path = UIBezierPath()
-        path.lineWidth = 4
+        path.lineWidth = 2
         UIColor.lightGray.setStroke()
         path.move(to: CGPoint(x: rect.minX, y: rect.maxY))
         path.addLine(to: CGPoint(x: rect.maxX, y: rect.maxY))
