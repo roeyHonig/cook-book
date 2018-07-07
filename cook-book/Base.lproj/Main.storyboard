@@ -483,28 +483,28 @@
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="0wV-9Y-5R2" userLabel="directionsParentView">
                                 <rect key="frame" x="0.0" y="207" width="375" height="411"/>
                                 <subviews>
-                                    <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Hdn-2d-axz">
+                                    <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Hdn-2d-axz">
                                         <rect key="frame" x="0.0" y="0.0" width="375" height="411"/>
                                         <subviews>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="iNA-8M-gtl" userLabel="contentView">
-                                                <rect key="frame" x="0.0" y="0.0" width="375" height="700"/>
+                                                <rect key="frame" x="9.5" y="0.0" width="356" height="761"/>
                                                 <subviews>
                                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="hxg-rH-zVU" userLabel="topSpacer">
-                                                        <rect key="frame" x="0.0" y="0.0" width="375" height="5"/>
+                                                        <rect key="frame" x="0.0" y="0.0" width="356" height="5"/>
                                                         <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
                                                         <constraints>
                                                             <constraint firstAttribute="height" constant="5" id="rD5-EE-3qL"/>
                                                         </constraints>
                                                     </view>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="TXv-ww-wO4">
-                                                        <rect key="frame" x="0.0" y="5" width="375" height="690"/>
+                                                        <rect key="frame" x="0.0" y="5" width="356" height="751"/>
                                                         <mutableString key="text">START Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Nam liber te conscient to factor tum poen legum odioque civiuda.Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Nam liber te conscient to factor tum poen legum odioque civiuda.Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Nam liber te conscient to factor tum poen legum odioque civiuda. FINISH</mutableString>
                                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                         <nil key="textColor"/>
                                                         <nil key="highlightedColor"/>
                                                     </label>
                                                     <view contentMode="scaleToFill" restorationIdentifier="bottomSpacer" translatesAutoresizingMaskIntoConstraints="NO" id="rSB-B5-fsu">
-                                                        <rect key="frame" x="0.0" y="695" width="375" height="5"/>
+                                                        <rect key="frame" x="0.0" y="756" width="356" height="5"/>
                                                         <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
                                                         <constraints>
                                                             <constraint firstAttribute="height" constant="5" id="3pe-NR-X7I"/>
@@ -527,9 +527,8 @@
                                             </view>
                                         </subviews>
                                         <constraints>
-                                            <constraint firstItem="iNA-8M-gtl" firstAttribute="leading" secondItem="Hdn-2d-axz" secondAttribute="leading" id="3TW-Wu-Hux"/>
-                                            <constraint firstItem="iNA-8M-gtl" firstAttribute="width" secondItem="Hdn-2d-axz" secondAttribute="width" id="E9p-23-zH7"/>
-                                            <constraint firstAttribute="trailing" secondItem="iNA-8M-gtl" secondAttribute="trailing" id="GTf-yW-YPi"/>
+                                            <constraint firstItem="iNA-8M-gtl" firstAttribute="width" secondItem="Hdn-2d-axz" secondAttribute="width" multiplier="0.95" id="E9p-23-zH7"/>
+                                            <constraint firstItem="iNA-8M-gtl" firstAttribute="centerX" secondItem="Hdn-2d-axz" secondAttribute="centerX" id="Ja7-YU-ydC"/>
                                             <constraint firstItem="iNA-8M-gtl" firstAttribute="top" secondItem="Hdn-2d-axz" secondAttribute="top" id="gkb-e2-E7r"/>
                                             <constraint firstAttribute="bottom" secondItem="iNA-8M-gtl" secondAttribute="bottom" id="wW1-SD-SPO"/>
                                         </constraints>
