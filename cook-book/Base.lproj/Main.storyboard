@@ -396,27 +396,27 @@
                                 <rect key="frame" x="0.0" y="141.5" width="375" height="37.5"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="o9g-vN-sf0" userLabel="left">
-                                        <rect key="frame" x="0.0" y="0.0" width="300" height="37.5"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="281.5" height="37.5"/>
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                     </view>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="CrU-sj-jn8" userLabel="right">
-                                        <rect key="frame" x="300" y="0.0" width="75" height="38"/>
+                                        <rect key="frame" x="281.5" y="0.0" width="93.5" height="38"/>
                                         <subviews>
                                             <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="4xW-lV-Bqb">
-                                                <rect key="frame" x="0.0" y="0.0" width="75" height="38"/>
+                                                <rect key="frame" x="0.0" y="0.0" width="93.5" height="38"/>
                                                 <subviews>
                                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="7vg-e6-Mr5" userLabel="ingridentsBtn">
-                                                        <rect key="frame" x="0.0" y="0.0" width="37.5" height="38"/>
+                                                        <rect key="frame" x="0.0" y="0.0" width="47" height="38"/>
                                                         <subviews>
                                                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="icons8-ingredients_spring" translatesAutoresizingMaskIntoConstraints="NO" id="jFD-H4-khW">
-                                                                <rect key="frame" x="1.5" y="2" width="33.5" height="34"/>
+                                                                <rect key="frame" x="6.5" y="2" width="34" height="34"/>
                                                             </imageView>
                                                         </subviews>
                                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                         <gestureRecognizers/>
                                                         <constraints>
                                                             <constraint firstItem="jFD-H4-khW" firstAttribute="height" secondItem="7vg-e6-Mr5" secondAttribute="height" multiplier="0.9" id="A8m-fV-Dh0"/>
-                                                            <constraint firstItem="jFD-H4-khW" firstAttribute="width" secondItem="7vg-e6-Mr5" secondAttribute="width" multiplier="0.9" id="Sam-my-2ib"/>
+                                                            <constraint firstItem="jFD-H4-khW" firstAttribute="width" secondItem="7vg-e6-Mr5" secondAttribute="height" multiplier="0.9" id="Sam-my-2ib"/>
                                                             <constraint firstItem="jFD-H4-khW" firstAttribute="centerX" secondItem="7vg-e6-Mr5" secondAttribute="centerX" id="Sha-uM-OXT"/>
                                                             <constraint firstItem="jFD-H4-khW" firstAttribute="centerY" secondItem="7vg-e6-Mr5" secondAttribute="centerY" id="vgW-gi-X8Z"/>
                                                         </constraints>
@@ -425,10 +425,10 @@
                                                         </connections>
                                                     </view>
                                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="lcz-n4-VWW" userLabel="directionsBtn">
-                                                        <rect key="frame" x="37.5" y="0.0" width="37.5" height="38"/>
+                                                        <rect key="frame" x="47" y="0.0" width="46.5" height="38"/>
                                                         <subviews>
                                                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="icons8-kitchen_steel" translatesAutoresizingMaskIntoConstraints="NO" id="DUS-l2-cYu">
-                                                                <rect key="frame" x="2.5" y="2" width="33.5" height="34"/>
+                                                                <rect key="frame" x="6.5" y="2" width="34" height="34"/>
                                                             </imageView>
                                                         </subviews>
                                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -437,7 +437,7 @@
                                                             <constraint firstItem="DUS-l2-cYu" firstAttribute="centerY" secondItem="lcz-n4-VWW" secondAttribute="centerY" id="BNd-wu-ca8"/>
                                                             <constraint firstItem="DUS-l2-cYu" firstAttribute="centerX" secondItem="lcz-n4-VWW" secondAttribute="centerX" id="RnJ-iu-Sgd"/>
                                                             <constraint firstItem="DUS-l2-cYu" firstAttribute="height" secondItem="lcz-n4-VWW" secondAttribute="height" multiplier="0.9" id="Wzg-eD-fp0"/>
-                                                            <constraint firstItem="DUS-l2-cYu" firstAttribute="width" secondItem="lcz-n4-VWW" secondAttribute="width" multiplier="0.9" id="b3h-dR-5JD"/>
+                                                            <constraint firstItem="DUS-l2-cYu" firstAttribute="width" secondItem="lcz-n4-VWW" secondAttribute="height" multiplier="0.9" id="b3h-dR-5JD"/>
                                                         </constraints>
                                                         <connections>
                                                             <outletCollection property="gestureRecognizers" destination="5Cd-oZ-bCS" appends="YES" id="uaM-Sw-gZM"/>
@@ -464,7 +464,7 @@
                                     <constraint firstAttribute="bottom" secondItem="CrU-sj-jn8" secondAttribute="bottom" id="RSZ-a2-yaR"/>
                                     <constraint firstItem="o9g-vN-sf0" firstAttribute="top" secondItem="eeJ-fZ-PBc" secondAttribute="top" id="VVo-Xc-qwI"/>
                                     <constraint firstItem="CrU-sj-jn8" firstAttribute="top" secondItem="eeJ-fZ-PBc" secondAttribute="top" id="num-fs-Uan"/>
-                                    <constraint firstItem="o9g-vN-sf0" firstAttribute="width" secondItem="eeJ-fZ-PBc" secondAttribute="width" multiplier="0.8" id="oDp-ax-MwF"/>
+                                    <constraint firstItem="o9g-vN-sf0" firstAttribute="width" secondItem="eeJ-fZ-PBc" secondAttribute="width" multiplier="0.75" id="oDp-ax-MwF"/>
                                     <constraint firstItem="o9g-vN-sf0" firstAttribute="leading" secondItem="eeJ-fZ-PBc" secondAttribute="leading" id="vH1-uH-Q5w"/>
                                 </constraints>
                             </view>
