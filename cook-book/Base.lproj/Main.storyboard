@@ -405,7 +405,7 @@
                                             <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="4xW-lV-Bqb">
                                                 <rect key="frame" x="0.0" y="0.0" width="93.5" height="38"/>
                                                 <subviews>
-                                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="7vg-e6-Mr5" userLabel="ingridentsBtn">
+                                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="7vg-e6-Mr5" userLabel="ingridentsBtn" customClass="customDraw5" customModule="cook_book" customModuleProvider="target">
                                                         <rect key="frame" x="0.0" y="0.0" width="47" height="38"/>
                                                         <subviews>
                                                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="icons8-ingredients_spring" translatesAutoresizingMaskIntoConstraints="NO" id="jFD-H4-khW">
@@ -424,7 +424,7 @@
                                                             <outletCollection property="gestureRecognizers" destination="r1J-bL-88c" appends="YES" id="U07-3z-CdF"/>
                                                         </connections>
                                                     </view>
-                                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="lcz-n4-VWW" userLabel="directionsBtn">
+                                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="lcz-n4-VWW" userLabel="directionsBtn" customClass="customDraw6" customModule="cook_book" customModuleProvider="target">
                                                         <rect key="frame" x="47" y="0.0" width="46.5" height="38"/>
                                                         <subviews>
                                                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="icons8-kitchen_steel" translatesAutoresizingMaskIntoConstraints="NO" id="DUS-l2-cYu">
