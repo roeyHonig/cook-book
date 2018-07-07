@@ -337,35 +337,35 @@
                                     <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="YTh-V4-t4H">
                                         <rect key="frame" x="0.0" y="0.0" width="375" height="55.5"/>
                                         <subviews>
-                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="fFo-j2-9aI">
+                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="fFo-j2-9aI" customClass="customDraw1" customModule="cook_book" customModuleProvider="target">
                                                 <rect key="frame" x="0.0" y="0.0" width="53.5" height="55.5"/>
                                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                             </view>
-                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="lGj-gn-eBE">
+                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="lGj-gn-eBE" customClass="customDraw1" customModule="cook_book" customModuleProvider="target">
                                                 <rect key="frame" x="53.5" y="0.0" width="53.5" height="55.5"/>
                                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                             </view>
-                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="maK-zJ-GDi">
+                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="maK-zJ-GDi" customClass="customDraw2" customModule="cook_book" customModuleProvider="target">
                                                 <rect key="frame" x="107" y="0.0" width="53.5" height="55.5"/>
                                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                             </view>
-                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="23n-ZM-mYK">
+                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="23n-ZM-mYK" customClass="customeDraw4" customModule="cook_book" customModuleProvider="target">
                                                 <rect key="frame" x="160.5" y="0.0" width="54" height="55.5"/>
-                                                <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                                 <gestureRecognizers/>
                                                 <connections>
                                                     <outletCollection property="gestureRecognizers" destination="E7p-aC-SQW" appends="YES" id="p1A-Bh-lij"/>
                                                 </connections>
                                             </view>
-                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="3eE-aa-Oe7">
+                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="3eE-aa-Oe7" customClass="customDraw3" customModule="cook_book" customModuleProvider="target">
                                                 <rect key="frame" x="214.5" y="0.0" width="53.5" height="55.5"/>
                                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                             </view>
-                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="iOn-79-HpZ">
+                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="iOn-79-HpZ" customClass="customDraw1" customModule="cook_book" customModuleProvider="target">
                                                 <rect key="frame" x="268" y="0.0" width="53.5" height="55.5"/>
                                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                             </view>
-                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="I3k-Cd-Qha">
+                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="I3k-Cd-Qha" customClass="customDraw1" customModule="cook_book" customModuleProvider="target">
                                                 <rect key="frame" x="321.5" y="0.0" width="53.5" height="55.5"/>
                                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                             </view>
