@@ -392,12 +392,12 @@
                                     <constraint firstAttribute="trailing" secondItem="YTh-V4-t4H" secondAttribute="trailing" id="ktw-B8-Je3"/>
                                 </constraints>
                             </view>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="eeJ-fZ-PBc">
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="eeJ-fZ-PBc" customClass="customDraw1" customModule="cook_book" customModuleProvider="target">
                                 <rect key="frame" x="0.0" y="141.5" width="375" height="37.5"/>
                                 <subviews>
-                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="o9g-vN-sf0" userLabel="left">
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="o9g-vN-sf0" userLabel="left" customClass="customDraw1" customModule="cook_book" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="0.0" width="281.5" height="37.5"/>
-                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                     </view>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="CrU-sj-jn8" userLabel="right">
                                         <rect key="frame" x="281.5" y="0.0" width="93.5" height="38"/>
@@ -412,7 +412,7 @@
                                                                 <rect key="frame" x="6.5" y="2" width="34" height="34"/>
                                                             </imageView>
                                                         </subviews>
-                                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                                         <gestureRecognizers/>
                                                         <constraints>
                                                             <constraint firstItem="jFD-H4-khW" firstAttribute="height" secondItem="7vg-e6-Mr5" secondAttribute="height" multiplier="0.9" id="A8m-fV-Dh0"/>
@@ -431,7 +431,7 @@
                                                                 <rect key="frame" x="6.5" y="2" width="34" height="34"/>
                                                             </imageView>
                                                         </subviews>
-                                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                                         <gestureRecognizers/>
                                                         <constraints>
                                                             <constraint firstItem="DUS-l2-cYu" firstAttribute="centerY" secondItem="lcz-n4-VWW" secondAttribute="centerY" id="BNd-wu-ca8"/>
@@ -444,10 +444,10 @@
                                                         </connections>
                                                     </view>
                                                 </subviews>
-                                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                             </stackView>
                                         </subviews>
-                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                         <constraints>
                                             <constraint firstAttribute="bottom" secondItem="4xW-lV-Bqb" secondAttribute="bottom" id="0t3-Cn-RG9"/>
                                             <constraint firstItem="4xW-lV-Bqb" firstAttribute="leading" secondItem="CrU-sj-jn8" secondAttribute="leading" id="bub-2S-agS"/>
