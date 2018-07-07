@@ -353,16 +353,16 @@
                                                 <rect key="frame" x="160.5" y="0.0" width="54" height="27.5"/>
                                                 <subviews>
                                                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="icons8-expand_arrow_filled" translatesAutoresizingMaskIntoConstraints="NO" id="HWc-1N-es3">
-                                                        <rect key="frame" x="13.5" y="0.0" width="27.5" height="27.5"/>
+                                                        <rect key="frame" x="16.5" y="3.5" width="22" height="22"/>
                                                     </imageView>
                                                 </subviews>
                                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                 <gestureRecognizers/>
                                                 <constraints>
-                                                    <constraint firstItem="HWc-1N-es3" firstAttribute="width" secondItem="23n-ZM-mYK" secondAttribute="height" id="0Yy-w9-Rgu"/>
+                                                    <constraint firstItem="HWc-1N-es3" firstAttribute="width" secondItem="23n-ZM-mYK" secondAttribute="height" multiplier="0.8" id="0Yy-w9-Rgu"/>
                                                     <constraint firstItem="HWc-1N-es3" firstAttribute="centerX" secondItem="23n-ZM-mYK" secondAttribute="centerX" id="B76-dZ-76g"/>
-                                                    <constraint firstAttribute="bottom" secondItem="HWc-1N-es3" secondAttribute="bottom" id="dKl-Xo-cqU"/>
-                                                    <constraint firstItem="HWc-1N-es3" firstAttribute="top" secondItem="23n-ZM-mYK" secondAttribute="top" id="rVG-i9-uM1"/>
+                                                    <constraint firstItem="HWc-1N-es3" firstAttribute="height" secondItem="23n-ZM-mYK" secondAttribute="height" multiplier="0.8" id="vGx-qj-Yv9"/>
+                                                    <constraint firstItem="HWc-1N-es3" firstAttribute="centerY" secondItem="23n-ZM-mYK" secondAttribute="centerY" id="xYL-D8-R9f"/>
                                                 </constraints>
                                                 <connections>
                                                     <outletCollection property="gestureRecognizers" destination="E7p-aC-SQW" appends="YES" id="p1A-Bh-lij"/>
