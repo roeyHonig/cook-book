@@ -28,9 +28,8 @@ class RecipeDetailsViewController: UIViewController, UITableViewDelegate, UITabl
     @IBOutlet var directionsTapGesture: UITapGestureRecognizer!
     
     var ingridentsList: [[String?]?] = [[],[],[]]
-    
-    
     var ingridentsHeaderTitles: [String?] = Array(repeating: nil, count: 3)
+    var directionsText: String?
   
     
     @IBOutlet var ingridentsTable: UITableView!
@@ -48,6 +47,10 @@ class RecipeDetailsViewController: UIViewController, UITableViewDelegate, UITabl
     @IBOutlet var addToShoppingListTapGesture: UITapGestureRecognizer!
     
     @IBOutlet var directionsUIView: UIView!
+    
+    
+    @IBOutlet var directionsTextLabel: UILabel!
+    
     
     var numofRecipie = ""
     
@@ -93,6 +96,7 @@ class RecipeDetailsViewController: UIViewController, UITableViewDelegate, UITabl
         print("frameWidth: \(frameWidth) , textWidth: \(textWidth) , distanceBetweenTextAndIcon: \(distanceBetweenTextAndIcon), iconWidth: \(iconWidth), and finally: \(constraintToEditInOrderToCenterTheAddToShopping.constant)  ")
         
         
+        
         // init from the db via previus VC
         guard let theCurrentRecipy = recipeHeader else {
             ingridentsHeaderTitles = ["for the marindae", "for the souch", "for the chicken"]
@@ -105,7 +109,8 @@ class RecipeDetailsViewController: UIViewController, UITableViewDelegate, UITabl
         }
         ingridentsHeaderTitles = [theCurrentRecipy.ingredient_header1, theCurrentRecipy.ingredient_header2, theCurrentRecipy.ingredient_header3]
         ingridentsList = [theCurrentRecipy.list1 , theCurrentRecipy.list2, theCurrentRecipy.list3]
-        
+        directionsText = theCurrentRecipy.directions
+        directionsTextLabel.text = directionsText
         
     }
     

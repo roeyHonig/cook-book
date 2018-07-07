@@ -577,6 +577,7 @@
                         <outlet property="constraintToEditInOrderToCenterTheAddToShopping" destination="eMJ-s4-o6p" id="TLj-hg-rQI"/>
                         <outlet property="directionsBtnView" destination="lcz-n4-VWW" id="y6J-Zl-ad7"/>
                         <outlet property="directionsTapGesture" destination="5Cd-oZ-bCS" id="kx7-Qc-GTh"/>
+                        <outlet property="directionsTextLabel" destination="TXv-ww-wO4" id="uu1-Y2-jo4"/>
                         <outlet property="directionsUIView" destination="0wV-9Y-5R2" id="6zp-oa-QDa"/>
                         <outlet property="distanceBetweenIconAndText" destination="KC9-pP-fxb" id="lu1-bQ-W5L"/>
                         <outlet property="ingridentsBtnView" destination="7vg-e6-Mr5" id="zip-uT-em1"/>
