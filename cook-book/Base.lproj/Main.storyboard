@@ -332,35 +332,35 @@
                                 <rect key="frame" x="0.0" y="64" width="375" height="554"/>
                             </imageView>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="n0j-XY-3Lp" userLabel="sliderControl">
-                                <rect key="frame" x="0.0" y="114" width="375" height="55.5"/>
+                                <rect key="frame" x="0.0" y="114" width="375" height="27.5"/>
                                 <subviews>
                                     <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="YTh-V4-t4H">
-                                        <rect key="frame" x="0.0" y="0.0" width="375" height="55.5"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="375" height="27.5"/>
                                         <subviews>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="fFo-j2-9aI" customClass="customDraw1" customModule="cook_book" customModuleProvider="target">
-                                                <rect key="frame" x="0.0" y="0.0" width="53.5" height="55.5"/>
+                                                <rect key="frame" x="0.0" y="0.0" width="53.5" height="27.5"/>
                                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                             </view>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="lGj-gn-eBE" customClass="customDraw1" customModule="cook_book" customModuleProvider="target">
-                                                <rect key="frame" x="53.5" y="0.0" width="53.5" height="55.5"/>
+                                                <rect key="frame" x="53.5" y="0.0" width="53.5" height="27.5"/>
                                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                             </view>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="maK-zJ-GDi" customClass="customDraw2" customModule="cook_book" customModuleProvider="target">
-                                                <rect key="frame" x="107" y="0.0" width="53.5" height="55.5"/>
+                                                <rect key="frame" x="107" y="0.0" width="53.5" height="27.5"/>
                                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                             </view>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="23n-ZM-mYK" customClass="customeDraw4" customModule="cook_book" customModuleProvider="target">
-                                                <rect key="frame" x="160.5" y="0.0" width="54" height="55.5"/>
+                                                <rect key="frame" x="160.5" y="0.0" width="54" height="27.5"/>
                                                 <subviews>
                                                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="icons8-expand_arrow_filled" translatesAutoresizingMaskIntoConstraints="NO" id="HWc-1N-es3">
-                                                        <rect key="frame" x="0.0" y="0.0" width="54" height="55.5"/>
+                                                        <rect key="frame" x="13.5" y="0.0" width="27.5" height="27.5"/>
                                                     </imageView>
                                                 </subviews>
                                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                 <gestureRecognizers/>
                                                 <constraints>
-                                                    <constraint firstAttribute="trailing" secondItem="HWc-1N-es3" secondAttribute="trailing" id="T1w-RF-B4V"/>
-                                                    <constraint firstItem="HWc-1N-es3" firstAttribute="leading" secondItem="23n-ZM-mYK" secondAttribute="leading" id="VG4-nf-mxw"/>
+                                                    <constraint firstItem="HWc-1N-es3" firstAttribute="width" secondItem="23n-ZM-mYK" secondAttribute="height" id="0Yy-w9-Rgu"/>
+                                                    <constraint firstItem="HWc-1N-es3" firstAttribute="centerX" secondItem="23n-ZM-mYK" secondAttribute="centerX" id="B76-dZ-76g"/>
                                                     <constraint firstAttribute="bottom" secondItem="HWc-1N-es3" secondAttribute="bottom" id="dKl-Xo-cqU"/>
                                                     <constraint firstItem="HWc-1N-es3" firstAttribute="top" secondItem="23n-ZM-mYK" secondAttribute="top" id="rVG-i9-uM1"/>
                                                 </constraints>
@@ -369,15 +369,15 @@
                                                 </connections>
                                             </view>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="3eE-aa-Oe7" customClass="customDraw3" customModule="cook_book" customModuleProvider="target">
-                                                <rect key="frame" x="214.5" y="0.0" width="53.5" height="55.5"/>
+                                                <rect key="frame" x="214.5" y="0.0" width="53.5" height="27.5"/>
                                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                             </view>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="iOn-79-HpZ" customClass="customDraw1" customModule="cook_book" customModuleProvider="target">
-                                                <rect key="frame" x="268" y="0.0" width="53.5" height="55.5"/>
+                                                <rect key="frame" x="268" y="0.0" width="53.5" height="27.5"/>
                                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                             </view>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="I3k-Cd-Qha" customClass="customDraw1" customModule="cook_book" customModuleProvider="target">
-                                                <rect key="frame" x="321.5" y="0.0" width="53.5" height="55.5"/>
+                                                <rect key="frame" x="321.5" y="0.0" width="53.5" height="27.5"/>
                                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                             </view>
                                         </subviews>
@@ -393,7 +393,7 @@
                                 </constraints>
                             </view>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="eeJ-fZ-PBc">
-                                <rect key="frame" x="0.0" y="169.5" width="375" height="37.5"/>
+                                <rect key="frame" x="0.0" y="141.5" width="375" height="37.5"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="o9g-vN-sf0" userLabel="left">
                                         <rect key="frame" x="0.0" y="0.0" width="300" height="37.5"/>
@@ -493,10 +493,10 @@
                                 </constraints>
                             </view>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="0wV-9Y-5R2" userLabel="directionsParentView">
-                                <rect key="frame" x="0.0" y="207" width="375" height="411"/>
+                                <rect key="frame" x="0.0" y="179" width="375" height="439"/>
                                 <subviews>
-                                    <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Hdn-2d-axz">
-                                        <rect key="frame" x="0.0" y="0.0" width="375" height="411"/>
+                                    <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" ambiguous="YES" showsVerticalScrollIndicator="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Hdn-2d-axz">
+                                        <rect key="frame" x="0.0" y="0.0" width="375" height="439"/>
                                         <subviews>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="iNA-8M-gtl" userLabel="contentView">
                                                 <rect key="frame" x="9.5" y="0.0" width="356" height="761"/>
@@ -565,7 +565,7 @@
                             <constraint firstItem="AXb-pI-aM6" firstAttribute="bottom" secondItem="0wV-9Y-5R2" secondAttribute="bottom" id="FRY-e7-gaX"/>
                             <constraint firstItem="n0j-XY-3Lp" firstAttribute="leading" secondItem="AXb-pI-aM6" secondAttribute="leading" id="GeL-kq-NCz"/>
                             <constraint firstItem="AXb-pI-aM6" firstAttribute="bottom" secondItem="VWQ-JX-eiW" secondAttribute="bottom" id="KGz-bj-KiO"/>
-                            <constraint firstItem="n0j-XY-3Lp" firstAttribute="height" secondItem="AXb-pI-aM6" secondAttribute="height" multiplier="0.1" id="Tak-D4-Yt6"/>
+                            <constraint firstItem="n0j-XY-3Lp" firstAttribute="height" secondItem="AXb-pI-aM6" secondAttribute="height" multiplier="0.05" id="Tak-D4-Yt6"/>
                             <constraint firstItem="eeJ-fZ-PBc" firstAttribute="top" secondItem="n0j-XY-3Lp" secondAttribute="bottom" id="Xcb-fS-V3B"/>
                             <constraint firstItem="n0j-XY-3Lp" firstAttribute="width" secondItem="BeK-QD-9mD" secondAttribute="width" id="aEE-a4-ujc"/>
                             <constraint firstItem="eeJ-fZ-PBc" firstAttribute="height" secondItem="BeK-QD-9mD" secondAttribute="width" multiplier="0.1" id="aMj-OU-vQo"/>
