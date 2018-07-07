@@ -409,14 +409,14 @@
                                                         <rect key="frame" x="0.0" y="0.0" width="47" height="38"/>
                                                         <subviews>
                                                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="icons8-ingredients_spring" translatesAutoresizingMaskIntoConstraints="NO" id="jFD-H4-khW">
-                                                                <rect key="frame" x="6.5" y="2" width="34" height="34"/>
+                                                                <rect key="frame" x="8" y="4" width="30.5" height="30"/>
                                                             </imageView>
                                                         </subviews>
                                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                                         <gestureRecognizers/>
                                                         <constraints>
-                                                            <constraint firstItem="jFD-H4-khW" firstAttribute="height" secondItem="7vg-e6-Mr5" secondAttribute="height" multiplier="0.9" id="A8m-fV-Dh0"/>
-                                                            <constraint firstItem="jFD-H4-khW" firstAttribute="width" secondItem="7vg-e6-Mr5" secondAttribute="height" multiplier="0.9" id="Sam-my-2ib"/>
+                                                            <constraint firstItem="jFD-H4-khW" firstAttribute="height" secondItem="7vg-e6-Mr5" secondAttribute="height" multiplier="0.8" id="A8m-fV-Dh0"/>
+                                                            <constraint firstItem="jFD-H4-khW" firstAttribute="width" secondItem="7vg-e6-Mr5" secondAttribute="height" multiplier="0.8" id="Sam-my-2ib"/>
                                                             <constraint firstItem="jFD-H4-khW" firstAttribute="centerX" secondItem="7vg-e6-Mr5" secondAttribute="centerX" id="Sha-uM-OXT"/>
                                                             <constraint firstItem="jFD-H4-khW" firstAttribute="centerY" secondItem="7vg-e6-Mr5" secondAttribute="centerY" id="vgW-gi-X8Z"/>
                                                         </constraints>
@@ -428,7 +428,7 @@
                                                         <rect key="frame" x="47" y="0.0" width="46.5" height="38"/>
                                                         <subviews>
                                                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="icons8-kitchen_steel" translatesAutoresizingMaskIntoConstraints="NO" id="DUS-l2-cYu">
-                                                                <rect key="frame" x="6.5" y="2" width="34" height="34"/>
+                                                                <rect key="frame" x="8" y="4" width="30.5" height="30"/>
                                                             </imageView>
                                                         </subviews>
                                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
@@ -436,8 +436,8 @@
                                                         <constraints>
                                                             <constraint firstItem="DUS-l2-cYu" firstAttribute="centerY" secondItem="lcz-n4-VWW" secondAttribute="centerY" id="BNd-wu-ca8"/>
                                                             <constraint firstItem="DUS-l2-cYu" firstAttribute="centerX" secondItem="lcz-n4-VWW" secondAttribute="centerX" id="RnJ-iu-Sgd"/>
-                                                            <constraint firstItem="DUS-l2-cYu" firstAttribute="height" secondItem="lcz-n4-VWW" secondAttribute="height" multiplier="0.9" id="Wzg-eD-fp0"/>
-                                                            <constraint firstItem="DUS-l2-cYu" firstAttribute="width" secondItem="lcz-n4-VWW" secondAttribute="height" multiplier="0.9" id="b3h-dR-5JD"/>
+                                                            <constraint firstItem="DUS-l2-cYu" firstAttribute="height" secondItem="lcz-n4-VWW" secondAttribute="height" multiplier="0.8" id="Wzg-eD-fp0"/>
+                                                            <constraint firstItem="DUS-l2-cYu" firstAttribute="width" secondItem="lcz-n4-VWW" secondAttribute="height" multiplier="0.8" id="b3h-dR-5JD"/>
                                                         </constraints>
                                                         <connections>
                                                             <outletCollection property="gestureRecognizers" destination="5Cd-oZ-bCS" appends="YES" id="uaM-Sw-gZM"/>
