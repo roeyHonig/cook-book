@@ -137,13 +137,22 @@ class RecipeDetailsViewController: UIViewController, UITableViewDelegate, UITabl
         // we're allready lowered all the way and about to move up
         if self.sliderControlYPositions[self.currentSliderPositionIndex] == 1 {
             self.addToShoppingListContainerHeight.constant = 50
+            self.sliderIconImage.image = #imageLiteral(resourceName: "icons8-expand_arrow_filled")
+            self.sliderIconImage.transform = CGAffineTransform(rotationAngle: CGFloat.pi)
+        }
+        
+        // we're at the top about to drop down
+        if self.sliderControlYPositions[self.currentSliderPositionIndex] == 0.2 {
+            self.sliderIconImage.image = #imageLiteral(resourceName: "icons8-menu_filled")
         }
         
         UIView.animate(withDuration: 1, animations: {
             // animate stuff
             
-            //just a test, animate the rotating icon
-            self.sliderIconImage.transform = CGAffineTransform(rotationAngle: CGFloat.pi * 0)
+            // we're at the middle and about to move all the way up up
+            if self.sliderControlYPositions[self.currentSliderPositionIndex] == 0.5 {
+                self.sliderIconImage.transform = CGAffineTransform(rotationAngle: CGFloat.pi * 0)
+            }
             
             if self.currentSliderPositionIndex == self.sliderControlYPositions.count - 1 {
                 self.currentSliderPositionIndex = 0
