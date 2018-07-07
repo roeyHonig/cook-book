@@ -47,6 +47,7 @@ class RecipeDetailsViewController: UIViewController, UITableViewDelegate, UITabl
     
     @IBOutlet var addToShoppingListTapGesture: UITapGestureRecognizer!
     
+    @IBOutlet var directionsUIView: UIView!
     
     var numofRecipie = ""
     
@@ -160,6 +161,7 @@ class RecipeDetailsViewController: UIViewController, UITableViewDelegate, UITabl
     }
     
     @objc func showIngridents() {
+        directionsUIView.alpha = 0
         print("ingridents was pressed")
         
         // show the table view
@@ -184,6 +186,8 @@ class RecipeDetailsViewController: UIViewController, UITableViewDelegate, UITabl
     
     @objc func showDirections() {
         print("directions was pressed")
+        ingridentsTable.removeFromSuperview()
+        directionsUIView.alpha = 1
     }
     
     override func willMove(toParentViewController parent: UIViewController?) {

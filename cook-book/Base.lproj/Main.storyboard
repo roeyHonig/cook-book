@@ -480,23 +480,76 @@
                                     <constraint firstItem="zk6-Ct-NgE" firstAttribute="leading" secondItem="VWQ-JX-eiW" secondAttribute="leading" id="eMJ-s4-o6p"/>
                                 </constraints>
                             </view>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="0wV-9Y-5R2" userLabel="directionsParentView">
+                                <rect key="frame" x="0.0" y="207" width="375" height="411"/>
+                                <subviews>
+                                    <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Hdn-2d-axz">
+                                        <rect key="frame" x="0.0" y="0.0" width="375" height="411"/>
+                                        <subviews>
+                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="iNA-8M-gtl" userLabel="contentView">
+                                                <rect key="frame" x="0.0" y="0.0" width="375" height="600"/>
+                                                <subviews>
+                                                    <textView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="3lh-Nh-69Y">
+                                                        <rect key="frame" x="0.0" y="0.0" width="375" height="600"/>
+                                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                                        <accessibility key="accessibilityConfiguration">
+                                                            <accessibilityTraits key="traits" notEnabled="YES"/>
+                                                        </accessibility>
+                                                        <mutableString key="text">START Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Nam liber te conscient to factor tum poen legum odioque civiuda.Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Nam liber te conscient to factor tum poen legum odioque civiuda.Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Nam liber te conscient to factor tum poen legum odioque civiuda. FINISH</mutableString>
+                                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                        <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                                                    </textView>
+                                                </subviews>
+                                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                                <constraints>
+                                                    <constraint firstItem="3lh-Nh-69Y" firstAttribute="width" secondItem="iNA-8M-gtl" secondAttribute="width" id="1Uw-hQ-Z7q"/>
+                                                    <constraint firstItem="3lh-Nh-69Y" firstAttribute="height" secondItem="iNA-8M-gtl" secondAttribute="height" id="a6v-gY-jma"/>
+                                                    <constraint firstAttribute="height" constant="600" id="g4o-SP-ZcL"/>
+                                                    <constraint firstAttribute="trailing" secondItem="3lh-Nh-69Y" secondAttribute="trailing" id="meL-gZ-31r"/>
+                                                    <constraint firstItem="3lh-Nh-69Y" firstAttribute="top" secondItem="iNA-8M-gtl" secondAttribute="top" id="mhv-2b-lGa"/>
+                                                    <constraint firstItem="3lh-Nh-69Y" firstAttribute="leading" secondItem="iNA-8M-gtl" secondAttribute="leading" id="sMo-eD-hhe"/>
+                                                    <constraint firstAttribute="bottom" secondItem="3lh-Nh-69Y" secondAttribute="bottom" id="sPP-3d-OzS"/>
+                                                </constraints>
+                                            </view>
+                                        </subviews>
+                                        <constraints>
+                                            <constraint firstItem="iNA-8M-gtl" firstAttribute="leading" secondItem="Hdn-2d-axz" secondAttribute="leading" id="3TW-Wu-Hux"/>
+                                            <constraint firstItem="iNA-8M-gtl" firstAttribute="width" secondItem="Hdn-2d-axz" secondAttribute="width" id="E9p-23-zH7"/>
+                                            <constraint firstAttribute="trailing" secondItem="iNA-8M-gtl" secondAttribute="trailing" id="GTf-yW-YPi"/>
+                                            <constraint firstItem="iNA-8M-gtl" firstAttribute="top" secondItem="Hdn-2d-axz" secondAttribute="top" id="gkb-e2-E7r"/>
+                                            <constraint firstAttribute="bottom" secondItem="iNA-8M-gtl" secondAttribute="bottom" id="wW1-SD-SPO"/>
+                                        </constraints>
+                                    </scrollView>
+                                </subviews>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstItem="Hdn-2d-axz" firstAttribute="height" secondItem="0wV-9Y-5R2" secondAttribute="height" id="Aaj-VM-o25"/>
+                                    <constraint firstItem="Hdn-2d-axz" firstAttribute="width" secondItem="0wV-9Y-5R2" secondAttribute="width" id="aMm-jc-76G"/>
+                                    <constraint firstItem="Hdn-2d-axz" firstAttribute="leading" secondItem="0wV-9Y-5R2" secondAttribute="leading" id="gGn-g3-vOk"/>
+                                    <constraint firstItem="Hdn-2d-axz" firstAttribute="top" secondItem="0wV-9Y-5R2" secondAttribute="top" id="xt3-q3-o9d"/>
+                                </constraints>
+                            </view>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstItem="AXb-pI-aM6" firstAttribute="trailing" secondItem="T5p-MA-gFT" secondAttribute="trailing" id="5SX-Yb-kmY"/>
                             <constraint firstItem="VWQ-JX-eiW" firstAttribute="leading" secondItem="AXb-pI-aM6" secondAttribute="leading" id="CXT-TM-TSe"/>
                             <constraint firstItem="T5p-MA-gFT" firstAttribute="top" secondItem="AXb-pI-aM6" secondAttribute="top" id="EFG-c8-SsM"/>
+                            <constraint firstItem="AXb-pI-aM6" firstAttribute="bottom" secondItem="0wV-9Y-5R2" secondAttribute="bottom" id="FRY-e7-gaX"/>
                             <constraint firstItem="n0j-XY-3Lp" firstAttribute="leading" secondItem="AXb-pI-aM6" secondAttribute="leading" id="GeL-kq-NCz"/>
                             <constraint firstItem="AXb-pI-aM6" firstAttribute="bottom" secondItem="VWQ-JX-eiW" secondAttribute="bottom" id="KGz-bj-KiO"/>
                             <constraint firstItem="n0j-XY-3Lp" firstAttribute="height" secondItem="AXb-pI-aM6" secondAttribute="height" multiplier="0.1" id="Tak-D4-Yt6"/>
                             <constraint firstItem="eeJ-fZ-PBc" firstAttribute="top" secondItem="n0j-XY-3Lp" secondAttribute="bottom" id="Xcb-fS-V3B"/>
                             <constraint firstItem="n0j-XY-3Lp" firstAttribute="width" secondItem="BeK-QD-9mD" secondAttribute="width" id="aEE-a4-ujc"/>
                             <constraint firstItem="eeJ-fZ-PBc" firstAttribute="height" secondItem="BeK-QD-9mD" secondAttribute="width" multiplier="0.1" id="aMj-OU-vQo"/>
+                            <constraint firstItem="0wV-9Y-5R2" firstAttribute="top" secondItem="eeJ-fZ-PBc" secondAttribute="bottom" id="f6J-cO-qnz"/>
                             <constraint firstItem="T5p-MA-gFT" firstAttribute="leading" secondItem="AXb-pI-aM6" secondAttribute="leading" id="fdo-Vx-RIm"/>
                             <constraint firstItem="AXb-pI-aM6" firstAttribute="trailing" secondItem="VWQ-JX-eiW" secondAttribute="trailing" id="iah-ga-JHe"/>
+                            <constraint firstItem="AXb-pI-aM6" firstAttribute="trailing" secondItem="0wV-9Y-5R2" secondAttribute="trailing" id="mKC-AI-VmB"/>
                             <constraint firstItem="n0j-XY-3Lp" firstAttribute="top" secondItem="AXb-pI-aM6" secondAttribute="top" constant="50" id="qyp-am-Oqx"/>
                             <constraint firstItem="eeJ-fZ-PBc" firstAttribute="width" secondItem="BeK-QD-9mD" secondAttribute="width" id="sf8-6Y-CZu"/>
                             <constraint firstItem="eeJ-fZ-PBc" firstAttribute="leading" secondItem="AXb-pI-aM6" secondAttribute="leading" id="t6d-Nq-8io"/>
+                            <constraint firstItem="0wV-9Y-5R2" firstAttribute="leading" secondItem="AXb-pI-aM6" secondAttribute="leading" id="wQm-0v-edC"/>
                             <constraint firstItem="AXb-pI-aM6" firstAttribute="bottom" secondItem="T5p-MA-gFT" secondAttribute="bottom" id="x7b-qi-xJU"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="AXb-pI-aM6"/>
@@ -511,6 +564,7 @@
                         <outlet property="constraintToEditInOrderToCenterTheAddToShopping" destination="eMJ-s4-o6p" id="TLj-hg-rQI"/>
                         <outlet property="directionsBtnView" destination="lcz-n4-VWW" id="y6J-Zl-ad7"/>
                         <outlet property="directionsTapGesture" destination="5Cd-oZ-bCS" id="kx7-Qc-GTh"/>
+                        <outlet property="directionsUIView" destination="0wV-9Y-5R2" id="6zp-oa-QDa"/>
                         <outlet property="distanceBetweenIconAndText" destination="KC9-pP-fxb" id="lu1-bQ-W5L"/>
                         <outlet property="ingridentsBtnView" destination="7vg-e6-Mr5" id="zip-uT-em1"/>
                         <outlet property="ingridentsTable" destination="me8-Yo-xuD" id="RKR-7p-O4c"/>
