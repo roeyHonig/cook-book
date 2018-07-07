@@ -52,6 +52,8 @@ class RecipeDetailsViewController: UIViewController, UITableViewDelegate, UITabl
     @IBOutlet var directionsTextLabel: UILabel!
     
     
+    @IBOutlet var sliderIconImage: UIImageView!
+    
     var numofRecipie = ""
     
     var recipeHeader: RecipeHeader?
@@ -95,7 +97,7 @@ class RecipeDetailsViewController: UIViewController, UITableViewDelegate, UITabl
         constraintToEditInOrderToCenterTheAddToShopping.constant = 0.5 * (frameWidth - (textWidth + distanceBetweenTextAndIcon + iconWidth))
         print("frameWidth: \(frameWidth) , textWidth: \(textWidth) , distanceBetweenTextAndIcon: \(distanceBetweenTextAndIcon), iconWidth: \(iconWidth), and finally: \(constraintToEditInOrderToCenterTheAddToShopping.constant)  ")
         
-        
+        sliderIconImage.transform = CGAffineTransform(rotationAngle: CGFloat.pi)
         
         // init from the db via previus VC
         guard let theCurrentRecipy = recipeHeader else {
@@ -127,6 +129,10 @@ class RecipeDetailsViewController: UIViewController, UITableViewDelegate, UITabl
     }
     
     @objc func slideAction() {
+        
+        
+        
+        
         print("sliding commence")
         // we're allready lowered all the way and about to move up
         if self.sliderControlYPositions[self.currentSliderPositionIndex] == 1 {
@@ -135,6 +141,10 @@ class RecipeDetailsViewController: UIViewController, UITableViewDelegate, UITabl
         
         UIView.animate(withDuration: 1, animations: {
             // animate stuff
+            
+            //just a test, animate the rotating icon
+            self.sliderIconImage.transform = CGAffineTransform(rotationAngle: CGFloat.pi * 0)
+            
             if self.currentSliderPositionIndex == self.sliderControlYPositions.count - 1 {
                 self.currentSliderPositionIndex = 0
             } else {

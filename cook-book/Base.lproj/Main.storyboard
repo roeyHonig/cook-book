@@ -351,8 +351,19 @@
                                             </view>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="23n-ZM-mYK" customClass="customeDraw4" customModule="cook_book" customModuleProvider="target">
                                                 <rect key="frame" x="160.5" y="0.0" width="54" height="55.5"/>
+                                                <subviews>
+                                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="icons8-expand_arrow_filled" translatesAutoresizingMaskIntoConstraints="NO" id="HWc-1N-es3">
+                                                        <rect key="frame" x="0.0" y="0.0" width="54" height="55.5"/>
+                                                    </imageView>
+                                                </subviews>
                                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                                 <gestureRecognizers/>
+                                                <constraints>
+                                                    <constraint firstAttribute="trailing" secondItem="HWc-1N-es3" secondAttribute="trailing" id="T1w-RF-B4V"/>
+                                                    <constraint firstItem="HWc-1N-es3" firstAttribute="leading" secondItem="23n-ZM-mYK" secondAttribute="leading" id="VG4-nf-mxw"/>
+                                                    <constraint firstAttribute="bottom" secondItem="HWc-1N-es3" secondAttribute="bottom" id="dKl-Xo-cqU"/>
+                                                    <constraint firstItem="HWc-1N-es3" firstAttribute="top" secondItem="23n-ZM-mYK" secondAttribute="top" id="rVG-i9-uM1"/>
+                                                </constraints>
                                                 <connections>
                                                     <outletCollection property="gestureRecognizers" destination="E7p-aC-SQW" appends="YES" id="p1A-Bh-lij"/>
                                                 </connections>
@@ -587,6 +598,7 @@
                         <outlet property="shopinglistContainer" destination="VWQ-JX-eiW" id="yZ9-vX-w5C"/>
                         <outlet property="sliderControllerBtn" destination="23n-ZM-mYK" id="8vS-GC-w4K"/>
                         <outlet property="sliderControllerBtnTapGesture" destination="E7p-aC-SQW" id="nOI-RE-Uci"/>
+                        <outlet property="sliderIconImage" destination="HWc-1N-es3" id="Uju-pT-vbA"/>
                         <outlet property="sliderPosition" destination="qyp-am-Oqx" id="Dnr-v3-eoB"/>
                     </connections>
                 </viewController>
@@ -600,7 +612,7 @@
                             <rect key="frame" x="0.0" y="28" width="375" height="94"/>
                             <autoresizingMask key="autoresizingMask"/>
                             <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="orp-At-Keo" id="KSI-Eb-EMt">
-                                <rect key="frame" x="0.0" y="0.0" width="375" height="93.5"/>
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="93"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label " textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="AkV-2p-nES">
@@ -812,6 +824,7 @@
         <image name="googleSignIn.png" width="512" height="512"/>
         <image name="icons8-cooking_pot" width="24" height="24"/>
         <image name="icons8-cooking_pot_filled" width="75" height="75"/>
+        <image name="icons8-expand_arrow_filled" width="50" height="50"/>
         <image name="polutary50" width="50" height="50"/>
         <image name="pork50" width="48" height="48"/>
         <image name="real-deasert50" width="50" height="50"/>
