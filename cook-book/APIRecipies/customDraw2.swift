@@ -20,6 +20,12 @@ class customDraw2: UIView {
         path.lineWidth = 2
         path.addLine(to: CGPoint(x: rect.maxX, y: rect.minY))
         path.stroke()
+        path.addLine(to: CGPoint(x: rect.maxX, y: rect.maxY))
+        path.stroke()
+        path.addLine(to: CGPoint(x: rect.maxX * 0.5, y: rect.maxY))
+        path.stroke()
+        UIColor.black.setFill()
+        path.fill()
     }
     
     /*

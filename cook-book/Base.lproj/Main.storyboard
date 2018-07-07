@@ -356,7 +356,7 @@
                                                         <rect key="frame" x="0.0" y="0.0" width="54" height="55.5"/>
                                                     </imageView>
                                                 </subviews>
-                                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                                <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
                                                 <gestureRecognizers/>
                                                 <constraints>
                                                     <constraint firstAttribute="trailing" secondItem="HWc-1N-es3" secondAttribute="trailing" id="T1w-RF-B4V"/>
@@ -397,7 +397,7 @@
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="o9g-vN-sf0" userLabel="left">
                                         <rect key="frame" x="0.0" y="0.0" width="300" height="37.5"/>
-                                        <color key="backgroundColor" red="1" green="1" blue="0.40000000600000002" alpha="1" colorSpace="calibratedRGB"/>
+                                        <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
                                     </view>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="CrU-sj-jn8" userLabel="right">
                                         <rect key="frame" x="300" y="0.0" width="75" height="38"/>
@@ -407,7 +407,7 @@
                                                 <subviews>
                                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="7vg-e6-Mr5" userLabel="ingridentsBtn">
                                                         <rect key="frame" x="0.0" y="0.0" width="37.5" height="38"/>
-                                                        <color key="backgroundColor" red="0.0" green="1" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                                        <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
                                                         <gestureRecognizers/>
                                                         <connections>
                                                             <outletCollection property="gestureRecognizers" destination="r1J-bL-88c" appends="YES" id="U07-3z-CdF"/>
@@ -415,7 +415,7 @@
                                                     </view>
                                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="lcz-n4-VWW" userLabel="directionsBtn">
                                                         <rect key="frame" x="37.5" y="0.0" width="37.5" height="38"/>
-                                                        <color key="backgroundColor" red="0.80000001190000003" green="0.80000001190000003" blue="0.80000001190000003" alpha="1" colorSpace="calibratedRGB"/>
+                                                        <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
                                                         <gestureRecognizers/>
                                                         <connections>
                                                             <outletCollection property="gestureRecognizers" destination="5Cd-oZ-bCS" appends="YES" id="uaM-Sw-gZM"/>
@@ -612,7 +612,7 @@
                             <rect key="frame" x="0.0" y="28" width="375" height="94"/>
                             <autoresizingMask key="autoresizingMask"/>
                             <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="orp-At-Keo" id="KSI-Eb-EMt">
-                                <rect key="frame" x="0.0" y="0.0" width="375" height="93"/>
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="93.5"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label " textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="AkV-2p-nES">
