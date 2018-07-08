@@ -142,6 +142,8 @@ class RecipeDetailsViewController: UIViewController, UITableViewDelegate, UITabl
         
         
         print("sliding commence")
+        
+        
         // we're allready lowered all the way and about to move up
         if self.sliderControlYPositions[self.currentSliderPositionIndex] == 1 {
             self.addToShoppingListContainerHeight.constant = 50

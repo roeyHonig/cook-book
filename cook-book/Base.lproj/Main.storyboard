@@ -281,40 +281,81 @@
         <!--Shopping List-->
         <scene sceneID="Lw0-wh-eko">
             <objects>
-                <viewController id="a0Z-xd-4ap" customClass="favoriteRecipesViewController" customModule="cook_book" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="a0Z-xd-4ap" customClass="ShoppingListViewController" customModule="cook_book" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="uLb-Xi-OaV">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Poultry.jpg" translatesAutoresizingMaskIntoConstraints="NO" id="ZPW-Ri-c3H">
-                                <rect key="frame" x="112.5" y="258.5" width="150" height="150"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="150" id="cjX-tS-bGC"/>
-                                    <constraint firstAttribute="width" constant="150" id="kaB-pw-L8V"/>
-                                </constraints>
-                            </imageView>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="MBV-jq-uf7">
-                                <rect key="frame" x="0.0" y="20" width="375" height="21"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <nil key="textColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="oPe-fh-Aka" userLabel="recipesTableView">
+                                <rect key="frame" x="0.0" y="20" width="375" height="598"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <prototypes>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" rowHeight="492" id="2ao-Kz-3uW" customClass="RecipesTableViewCell" customModule="cook_book" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="28" width="375" height="492"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="2ao-Kz-3uW" id="dL0-Ty-TwT">
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="491.5"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="jjb-Nc-JGs">
+                                                    <rect key="frame" x="8" y="8" width="359" height="21"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="b2u-8M-Yau" userLabel="ingredientsTableView">
+                                                    <rect key="frame" x="0.0" y="29" width="375" height="462.5"/>
+                                                    <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                                    <prototypes>
+                                                        <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" id="bFe-H3-E1N" customClass="ingredientsForEachShoopingListRecipeTableViewCell" customModule="cook_book" customModuleProvider="target">
+                                                            <rect key="frame" x="0.0" y="28" width="375" height="44"/>
+                                                            <autoresizingMask key="autoresizingMask"/>
+                                                            <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="bFe-H3-E1N" id="URc-2c-bbH">
+                                                                <rect key="frame" x="0.0" y="0.0" width="375" height="43.5"/>
+                                                                <autoresizingMask key="autoresizingMask"/>
+                                                                <subviews>
+                                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="cCp-PE-eaC">
+                                                                        <rect key="frame" x="8" y="8" width="359" height="27.5"/>
+                                                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                                        <nil key="textColor"/>
+                                                                        <nil key="highlightedColor"/>
+                                                                    </label>
+                                                                </subviews>
+                                                                <constraints>
+                                                                    <constraint firstItem="cCp-PE-eaC" firstAttribute="leading" secondItem="URc-2c-bbH" secondAttribute="leadingMargin" id="RKm-ih-v2z"/>
+                                                                    <constraint firstAttribute="bottomMargin" secondItem="cCp-PE-eaC" secondAttribute="bottom" id="Tlx-nm-ohw"/>
+                                                                    <constraint firstAttribute="trailingMargin" secondItem="cCp-PE-eaC" secondAttribute="trailing" id="qUC-Kj-eA9"/>
+                                                                    <constraint firstItem="cCp-PE-eaC" firstAttribute="top" secondItem="URc-2c-bbH" secondAttribute="topMargin" id="zU8-8C-ho9"/>
+                                                                </constraints>
+                                                            </tableViewCellContentView>
+                                                        </tableViewCell>
+                                                    </prototypes>
+                                                </tableView>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint firstItem="b2u-8M-Yau" firstAttribute="leading" secondItem="dL0-Ty-TwT" secondAttribute="leading" id="63Z-oH-yuN"/>
+                                                <constraint firstItem="b2u-8M-Yau" firstAttribute="top" secondItem="jjb-Nc-JGs" secondAttribute="bottom" id="L6R-vi-q6a"/>
+                                                <constraint firstAttribute="trailing" secondItem="b2u-8M-Yau" secondAttribute="trailing" id="MKM-6f-9Kb"/>
+                                                <constraint firstItem="jjb-Nc-JGs" firstAttribute="top" secondItem="dL0-Ty-TwT" secondAttribute="topMargin" id="Pyb-QW-sGs"/>
+                                                <constraint firstItem="jjb-Nc-JGs" firstAttribute="leading" secondItem="dL0-Ty-TwT" secondAttribute="leadingMargin" id="VCF-16-Xxl"/>
+                                                <constraint firstAttribute="bottom" secondItem="b2u-8M-Yau" secondAttribute="bottom" id="iaZ-Tw-8Ru"/>
+                                                <constraint firstAttribute="trailingMargin" secondItem="jjb-Nc-JGs" secondAttribute="trailing" id="o4Z-kA-j5Z"/>
+                                            </constraints>
+                                        </tableViewCellContentView>
+                                    </tableViewCell>
+                                </prototypes>
+                            </tableView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstItem="VWG-gF-mDP" firstAttribute="trailing" secondItem="MBV-jq-uf7" secondAttribute="trailing" id="8i6-b5-l9e"/>
-                            <constraint firstItem="MBV-jq-uf7" firstAttribute="leading" secondItem="VWG-gF-mDP" secondAttribute="leading" id="9TA-de-ISE"/>
-                            <constraint firstItem="MBV-jq-uf7" firstAttribute="top" secondItem="VWG-gF-mDP" secondAttribute="top" id="So7-Np-uxl"/>
-                            <constraint firstItem="ZPW-Ri-c3H" firstAttribute="centerX" secondItem="uLb-Xi-OaV" secondAttribute="centerX" id="spc-m0-jSF"/>
-                            <constraint firstItem="ZPW-Ri-c3H" firstAttribute="centerY" secondItem="uLb-Xi-OaV" secondAttribute="centerY" id="waG-io-r4x"/>
+                            <constraint firstItem="oPe-fh-Aka" firstAttribute="trailing" secondItem="VWG-gF-mDP" secondAttribute="trailing" id="Jz9-NK-xlV"/>
+                            <constraint firstItem="oPe-fh-Aka" firstAttribute="leading" secondItem="VWG-gF-mDP" secondAttribute="leading" id="XDL-4l-ngu"/>
+                            <constraint firstItem="oPe-fh-Aka" firstAttribute="top" secondItem="VWG-gF-mDP" secondAttribute="top" id="cHZ-vM-aVz"/>
+                            <constraint firstItem="oPe-fh-Aka" firstAttribute="bottom" secondItem="VWG-gF-mDP" secondAttribute="bottom" id="dJ2-16-oA8"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="VWG-gF-mDP"/>
                     </view>
                     <tabBarItem key="tabBarItem" title="Shopping List" image="icons8-shopping_25Steel" id="QaT-tj-fbZ"/>
-                    <connections>
-                        <outlet property="label" destination="MBV-jq-uf7" id="F6x-SB-flr"/>
-                        <outlet property="testImage" destination="ZPW-Ri-c3H" id="Hf8-Ld-ri0"/>
-                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="qRn-X0-bXD" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -855,7 +896,6 @@
         </scene>
     </scenes>
     <resources>
-        <image name="Poultry.jpg" width="720" height="405"/>
         <image name="addToShoopingListIconGreen" width="50" height="50"/>
         <image name="beef50" width="48" height="48"/>
         <image name="fisf-food50" width="50" height="50"/>

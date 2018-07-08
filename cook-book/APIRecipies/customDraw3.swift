@@ -7,7 +7,7 @@
 //
 
 import UIKit
-@IBDesignable
+//@IBDesignable
 class customDraw3: UIView {
 
     override func draw(_ rect: CGRect) {
