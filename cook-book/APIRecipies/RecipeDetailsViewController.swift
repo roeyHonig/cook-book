@@ -4,7 +4,7 @@
 //
 //  Created by hackeru on 8 Tamuz 5778.
 //  Copyright © 5778 student.roey.honig. All rights reserved.
-//
+//  TODO: just finsih the last icons and text in the recipe header
 
 import UIKit
 import SDWebImage
