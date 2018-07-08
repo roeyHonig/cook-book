@@ -13,20 +13,6 @@ class ShoppingListViewController: UIViewController ,UITableViewDelegate, UITable
     var recipesTableDataSource: [String?] = []
     var ingridentsTableDataSource: [[String?]] = [[]]
     
-    // just 1 section for both Recipes Names & Ingridents tables
-    func numberOfSections(in tableView: UITableView) -> Int {
-        return 1
-    }
-    
-    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        
-    }
-    
-    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        
-    }
-    
-
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -42,7 +28,18 @@ class ShoppingListViewController: UIViewController ,UITableViewDelegate, UITable
         ]
     }
 
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return recipesTableDataSource.count
+    }
     
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cell = tableView.dequeueReusableCell(withIdentifier: "recipeTitleCell") as! RecipesTableViewCell
+        cell.recipeNameLabel.text = recipesTableDataSource[indexPath.row]
+        cell.specificIngredientsDataSource = ingridentsTableDataSource[indexPath.row]
+        return cell
+    }
+    
+
     
     
     

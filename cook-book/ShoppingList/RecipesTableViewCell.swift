@@ -10,7 +10,8 @@ import UIKit
 
 class RecipesTableViewCell: UITableViewCell ,UITableViewDelegate, UITableViewDataSource{
     
-    
+    @IBOutlet var recipeNameLabel: UILabel!
+    var specificIngredientsDataSource: [String?] = []
     
 
     override func awakeFromNib() {
@@ -25,7 +26,7 @@ class RecipesTableViewCell: UITableViewCell ,UITableViewDelegate, UITableViewDat
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        
+        return specificIngredientsDataSource.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {

@@ -290,7 +290,7 @@
                                 <rect key="frame" x="0.0" y="20" width="375" height="598"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" rowHeight="492" id="2ao-Kz-3uW" customClass="RecipesTableViewCell" customModule="cook_book" customModuleProvider="target">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" restorationIdentifier="recipeTitleCell" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" rowHeight="492" id="2ao-Kz-3uW" customClass="RecipesTableViewCell" customModule="cook_book" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="28" width="375" height="492"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="2ao-Kz-3uW" id="dL0-Ty-TwT">
@@ -307,7 +307,7 @@
                                                     <rect key="frame" x="0.0" y="29" width="375" height="462.5"/>
                                                     <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                     <prototypes>
-                                                        <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" id="bFe-H3-E1N" customClass="ingredientsForEachShoopingListRecipeTableViewCell" customModule="cook_book" customModuleProvider="target">
+                                                        <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" restorationIdentifier="cellForSpecificRecipeIngrident" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" id="bFe-H3-E1N" customClass="ingredientsForEachShoopingListRecipeTableViewCell" customModule="cook_book" customModuleProvider="target">
                                                             <rect key="frame" x="0.0" y="28" width="375" height="44"/>
                                                             <autoresizingMask key="autoresizingMask"/>
                                                             <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="bFe-H3-E1N" id="URc-2c-bbH">
@@ -342,6 +342,9 @@
                                                 <constraint firstAttribute="trailingMargin" secondItem="jjb-Nc-JGs" secondAttribute="trailing" id="o4Z-kA-j5Z"/>
                                             </constraints>
                                         </tableViewCellContentView>
+                                        <connections>
+                                            <outlet property="recipeNameLabel" destination="jjb-Nc-JGs" id="0gW-bm-mZd"/>
+                                        </connections>
                                     </tableViewCell>
                                 </prototypes>
                             </tableView>
