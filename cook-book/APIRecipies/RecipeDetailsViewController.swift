@@ -268,6 +268,9 @@ class RecipeDetailsViewController: UIViewController, UITableViewDelegate, UITabl
            cell.contentView.backgroundColor = UIColor.white
         }
         
+        /*
+        // this was when i had only 1 label , so i appendded it the "•" and also made diffren colors
+        // this is how you color part of a string diffrent from the other
         guard var newTextWithBulletain = cell.ingridentDescription.text else {
             return cell
         }
@@ -279,7 +282,7 @@ class RecipeDetailsViewController: UIViewController, UITableViewDelegate, UITabl
         let attribute = NSMutableAttributedString.init(string: main_string)
         attribute.addAttribute(NSAttributedStringKey.foregroundColor, value: UIColor.green, range: range)
         cell.ingridentDescription.attributedText = attribute
-        
+        */
         return cell
     }
     
