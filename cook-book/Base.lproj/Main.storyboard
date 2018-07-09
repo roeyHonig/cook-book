@@ -318,9 +318,9 @@
                                             </subviews>
                                             <constraints>
                                                 <constraint firstItem="cRk-Z6-BKg" firstAttribute="leading" secondItem="8hJ-hX-7CT" secondAttribute="leadingMargin" id="12N-0i-Lxp"/>
-                                                <constraint firstAttribute="trailingMargin" secondItem="Bwm-Zc-RQa" secondAttribute="trailing" id="30Q-Gt-2xz"/>
+                                                <constraint firstAttribute="trailing" secondItem="Bwm-Zc-RQa" secondAttribute="trailing" constant="8" id="30Q-Gt-2xz"/>
                                                 <constraint firstItem="q1H-yq-uTo" firstAttribute="leading" secondItem="8hJ-hX-7CT" secondAttribute="leadingMargin" id="7x2-4n-JX2"/>
-                                                <constraint firstItem="Bwm-Zc-RQa" firstAttribute="leading" secondItem="8hJ-hX-7CT" secondAttribute="leadingMargin" id="9LM-cO-R81"/>
+                                                <constraint firstItem="Bwm-Zc-RQa" firstAttribute="leading" secondItem="8hJ-hX-7CT" secondAttribute="leading" constant="8" id="9LM-cO-R81"/>
                                                 <constraint firstAttribute="trailingMargin" secondItem="q1H-yq-uTo" secondAttribute="trailing" id="PJp-rc-qCb"/>
                                                 <constraint firstItem="q1H-yq-uTo" firstAttribute="top" secondItem="cRk-Z6-BKg" secondAttribute="bottom" id="XJd-LG-6XV"/>
                                                 <constraint firstAttribute="bottomMargin" secondItem="Bwm-Zc-RQa" secondAttribute="bottom" id="bf8-WJ-rZr"/>
