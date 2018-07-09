@@ -48,17 +48,38 @@ class ShoppingListViewController: UIViewController, UITableViewDelegate, UITable
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let cell = tableView.cellForRow(at: indexPath) as! RecipesTableViewCell
+        
+        if cell.isSecondaryTableOpen {
+            UIView.animate(withDuration:0.3, animations: {
+                // animate stuff
+                tableView.beginUpdates()
+                cell.heightConstraint.constant = 0
+                cell.layoutIfNeeded()
+                tableView.endUpdates()
+                
+            }) { (bool) in
+                // upon completion
+                tableView.reloadData()
+            }
+            cell.isSecondaryTableOpen = false
+        } else {
+            UIView.animate(withDuration:0.3, animations: {
+                // animate stuff
+                tableView.beginUpdates()
+                cell.heightConstraint.constant = 150
+                cell.layoutIfNeeded()
+                tableView.endUpdates()
+                
+            }) { (bool) in
+                // upon completion
+                tableView.reloadData()
+            }
+            cell.isSecondaryTableOpen = true
+        }
+        
         //cell.contentView.backgroundColor = UIColor.clear
        
-        UIView.animate(withDuration:0.3, animations: {
-            tableView.beginUpdates()
-            cell.heightConstraint.constant = 0
-            cell.layoutIfNeeded()
-            tableView.endUpdates()
-            
-        }) { (bool) in
-            tableView.reloadData()
-        }
+        
  
         
        

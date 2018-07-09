@@ -14,6 +14,7 @@ class RecipesTableViewCell: UITableViewCell {
     @IBOutlet var insideTableContainer: UIView!
     @IBOutlet var bottomSpacer: UIView!
     
+    var isSecondaryTableOpen = true
     var myFrame = CGRect()
     var testView = UIView()
     var heightConstraint = NSLayoutConstraint()
