@@ -36,8 +36,11 @@ class RecipesTableViewCell: UITableViewCell, UITableViewDelegate, UITableViewDat
         testView = UIView(frame: myFrame)
         testView.backgroundColor = UIColor.blue
         
+        secondaryTable.removeFromSuperview()
+        
         // very important!!!, otherwise the initial dimenstions becomes constraint themself and override our deseiered constraints
         testView.translatesAutoresizingMaskIntoConstraints = false
+        secondaryTable.translatesAutoresizingMaskIntoConstraints = false
         showSecondaryTable()
     }
 
@@ -69,7 +72,19 @@ class RecipesTableViewCell: UITableViewCell, UITableViewDelegate, UITableViewDat
         self.contentView.addConstraint(tableViewConstraintRight)
         
         self.contentView.addSubview(secondaryTable)
-        secondaryTable.frame.origin = self.testView.frame.origin
+        
+        // constraints
+        let tableViewConstraintTop1 = NSLayoutConstraint(item: secondaryTable, attribute: NSLayoutAttribute.top, relatedBy: .equal, toItem: testView, attribute: NSLayoutAttribute.top , multiplier: 1, constant: 0)
+        let tableViewConstraintTop2 = NSLayoutConstraint(item: secondaryTable, attribute: NSLayoutAttribute.bottom, relatedBy: .equal, toItem: testView, attribute: NSLayoutAttribute.bottom , multiplier: 1, constant: 0)
+        let tableViewConstraintTop3 = NSLayoutConstraint(item: secondaryTable, attribute: NSLayoutAttribute.trailing, relatedBy: .equal, toItem: testView, attribute: NSLayoutAttribute.trailing , multiplier: 1, constant: 0)
+        let tableViewConstraintTop4 = NSLayoutConstraint(item: secondaryTable, attribute: NSLayoutAttribute.leading, relatedBy: .equal, toItem: testView, attribute: NSLayoutAttribute.leading , multiplier: 1, constant: 0)
+        // assign the constraint to a coummon annssector
+        self.contentView.addConstraint(tableViewConstraintTop1)
+        self.contentView.addConstraint(tableViewConstraintTop2)
+        self.contentView.addConstraint(tableViewConstraintTop3)
+        self.contentView.addConstraint(tableViewConstraintTop4)
+        
+        
     }
     
     
