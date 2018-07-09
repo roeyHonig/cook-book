@@ -8,7 +8,7 @@
 
 import UIKit
 
-class ShoppingListViewController: UIViewController ,UITableViewDelegate, UITableViewDataSource{
+class ShoppingListViewController: UIViewController {
     
     var recipesTableDataSource: [String?] = []
     var ingridentsTableDataSource: [[String?]] = [[]]
@@ -28,18 +28,7 @@ class ShoppingListViewController: UIViewController ,UITableViewDelegate, UITable
         ]
     }
 
-    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return recipesTableDataSource.count
-    }
     
-    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "recipeTitleCell") as! RecipesTableViewCell
-        cell.recipeNameLabel.text = recipesTableDataSource[indexPath.row]
-        cell.specificIngredientsDataSource = ingridentsTableDataSource[indexPath.row]
-        return cell
-    }
-    
-
     
     
     

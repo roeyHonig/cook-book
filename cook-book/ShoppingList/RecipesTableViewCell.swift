@@ -8,9 +8,9 @@
 
 import UIKit
 
-class RecipesTableViewCell: UITableViewCell ,UITableViewDelegate, UITableViewDataSource{
+class RecipesTableViewCell: UITableViewCell {
     
-    @IBOutlet var recipeNameLabel: UILabel!
+   
     var specificIngredientsDataSource: [String?] = []
     
 
@@ -25,12 +25,6 @@ class RecipesTableViewCell: UITableViewCell ,UITableViewDelegate, UITableViewDat
         // Configure the view for the selected state
     }
     
-    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return specificIngredientsDataSource.count
-    }
-    
-    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        
-    }
+   
 
 }

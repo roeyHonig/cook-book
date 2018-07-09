@@ -285,77 +285,7 @@
                     <view key="view" contentMode="scaleToFill" id="uLb-Xi-OaV">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <subviews>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="oPe-fh-Aka" userLabel="recipesTableView">
-                                <rect key="frame" x="0.0" y="20" width="375" height="598"/>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" restorationIdentifier="recipeTitleCell" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" rowHeight="492" id="2ao-Kz-3uW" customClass="RecipesTableViewCell" customModule="cook_book" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="28" width="375" height="492"/>
-                                        <autoresizingMask key="autoresizingMask"/>
-                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="2ao-Kz-3uW" id="dL0-Ty-TwT">
-                                            <rect key="frame" x="0.0" y="0.0" width="375" height="491.5"/>
-                                            <autoresizingMask key="autoresizingMask"/>
-                                            <subviews>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="jjb-Nc-JGs">
-                                                    <rect key="frame" x="8" y="8" width="359" height="21"/>
-                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                                    <nil key="textColor"/>
-                                                    <nil key="highlightedColor"/>
-                                                </label>
-                                                <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="b2u-8M-Yau" userLabel="ingredientsTableView">
-                                                    <rect key="frame" x="0.0" y="29" width="375" height="462.5"/>
-                                                    <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                                    <prototypes>
-                                                        <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" restorationIdentifier="cellForSpecificRecipeIngrident" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" id="bFe-H3-E1N" customClass="ingredientsForEachShoopingListRecipeTableViewCell" customModule="cook_book" customModuleProvider="target">
-                                                            <rect key="frame" x="0.0" y="28" width="375" height="44"/>
-                                                            <autoresizingMask key="autoresizingMask"/>
-                                                            <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="bFe-H3-E1N" id="URc-2c-bbH">
-                                                                <rect key="frame" x="0.0" y="0.0" width="375" height="43.5"/>
-                                                                <autoresizingMask key="autoresizingMask"/>
-                                                                <subviews>
-                                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="cCp-PE-eaC">
-                                                                        <rect key="frame" x="8" y="8" width="359" height="27.5"/>
-                                                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                                                        <nil key="textColor"/>
-                                                                        <nil key="highlightedColor"/>
-                                                                    </label>
-                                                                </subviews>
-                                                                <constraints>
-                                                                    <constraint firstItem="cCp-PE-eaC" firstAttribute="leading" secondItem="URc-2c-bbH" secondAttribute="leadingMargin" id="RKm-ih-v2z"/>
-                                                                    <constraint firstAttribute="bottomMargin" secondItem="cCp-PE-eaC" secondAttribute="bottom" id="Tlx-nm-ohw"/>
-                                                                    <constraint firstAttribute="trailingMargin" secondItem="cCp-PE-eaC" secondAttribute="trailing" id="qUC-Kj-eA9"/>
-                                                                    <constraint firstItem="cCp-PE-eaC" firstAttribute="top" secondItem="URc-2c-bbH" secondAttribute="topMargin" id="zU8-8C-ho9"/>
-                                                                </constraints>
-                                                            </tableViewCellContentView>
-                                                        </tableViewCell>
-                                                    </prototypes>
-                                                </tableView>
-                                            </subviews>
-                                            <constraints>
-                                                <constraint firstItem="b2u-8M-Yau" firstAttribute="leading" secondItem="dL0-Ty-TwT" secondAttribute="leading" id="63Z-oH-yuN"/>
-                                                <constraint firstItem="b2u-8M-Yau" firstAttribute="top" secondItem="jjb-Nc-JGs" secondAttribute="bottom" id="L6R-vi-q6a"/>
-                                                <constraint firstAttribute="trailing" secondItem="b2u-8M-Yau" secondAttribute="trailing" id="MKM-6f-9Kb"/>
-                                                <constraint firstItem="jjb-Nc-JGs" firstAttribute="top" secondItem="dL0-Ty-TwT" secondAttribute="topMargin" id="Pyb-QW-sGs"/>
-                                                <constraint firstItem="jjb-Nc-JGs" firstAttribute="leading" secondItem="dL0-Ty-TwT" secondAttribute="leadingMargin" id="VCF-16-Xxl"/>
-                                                <constraint firstAttribute="bottom" secondItem="b2u-8M-Yau" secondAttribute="bottom" id="iaZ-Tw-8Ru"/>
-                                                <constraint firstAttribute="trailingMargin" secondItem="jjb-Nc-JGs" secondAttribute="trailing" id="o4Z-kA-j5Z"/>
-                                            </constraints>
-                                        </tableViewCellContentView>
-                                        <connections>
-                                            <outlet property="recipeNameLabel" destination="jjb-Nc-JGs" id="0gW-bm-mZd"/>
-                                        </connections>
-                                    </tableViewCell>
-                                </prototypes>
-                            </tableView>
-                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                        <constraints>
-                            <constraint firstItem="oPe-fh-Aka" firstAttribute="trailing" secondItem="VWG-gF-mDP" secondAttribute="trailing" id="Jz9-NK-xlV"/>
-                            <constraint firstItem="oPe-fh-Aka" firstAttribute="leading" secondItem="VWG-gF-mDP" secondAttribute="leading" id="XDL-4l-ngu"/>
-                            <constraint firstItem="oPe-fh-Aka" firstAttribute="top" secondItem="VWG-gF-mDP" secondAttribute="top" id="cHZ-vM-aVz"/>
-                            <constraint firstItem="oPe-fh-Aka" firstAttribute="bottom" secondItem="VWG-gF-mDP" secondAttribute="bottom" id="dJ2-16-oA8"/>
-                        </constraints>
                         <viewLayoutGuide key="safeArea" id="VWG-gF-mDP"/>
                     </view>
                     <tabBarItem key="tabBarItem" title="Shopping List" image="icons8-shopping_25Steel" id="QaT-tj-fbZ"/>
@@ -864,7 +794,7 @@
                     <tabBarItem key="tabBarItem" title="APIRecipies" image="icons8-cooking_pot" id="iWa-fe-Pwb"/>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="b4Y-LD-FFX">
-                        <rect key="frame" x="0.0" y="20" width="375" height="44"/>
+                        <rect key="frame" x="0.0" y="20" width="375" height="48"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
                     <nil name="viewControllers"/>
