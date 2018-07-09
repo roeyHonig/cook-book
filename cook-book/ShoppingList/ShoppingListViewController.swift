@@ -84,7 +84,7 @@ class ShoppingListViewController: UIViewController, UITableViewDelegate, UITable
                 UIView.animate(withDuration:0.3, animations: {
                     // animate stuff
                     tableView.beginUpdates()
-                    cell.heightConstraint.constant = 150
+                    cell.heightConstraint.constant = cell.secondaryTable.contentSize.height
                     cell.layoutIfNeeded()
                     tableView.endUpdates()
                     

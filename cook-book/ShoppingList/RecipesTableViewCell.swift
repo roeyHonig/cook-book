@@ -16,7 +16,7 @@ class RecipesTableViewCell: UITableViewCell, UITableViewDelegate, UITableViewDat
     @IBOutlet var insideTableContainer: UIView!
     @IBOutlet var bottomSpacer: UIView!
     
-    var isSecondaryTableOpen = true
+    var isSecondaryTableOpen = false
     var myFrame = CGRect()
     var testView = UIView()
     var heightConstraint = NSLayoutConstraint()
@@ -84,6 +84,8 @@ class RecipesTableViewCell: UITableViewCell, UITableViewDelegate, UITableViewDat
         self.contentView.addConstraint(tableViewConstraintTop3)
         self.contentView.addConstraint(tableViewConstraintTop4)
         
+        secondaryTable.reloadData()
+        heightConstraint.constant = self.secondaryTable.contentSize.height
         
     }
     
