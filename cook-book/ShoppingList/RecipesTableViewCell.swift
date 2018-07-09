@@ -60,6 +60,8 @@ class RecipesTableViewCell: UITableViewCell {
         self.contentView.addConstraint(tableViewConstraintLeft)
         self.contentView.addConstraint(tableViewConstraintRight)
     }
+    
+    
    
 
 }

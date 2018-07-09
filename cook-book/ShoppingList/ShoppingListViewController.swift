@@ -48,10 +48,26 @@ class ShoppingListViewController: UIViewController, UITableViewDelegate, UITable
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let cell = tableView.cellForRow(at: indexPath) as! RecipesTableViewCell
-        cell.heightConstraint.constant = 50
-        tableView.reloadData()
+        //tableView.reloadData()
+       //tableView.beginUpdates()
         
+        UIView.animate(withDuration:3, animations: {
+            //tableView.reloadData()
+            tableView.beginUpdates()
+            cell.heightConstraint.constant = 50
+            cell.layoutIfNeeded()
+            tableView.endUpdates()
+            
+        }) { (bool) in
+            //tableView.reloadData()
+            //tableView.endUpdates()
+        }
+ 
+        
+       
     }
+    
+    
     
     
     
