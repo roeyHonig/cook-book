@@ -8,7 +8,9 @@
 
 import UIKit
 
-class RecipesTableViewCell: UITableViewCell {
+class RecipesTableViewCell: UITableViewCell, UITableViewDelegate, UITableViewDataSource {
+    
+    
     
     @IBOutlet var label: UILabel!
     @IBOutlet var insideTableContainer: UIView!
@@ -21,10 +23,15 @@ class RecipesTableViewCell: UITableViewCell {
     
     var specificIngredientsDataSource: [String?] = []
     
-
+    @IBOutlet var secondaryTable: UITableView!
+    
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
+        //secondaryTable.removeFromSuperview()
+        secondaryTable.delegate = self
+        secondaryTable.dataSource = self
+        
         myFrame = CGRect(origin: self.insideTableContainer.frame.origin, size: CGSize(width: self.label.frame.width/* - cell.label.layoutMargins.left - cell.label.layoutMargins.right*/, height: 50))
         testView = UIView(frame: myFrame)
         testView.backgroundColor = UIColor.blue
@@ -60,8 +67,22 @@ class RecipesTableViewCell: UITableViewCell {
         self.contentView.addConstraint(tableViewConstraintBottom)
         self.contentView.addConstraint(tableViewConstraintLeft)
         self.contentView.addConstraint(tableViewConstraintRight)
+        
+        self.contentView.addSubview(secondaryTable)
+        secondaryTable.frame.origin = self.testView.frame.origin
     }
     
+    
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return specificIngredientsDataSource.count
+    }
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cell = tableView.dequeueReusableCell(withIdentifier: "secondaryTableCell") as! ingredientsForEachShoopingListRecipeTableViewCell
+        cell.secondaryLabel.text = specificIngredientsDataSource[indexPath.row]
+        
+        return cell
+    }
     
    
 

@@ -297,6 +297,38 @@
                                             <rect key="frame" x="0.0" y="0.0" width="375" height="438.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
+                                                <tableView clipsSubviews="YES" tag="200" contentMode="scaleToFill" fixedFrame="YES" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="bbT-HB-4IU" userLabel="secondaryTable">
+                                                    <rect key="frame" x="67" y="155" width="240" height="128"/>
+                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                    <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                                    <prototypes>
+                                                        <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="secondaryTableCell" id="Kpg-TX-zDS" customClass="ingredientsForEachShoopingListRecipeTableViewCell" customModule="cook_book" customModuleProvider="target">
+                                                            <rect key="frame" x="0.0" y="28" width="240" height="44"/>
+                                                            <autoresizingMask key="autoresizingMask"/>
+                                                            <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="Kpg-TX-zDS" id="IcF-ny-9gG">
+                                                                <rect key="frame" x="0.0" y="0.0" width="240" height="43.5"/>
+                                                                <autoresizingMask key="autoresizingMask"/>
+                                                                <subviews>
+                                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="tx3-bp-tgy">
+                                                                        <rect key="frame" x="8" y="8" width="224" height="27.5"/>
+                                                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                                        <nil key="textColor"/>
+                                                                        <nil key="highlightedColor"/>
+                                                                    </label>
+                                                                </subviews>
+                                                                <constraints>
+                                                                    <constraint firstItem="tx3-bp-tgy" firstAttribute="leading" secondItem="IcF-ny-9gG" secondAttribute="leadingMargin" id="5en-2t-9oB"/>
+                                                                    <constraint firstItem="tx3-bp-tgy" firstAttribute="top" secondItem="IcF-ny-9gG" secondAttribute="topMargin" id="MtV-jg-LMt"/>
+                                                                    <constraint firstAttribute="bottomMargin" secondItem="tx3-bp-tgy" secondAttribute="bottom" id="o5j-Bo-Csm"/>
+                                                                    <constraint firstAttribute="trailingMargin" secondItem="tx3-bp-tgy" secondAttribute="trailing" id="pfz-ET-aQj"/>
+                                                                </constraints>
+                                                            </tableViewCellContentView>
+                                                            <connections>
+                                                                <outlet property="secondaryLabel" destination="tx3-bp-tgy" id="coW-2q-8qf"/>
+                                                            </connections>
+                                                        </tableViewCell>
+                                                    </prototypes>
+                                                </tableView>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="1000" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="cRk-Z6-BKg">
                                                     <rect key="frame" x="8" y="8" width="359" height="21"/>
                                                     <color key="backgroundColor" red="1" green="1" blue="0.40000000600000002" alpha="1" colorSpace="calibratedRGB"/>
@@ -333,6 +365,7 @@
                                             <outlet property="bottomSpacer" destination="Bwm-Zc-RQa" id="0dJ-Oo-E6P"/>
                                             <outlet property="insideTableContainer" destination="q1H-yq-uTo" id="y6G-1i-k0W"/>
                                             <outlet property="label" destination="cRk-Z6-BKg" id="Rmc-tu-hAE"/>
+                                            <outlet property="secondaryTable" destination="bbT-HB-4IU" id="fN7-vU-s9O"/>
                                         </connections>
                                     </tableViewCell>
                                 </prototypes>
@@ -856,7 +889,7 @@
                     <tabBarItem key="tabBarItem" title="APIRecipies" image="icons8-cooking_pot" id="iWa-fe-Pwb"/>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="b4Y-LD-FFX">
-                        <rect key="frame" x="0.0" y="20" width="375" height="48"/>
+                        <rect key="frame" x="0.0" y="20" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
                     <nil name="viewControllers"/>

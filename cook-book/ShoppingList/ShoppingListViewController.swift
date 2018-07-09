@@ -35,55 +35,69 @@ class ShoppingListViewController: UIViewController, UITableViewDelegate, UITable
     }
 
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return recipesTableDataSource.count
+        
+        if tableView.tag == 100 {
+        
+            return recipesTableDataSource.count
+        }
+        else {
+            return 2
+        }
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "recipeNameCell") as! RecipesTableViewCell
-        cell.label.text = recipesTableDataSource[indexPath.row]
-        //cell.showSecondaryTable()
-    
-        return cell
+        if tableView.tag == 100 {
+            let cell = tableView.dequeueReusableCell(withIdentifier: "recipeNameCell") as! RecipesTableViewCell
+            cell.label.text = recipesTableDataSource[indexPath.row]
+            cell.specificIngredientsDataSource = ingridentsTableDataSource[indexPath.row]
+            //cell.showSecondaryTable()
+            
+            return cell
+        } else {
+            let cell = tableView.dequeueReusableCell(withIdentifier: "secondaryTableCell") as! ingredientsForEachShoopingListRecipeTableViewCell
+            cell.secondaryLabel.text = "roey"
+            return cell
+        }
+        
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        let cell = tableView.cellForRow(at: indexPath) as! RecipesTableViewCell
-        tableView.deselectRow(at: indexPath, animated: true)
-        
-        if cell.isSecondaryTableOpen {
-            UIView.animate(withDuration:0.3, animations: {
-                // animate stuff
-                tableView.beginUpdates()
-                cell.heightConstraint.constant = 0
-                cell.layoutIfNeeded()
-                tableView.endUpdates()
+        if tableView.tag == 100 {
+            let cell = tableView.cellForRow(at: indexPath) as! RecipesTableViewCell
+            tableView.deselectRow(at: indexPath, animated: true)
+            
+            if cell.isSecondaryTableOpen {
+                UIView.animate(withDuration:0.3, animations: {
+                    // animate stuff
+                    tableView.beginUpdates()
+                    cell.heightConstraint.constant = 0
+                    cell.layoutIfNeeded()
+                    tableView.endUpdates()
+                    
+                }) { (bool) in
+                    // upon completion
+                }
+                cell.isSecondaryTableOpen = false
+            } else {
                 
-            }) { (bool) in
-                // upon completion
-                //tableView.reloadData()
+            
+                UIView.animate(withDuration:0.3, animations: {
+                    // animate stuff
+                    tableView.beginUpdates()
+                    cell.heightConstraint.constant = 150
+                    cell.layoutIfNeeded()
+                    tableView.endUpdates()
+                    
+                }) { (bool) in
+                    // upon completion
+                }
+                cell.isSecondaryTableOpen = true
             }
-            cell.isSecondaryTableOpen = false
-        } else {
-            UIView.animate(withDuration:0.3, animations: {
-                // animate stuff
-                tableView.beginUpdates()
-                cell.heightConstraint.constant = 150
-                cell.layoutIfNeeded()
-                tableView.endUpdates()
-                
-            }) { (bool) in
-                // upon completion
-                //tableView.reloadData()
-            }
-            cell.isSecondaryTableOpen = true
+            
+            
         }
-        
-        //cell.contentView.backgroundColor = UIColor.clear
        
         
- 
-        
-       
     }
     
     

@@ -10,6 +10,7 @@ import UIKit
 
 class ingredientsForEachShoopingListRecipeTableViewCell: UITableViewCell {
 
+    @IBOutlet var secondaryLabel: UILabel!
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
