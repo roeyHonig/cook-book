@@ -22,7 +22,7 @@ class ShoppingListViewController: UIViewController, UITableViewDelegate, UITable
         
         // init tables data
         //TODO: needs to be retrived from the core data DB or shered instance
-        recipesTableDataSource = ["tomato soup" , "beef in poyke" , "chicked tenders"]
+        recipesTableDataSource = ["tomato soup and alot of onions cause roey like onions very much" , "beef in poyke" , "chicked tenders"]
         ingridentsTableDataSource = [
             ["tomatop", "powder soup", "onions", "garlic", "bazeil"],
             ["beef", "lemon", "garlic"],
@@ -48,19 +48,16 @@ class ShoppingListViewController: UIViewController, UITableViewDelegate, UITable
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let cell = tableView.cellForRow(at: indexPath) as! RecipesTableViewCell
-        //tableView.reloadData()
-       //tableView.beginUpdates()
-        
-        UIView.animate(withDuration:3, animations: {
-            //tableView.reloadData()
+        //cell.contentView.backgroundColor = UIColor.clear
+       
+        UIView.animate(withDuration:0.3, animations: {
             tableView.beginUpdates()
-            cell.heightConstraint.constant = 50
+            cell.heightConstraint.constant = 0
             cell.layoutIfNeeded()
             tableView.endUpdates()
             
         }) { (bool) in
-            //tableView.reloadData()
-            //tableView.endUpdates()
+            tableView.reloadData()
         }
  
         
