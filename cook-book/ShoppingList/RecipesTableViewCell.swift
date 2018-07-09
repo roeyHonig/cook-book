@@ -14,26 +14,35 @@ class RecipesTableViewCell: UITableViewCell {
     @IBOutlet var insideTableContainer: UIView!
     @IBOutlet var bottomSpacer: UIView!
     
+    var myFrame = CGRect()
+    var testView = UIView()
+    var heightConstraint = NSLayoutConstraint()
+    
     var specificIngredientsDataSource: [String?] = []
     
 
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
+        myFrame = CGRect(origin: self.insideTableContainer.frame.origin, size: CGSize(width: self.label.frame.width/* - cell.label.layoutMargins.left - cell.label.layoutMargins.right*/, height: 50))
+        testView = UIView(frame: myFrame)
+        testView.backgroundColor = UIColor.blue
+        
+        // very important!!!, otherwise the initial dimenstions becomes constraint themself and override our deseiered constraints
+        testView.translatesAutoresizingMaskIntoConstraints = false
+        showSecondaryTable()
     }
 
     override func setSelected(_ selected: Bool, animated: Bool) {
         super.setSelected(selected, animated: animated)
 
         // Configure the view for the selected state
+        
+        //testView.removeFromSuperview()
+        
     }
     
     func showSecondaryTable()  {
-        let myFrame = CGRect(origin: self.insideTableContainer.frame.origin, size: CGSize(width: self.label.frame.width/* - cell.label.layoutMargins.left - cell.label.layoutMargins.right*/, height: 50))
-        let testView = UIView(frame: myFrame)
-        testView.backgroundColor = UIColor.blue
-        
-        //cell.insideTableContainer.addSubview(testView)
         self.contentView.addSubview(testView)
         
         // constraints
@@ -41,8 +50,11 @@ class RecipesTableViewCell: UITableViewCell {
         let tableViewConstraintBottom = NSLayoutConstraint(item: testView, attribute: NSLayoutAttribute.bottom, relatedBy: .equal, toItem: self.bottomSpacer, attribute: NSLayoutAttribute.top , multiplier: 1, constant: 0)
         let tableViewConstraintLeft = NSLayoutConstraint(item: testView, attribute: NSLayoutAttribute.trailing, relatedBy: .equal, toItem: self.label, attribute: NSLayoutAttribute.trailing , multiplier: 1, constant: 0)
         let tableViewConstraintRight = NSLayoutConstraint(item: testView, attribute: NSLayoutAttribute.leading, relatedBy: .equal, toItem: self.label, attribute: NSLayoutAttribute.leading , multiplier: 1, constant: 0)
+        self.heightConstraint = NSLayoutConstraint(item: testView, attribute: NSLayoutAttribute.height, relatedBy: .equal, toItem: self.label, attribute: NSLayoutAttribute.height, multiplier: 0, constant: 150)
+        
         
         // assign the constraint to a coummon annssector
+        self.contentView.addConstraint(heightConstraint)
         self.contentView.addConstraint(tableViewConstraintTop)
         self.contentView.addConstraint(tableViewConstraintBottom)
         self.contentView.addConstraint(tableViewConstraintLeft)

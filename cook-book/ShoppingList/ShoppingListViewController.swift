@@ -41,12 +41,17 @@ class ShoppingListViewController: UIViewController, UITableViewDelegate, UITable
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "recipeNameCell") as! RecipesTableViewCell
         cell.label.text = recipesTableDataSource[indexPath.row]
-        cell.showSecondaryTable()
+        //cell.showSecondaryTable()
     
         return cell
     }
     
-    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        let cell = tableView.cellForRow(at: indexPath) as! RecipesTableViewCell
+        cell.heightConstraint.constant = 50
+        tableView.reloadData()
+        
+    }
     
     
     
