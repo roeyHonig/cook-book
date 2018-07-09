@@ -10,7 +10,10 @@ import UIKit
 
 class RecipesTableViewCell: UITableViewCell {
     
-   
+    @IBOutlet var label: UILabel!
+    @IBOutlet var insideTableContainer: UIView!
+    @IBOutlet var bottomSpacer: UIView!
+    
     var specificIngredientsDataSource: [String?] = []
     
 

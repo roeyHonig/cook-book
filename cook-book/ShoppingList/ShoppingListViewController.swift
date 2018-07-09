@@ -8,7 +8,9 @@
 
 import UIKit
 
-class ShoppingListViewController: UIViewController {
+class ShoppingListViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
+    
+    @IBOutlet var mainTableView: UITableView!
     
     var recipesTableDataSource: [String?] = []
     var ingridentsTableDataSource: [[String?]] = [[]]
@@ -26,8 +28,46 @@ class ShoppingListViewController: UIViewController {
             ["beef", "lemon", "garlic"],
             ["chicken", "peprika"]
         ]
+        
+        mainTableView.delegate = self
+        mainTableView.dataSource = self
+        
     }
 
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return recipesTableDataSource.count
+    }
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cell = tableView.dequeueReusableCell(withIdentifier: "recipeNameCell") as! RecipesTableViewCell
+        cell.label.text = recipesTableDataSource[indexPath.row]
+        
+        let myFrame = CGRect(origin: cell.insideTableContainer.frame.origin, size: CGSize(width: cell.insideTableContainer.frame.width, height: 200))
+        let testView = UIView(frame: myFrame)
+        testView.backgroundColor = UIColor.blue
+        
+        cell.insideTableContainer.addSubview(testView)
+        
+        
+        // constraints
+        let tableViewConstraintTop = NSLayoutConstraint(item: testView, attribute: NSLayoutAttribute.top, relatedBy: .equal, toItem: cell.insideTableContainer, attribute: NSLayoutAttribute.top , multiplier: 1, constant: 0)
+        let tableViewConstraintBottom = NSLayoutConstraint(item: testView, attribute: NSLayoutAttribute.bottom, relatedBy: .equal, toItem: cell.insideTableContainer, attribute: NSLayoutAttribute.bottom , multiplier: 1, constant: 0)
+        let tableViewConstraintLeft = NSLayoutConstraint(item: testView, attribute: NSLayoutAttribute.trailing, relatedBy: .equal, toItem: cell.insideTableContainer, attribute: NSLayoutAttribute.trailing , multiplier: 1, constant: 0)
+        let tableViewConstraintRight = NSLayoutConstraint(item: testView, attribute: NSLayoutAttribute.leading, relatedBy: .equal, toItem: cell.insideTableContainer, attribute: NSLayoutAttribute.leading , multiplier: 1, constant: 0)
+        
+        
+        
+        
+        // assign the constraint to a coummon annssector
+        cell.contentView.addConstraint(tableViewConstraintTop)
+        cell.contentView.addConstraint(tableViewConstraintBottom)
+        cell.contentView.addConstraint(tableViewConstraintLeft)
+        cell.contentView.addConstraint(tableViewConstraintRight)
+        
+        
+        return cell
+    }
+    
     
     
     
