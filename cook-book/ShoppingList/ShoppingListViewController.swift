@@ -48,6 +48,7 @@ class ShoppingListViewController: UIViewController, UITableViewDelegate, UITable
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let cell = tableView.cellForRow(at: indexPath) as! RecipesTableViewCell
+        tableView.deselectRow(at: indexPath, animated: true)
         
         if cell.isSecondaryTableOpen {
             UIView.animate(withDuration:0.3, animations: {
@@ -59,7 +60,7 @@ class ShoppingListViewController: UIViewController, UITableViewDelegate, UITable
                 
             }) { (bool) in
                 // upon completion
-                tableView.reloadData()
+                //tableView.reloadData()
             }
             cell.isSecondaryTableOpen = false
         } else {
@@ -72,7 +73,7 @@ class ShoppingListViewController: UIViewController, UITableViewDelegate, UITable
                 
             }) { (bool) in
                 // upon completion
-                tableView.reloadData()
+                //tableView.reloadData()
             }
             cell.isSecondaryTableOpen = true
         }
