@@ -49,8 +49,9 @@ class ShoppingListViewController: UIViewController, UITableViewDelegate, UITable
         
         
         let fetchRequest = NSFetchRequest<NSManagedObject>(entityName: "ShoppingList")
-        let descriptor = NSSortDescriptor(key: "index", ascending: true)
-        let descriptors = [descriptor]
+        let descriptor1 = NSSortDescriptor(key: "idOfRecipe", ascending: true)
+        let descriptor2 = NSSortDescriptor(key: "index", ascending: true)
+        let descriptors = [descriptor1, descriptor2]
         fetchRequest.sortDescriptors = descriptors
         do {
             shoppingListTable = try managedContext.fetch(fetchRequest)
