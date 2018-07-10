@@ -60,26 +60,45 @@ class ShoppingListViewController: UIViewController, UITableViewDelegate, UITable
         }
         
         var tmp = 0
-        
+        var tmpList: [String] = []
+        recipesTableDataSource.removeAll()
+        ingridentsTableDataSource.removeAll()
         if shoppingListTable.count > 0 {
             for i in 1...shoppingListTable.count {
-                if i != 1 {
-                    // make inspectrion
-                    if tmp != shoppingListTable[i-1].value(forKey: "idOfRecipe") as! Int {
-                        // ok append
-                        recipesTableDataSource.append(shoppingListTable[i-1].value(forKey: "title") as! String)
-                    }
-                    
+                // an item between the 1st and the last
+                if i != 1 && i != shoppingListTable.count {
+                        // make inspectrion
+                        if tmp != shoppingListTable[i-1].value(forKey: "idOfRecipe") as! Int {
+                            // ok we've started a all new recipy shoppinglist, ok to append
+                            ingridentsTableDataSource.append(tmpList) // appending the collected ingridents of the prevouslly recipy
+                            recipesTableDataSource.append(shoppingListTable[i-1].value(forKey: "title") as! String)
+                            tmpList = []
+                            tmpList.append(shoppingListTable[i-1].value(forKey: "ingredient") as! String)
+                        } else {
+                            // we are in the same recipy but let's append the ingridenyts
+                            tmpList.append(shoppingListTable[i-1].value(forKey: "ingredient") as! String)
+                        }
+                 print ("in between")
+                }else if i == shoppingListTable.count{
+                    // the last item
+                    // let's append the collection ingredients collected so far
+                    ingridentsTableDataSource.append(tmpList)
+                    print("we were here")
+            
                 } else {
-                    // the 1st one
+                    // the 1st item
+                    print ("the 1st item")
                     recipesTableDataSource.append(shoppingListTable[i-1].value(forKey: "title") as! String)
+                    tmpList.append(shoppingListTable[i-1].value(forKey: "ingredient") as! String)
                 }
                 tmp = shoppingListTable[i-1].value(forKey: "idOfRecipe") as! Int
+                print("iteration, the count is: \(shoppingListTable.count), i is: \(i)")
             }
         }
         
         
         
+        print(recipesTableDataSource)
         
         mainTableView.reloadData()
     }
@@ -102,6 +121,7 @@ class ShoppingListViewController: UIViewController, UITableViewDelegate, UITable
             let cell = tableView.dequeueReusableCell(withIdentifier: "recipeNameCell") as! RecipesTableViewCell
             cell.label.text = recipesTableDataSource[indexPath.row]
             cell.specificIngredientsDataSource = ingridentsTableDataSource[indexPath.row]
+            //cell.secondaryTable.reloadData()
             //cell.showSecondaryTable()
             
             return cell
