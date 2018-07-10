@@ -7,11 +7,11 @@
 // This ViewController present a TableView Inside A TableView gyhjkhjk
 
 import UIKit
-
+import CoreData
 class ShoppingListViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
     
     @IBOutlet var mainTableView: UITableView!
-    
+    var shoppingListTable: [NSManagedObject] = []
     var recipesTableDataSource: [String?] = []
     var ingridentsTableDataSource: [[String?]] = [[]]
     
@@ -36,6 +36,38 @@ class ShoppingListViewController: UIViewController, UITableViewDelegate, UITable
         mainTableView.dataSource = self
         
     }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        
+        guard let appDelegate = UIApplication.shared.delegate as? AppDelegate else {
+            return
+        }
+        
+        let managedContext = appDelegate.persistentContainer.viewContext
+        
+        
+        
+        let fetchRequest = NSFetchRequest<NSManagedObject>(entityName: "ShoppingList")
+        
+        do {
+            shoppingListTable = try managedContext.fetch(fetchRequest)
+        } catch let error as NSError {
+            print("Could not fetch. \(error), \(error.userInfo)")
+        }
+        
+        for ingredient in shoppingListTable {
+            
+            print(ingredient.value(forKey: "idOfRecipe"))
+            print(ingredient.value(forKey: "title"))
+            print(ingredient.value(forKey: "ingredient"))
+        }
+        
+        
+        
+    }
+    
+   
 
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         

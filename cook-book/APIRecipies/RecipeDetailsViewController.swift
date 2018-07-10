@@ -305,10 +305,11 @@ class RecipeDetailsViewController: UIViewController, UITableViewDelegate, UITabl
         
         let entity = NSEntityDescription.entity(forEntityName: "ShoppingList", in: managedContext)!
         
-        let newEntery = NSManagedObject(entity: entity, insertInto: managedContext)
+       
         
-        if let listOfIngredients = myRecipeHeader.list1 {
-            for ingrdientInList in listOfIngredients {
+        if let listOfIngredients1 = myRecipeHeader.list1 {
+            for ingrdientInList in listOfIngredients1 {
+                let newEntery = NSManagedObject(entity: entity, insertInto: managedContext)
                 let title = myRecipeHeader.title ?? ""
                 newEntery.setValue(myRecipeHeader.id, forKeyPath: "idOfRecipe")
                 newEntery.setValue(title, forKeyPath: "title")
@@ -316,8 +317,9 @@ class RecipeDetailsViewController: UIViewController, UITableViewDelegate, UITabl
             }
         }
         
-        if let listOfIngredients = myRecipeHeader.list2 {
-            for ingrdientInList in listOfIngredients {
+        if let listOfIngredients2 = myRecipeHeader.list2 {
+            for ingrdientInList in listOfIngredients2 {
+                let newEntery = NSManagedObject(entity: entity, insertInto: managedContext)
                 let title = myRecipeHeader.title ?? ""
                 newEntery.setValue(myRecipeHeader.id, forKeyPath: "idOfRecipe")
                 newEntery.setValue(title, forKeyPath: "title")
@@ -325,8 +327,9 @@ class RecipeDetailsViewController: UIViewController, UITableViewDelegate, UITabl
             }
         }
         
-        if let listOfIngredients = myRecipeHeader.list3 {
-            for ingrdientInList in listOfIngredients {
+        if let listOfIngredients3 = myRecipeHeader.list3 {
+            for ingrdientInList in listOfIngredients3 {
+                let newEntery = NSManagedObject(entity: entity, insertInto: managedContext)
                 let title = myRecipeHeader.title ?? ""
                 newEntery.setValue(myRecipeHeader.id, forKeyPath: "idOfRecipe")
                 newEntery.setValue(title, forKeyPath: "title")
