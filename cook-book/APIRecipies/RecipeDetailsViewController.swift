@@ -294,8 +294,52 @@ class RecipeDetailsViewController: UIViewController, UITableViewDelegate, UITabl
        return ingridentsHeaderTitles[section]
     }
     
+    func saveToCoreData(recipeGlobalDBNumber: Int, recipeTitle: String, ingridentDescription: String) {
+        guard let appDelegate = UIApplication.shared.delegate as? AppDelegate, let myRecipeHeader = recipeHeader else {
+                print("There was a problem")
+                return
+        }
+        
+        let managedContext = appDelegate.persistentContainer.viewContext
+        
+        let entity = NSEntityDescription.entity(forEntityName: "ShoppingList", in: managedContext)!
+        
+        let newEntery = NSManagedObject(entity: entity, insertInto: managedContext)
+        
+        if let listOfIngredients = myRecipeHeader.list1 {
+            for ingrdientInList in listOfIngredients {
+                let title = myRecipeHeader.title ?? ""
+                newEntery.setValue(myRecipeHeader.id, forKeyPath: "idOfRecipe")
+                newEntery.setValue(title, forKeyPath: "title")
+                newEntery.setValue(ingrdientInList, forKeyPath: "ingredient")
+            }
+        }
+        
+        if let listOfIngredients = myRecipeHeader.list2 {
+            for ingrdientInList in listOfIngredients {
+                let title = myRecipeHeader.title ?? ""
+                newEntery.setValue(myRecipeHeader.id, forKeyPath: "idOfRecipe")
+                newEntery.setValue(title, forKeyPath: "title")
+                newEntery.setValue(ingrdientInList, forKeyPath: "ingredient")
+            }
+        }
+        
+        if let listOfIngredients = myRecipeHeader.list3 {
+            for ingrdientInList in listOfIngredients {
+                let title = myRecipeHeader.title ?? ""
+                newEntery.setValue(myRecipeHeader.id, forKeyPath: "idOfRecipe")
+                newEntery.setValue(title, forKeyPath: "title")
+                newEntery.setValue(ingrdientInList, forKeyPath: "ingredient")
+            }
+        }
+       
+        do {
+            try managedContext.save()
+        } catch let error as NSError {
+            print("Could not save. \(error), \(error.userInfo)")
+        }
+    }
     
-
     /*
     // MARK: - Navigation
 
