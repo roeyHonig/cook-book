@@ -11,6 +11,7 @@ import UIKit
 class RecipesTableViewCell: UITableViewCell, UITableViewDelegate, UITableViewDataSource {
     
     
+    @IBOutlet var headerContainer: UIView!
     
     @IBOutlet var label: UILabel!
     @IBOutlet var insideTableContainer: UIView!
@@ -57,11 +58,11 @@ class RecipesTableViewCell: UITableViewCell, UITableViewDelegate, UITableViewDat
         self.contentView.addSubview(testView)
         
         // constraints
-        let tableViewConstraintTop = NSLayoutConstraint(item: testView, attribute: NSLayoutAttribute.top, relatedBy: .equal, toItem: self.label, attribute: NSLayoutAttribute.bottom , multiplier: 1, constant: 0)
+        let tableViewConstraintTop = NSLayoutConstraint(item: testView, attribute: NSLayoutAttribute.top, relatedBy: .equal, toItem: self.headerContainer, attribute: NSLayoutAttribute.bottom , multiplier: 1, constant: 0)
         let tableViewConstraintBottom = NSLayoutConstraint(item: testView, attribute: NSLayoutAttribute.bottom, relatedBy: .equal, toItem: self.bottomSpacer, attribute: NSLayoutAttribute.top , multiplier: 1, constant: 0)
-        let tableViewConstraintLeft = NSLayoutConstraint(item: testView, attribute: NSLayoutAttribute.trailing, relatedBy: .equal, toItem: self.label, attribute: NSLayoutAttribute.trailing , multiplier: 1, constant: 0)
-        let tableViewConstraintRight = NSLayoutConstraint(item: testView, attribute: NSLayoutAttribute.leading, relatedBy: .equal, toItem: self.label, attribute: NSLayoutAttribute.leading , multiplier: 1, constant: 0)
-        self.heightConstraint = NSLayoutConstraint(item: testView, attribute: NSLayoutAttribute.height, relatedBy: .equal, toItem: self.label, attribute: NSLayoutAttribute.height, multiplier: 0, constant: 150)
+        let tableViewConstraintLeft = NSLayoutConstraint(item: testView, attribute: NSLayoutAttribute.trailing, relatedBy: .equal, toItem: self.headerContainer, attribute: NSLayoutAttribute.trailing , multiplier: 1, constant: 0)
+        let tableViewConstraintRight = NSLayoutConstraint(item: testView, attribute: NSLayoutAttribute.leading, relatedBy: .equal, toItem: self.headerContainer, attribute: NSLayoutAttribute.leading , multiplier: 1, constant: 0)
+        self.heightConstraint = NSLayoutConstraint(item: testView, attribute: NSLayoutAttribute.height, relatedBy: .equal, toItem: self.headerContainer, attribute: NSLayoutAttribute.height, multiplier: 0, constant: 150)
         
         
         // assign the constraint to a coummon annssector
