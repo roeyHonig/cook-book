@@ -49,7 +49,9 @@ class ShoppingListViewController: UIViewController, UITableViewDelegate, UITable
         
         
         let fetchRequest = NSFetchRequest<NSManagedObject>(entityName: "ShoppingList")
-        
+        let descriptor = NSSortDescriptor(key: "index", ascending: true)
+        let descriptors = [descriptor]
+        fetchRequest.sortDescriptors = descriptors
         do {
             shoppingListTable = try managedContext.fetch(fetchRequest)
         } catch let error as NSError {
