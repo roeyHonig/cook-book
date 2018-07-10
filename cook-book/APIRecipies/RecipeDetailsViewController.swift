@@ -127,7 +127,8 @@ class RecipeDetailsViewController: UIViewController, UITableViewDelegate, UITabl
     
     @objc func addToShoppingList() {
         print("adding ingridents")
-        showAlertDialog()
+        saveToCoreData()
+        //showAlertDialog()
     }
     
     func showAlertDialog() {
@@ -294,7 +295,7 @@ class RecipeDetailsViewController: UIViewController, UITableViewDelegate, UITabl
        return ingridentsHeaderTitles[section]
     }
     
-    func saveToCoreData(recipeGlobalDBNumber: Int, recipeTitle: String, ingridentDescription: String) {
+    func saveToCoreData() {
         guard let appDelegate = UIApplication.shared.delegate as? AppDelegate, let myRecipeHeader = recipeHeader else {
                 print("There was a problem")
                 return
@@ -338,6 +339,7 @@ class RecipeDetailsViewController: UIViewController, UITableViewDelegate, UITabl
         } catch let error as NSError {
             print("Could not save. \(error), \(error.userInfo)")
         }
+        showAlertDialog()
     }
     
     /*
