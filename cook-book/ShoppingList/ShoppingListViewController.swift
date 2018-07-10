@@ -22,7 +22,7 @@ class ShoppingListViewController: UIViewController, UITableViewDelegate, UITable
         
         // init tables data
         //TODO: needs to be retrived from the core data DB or shered instance
-        recipesTableDataSource = ["tomato soup and alot of onions cause roey like onions very much starting now tomato soup and alot of onions cause roey like onions very much" , "beef in poyke" , "chicked tenders"]
+        recipesTableDataSource = [] /*["tomato soup and alot of onions cause roey like onions very much starting now tomato soup and alot of onions cause roey like onions very much" , "beef in poyke" , "chicked tenders"]*/
         ingridentsTableDataSource = [
             ["tomatop", "powder soup", "onions", "garlic", "bazeil"],
             ["beef", "lemon", "garlic"],
@@ -59,16 +59,29 @@ class ShoppingListViewController: UIViewController, UITableViewDelegate, UITable
             print("Could not fetch. \(error), \(error.userInfo)")
         }
         
-        for ingredient in shoppingListTable {
-            
-            print("Recipy#: \(String(describing: ingredient.value(forKey: "idOfRecipe")))")
-            print("The title: \(String(describing: ingredient.value(forKey: "title")))")
-            print("ingrident is: \(String(describing: ingredient.value(forKey: "ingredient")))")
-            print("The index is: \(String(describing: ingredient.value(forKey: "index")))")
+        var tmp = 0
+        
+        if shoppingListTable.count > 0 {
+            for i in 1...shoppingListTable.count {
+                if i != 1 {
+                    // make inspectrion
+                    if tmp != shoppingListTable[i-1].value(forKey: "idOfRecipe") as! Int {
+                        // ok append
+                        recipesTableDataSource.append(shoppingListTable[i-1].value(forKey: "title") as! String)
+                    }
+                    
+                } else {
+                    // the 1st one
+                    recipesTableDataSource.append(shoppingListTable[i-1].value(forKey: "title") as! String)
+                }
+                tmp = shoppingListTable[i-1].value(forKey: "idOfRecipe") as! Int
+            }
         }
         
         
         
+        
+        mainTableView.reloadData()
     }
     
    
