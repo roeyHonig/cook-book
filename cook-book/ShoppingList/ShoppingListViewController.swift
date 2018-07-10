@@ -58,9 +58,10 @@ class ShoppingListViewController: UIViewController, UITableViewDelegate, UITable
         
         for ingredient in shoppingListTable {
             
-            print(ingredient.value(forKey: "idOfRecipe"))
-            print(ingredient.value(forKey: "title"))
-            print(ingredient.value(forKey: "ingredient"))
+            print("Recipy#: \(String(describing: ingredient.value(forKey: "idOfRecipe")))")
+            print("The title: \(String(describing: ingredient.value(forKey: "title")))")
+            print("ingrident is: \(String(describing: ingredient.value(forKey: "ingredient")))")
+            print("The index is: \(String(describing: ingredient.value(forKey: "index")))")
         }
         
         

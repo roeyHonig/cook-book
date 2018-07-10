@@ -296,6 +296,7 @@ class RecipeDetailsViewController: UIViewController, UITableViewDelegate, UITabl
     }
     
     func saveToCoreData() {
+        var index = 1
         guard let appDelegate = UIApplication.shared.delegate as? AppDelegate, let myRecipeHeader = recipeHeader else {
                 print("There was a problem")
                 return
@@ -305,8 +306,6 @@ class RecipeDetailsViewController: UIViewController, UITableViewDelegate, UITabl
         
         let entity = NSEntityDescription.entity(forEntityName: "ShoppingList", in: managedContext)!
         
-       
-        
         if let listOfIngredients1 = myRecipeHeader.list1 {
             for ingrdientInList in listOfIngredients1 {
                 let newEntery = NSManagedObject(entity: entity, insertInto: managedContext)
@@ -314,6 +313,8 @@ class RecipeDetailsViewController: UIViewController, UITableViewDelegate, UITabl
                 newEntery.setValue(myRecipeHeader.id, forKeyPath: "idOfRecipe")
                 newEntery.setValue(title, forKeyPath: "title")
                 newEntery.setValue(ingrdientInList, forKeyPath: "ingredient")
+                newEntery.setValue(index, forKeyPath: "index")
+                index += 1
             }
         }
         
@@ -324,6 +325,8 @@ class RecipeDetailsViewController: UIViewController, UITableViewDelegate, UITabl
                 newEntery.setValue(myRecipeHeader.id, forKeyPath: "idOfRecipe")
                 newEntery.setValue(title, forKeyPath: "title")
                 newEntery.setValue(ingrdientInList, forKeyPath: "ingredient")
+                newEntery.setValue(index, forKeyPath: "index")
+                index += 1
             }
         }
         
@@ -334,6 +337,8 @@ class RecipeDetailsViewController: UIViewController, UITableViewDelegate, UITabl
                 newEntery.setValue(myRecipeHeader.id, forKeyPath: "idOfRecipe")
                 newEntery.setValue(title, forKeyPath: "title")
                 newEntery.setValue(ingrdientInList, forKeyPath: "ingredient")
+                newEntery.setValue(index, forKeyPath: "index")
+                index += 1
             }
         }
        
