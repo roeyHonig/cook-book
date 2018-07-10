@@ -138,6 +138,13 @@ class RecipeDetailsViewController: UIViewController, UITableViewDelegate, UITabl
         self.present(alertController, animated: true)
     }
     
+    func showDismissAlertDialog() {
+        let alertController = UIAlertController(title: nil, message: "Allready There :)", preferredStyle: UIAlertControllerStyle.alert)
+        let confirmAction = UIAlertAction(title: "Ok", style: .default, handler: nil)
+        alertController.addAction(confirmAction)
+        self.present(alertController, animated: true)
+    }
+    
     @objc func slideAction() {
         
         
@@ -296,6 +303,7 @@ class RecipeDetailsViewController: UIViewController, UITableViewDelegate, UITabl
     }
     
     func saveToCoreData() {
+        var shoppingListTable: [NSManagedObject] = []
         var index = 1
         guard let appDelegate = UIApplication.shared.delegate as? AppDelegate, let myRecipeHeader = recipeHeader else {
                 print("There was a problem")
@@ -303,6 +311,27 @@ class RecipeDetailsViewController: UIViewController, UITableViewDelegate, UITabl
         }
         
         let managedContext = appDelegate.persistentContainer.viewContext
+        
+        // cheack for duplicate
+        let fetchRequest = NSFetchRequest<NSManagedObject>(entityName: "ShoppingList")
+        let descriptor = NSSortDescriptor(key: "index", ascending: true)
+        let descriptors = [descriptor]
+        fetchRequest.sortDescriptors = descriptors
+        do {
+            shoppingListTable = try managedContext.fetch(fetchRequest)
+        } catch let error as NSError {
+            print("Could not fetch. \(error), \(error.userInfo)")
+        }
+        
+        for ingredient in shoppingListTable {
+            if let recipeGlobalDBIndex = ingredient.value(forKey: "idOfRecipe") as? Int {
+                if recipeGlobalDBIndex == myRecipeHeader.id {
+                    showDismissAlertDialog()
+                    return
+                }
+            }
+        }
+        
         
         let entity = NSEntityDescription.entity(forEntityName: "ShoppingList", in: managedContext)!
         
