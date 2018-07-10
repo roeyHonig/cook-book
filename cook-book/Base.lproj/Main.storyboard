@@ -336,7 +336,7 @@
                                                             <rect key="frame" x="0.0" y="0.0" width="25" height="20.5"/>
                                                             <subviews>
                                                                 <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="icons8-cooking_pot_filled" translatesAutoresizingMaskIntoConstraints="NO" id="u2M-aK-B0t">
-                                                                    <rect key="frame" x="2.5" y="-0.5" width="20" height="20.5"/>
+                                                                    <rect key="frame" x="4" y="1" width="17.5" height="18"/>
                                                                     <constraints>
                                                                         <constraint firstAttribute="width" secondItem="u2M-aK-B0t" secondAttribute="height" id="e2L-0O-547"/>
                                                                     </constraints>
@@ -344,19 +344,37 @@
                                                             </subviews>
                                                             <color key="backgroundColor" red="1" green="1" blue="0.40000000600000002" alpha="1" colorSpace="calibratedRGB"/>
                                                             <constraints>
-                                                                <constraint firstItem="u2M-aK-B0t" firstAttribute="width" secondItem="i0a-8s-9lB" secondAttribute="width" multiplier="0.8" id="4fI-Mm-WPA"/>
+                                                                <constraint firstItem="u2M-aK-B0t" firstAttribute="width" secondItem="i0a-8s-9lB" secondAttribute="width" multiplier="0.7" id="4fI-Mm-WPA"/>
                                                                 <constraint firstAttribute="width" constant="25" id="F2q-iz-gu3"/>
                                                                 <constraint firstItem="u2M-aK-B0t" firstAttribute="centerY" secondItem="i0a-8s-9lB" secondAttribute="centerY" id="rCc-Sd-gZ9"/>
                                                                 <constraint firstItem="u2M-aK-B0t" firstAttribute="centerX" secondItem="i0a-8s-9lB" secondAttribute="centerX" id="rVz-Yp-74O"/>
                                                             </constraints>
                                                         </view>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="1000" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="cRk-Z6-BKg">
-                                                            <rect key="frame" x="25" y="0.0" width="350" height="20.5"/>
+                                                            <rect key="frame" x="25" y="0.0" width="325" height="20.5"/>
                                                             <color key="backgroundColor" red="1" green="1" blue="0.40000000600000002" alpha="1" colorSpace="calibratedRGB"/>
                                                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                             <nil key="textColor"/>
                                                             <nil key="highlightedColor"/>
                                                         </label>
+                                                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ehc-Xb-CHq" userLabel="deleteImageContainer">
+                                                            <rect key="frame" x="350" y="0.0" width="25" height="20.5"/>
+                                                            <subviews>
+                                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="icons8-delete" translatesAutoresizingMaskIntoConstraints="NO" id="IUr-zH-D5i">
+                                                                    <rect key="frame" x="3.5" y="1.5" width="17.5" height="17.5"/>
+                                                                    <constraints>
+                                                                        <constraint firstAttribute="width" secondItem="IUr-zH-D5i" secondAttribute="height" id="YO7-YM-ihI"/>
+                                                                    </constraints>
+                                                                </imageView>
+                                                            </subviews>
+                                                            <color key="backgroundColor" red="1" green="1" blue="0.40000000600000002" alpha="1" colorSpace="calibratedRGB"/>
+                                                            <constraints>
+                                                                <constraint firstAttribute="width" constant="25" id="7lA-kd-s0l"/>
+                                                                <constraint firstItem="IUr-zH-D5i" firstAttribute="width" secondItem="ehc-Xb-CHq" secondAttribute="width" multiplier="0.7" id="H65-sJ-4zd"/>
+                                                                <constraint firstItem="IUr-zH-D5i" firstAttribute="centerY" secondItem="ehc-Xb-CHq" secondAttribute="centerY" id="R5W-ZO-Td1"/>
+                                                                <constraint firstItem="IUr-zH-D5i" firstAttribute="centerX" secondItem="ehc-Xb-CHq" secondAttribute="centerX" id="SqP-5m-hAk"/>
+                                                            </constraints>
+                                                        </view>
                                                     </subviews>
                                                     <color key="backgroundColor" red="0.50196081400000003" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                                     <constraints>
@@ -364,9 +382,12 @@
                                                         <constraint firstItem="cRk-Z6-BKg" firstAttribute="leading" secondItem="i0a-8s-9lB" secondAttribute="trailing" id="W5q-Ge-LKx"/>
                                                         <constraint firstItem="i0a-8s-9lB" firstAttribute="leading" secondItem="s6m-PE-5By" secondAttribute="leading" id="ZXx-CG-Ehd"/>
                                                         <constraint firstItem="i0a-8s-9lB" firstAttribute="top" secondItem="s6m-PE-5By" secondAttribute="top" id="b82-64-dZe"/>
-                                                        <constraint firstAttribute="trailing" secondItem="cRk-Z6-BKg" secondAttribute="trailing" id="g12-Ti-d7u"/>
+                                                        <constraint firstItem="ehc-Xb-CHq" firstAttribute="leading" secondItem="cRk-Z6-BKg" secondAttribute="trailing" id="g12-Ti-d7u"/>
                                                         <constraint firstAttribute="bottom" secondItem="cRk-Z6-BKg" secondAttribute="bottom" id="mml-m5-lb8"/>
+                                                        <constraint firstAttribute="trailing" secondItem="ehc-Xb-CHq" secondAttribute="trailing" id="n4S-X9-bG6"/>
                                                         <constraint firstAttribute="bottom" secondItem="i0a-8s-9lB" secondAttribute="bottom" id="nBf-hZ-ov3"/>
+                                                        <constraint firstAttribute="bottom" secondItem="ehc-Xb-CHq" secondAttribute="bottom" id="qSw-WP-eu1"/>
+                                                        <constraint firstItem="ehc-Xb-CHq" firstAttribute="top" secondItem="s6m-PE-5By" secondAttribute="top" id="s9Y-RS-xt4"/>
                                                     </constraints>
                                                 </view>
                                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Bwm-Zc-RQa" userLabel="bottomSpacer">
@@ -964,6 +985,7 @@
         <image name="googleSignIn.png" width="512" height="512"/>
         <image name="icons8-cooking_pot" width="24" height="24"/>
         <image name="icons8-cooking_pot_filled" width="75" height="75"/>
+        <image name="icons8-delete" width="26" height="26"/>
         <image name="icons8-expand_arrow_filled" width="50" height="50"/>
         <image name="icons8-ingredients_spring" width="50" height="50"/>
         <image name="icons8-kitchen_steel" width="50" height="50"/>

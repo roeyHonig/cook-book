@@ -22,7 +22,7 @@ class ShoppingListViewController: UIViewController, UITableViewDelegate, UITable
         
         // init tables data
         //TODO: needs to be retrived from the core data DB or shered instance
-        recipesTableDataSource = ["tomato soup and alot of onions cause roey like onions very much" , "beef in poyke" , "chicked tenders"]
+        recipesTableDataSource = ["tomato soup and alot of onions cause roey like onions very much starting now tomato soup and alot of onions cause roey like onions very much" , "beef in poyke" , "chicked tenders"]
         ingridentsTableDataSource = [
             ["tomatop", "powder soup", "onions", "garlic", "bazeil"],
             ["beef", "lemon", "garlic"],
