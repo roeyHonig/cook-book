@@ -21,15 +21,13 @@ class AppDelegate: UIResponder, UIApplicationDelegate, GIDSignInDelegate {
 
     var window: UIWindow?
     
-    
-    
-   
-    
-    
-
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
+        // init UserDefults - kind like sheared instance
+        let defults = UserDefaults.standard
+        
+        
         // init firt FireBase
         FirebaseApp.configure()
         //Google SignIn

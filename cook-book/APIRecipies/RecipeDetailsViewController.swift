@@ -7,6 +7,7 @@
 //  TODO: just finsih the last icons and text in the recipe header
 
 import UIKit
+import CoreData
 import SDWebImage
 
 class RecipeDetailsViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {

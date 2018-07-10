@@ -29,6 +29,9 @@ class ShoppingListViewController: UIViewController, UITableViewDelegate, UITable
             ["chicken", "peprika"]
         ]
         
+        
+        
+        
         mainTableView.delegate = self
         mainTableView.dataSource = self
         
