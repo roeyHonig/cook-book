@@ -45,16 +45,19 @@ class ShoppingListViewController: UIViewController, UITableViewDelegate, UITable
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
         shoppingListTable.removeAll()
-        
+        recipesGlobalDataBaseNumbers.removeAll()
+        recipesTableDataSource.removeAll()
+        ingridentsTableDataSource.removeAll()
         
         guard let appDelegate = UIApplication.shared.delegate as? AppDelegate else {
             return
         }
         
-        let managedContext = appDelegate.persistentContainer.viewContext
+        //let managedContext = appDelegate.persistentContainer.viewContext
         
+        shoppingListTable = appDelegate.loadCoreData()
         
-        
+        /*
         let fetchRequest = NSFetchRequest<NSManagedObject>(entityName: "ShoppingList")
         let descriptor1 = NSSortDescriptor(key: "idOfRecipe", ascending: true)
         let descriptor2 = NSSortDescriptor(key: "index", ascending: true)
@@ -65,13 +68,11 @@ class ShoppingListViewController: UIViewController, UITableViewDelegate, UITable
         } catch let error as NSError {
             print("Could not fetch. \(error), \(error.userInfo)")
         }
+        */
         
         var tmp = 0
         var tmpList: [String] = []
         
-        recipesGlobalDataBaseNumbers.removeAll()
-        recipesTableDataSource.removeAll()
-        ingridentsTableDataSource.removeAll()
         if shoppingListTable.count > 0 {
             for i in 1...shoppingListTable.count {
                 // an item between the 1st and the last

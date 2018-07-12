@@ -142,6 +142,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate, GIDSignInDelegate {
         return container
     }()
 
+    
+    lazy var managedContext = persistentContainer.viewContext
+    
     // MARK: - Core Data Saving support
 
     func saveContext () {
@@ -158,7 +161,101 @@ class AppDelegate: UIResponder, UIApplicationDelegate, GIDSignInDelegate {
         }
     }
     
-   
+    
+    func didSaveToCoreDataWasSuccefull(myRecipeHeader: RecipeHeader) -> Bool {
+        var didSaveActionWentOk = false
+        var index = 1
+        
+        let entity = NSEntityDescription.entity(forEntityName: "ShoppingList", in: managedContext)!
+        
+        if let listOfIngredients1 = myRecipeHeader.list1 {
+            for ingrdientInList in listOfIngredients1 {
+                let newEntery = NSManagedObject(entity: entity, insertInto: managedContext)
+                let title = myRecipeHeader.title ?? ""
+                newEntery.setValue(myRecipeHeader.id, forKeyPath: "idOfRecipe")
+                newEntery.setValue(title, forKeyPath: "title")
+                newEntery.setValue(ingrdientInList, forKeyPath: "ingredient")
+                newEntery.setValue(index, forKeyPath: "index")
+                index += 1
+                print("This was written")
+                print(newEntery)
+            }
+        }
+        
+        if let listOfIngredients2 = myRecipeHeader.list2 {
+            for ingrdientInList in listOfIngredients2 {
+                let newEntery = NSManagedObject(entity: entity, insertInto: managedContext)
+                let title = myRecipeHeader.title ?? ""
+                newEntery.setValue(myRecipeHeader.id, forKeyPath: "idOfRecipe")
+                newEntery.setValue(title, forKeyPath: "title")
+                newEntery.setValue(ingrdientInList, forKeyPath: "ingredient")
+                newEntery.setValue(index, forKeyPath: "index")
+                index += 1
+                print("This was written")
+                print(newEntery)
+            }
+        }
+        
+        if let listOfIngredients3 = myRecipeHeader.list3 {
+            for ingrdientInList in listOfIngredients3 {
+                let newEntery = NSManagedObject(entity: entity, insertInto: managedContext)
+                let title = myRecipeHeader.title ?? ""
+                newEntery.setValue(myRecipeHeader.id, forKeyPath: "idOfRecipe")
+                newEntery.setValue(title, forKeyPath: "title")
+                newEntery.setValue(ingrdientInList, forKeyPath: "ingredient")
+                newEntery.setValue(index, forKeyPath: "index")
+                index += 1
+                print("This was written")
+                print(newEntery)
+            }
+        }
+        
+        do {
+            try managedContext.save()
+            didSaveActionWentOk = true
+        } catch let error as NSError {
+            print("Could not save. \(error), \(error.userInfo)")
+        }
+        
+        return didSaveActionWentOk
+    }
+    
+    
+    
+    
+    func loadCoreData() -> [NSManagedObject] {
+        var shoppingListTableToReturn: [NSManagedObject] = []
+        // fetch the coreData
+        let fetchRequest = NSFetchRequest<NSManagedObject>(entityName: "ShoppingList")
+        let descriptor1 = NSSortDescriptor(key: "idOfRecipe", ascending: true)
+        let descriptor2 = NSSortDescriptor(key: "index", ascending: true)
+        let descriptors = [descriptor1, descriptor2]
+        fetchRequest.sortDescriptors = descriptors
+        do {
+            let shoppingListTable = try managedContext.fetch(fetchRequest)
+            shoppingListTableToReturn = shoppingListTable
+        } catch let error as NSError {
+            print("Could not fetch. \(error), \(error.userInfo)")
+        }
+        return shoppingListTableToReturn
+    }
+    
+    func cheackForDuplicate(idToCompare: Int) -> Bool {
+        var isThereDuplicate = false
+        let shoppingListTableToReturn = loadCoreData()
+        
+        // now that you have all the data, checak if any entity allready has the recipey id?, if yes, that means it was allready added to the shopping list
+        for ingredient in shoppingListTableToReturn {
+            if let recipeGlobalDBIndex = ingredient.value(forKey: "idOfRecipe") as? Int {
+                if recipeGlobalDBIndex == idToCompare {
+                    // allready been added to the shoping list, it's true, there's a duplicate
+                    isThereDuplicate = true
+                }
+            }
+        }
+        return isThereDuplicate
+        
+    }
     
     
 

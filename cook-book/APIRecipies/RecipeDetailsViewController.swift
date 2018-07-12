@@ -315,15 +315,15 @@ class RecipeDetailsViewController: UIViewController, UITableViewDelegate, UITabl
     }
     
     func saveToCoreData() {
-        var shoppingListTable: [NSManagedObject] = []
-        var index = 1
+        //var shoppingListTable: [NSManagedObject] = []
+        //var index = 1
         guard let appDelegate = UIApplication.shared.delegate as? AppDelegate, let myRecipeHeader = recipeHeader else {
                 print("There was a problem")
                 return
         }
         
-        let managedContext = appDelegate.persistentContainer.viewContext
-        
+        //let managedContext = appDelegate.persistentContainer.viewContext   // moved
+        /*
         // cheack for duplicate
         let fetchRequest = NSFetchRequest<NSManagedObject>(entityName: "ShoppingList")
         let descriptor1 = NSSortDescriptor(key: "idOfRecipe", ascending: true)
@@ -335,6 +335,8 @@ class RecipeDetailsViewController: UIViewController, UITableViewDelegate, UITabl
         } catch let error as NSError {
             print("Could not fetch. \(error), \(error.userInfo)")
         }
+ 
+        
         
         for ingredient in shoppingListTable {
             if let recipeGlobalDBIndex = ingredient.value(forKey: "idOfRecipe") as? Int {
@@ -344,8 +346,14 @@ class RecipeDetailsViewController: UIViewController, UITableViewDelegate, UITabl
                 }
             }
         }
+        */
+        // cheack if allready been added to shoping list
+        if appDelegate.cheackForDuplicate(idToCompare: myRecipeHeader.id) {
+            showDismissAlertDialog()
+            return
+        }
         
-        
+        /*
         let entity = NSEntityDescription.entity(forEntityName: "ShoppingList", in: managedContext)!
         
         if let listOfIngredients1 = myRecipeHeader.list1 {
@@ -391,7 +399,12 @@ class RecipeDetailsViewController: UIViewController, UITableViewDelegate, UITabl
         } catch let error as NSError {
             print("Could not save. \(error), \(error.userInfo)")
         }
-        showAlertDialog()
+ */
+        if appDelegate.didSaveToCoreDataWasSuccefull(myRecipeHeader: myRecipeHeader) {
+            showAlertDialog()
+        }
+        
+        
     }
     
     /*
