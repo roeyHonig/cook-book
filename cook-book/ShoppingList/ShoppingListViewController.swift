@@ -40,6 +40,8 @@ class ShoppingListViewController: UIViewController, UITableViewDelegate, UITable
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
         
+        shoppingListTable.removeAll()
+        
         guard let appDelegate = UIApplication.shared.delegate as? AppDelegate else {
             return
         }
@@ -81,7 +83,8 @@ class ShoppingListViewController: UIViewController, UITableViewDelegate, UITable
                  print ("in between")
                 }else if i == shoppingListTable.count{
                     // the last item
-                    // let's append the collection ingredients collected so far
+                    // let's append the ingridenyt and also let's append the collection ingredients collected so far
+                    tmpList.append(shoppingListTable[i-1].value(forKey: "ingredient") as! String)
                     ingridentsTableDataSource.append(tmpList)
                     print("we were here")
             
@@ -117,19 +120,15 @@ class ShoppingListViewController: UIViewController, UITableViewDelegate, UITable
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        if tableView.tag == 100 {
+        
             let cell = tableView.dequeueReusableCell(withIdentifier: "recipeNameCell") as! RecipesTableViewCell
             cell.label.text = recipesTableDataSource[indexPath.row]
             cell.specificIngredientsDataSource = ingridentsTableDataSource[indexPath.row]
-            //cell.secondaryTable.reloadData()
+            cell.secondaryTable.reloadData()
             //cell.showSecondaryTable()
-            
+            //tableView.selectRow(at: indexPath, animated: true, scrollPosition: UITableViewScrollPosition.bottom)
             return cell
-        } else {
-            let cell = tableView.dequeueReusableCell(withIdentifier: "secondaryTableCell") as! ingredientsForEachShoopingListRecipeTableViewCell
-            cell.secondaryLabel.text = "roey"
-            return cell
-        }
+        
         
     }
     
@@ -165,7 +164,7 @@ class ShoppingListViewController: UIViewController, UITableViewDelegate, UITable
                 }
                 cell.isSecondaryTableOpen = true
             }
-            
+            self.view.layoutIfNeeded()
             
         }
        

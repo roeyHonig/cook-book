@@ -115,7 +115,7 @@ class RecipiesViewController: UIViewController, UICollectionViewDelegate, UIColl
             cell.recipeImage.image = #imageLiteral(resourceName: "icons8-cooking_pot_filled")
         }
         
-        cell.recipeImage.alpha = 0.1//TODO: just a test delete this
+        
         
         
         // change this values if you want to control the width of the yellow (background color for the entire cell) "frame" effect surronding the cell contentview

@@ -43,6 +43,8 @@ class RecipesTableViewCell: UITableViewCell, UITableViewDelegate, UITableViewDat
         testView.translatesAutoresizingMaskIntoConstraints = false
         secondaryTable.translatesAutoresizingMaskIntoConstraints = false
         showSecondaryTable()
+        
+        
     }
 
     override func setSelected(_ selected: Bool, animated: Bool) {

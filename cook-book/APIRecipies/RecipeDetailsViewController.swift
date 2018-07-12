@@ -345,6 +345,8 @@ class RecipeDetailsViewController: UIViewController, UITableViewDelegate, UITabl
                 newEntery.setValue(ingrdientInList, forKeyPath: "ingredient")
                 newEntery.setValue(index, forKeyPath: "index")
                 index += 1
+                print("This was written")
+                print(newEntery)
             }
         }
         
