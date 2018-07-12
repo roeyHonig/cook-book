@@ -11,6 +11,8 @@ import UIKit
 class RecipeCollectionViewCell: UICollectionViewCell {
     @IBOutlet weak var lab: UILabel!
     @IBOutlet var recipeImage: UIImageView!
+    @IBOutlet var activityIndicator: UIActivityIndicatorView!
+    
     
     var recipeHeader: RecipeHeader?
     

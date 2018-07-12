@@ -103,6 +103,8 @@ class RecipiesViewController: UIViewController, UICollectionViewDelegate, UIColl
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "singleRecipe", for: indexPath) as! RecipeCollectionViewCell
+        cell.activityIndicator.startAnimating()
+        cell.activityIndicator.hidesWhenStopped = true
         var totalNumOfRecipesInCollection = 0
         if let collectionArray = recipHeaderApi?.rows {totalNumOfRecipesInCollection = collectionArray.count}
         cell.lab.text = "DB id# \(self.recipHeaderApi?.rows[totalNumOfRecipesInCollection-indexPath.row - 1].id ?? 0)" // 0 is the defult value
@@ -111,8 +113,16 @@ class RecipiesViewController: UIViewController, UICollectionViewDelegate, UIColl
        
         if let imgString = recipHeaderApi?.rows[totalNumOfRecipesInCollection-indexPath.row - 1].img {
             cell.recipeImage.sd_setImage(with: URL(string: imgString) , completed: nil)
+            cell.recipeImage.sd_setImage(with: URL(string: imgString), completed: { (uiImage, error, sdimagecatchtype, url) in
+                guard let err = error else {
+                    cell.activityIndicator.stopAnimating()
+                    return
+                }
+                print("error error loading picture: \(err)")
+                cell.recipeImage.image = #imageLiteral(resourceName: "icons8-cooking_pot_filled")
+            })
         } else {
-            cell.recipeImage.image = #imageLiteral(resourceName: "icons8-cooking_pot_filled")
+            
         }
         
         
