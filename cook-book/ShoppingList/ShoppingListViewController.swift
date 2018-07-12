@@ -129,7 +129,8 @@ class ShoppingListViewController: UIViewController, UITableViewDelegate, UITable
         cell.theParentViewController = self
         cell.parentMainTableView = tableView
         cell.thisCellRowNumber = indexPath
-            cell.label.text =  "\(recipesGlobalDataBaseNumbers[indexPath.row]!)" + " " + recipesTableDataSource[indexPath.row]!
+            cell.label.text = recipesTableDataSource[indexPath.row]!
+        cell.recipyGlobalDBID = recipesGlobalDataBaseNumbers[indexPath.row]!
             cell.specificIngredientsDataSource = ingridentsTableDataSource[indexPath.row]
             cell.secondaryTable.reloadData()
             //cell.showSecondaryTable()

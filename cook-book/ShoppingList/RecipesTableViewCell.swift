@@ -16,7 +16,7 @@ class RecipesTableViewCell: UITableViewCell, UITableViewDelegate, UITableViewDat
     var theParentViewController: ShoppingListViewController! // i'm sure to provide it!!
     
     @IBOutlet var headerContainer: UIView!
-    
+    var recipyGlobalDBID: Int! // i'm sure to provide it!!
     @IBOutlet var label: UILabel!
     @IBOutlet var insideTableContainer: UIView!
     @IBOutlet var bottomSpacer: UIView!
@@ -118,7 +118,7 @@ class RecipesTableViewCell: UITableViewCell, UITableViewDelegate, UITableViewDat
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "secondaryTableCell") as! ingredientsForEachShoopingListRecipeTableViewCell
-        cell.secondaryLabel.text = specificIngredientsDataSource[indexPath.row]
+        cell.secondaryLabel.text =  "\(recipyGlobalDBID)" + "" + specificIngredientsDataSource[indexPath.row]!
         
         return cell
     }
