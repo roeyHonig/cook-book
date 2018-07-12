@@ -125,6 +125,7 @@ class ShoppingListViewController: UIViewController, UITableViewDelegate, UITable
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
             let cell = tableView.dequeueReusableCell(withIdentifier: "recipeNameCell") as! RecipesTableViewCell
+        cell.theParentViewController = self
         cell.parentMainTableView = tableView
         cell.thisCellRowNumber = indexPath
             cell.label.text = recipesTableDataSource[indexPath.row]

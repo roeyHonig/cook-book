@@ -13,6 +13,7 @@ class RecipesTableViewCell: UITableViewCell, UITableViewDelegate, UITableViewDat
     
     var parentMainTableView: UITableView!  // i'm sure to provide it!!
     var thisCellRowNumber: IndexPath!            // i'm sure to provide it!!
+    var theParentViewController: ShoppingListViewController! // i'm sure to provide it!!
     
     @IBOutlet var headerContainer: UIView!
     
@@ -138,12 +139,27 @@ class RecipesTableViewCell: UITableViewCell, UITableViewDelegate, UITableViewDat
                     
                 }) { (bool) in
                     // upon completion
+                    // TODO: now, show the doaligbox for delete
+                    self.showAlertDialog()
                 }
                 cell.isSecondaryTableOpen = false
             }
             
             
         }
+    }
+    
+    func showAlertDialog() {
+        let alertController = UIAlertController(title: nil, message: "Are you sure you want to delete this recipe from the shopping list?", preferredStyle: UIAlertControllerStyle.alert)
+        let confirmAction = UIAlertAction(title: "Yes", style: .default) { (uiAlertAction) in
+            print("ok was preseed")
+        }
+        let cancelAction = UIAlertAction(title: "No", style: .cancel) { (uialertAction) in
+            print("cancel was preseed")
+        }
+        alertController.addAction(confirmAction)
+        alertController.addAction(cancelAction)
+        theParentViewController.present(alertController, animated: true)
     }
 
 }
