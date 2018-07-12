@@ -139,10 +139,11 @@ class RecipesTableViewCell: UITableViewCell, UITableViewDelegate, UITableViewDat
                     
                 }) { (bool) in
                     // upon completion
-                    // TODO: now, show the doaligbox for delete
                     self.showAlertDialog()
                 }
                 cell.isSecondaryTableOpen = false
+            } else {
+                self.showAlertDialog()
             }
             
             
