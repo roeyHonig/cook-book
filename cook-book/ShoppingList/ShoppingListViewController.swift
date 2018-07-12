@@ -12,6 +12,7 @@ class ShoppingListViewController: UIViewController, UITableViewDelegate, UITable
     
     @IBOutlet var mainTableView: UITableView!
     var shoppingListTable: [NSManagedObject] = []
+    var recipesGlobalDataBaseNumbers: [Int?] = []
     var recipesTableDataSource: [String?] = []
     var ingridentsTableDataSource: [[String?]] = [[]]
 
@@ -25,6 +26,7 @@ class ShoppingListViewController: UIViewController, UITableViewDelegate, UITable
         
         // init tables data
         //TODO: needs to be retrived from the core data DB or shered instance
+        recipesGlobalDataBaseNumbers = []
         recipesTableDataSource = [] /*["tomato soup and alot of onions cause roey like onions very much starting now tomato soup and alot of onions cause roey like onions very much" , "beef in poyke" , "chicked tenders"]*/
         ingridentsTableDataSource = [
             ["tomatop", "powder soup", "onions", "garlic", "bazeil"],
@@ -42,8 +44,8 @@ class ShoppingListViewController: UIViewController, UITableViewDelegate, UITable
     
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
-        
         shoppingListTable.removeAll()
+        
         
         guard let appDelegate = UIApplication.shared.delegate as? AppDelegate else {
             return
@@ -66,6 +68,8 @@ class ShoppingListViewController: UIViewController, UITableViewDelegate, UITable
         
         var tmp = 0
         var tmpList: [String] = []
+        
+        recipesGlobalDataBaseNumbers.removeAll()
         recipesTableDataSource.removeAll()
         ingridentsTableDataSource.removeAll()
         if shoppingListTable.count > 0 {
@@ -77,28 +81,25 @@ class ShoppingListViewController: UIViewController, UITableViewDelegate, UITable
                             // ok we've started a all new recipy shoppinglist, ok to append
                             ingridentsTableDataSource.append(tmpList) // appending the collected ingridents of the prevouslly recipy
                             recipesTableDataSource.append(shoppingListTable[i-1].value(forKey: "title") as! String)
+                            recipesGlobalDataBaseNumbers.append(shoppingListTable[i-1].value(forKey: "idOfRecipe") as! Int)
                             tmpList = []
-                            tmpList.append(shoppingListTable[i-1].value(forKey: "ingredient") as! String)
-                        } else {
-                            // we are in the same recipy but let's append the ingridenyts
-                            tmpList.append(shoppingListTable[i-1].value(forKey: "ingredient") as! String)
                         }
-                 print ("in between")
+                        tmpList.append(shoppingListTable[i-1].value(forKey: "ingredient") as! String)
+
                 }else if i == shoppingListTable.count{
                     // the last item
                     // let's append the ingridenyt and also let's append the collection ingredients collected so far
                     tmpList.append(shoppingListTable[i-1].value(forKey: "ingredient") as! String)
                     ingridentsTableDataSource.append(tmpList)
-                    print("we were here")
-            
+                   
                 } else {
                     // the 1st item
-                    print ("the 1st item")
                     recipesTableDataSource.append(shoppingListTable[i-1].value(forKey: "title") as! String)
+                    recipesGlobalDataBaseNumbers.append(shoppingListTable[i-1].value(forKey: "idOfRecipe") as! Int)
                     tmpList.append(shoppingListTable[i-1].value(forKey: "ingredient") as! String)
                 }
                 tmp = shoppingListTable[i-1].value(forKey: "idOfRecipe") as! Int
-                print("iteration, the count is: \(shoppingListTable.count), i is: \(i)")
+
             }
         }
         
@@ -128,7 +129,7 @@ class ShoppingListViewController: UIViewController, UITableViewDelegate, UITable
         cell.theParentViewController = self
         cell.parentMainTableView = tableView
         cell.thisCellRowNumber = indexPath
-            cell.label.text = recipesTableDataSource[indexPath.row]
+            cell.label.text =  "\(recipesGlobalDataBaseNumbers[indexPath.row]!)" + " " + recipesTableDataSource[indexPath.row]!
             cell.specificIngredientsDataSource = ingridentsTableDataSource[indexPath.row]
             cell.secondaryTable.reloadData()
             //cell.showSecondaryTable()
