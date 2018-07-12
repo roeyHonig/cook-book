@@ -4,7 +4,7 @@
 //
 //  Created by hackeru on 3 Tamuz 5778.
 //  Copyright © 5778 student.roey.honig. All rights reserved.
-// lets bring the shopping list again, it seems we did it
+// lets bring the shopping list again, it seems we did it, now let's delete
 
 import UIKit
 import CoreData
