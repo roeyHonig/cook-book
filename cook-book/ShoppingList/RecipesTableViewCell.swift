@@ -140,22 +140,8 @@ class RecipesTableViewCell: UITableViewCell, UITableViewDelegate, UITableViewDat
                     // upon completion
                 }
                 cell.isSecondaryTableOpen = false
-            } else {
-                
-                
-                UIView.animate(withDuration:0.3, animations: {
-                    // animate stuff
-                    tableView.beginUpdates()
-                    cell.heightConstraint.constant = cell.secondaryTable.contentSize.height
-                    cell.layoutIfNeeded()
-                    tableView.endUpdates()
-                    
-                }) { (bool) in
-                    // upon completion
-                }
-                cell.isSecondaryTableOpen = true
             }
-            //self.view.layoutIfNeeded()
+            
             
         }
     }
