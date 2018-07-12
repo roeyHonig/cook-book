@@ -53,22 +53,7 @@ class ShoppingListViewController: UIViewController, UITableViewDelegate, UITable
             return
         }
         
-        //let managedContext = appDelegate.persistentContainer.viewContext
-        
         shoppingListTable = appDelegate.loadCoreData()
-        
-        /*
-        let fetchRequest = NSFetchRequest<NSManagedObject>(entityName: "ShoppingList")
-        let descriptor1 = NSSortDescriptor(key: "idOfRecipe", ascending: true)
-        let descriptor2 = NSSortDescriptor(key: "index", ascending: true)
-        let descriptors = [descriptor1, descriptor2]
-        fetchRequest.sortDescriptors = descriptors
-        do {
-            shoppingListTable = try managedContext.fetch(fetchRequest)
-        } catch let error as NSError {
-            print("Could not fetch. \(error), \(error.userInfo)")
-        }
-        */
         
         var tmp = 0
         var tmpList: [String] = []
@@ -103,10 +88,6 @@ class ShoppingListViewController: UIViewController, UITableViewDelegate, UITable
 
             }
         }
-        
-        
-        
-        print(recipesTableDataSource)
         
         mainTableView.reloadData()
     }

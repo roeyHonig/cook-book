@@ -118,7 +118,7 @@ class RecipesTableViewCell: UITableViewCell, UITableViewDelegate, UITableViewDat
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "secondaryTableCell") as! ingredientsForEachShoopingListRecipeTableViewCell
-        cell.secondaryLabel.text =  "\(recipyGlobalDBID)" + "" + specificIngredientsDataSource[indexPath.row]!
+        cell.secondaryLabel.text = specificIngredientsDataSource[indexPath.row]!
         
         return cell
     }

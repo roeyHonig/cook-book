@@ -291,21 +291,7 @@ class RecipeDetailsViewController: UIViewController, UITableViewDelegate, UITabl
            cell.contentView.backgroundColor = UIColor.white
         }
         
-        /*
-        // this was when i had only 1 label , so i appendded it the "•" and also made diffren colors
-        // this is how you color part of a string diffrent from the other
-        guard var newTextWithBulletain = cell.ingridentDescription.text else {
-            return cell
-        }
-        newTextWithBulletain = "•    " + newTextWithBulletain
-        // color only the "•" green
-        let main_string = newTextWithBulletain
-        let string_to_color = "•"
-        let range = (main_string as NSString).range(of: string_to_color)
-        let attribute = NSMutableAttributedString.init(string: main_string)
-        attribute.addAttribute(NSAttributedStringKey.foregroundColor, value: UIColor.green, range: range)
-        cell.ingridentDescription.attributedText = attribute
-        */
+        
         return cell
     }
     
@@ -315,91 +301,18 @@ class RecipeDetailsViewController: UIViewController, UITableViewDelegate, UITabl
     }
     
     func saveToCoreData() {
-        //var shoppingListTable: [NSManagedObject] = []
-        //var index = 1
+        
         guard let appDelegate = UIApplication.shared.delegate as? AppDelegate, let myRecipeHeader = recipeHeader else {
                 print("There was a problem")
                 return
         }
         
-        //let managedContext = appDelegate.persistentContainer.viewContext   // moved
-        /*
-        // cheack for duplicate
-        let fetchRequest = NSFetchRequest<NSManagedObject>(entityName: "ShoppingList")
-        let descriptor1 = NSSortDescriptor(key: "idOfRecipe", ascending: true)
-        let descriptor2 = NSSortDescriptor(key: "index", ascending: true)
-        let descriptors = [descriptor1, descriptor2]
-        fetchRequest.sortDescriptors = descriptors
-        do {
-            shoppingListTable = try managedContext.fetch(fetchRequest)
-        } catch let error as NSError {
-            print("Could not fetch. \(error), \(error.userInfo)")
-        }
- 
-        
-        
-        for ingredient in shoppingListTable {
-            if let recipeGlobalDBIndex = ingredient.value(forKey: "idOfRecipe") as? Int {
-                if recipeGlobalDBIndex == myRecipeHeader.id {
-                    showDismissAlertDialog()
-                    return
-                }
-            }
-        }
-        */
         // cheack if allready been added to shoping list
         if appDelegate.cheackForDuplicate(idToCompare: myRecipeHeader.id) {
             showDismissAlertDialog()
             return
         }
         
-        /*
-        let entity = NSEntityDescription.entity(forEntityName: "ShoppingList", in: managedContext)!
-        
-        if let listOfIngredients1 = myRecipeHeader.list1 {
-            for ingrdientInList in listOfIngredients1 {
-                let newEntery = NSManagedObject(entity: entity, insertInto: managedContext)
-                let title = myRecipeHeader.title ?? ""
-                newEntery.setValue(myRecipeHeader.id, forKeyPath: "idOfRecipe")
-                newEntery.setValue(title, forKeyPath: "title")
-                newEntery.setValue(ingrdientInList, forKeyPath: "ingredient")
-                newEntery.setValue(index, forKeyPath: "index")
-                index += 1
-                print("This was written")
-                print(newEntery)
-            }
-        }
-        
-        if let listOfIngredients2 = myRecipeHeader.list2 {
-            for ingrdientInList in listOfIngredients2 {
-                let newEntery = NSManagedObject(entity: entity, insertInto: managedContext)
-                let title = myRecipeHeader.title ?? ""
-                newEntery.setValue(myRecipeHeader.id, forKeyPath: "idOfRecipe")
-                newEntery.setValue(title, forKeyPath: "title")
-                newEntery.setValue(ingrdientInList, forKeyPath: "ingredient")
-                newEntery.setValue(index, forKeyPath: "index")
-                index += 1
-            }
-        }
-        
-        if let listOfIngredients3 = myRecipeHeader.list3 {
-            for ingrdientInList in listOfIngredients3 {
-                let newEntery = NSManagedObject(entity: entity, insertInto: managedContext)
-                let title = myRecipeHeader.title ?? ""
-                newEntery.setValue(myRecipeHeader.id, forKeyPath: "idOfRecipe")
-                newEntery.setValue(title, forKeyPath: "title")
-                newEntery.setValue(ingrdientInList, forKeyPath: "ingredient")
-                newEntery.setValue(index, forKeyPath: "index")
-                index += 1
-            }
-        }
-       
-        do {
-            try managedContext.save()
-        } catch let error as NSError {
-            print("Could not save. \(error), \(error.userInfo)")
-        }
- */
         if appDelegate.didSaveToCoreDataWasSuccefull(myRecipeHeader: myRecipeHeader) {
             showAlertDialog()
         }
