@@ -11,6 +11,9 @@ import UIKit
 class RecipesTableViewCell: UITableViewCell, UITableViewDelegate, UITableViewDataSource {
     
     
+    var parentMainTableView: UITableView!  // i'm sure to provide it!!
+    var thisCellRowNumber: IndexPath!            // i'm sure to provide it!!
+    
     @IBOutlet var headerContainer: UIView!
     
     @IBOutlet var label: UILabel!
@@ -56,7 +59,10 @@ class RecipesTableViewCell: UITableViewCell, UITableViewDelegate, UITableViewDat
     }
     
     @objc func deleteFromTheList() {
-        print("The Delete Btn was pressed")
+        print("The Delete Btn was pressed from cell#: \(self.thisCellRowNumber)")
+        tableView(self.parentMainTableView, didSelectRowAt: self.thisCellRowNumber)
+        //heightConstraint.constant = 0
+        //self.layoutIfNeeded()
     }
 
     override func setSelected(_ selected: Bool, animated: Bool) {
@@ -116,6 +122,42 @@ class RecipesTableViewCell: UITableViewCell, UITableViewDelegate, UITableViewDat
         return cell
     }
     
-   
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        if tableView.tag == 100 {
+            print("A cell was pressed but from delete")
+            let cell = tableView.cellForRow(at: indexPath) as! RecipesTableViewCell
+            tableView.deselectRow(at: indexPath, animated: true)
+            
+            if cell.isSecondaryTableOpen {
+                UIView.animate(withDuration:0.3, animations: {
+                    // animate stuff
+                    tableView.beginUpdates()
+                    cell.heightConstraint.constant = 0
+                    cell.layoutIfNeeded()
+                    tableView.endUpdates()
+                    
+                }) { (bool) in
+                    // upon completion
+                }
+                cell.isSecondaryTableOpen = false
+            } else {
+                
+                
+                UIView.animate(withDuration:0.3, animations: {
+                    // animate stuff
+                    tableView.beginUpdates()
+                    cell.heightConstraint.constant = cell.secondaryTable.contentSize.height
+                    cell.layoutIfNeeded()
+                    tableView.endUpdates()
+                    
+                }) { (bool) in
+                    // upon completion
+                }
+                cell.isSecondaryTableOpen = true
+            }
+            //self.view.layoutIfNeeded()
+            
+        }
+    }
 
 }

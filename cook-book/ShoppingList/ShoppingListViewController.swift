@@ -125,6 +125,8 @@ class ShoppingListViewController: UIViewController, UITableViewDelegate, UITable
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
             let cell = tableView.dequeueReusableCell(withIdentifier: "recipeNameCell") as! RecipesTableViewCell
+        cell.parentMainTableView = tableView
+        cell.thisCellRowNumber = indexPath
             cell.label.text = recipesTableDataSource[indexPath.row]
             cell.specificIngredientsDataSource = ingridentsTableDataSource[indexPath.row]
             cell.secondaryTable.reloadData()
