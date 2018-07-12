@@ -17,6 +17,10 @@ class RecipesTableViewCell: UITableViewCell, UITableViewDelegate, UITableViewDat
     @IBOutlet var insideTableContainer: UIView!
     @IBOutlet var bottomSpacer: UIView!
     
+    @IBOutlet var deleteBtn: UIView!
+    var deleteBtnGesture = UITapGestureRecognizer()
+    
+    
     var isSecondaryTableOpen = false
     var myFrame = CGRect()
     var testView = UIView()
@@ -30,6 +34,10 @@ class RecipesTableViewCell: UITableViewCell, UITableViewDelegate, UITableViewDat
         super.awakeFromNib()
         // Initialization code
         //secondaryTable.removeFromSuperview()
+        
+        deleteBtnGesture.addTarget(self, action: #selector(deleteFromTheList))
+        deleteBtn.addGestureRecognizer(deleteBtnGesture)
+        
         secondaryTable.delegate = self
         secondaryTable.dataSource = self
         
@@ -45,6 +53,10 @@ class RecipesTableViewCell: UITableViewCell, UITableViewDelegate, UITableViewDat
         showSecondaryTable()
         
         
+    }
+    
+    @objc func deleteFromTheList() {
+        print("The Delete Btn was pressed")
     }
 
     override func setSelected(_ selected: Bool, animated: Bool) {

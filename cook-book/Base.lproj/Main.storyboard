@@ -377,6 +377,7 @@
                                                                 </imageView>
                                                             </subviews>
                                                             <color key="backgroundColor" red="1" green="1" blue="0.40000000600000002" alpha="1" colorSpace="calibratedRGB"/>
+                                                            <gestureRecognizers/>
                                                             <constraints>
                                                                 <constraint firstAttribute="width" constant="25" id="7lA-kd-s0l"/>
                                                                 <constraint firstItem="IUr-zH-D5i" firstAttribute="width" secondItem="ehc-Xb-CHq" secondAttribute="width" multiplier="0.7" id="H65-sJ-4zd"/>
@@ -426,6 +427,7 @@
                                         </tableViewCellContentView>
                                         <connections>
                                             <outlet property="bottomSpacer" destination="Bwm-Zc-RQa" id="0dJ-Oo-E6P"/>
+                                            <outlet property="deleteBtn" destination="ehc-Xb-CHq" id="7fV-sL-ory"/>
                                             <outlet property="headerContainer" destination="s6m-PE-5By" id="ome-bG-9V2"/>
                                             <outlet property="insideTableContainer" destination="q1H-yq-uTo" id="y6G-1i-k0W"/>
                                             <outlet property="label" destination="cRk-Z6-BKg" id="Rmc-tu-hAE"/>

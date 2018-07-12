@@ -14,6 +14,9 @@ class ShoppingListViewController: UIViewController, UITableViewDelegate, UITable
     var shoppingListTable: [NSManagedObject] = []
     var recipesTableDataSource: [String?] = []
     var ingridentsTableDataSource: [[String?]] = [[]]
+
+    
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -134,6 +137,7 @@ class ShoppingListViewController: UIViewController, UITableViewDelegate, UITable
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         if tableView.tag == 100 {
+            print("A cell was pressed")
             let cell = tableView.cellForRow(at: indexPath) as! RecipesTableViewCell
             tableView.deselectRow(at: indexPath, animated: true)
             
