@@ -112,7 +112,7 @@ class RecipiesViewController: UIViewController, UICollectionViewDelegate, UIColl
         
        
         if let imgString = recipHeaderApi?.rows[totalNumOfRecipesInCollection-indexPath.row - 1].img {
-            cell.recipeImage.sd_setImage(with: URL(string: imgString) , completed: nil)
+            
             cell.recipeImage.sd_setImage(with: URL(string: imgString), completed: { (uiImage, error, sdimagecatchtype, url) in
                 guard let err = error else {
                     cell.activityIndicator.stopAnimating()
@@ -122,7 +122,7 @@ class RecipiesViewController: UIViewController, UICollectionViewDelegate, UIColl
                 cell.recipeImage.image = #imageLiteral(resourceName: "icons8-cooking_pot_filled")
             })
         } else {
-            
+            cell.recipeImage.image = #imageLiteral(resourceName: "icons8-cooking_pot_filled")
         }
         
         

@@ -81,7 +81,19 @@ class RecipeDetailsViewController: UIViewController, UITableViewDelegate, UITabl
         
         // set title and background image
         self.navigationItem.title = recipeHeader?.title!
-        if let imgString = recipeHeader?.img {backgroundImage.sd_setImage(with: URL(string: imgString), completed: nil)}
+        if let imgString = recipeHeader?.img {
+            backgroundImage.sd_setImage(with: URL(string: imgString), completed: {
+                                                                                (uiImage, error, sdimagecatchtype, url) in
+                                                                                guard let err = error else {
+                                                                                    return
+                                                                                }
+                                                                                print("error error loading picture: \(err)")
+                                                                                self.backgroundImage.image = #imageLiteral(resourceName: "icons8-cooking_pot_filled")
+                                                                                })
+            
+        }
+        
+        
         
         ingridentsTable.delegate = self
         ingridentsTable.dataSource = self
