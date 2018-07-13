@@ -32,6 +32,7 @@ class RecipesTableViewCell: UITableViewCell, UITableViewDelegate, UITableViewDat
     var heightConstraint = NSLayoutConstraint()
     
     var specificIngredientsDataSource: [String?] = []
+    var specificIngredientsDataSourceInnerCircleAlpha: [Float?] = []
     
     @IBOutlet var secondaryTable: UITableView!
     
@@ -120,7 +121,9 @@ class RecipesTableViewCell: UITableViewCell, UITableViewDelegate, UITableViewDat
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "secondaryTableCell") as! ingredientsForEachShoopingListRecipeTableViewCell
         cell.secondaryLabel.text = specificIngredientsDataSource[indexPath.row]!
-        
+        cell.innerCircleImageView.alpha = CGFloat(specificIngredientsDataSourceInnerCircleAlpha[indexPath.row]!)
+        cell.thisCellIndexPathRow = indexPath.row
+        cell.thisCellGlobalRecipyDBNumber = recipyGlobalDBID
         return cell
     }
     

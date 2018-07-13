@@ -349,7 +349,7 @@
                                                                                     <constraint firstAttribute="width" secondItem="kas-ug-pur" secondAttribute="height" id="MGy-9p-5LU"/>
                                                                                 </constraints>
                                                                             </imageView>
-                                                                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="icons8-filled_circle" translatesAutoresizingMaskIntoConstraints="NO" id="9nm-Iy-All">
+                                                                            <imageView userInteractionEnabled="NO" alpha="0.0" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="icons8-filled_circle" translatesAutoresizingMaskIntoConstraints="NO" id="9nm-Iy-All">
                                                                                 <rect key="frame" x="6" y="15" width="13.5" height="13.5"/>
                                                                             </imageView>
                                                                         </subviews>
@@ -383,6 +383,7 @@
                                                                 </constraints>
                                                             </tableViewCellContentView>
                                                             <connections>
+                                                                <outlet property="innerCircleImageView" destination="9nm-Iy-All" id="ZOP-gC-M0N"/>
                                                                 <outlet property="secondaryLabel" destination="tx3-bp-tgy" id="coW-2q-8qf"/>
                                                             </connections>
                                                         </tableViewCell>

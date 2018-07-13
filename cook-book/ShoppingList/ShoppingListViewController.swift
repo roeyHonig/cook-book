@@ -15,6 +15,7 @@ class ShoppingListViewController: UIViewController, UITableViewDelegate, UITable
     var recipesGlobalDataBaseNumbers: [Int?] = []
     var recipesTableDataSource: [String?] = []
     var ingridentsTableDataSource: [[String?]] = [[]]
+    var ingridentsTableDataSourceInnerCircleImageAlpfa: [[Float?]] = [[]]
 
     
     
@@ -48,43 +49,50 @@ class ShoppingListViewController: UIViewController, UITableViewDelegate, UITable
         recipesGlobalDataBaseNumbers.removeAll()
         recipesTableDataSource.removeAll()
         ingridentsTableDataSource.removeAll()
+        ingridentsTableDataSourceInnerCircleImageAlpfa.removeAll()
         
         guard let appDelegate = UIApplication.shared.delegate as? AppDelegate else {
             return
         }
-        
         shoppingListTable = appDelegate.loadCoreData()
-        
         var tmp = 0
         var tmpList: [String] = []
+        var tmpListOfFloats: [Float] = []
         
         if shoppingListTable.count > 0 {
+            // gather the data from coreData and put it into the tables data source arrays
             for i in 1...shoppingListTable.count {
-                // an item between the 1st and the last
-                if i != 1 && i != shoppingListTable.count {
-                        // make inspectrion
-                        if tmp != shoppingListTable[i-1].value(forKey: "idOfRecipe") as! Int {
-                            // ok we've started a all new recipy shoppinglist, ok to append
-                            ingridentsTableDataSource.append(tmpList) // appending the collected ingridents of the prevouslly recipy
-                            recipesTableDataSource.append(shoppingListTable[i-1].value(forKey: "title") as! String)
-                            recipesGlobalDataBaseNumbers.append(shoppingListTable[i-1].value(forKey: "idOfRecipe") as! Int)
-                            tmpList = []
-                        }
-                        tmpList.append(shoppingListTable[i-1].value(forKey: "ingredient") as! String)
+                    if i != 1 && i != shoppingListTable.count {
+                        // an item between the 1st and the last
+                            // make inspectrion
+                            if tmp != shoppingListTable[i-1].value(forKey: "idOfRecipe") as! Int {
+                                // ok we've started a all new recipy shoppinglist, ok to append
+                                ingridentsTableDataSource.append(tmpList) // appending the collected ingridents of the prevouslly recipy
+                                ingridentsTableDataSourceInnerCircleImageAlpfa.append(tmpListOfFloats) // appending the collected ingridents of the prevouslly recipy cheacked status
+                                recipesTableDataSource.append(shoppingListTable[i-1].value(forKey: "title") as! String)
+                                recipesGlobalDataBaseNumbers.append(shoppingListTable[i-1].value(forKey: "idOfRecipe") as! Int)
+                                tmpList = []
+                                tmpListOfFloats = []
+                            }
+                            tmpList.append(shoppingListTable[i-1].value(forKey: "ingredient") as! String)
+                            tmpListOfFloats.append(shoppingListTable[i-1].value(forKey: "cheacked") as! Float)
 
-                }else if i == shoppingListTable.count{
-                    // the last item
-                    // let's append the ingridenyt and also let's append the collection ingredients collected so far
-                    tmpList.append(shoppingListTable[i-1].value(forKey: "ingredient") as! String)
-                    ingridentsTableDataSource.append(tmpList)
-                   
-                } else {
-                    // the 1st item
-                    recipesTableDataSource.append(shoppingListTable[i-1].value(forKey: "title") as! String)
-                    recipesGlobalDataBaseNumbers.append(shoppingListTable[i-1].value(forKey: "idOfRecipe") as! Int)
-                    tmpList.append(shoppingListTable[i-1].value(forKey: "ingredient") as! String)
-                }
-                tmp = shoppingListTable[i-1].value(forKey: "idOfRecipe") as! Int
+                    }else if i == shoppingListTable.count{
+                        // the last item
+                        // let's append the ingridenyt and also let's append the collection ingredients collected so far
+                        tmpList.append(shoppingListTable[i-1].value(forKey: "ingredient") as! String)
+                        ingridentsTableDataSource.append(tmpList)
+                        tmpListOfFloats.append(shoppingListTable[i-1].value(forKey: "cheacked") as! Float)
+                        ingridentsTableDataSourceInnerCircleImageAlpfa.append(tmpListOfFloats)
+                       
+                    } else {
+                        // the 1st item
+                        recipesTableDataSource.append(shoppingListTable[i-1].value(forKey: "title") as! String)
+                        recipesGlobalDataBaseNumbers.append(shoppingListTable[i-1].value(forKey: "idOfRecipe") as! Int)
+                        tmpList.append(shoppingListTable[i-1].value(forKey: "ingredient") as! String)
+                        tmpListOfFloats.append(shoppingListTable[i-1].value(forKey: "cheacked") as! Float)
+                    }
+                    tmp = shoppingListTable[i-1].value(forKey: "idOfRecipe") as! Int
 
             }
         }
@@ -114,6 +122,7 @@ class ShoppingListViewController: UIViewController, UITableViewDelegate, UITable
             cell.label.text = recipesTableDataSource[indexPath.row]!
         cell.recipyGlobalDBID = recipesGlobalDataBaseNumbers[indexPath.row]!
             cell.specificIngredientsDataSource = ingridentsTableDataSource[indexPath.row]
+        cell.specificIngredientsDataSourceInnerCircleAlpha = ingridentsTableDataSourceInnerCircleImageAlpfa[indexPath.row]
             cell.secondaryTable.reloadData()
             //cell.showSecondaryTable()
             //tableView.selectRow(at: indexPath, animated: true, scrollPosition: UITableViewScrollPosition.bottom)
