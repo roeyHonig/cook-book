@@ -159,6 +159,7 @@ class RecipesTableViewCell: UITableViewCell, UITableViewDelegate, UITableViewDat
                 return
             }
             appDelegate.deleteFromCoreDataBasedOn(the: "idOfRecipe", whos: self.recipyGlobalDBID)
+            self.theParentViewController.viewDidAppear(true)
         }
         let cancelAction = UIAlertAction(title: "No", style: .cancel) { (uialertAction) in
             print("cancel was preseed")
