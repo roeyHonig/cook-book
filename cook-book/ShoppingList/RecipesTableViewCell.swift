@@ -135,6 +135,7 @@ class RecipesTableViewCell: UITableViewCell, UITableViewDelegate, UITableViewDat
                     // animate stuff
                     tableView.beginUpdates()
                     cell.heightConstraint.constant = 0
+                    cell.expendingArrowImageView.transform = CGAffineTransform.identity
                     cell.layoutIfNeeded()
                     tableView.endUpdates()
                     
