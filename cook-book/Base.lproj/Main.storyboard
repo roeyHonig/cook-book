@@ -344,7 +344,7 @@
                                                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="i0a-8s-9lB" userLabel="imageContainer">
                                                             <rect key="frame" x="0.0" y="0.0" width="25" height="20.5"/>
                                                             <subviews>
-                                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="icons8-cooking_pot_filled" translatesAutoresizingMaskIntoConstraints="NO" id="u2M-aK-B0t">
+                                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="icons8-expand_arrow_filled" translatesAutoresizingMaskIntoConstraints="NO" id="u2M-aK-B0t">
                                                                     <rect key="frame" x="4" y="1" width="17.5" height="18"/>
                                                                     <constraints>
                                                                         <constraint firstAttribute="width" secondItem="u2M-aK-B0t" secondAttribute="height" id="e2L-0O-547"/>
@@ -428,6 +428,7 @@
                                         <connections>
                                             <outlet property="bottomSpacer" destination="Bwm-Zc-RQa" id="0dJ-Oo-E6P"/>
                                             <outlet property="deleteBtn" destination="ehc-Xb-CHq" id="7fV-sL-ory"/>
+                                            <outlet property="expendingArrowImageView" destination="u2M-aK-B0t" id="jPW-QF-SoP"/>
                                             <outlet property="headerContainer" destination="s6m-PE-5By" id="ome-bG-9V2"/>
                                             <outlet property="insideTableContainer" destination="q1H-yq-uTo" id="y6G-1i-k0W"/>
                                             <outlet property="label" destination="cRk-Z6-BKg" id="Rmc-tu-hAE"/>

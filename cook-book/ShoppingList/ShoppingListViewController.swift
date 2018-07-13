@@ -133,6 +133,7 @@ class ShoppingListViewController: UIViewController, UITableViewDelegate, UITable
                     // animate stuff
                     tableView.beginUpdates()
                     cell.heightConstraint.constant = 0
+                    cell.expendingArrowImageView.transform = CGAffineTransform.identity
                     cell.layoutIfNeeded()
                     tableView.endUpdates()
                     
@@ -147,6 +148,7 @@ class ShoppingListViewController: UIViewController, UITableViewDelegate, UITable
                     // animate stuff
                     tableView.beginUpdates()
                     cell.heightConstraint.constant = cell.secondaryTable.contentSize.height
+                    cell.expendingArrowImageView.transform = CGAffineTransform(rotationAngle: CGFloat.pi)
                     cell.layoutIfNeeded()
                     tableView.endUpdates()
                     

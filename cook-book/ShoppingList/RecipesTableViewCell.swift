@@ -10,6 +10,7 @@ import UIKit
 
 class RecipesTableViewCell: UITableViewCell, UITableViewDelegate, UITableViewDataSource {
     
+    @IBOutlet var expendingArrowImageView: UIImageView!
     
     var parentMainTableView: UITableView!  // i'm sure to provide it!!
     var thisCellRowNumber: IndexPath!            // i'm sure to provide it!!
