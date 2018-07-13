@@ -50,10 +50,11 @@ class favoriteRecipesViewController: UIViewController {
         // Create the animation for the shape view
         let animation = CABasicAnimation(keyPath: "strokeEnd")
         animation.toValue = 1
-        animation.duration = 0.5 // seconds
+        animation.duration = 2 // seconds
         animation.autoreverses = false
         animation.fillMode = kCAFillModeForwards
         animation.isRemovedOnCompletion = false
+        animation.timingFunction = CAMediaTimingFunction(name: "easeOut")
         
         
         // And finally add the linear animation to the shape!
