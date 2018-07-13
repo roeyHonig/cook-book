@@ -257,6 +257,30 @@ class AppDelegate: UIResponder, UIApplicationDelegate, GIDSignInDelegate {
         
     }
     
+    func deleteFromCoreDataBasedOn(the attribute: String, whos value: Any?) {
+        var myFetchedEntites: [NSManagedObject] = []
+        let myPredicate = NSPredicate(format: attribute + " = %@", argumentArray: [(value as! Int)])
+        let fetchRequest = NSFetchRequest<NSManagedObject>(entityName: "ShoppingList")
+        fetchRequest.predicate = myPredicate
+        
+        do {
+            let fetchedEntities = try managedContext.fetch(fetchRequest)
+            myFetchedEntites = fetchedEntities
+        } catch let error as NSError {
+            print("Could not fetch. \(error), \(error.userInfo)")
+        }
+        for entity in myFetchedEntites {
+            managedContext.delete(entity)
+        }
+        
+        do {
+            try managedContext.save()
+        } catch let error as NSError {
+            print("Could not save. \(error), \(error.userInfo)")
+        }
+        
+    }
+    
     
 
 }

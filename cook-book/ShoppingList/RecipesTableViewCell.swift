@@ -154,6 +154,11 @@ class RecipesTableViewCell: UITableViewCell, UITableViewDelegate, UITableViewDat
         let alertController = UIAlertController(title: nil, message: "Are you sure you want to delete this recipe from the shopping list?", preferredStyle: UIAlertControllerStyle.alert)
         let confirmAction = UIAlertAction(title: "Yes", style: .default) { (uiAlertAction) in
             print("ok was preseed")
+            // Delete
+            guard let appDelegate = UIApplication.shared.delegate as? AppDelegate else {
+                return
+            }
+            appDelegate.deleteFromCoreDataBasedOn(the: "idOfRecipe", whos: self.recipyGlobalDBID)
         }
         let cancelAction = UIAlertAction(title: "No", style: .cancel) { (uialertAction) in
             print("cancel was preseed")
