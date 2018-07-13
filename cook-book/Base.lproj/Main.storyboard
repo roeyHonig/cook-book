@@ -15,7 +15,7 @@
         <!--Item-->
         <scene sceneID="GHX-9g-0Ab">
             <objects>
-                <viewController id="tAA-Mf-DuQ" sceneMemberID="viewController">
+                <viewController id="tAA-Mf-DuQ" customClass="favoriteRecipesViewController" customModule="cook_book" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="L36-CW-Zjf">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -25,29 +25,7 @@
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="V9U-JR-AsI">
                                         <rect key="frame" x="0.0" y="0.0" width="375" height="299"/>
-                                        <subviews>
-                                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="icons8-circle_filled" translatesAutoresizingMaskIntoConstraints="NO" id="FqH-iY-EuH">
-                                                <rect key="frame" x="175" y="137" width="25" height="25"/>
-                                                <constraints>
-                                                    <constraint firstAttribute="width" constant="25" id="Aid-Ih-Q2M"/>
-                                                    <constraint firstAttribute="height" constant="25" id="JnZ-d6-vGi"/>
-                                                </constraints>
-                                            </imageView>
-                                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="icons8-filled_circle" translatesAutoresizingMaskIntoConstraints="NO" id="mBt-B5-zAU">
-                                                <rect key="frame" x="180" y="142" width="15" height="15"/>
-                                                <constraints>
-                                                    <constraint firstAttribute="width" constant="15" id="6P5-ee-FeO"/>
-                                                    <constraint firstAttribute="height" constant="15" id="hPr-5g-hGB"/>
-                                                </constraints>
-                                            </imageView>
-                                        </subviews>
-                                        <color key="backgroundColor" red="0.15959769100000001" green="1" blue="0.18528526889999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                        <constraints>
-                                            <constraint firstItem="FqH-iY-EuH" firstAttribute="centerX" secondItem="V9U-JR-AsI" secondAttribute="centerX" id="2wb-bg-Xr2"/>
-                                            <constraint firstItem="mBt-B5-zAU" firstAttribute="centerX" secondItem="V9U-JR-AsI" secondAttribute="centerX" id="6Rj-5D-YZK"/>
-                                            <constraint firstItem="FqH-iY-EuH" firstAttribute="centerY" secondItem="V9U-JR-AsI" secondAttribute="centerY" id="mU8-Go-FXX"/>
-                                            <constraint firstItem="mBt-B5-zAU" firstAttribute="centerY" secondItem="V9U-JR-AsI" secondAttribute="centerY" id="rfu-yJ-4eF"/>
-                                        </constraints>
+                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                     </view>
                                     <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="m1M-70-cro">
                                         <rect key="frame" x="0.0" y="299" width="375" height="299"/>
@@ -110,6 +88,9 @@
                         <viewLayoutGuide key="safeArea" id="2cC-5o-Q4D"/>
                     </view>
                     <tabBarItem key="tabBarItem" title="Item" id="N1w-mT-A1X"/>
+                    <connections>
+                        <outlet property="animatedView" destination="V9U-JR-AsI" id="ddg-Ja-umm"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="rcr-9c-YQh" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>

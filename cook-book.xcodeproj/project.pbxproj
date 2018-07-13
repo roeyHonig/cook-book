@@ -102,6 +102,14 @@
 			path = ShoppingList;
 			sourceTree = "<group>";
 		};
+		6DE51D7620F9518400196A79 /* favoriteRecipies */ = {
+			isa = PBXGroup;
+			children = (
+				6D0CF14920E6639F00A2B670 /* favoriteRecipesViewController.swift */,
+			);
+			path = favoriteRecipies;
+			sourceTree = "<group>";
+		};
 		6DF6FA7320DB8A9F00D210C6 /* APIRecipies */ = {
 			isa = PBXGroup;
 			children = (
@@ -163,7 +171,7 @@
 				6DFFF47F20D5737700368A45 /* cook_book.xcdatamodeld */,
 				6DF6FA7420DB8B2500D210C6 /* userRecipies */,
 				6DF6FA7320DB8A9F00D210C6 /* APIRecipies */,
-				6D0CF14920E6639F00A2B670 /* favoriteRecipesViewController.swift */,
+				6DE51D7620F9518400196A79 /* favoriteRecipies */,
 				6D0CF14B20E6688800A2B670 /* RecipeDataConfiguration.swift */,
 			);
 			path = "cook-book";
