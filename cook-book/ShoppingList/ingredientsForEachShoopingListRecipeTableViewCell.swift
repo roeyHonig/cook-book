@@ -10,7 +10,8 @@ import UIKit
 
 class ingredientsForEachShoopingListRecipeTableViewCell: UITableViewCell {
 
-    @IBOutlet var nonAnimatingLayerView: UIView!
+    @IBOutlet var nonAnimatingCustomUIVIew: CustomUIView7!
+    
     @IBOutlet var innerCircleImageView: UIImageView!
     @IBOutlet var secondaryLabel: UILabel!
     var thisCellIndexPathRow: Int! // i'm sure to provide this
@@ -29,8 +30,8 @@ class ingredientsForEachShoopingListRecipeTableViewCell: UITableViewCell {
         
         if self.innerCircleImageView.alpha == 0 {
             self.innerCircleImageView.alpha = 1
-            nonAnimatingLayerView.alpha = 1
-            self.drawStaticCrossLines(inside: self.nonAnimatingLayerView, theNumberOfLines: 1)
+            //nonAnimatingLayerView.alpha = 1
+            //self.drawStaticCrossLines(inside: self.nonAnimatingLayerView, theNumberOfLines: 1)
             guard let appDelegate = UIApplication.shared.delegate as? AppDelegate else {
                 return
             }
@@ -38,7 +39,7 @@ class ingredientsForEachShoopingListRecipeTableViewCell: UITableViewCell {
             
         } else {
             self.innerCircleImageView.alpha = 0
-            nonAnimatingLayerView.alpha = 0
+            //nonAnimatingLayerView.alpha = 0
             guard let appDelegate = UIApplication.shared.delegate as? AppDelegate else {
                 return
             }
@@ -47,7 +48,7 @@ class ingredientsForEachShoopingListRecipeTableViewCell: UITableViewCell {
         }
     }
 
-    
+    /*
     func drawStaticCrossLines(inside view: UIView, theNumberOfLines num:Int)  {
        // iterate over all the lines need to be plotted
         guard num > 0 else {
@@ -81,6 +82,8 @@ class ingredientsForEachShoopingListRecipeTableViewCell: UITableViewCell {
         
         
     }
+     */
+ 
     
     override func setSelected(_ selected: Bool, animated: Bool) {
         super.setSelected(selected, animated: animated)
