@@ -39,7 +39,7 @@ class ingredientsForEachShoopingListRecipeTableViewCell: UITableViewCell {
                 return
             }
             appDelegate.updateDataInCoreDataEntitesMatchedBy(attribute1: "idOfRecipe", attribute2: "index", value1: thisCellGlobalRecipyDBNumber, value2: (thisCellIndexPathRow + 1), newValueAttribute: "cheacked", newValue: 0)
-            self.drawStaticCrossLines(inside: self.nonAnimatingLayerView, theNumberOfLines: 0)
+            
         }
     }
 
@@ -53,16 +53,17 @@ class ingredientsForEachShoopingListRecipeTableViewCell: UITableViewCell {
              let layer = CAShapeLayer()
             let path = UIBezierPath()
             // draw the line from left to right
+            /*
             let numberOfLines = Float(num)
             let myCGRectSize = CGSize(width: view.frame.width, height: view.frame.height )
             let myOriginX = view.frame.minX
             let indexAsFloat = Float(i - 1)
             let myOriginY = CGFloat(indexAsFloat) * view.frame.height / CGFloat(numberOfLines)
             let myOrigin = CGPoint(x: myOriginX, y: myOriginY)
-            
-            let rec = CGRect(origin: myOrigin, size: myCGRectSize)
-            path.move(to: CGPoint(x: rec.minX , y: rec.midY))
-            path.addLine(to: CGPoint(x: rec.maxX, y: rec.midY))
+            */
+            //let rec = CGRect(origin: myOrigin, size: myCGRectSize)
+            path.move(to: CGPoint(x: view.bounds.minX + 5 , y: view.bounds.midY))
+            path.addLine(to: CGPoint(x: view.bounds.maxX - 5, y: view.bounds.midY))
             layer.path = path.cgPath
             
             // Set up the appearance of the shape layer
