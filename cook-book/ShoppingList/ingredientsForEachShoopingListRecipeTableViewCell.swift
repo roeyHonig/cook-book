@@ -29,13 +29,16 @@ class ingredientsForEachShoopingListRecipeTableViewCell: UITableViewCell {
         
         if self.innerCircleImageView.alpha == 0 {
             self.innerCircleImageView.alpha = 1
+            nonAnimatingLayerView.alpha = 1
+            self.drawStaticCrossLines(inside: self.nonAnimatingLayerView, theNumberOfLines: 1)
             guard let appDelegate = UIApplication.shared.delegate as? AppDelegate else {
                 return
             }
             appDelegate.updateDataInCoreDataEntitesMatchedBy(attribute1: "idOfRecipe", attribute2: "index", value1: thisCellGlobalRecipyDBNumber, value2: (thisCellIndexPathRow + 1), newValueAttribute: "cheacked", newValue: 1)
-            self.drawStaticCrossLines(inside: self.nonAnimatingLayerView, theNumberOfLines: 1)
+            
         } else {
             self.innerCircleImageView.alpha = 0
+            nonAnimatingLayerView.alpha = 0
             guard let appDelegate = UIApplication.shared.delegate as? AppDelegate else {
                 return
             }
