@@ -121,20 +121,20 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="0FF-ZS-9lx" userLabel="parentView">
-                                <rect key="frame" x="0.0" y="64" width="375" height="554"/>
+                                <rect key="frame" x="0.0" y="68" width="375" height="550"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Y1f-GW-9K3" userLabel="spacerTopView">
                                         <rect key="frame" x="0.0" y="0.0" width="375" height="5.5"/>
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                     </view>
                                     <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" alwaysBounceHorizontal="YES" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" bouncesZoom="NO" translatesAutoresizingMaskIntoConstraints="NO" id="R6H-dD-7Re">
-                                        <rect key="frame" x="0.0" y="5.5" width="375" height="66.5"/>
+                                        <rect key="frame" x="0.0" y="5.5" width="375" height="66"/>
                                         <subviews>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="5yt-KR-aMA" userLabel="contentView">
-                                                <rect key="frame" x="0.0" y="0.0" width="532" height="63"/>
+                                                <rect key="frame" x="0.0" y="0.0" width="528" height="62.5"/>
                                                 <subviews>
                                                     <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="ytq-cj-mNP">
-                                                        <rect key="frame" x="0.0" y="0.0" width="532" height="64"/>
+                                                        <rect key="frame" x="0.0" y="0.0" width="528" height="63.5"/>
                                                         <segments>
                                                             <segment title="" image="beef50"/>
                                                             <segment title="" image="pork50"/>
@@ -170,14 +170,14 @@
                                         </constraints>
                                     </scrollView>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="v6q-Sa-Lz1" userLabel="spacerBottomView">
-                                        <rect key="frame" x="0.0" y="72" width="375" height="5.5"/>
+                                        <rect key="frame" x="0.0" y="71.5" width="375" height="5.5"/>
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                     </view>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="l8M-I4-aab">
-                                        <rect key="frame" x="0.0" y="77.5" width="375" height="476.5"/>
+                                        <rect key="frame" x="0.0" y="77" width="375" height="473"/>
                                         <subviews>
                                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="aeg-CB-Buq">
-                                                <rect key="frame" x="0.0" y="0.0" width="375" height="476.5"/>
+                                                <rect key="frame" x="0.0" y="0.0" width="375" height="473"/>
                                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                 <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="Xyi-Lb-1qn">
                                                     <size key="itemSize" width="100" height="100"/>
@@ -352,13 +352,21 @@
                                                                         <nil key="textColor"/>
                                                                         <nil key="highlightedColor"/>
                                                                     </label>
+                                                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="u0F-ff-f05" userLabel="nonAnimatedLayerView">
+                                                                        <rect key="frame" x="33" y="0.0" width="189" height="43.5"/>
+                                                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                                                    </view>
                                                                 </subviews>
                                                                 <constraints>
+                                                                    <constraint firstItem="u0F-ff-f05" firstAttribute="width" secondItem="tx3-bp-tgy" secondAttribute="width" multiplier="0.95" id="5Pm-EK-GZd"/>
                                                                     <constraint firstItem="tx3-bp-tgy" firstAttribute="leading" secondItem="YXm-QT-wmN" secondAttribute="trailing" constant="8" id="5en-2t-9oB"/>
-                                                                    <constraint firstItem="tx3-bp-tgy" firstAttribute="top" secondItem="IcF-ny-9gG" secondAttribute="topMargin" id="MtV-jg-LMt"/>
+                                                                    <constraint firstItem="u0F-ff-f05" firstAttribute="leading" secondItem="YXm-QT-wmN" secondAttribute="trailing" constant="8" id="6lQ-tg-XYG"/>
+                                                                    <constraint firstItem="tx3-bp-tgy" firstAttribute="top" secondItem="IcF-ny-9gG" secondAttribute="top" constant="8" id="MtV-jg-LMt"/>
+                                                                    <constraint firstAttribute="bottom" secondItem="u0F-ff-f05" secondAttribute="bottom" id="NVB-aU-AK2"/>
                                                                     <constraint firstItem="YXm-QT-wmN" firstAttribute="top" secondItem="IcF-ny-9gG" secondAttribute="top" id="SxR-Yg-uH5"/>
                                                                     <constraint firstAttribute="bottom" secondItem="YXm-QT-wmN" secondAttribute="bottom" id="arT-w8-lnn"/>
-                                                                    <constraint firstAttribute="bottomMargin" secondItem="tx3-bp-tgy" secondAttribute="bottom" id="o5j-Bo-Csm"/>
+                                                                    <constraint firstItem="u0F-ff-f05" firstAttribute="top" secondItem="IcF-ny-9gG" secondAttribute="top" id="eWL-mu-cn3"/>
+                                                                    <constraint firstAttribute="bottom" secondItem="tx3-bp-tgy" secondAttribute="bottom" constant="8" id="o5j-Bo-Csm"/>
                                                                     <constraint firstAttribute="trailingMargin" secondItem="tx3-bp-tgy" secondAttribute="trailing" id="pfz-ET-aQj"/>
                                                                     <constraint firstItem="YXm-QT-wmN" firstAttribute="leading" secondItem="IcF-ny-9gG" secondAttribute="leading" id="r2c-sz-NAC"/>
                                                                 </constraints>
@@ -497,10 +505,10 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="icons8-cooking_pot_filled" translatesAutoresizingMaskIntoConstraints="NO" id="T5p-MA-gFT">
-                                <rect key="frame" x="0.0" y="64" width="375" height="554"/>
+                                <rect key="frame" x="0.0" y="68" width="375" height="550"/>
                             </imageView>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="n0j-XY-3Lp" userLabel="sliderControl">
-                                <rect key="frame" x="0.0" y="114" width="375" height="27.5"/>
+                                <rect key="frame" x="0.0" y="118" width="375" height="27.5"/>
                                 <subviews>
                                     <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="YTh-V4-t4H">
                                         <rect key="frame" x="0.0" y="0.0" width="375" height="27.5"/>
@@ -561,7 +569,7 @@
                                 </constraints>
                             </view>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="eeJ-fZ-PBc" customClass="customDraw1" customModule="cook_book" customModuleProvider="target">
-                                <rect key="frame" x="0.0" y="141.5" width="375" height="37.5"/>
+                                <rect key="frame" x="0.0" y="145.5" width="375" height="37.5"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="o9g-vN-sf0" userLabel="left" customClass="customDraw1" customModule="cook_book" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="0.0" width="281.5" height="37.5"/>
@@ -683,10 +691,10 @@
                                 </constraints>
                             </view>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="0wV-9Y-5R2" userLabel="directionsParentView">
-                                <rect key="frame" x="0.0" y="179" width="375" height="439"/>
+                                <rect key="frame" x="0.0" y="183" width="375" height="435"/>
                                 <subviews>
                                     <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" ambiguous="YES" showsVerticalScrollIndicator="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Hdn-2d-axz">
-                                        <rect key="frame" x="0.0" y="10" width="375" height="439"/>
+                                        <rect key="frame" x="0.0" y="10" width="375" height="435"/>
                                         <subviews>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="iNA-8M-gtl" userLabel="contentView">
                                                 <rect key="frame" x="9.5" y="0.0" width="356" height="761"/>
@@ -988,7 +996,7 @@
                     <tabBarItem key="tabBarItem" title="APIRecipies" image="icons8-cooking_pot" id="iWa-fe-Pwb"/>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="b4Y-LD-FFX">
-                        <rect key="frame" x="0.0" y="20" width="375" height="44"/>
+                        <rect key="frame" x="0.0" y="20" width="375" height="48"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
                     <nil name="viewControllers"/>
