@@ -124,6 +124,7 @@ class RecipesTableViewCell: UITableViewCell, UITableViewDelegate, UITableViewDat
         cell.innerCircleImageView.alpha = CGFloat(specificIngredientsDataSourceInnerCircleAlpha[indexPath.row]!)
         cell.thisCellIndexPathRow = indexPath.row
         cell.thisCellGlobalRecipyDBNumber = recipyGlobalDBID
+        //cell.drawStaticCrossLines(inside: cell.nonAnimatingLayerView, theNumberOfLines: 1)
         return cell
     }
     
