@@ -19,6 +19,7 @@ class ingredientsForEachShoopingListRecipeTableViewCell: UITableViewCell {
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
+        
         let tapGestureRecognition = UITapGestureRecognizer()
         tapGestureRecognition.addTarget(self, action: #selector(toggleIngredientCheackedStatus))
         self.contentView.addGestureRecognizer(tapGestureRecognition)
