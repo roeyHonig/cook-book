@@ -18,17 +18,7 @@ class favoriteRecipesViewController: UIViewController, CAAnimationDelegate {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-    
         // Do any additional setup after loading the view.
-        
-        // prepre the path
-       
-        
-        
-        // Create shape layer and add the path to it
-        
-        
-        
         let tapGesture = UITapGestureRecognizer()
         tapGesture.addTarget(self, action: #selector(toggleCrossStatus))
         animatedView.addGestureRecognizer(tapGesture)
@@ -47,7 +37,6 @@ class favoriteRecipesViewController: UIViewController, CAAnimationDelegate {
         // prepre the path
         let path = UIBezierPath()
         
-    
         // draw the line from right to left
         let rect = animatedView.frame
         let newx = rect.midX
@@ -65,7 +54,6 @@ class favoriteRecipesViewController: UIViewController, CAAnimationDelegate {
         layer.path = path.cgPath
         
         // Set up the appearance of the shape layer
-        
         layer.lineWidth = 10
         if toCross {
              layer.strokeEnd = 0 // in animation it will change to 1
@@ -74,9 +62,6 @@ class favoriteRecipesViewController: UIViewController, CAAnimationDelegate {
         }
         layer.strokeColor = UIColor.black.cgColor
         layer.lineCap = kCALineCapRound
-        //layer.fillColor = UIColor.clear.cgColor
-        
-        
         
         // Create the animation for the shape view
         let animation = CABasicAnimation(keyPath: "strokeEnd")
@@ -93,18 +78,13 @@ class favoriteRecipesViewController: UIViewController, CAAnimationDelegate {
         
         animation.duration = 6 // seconds
         animation.autoreverses = false
-        
-        
         animation.timingFunction = CAMediaTimingFunction(name: "easeOut")
-        
         
         // Add the shape layer to view
         animatedView.layer.addSublayer(layer)
         
         // And finally add the linear animation to the shape!
         layer.add(animation, forKey: "line")
-       
-        
     }
     
     
@@ -122,27 +102,6 @@ class favoriteRecipesViewController: UIViewController, CAAnimationDelegate {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
-    
-
-    /*
-     
-     
-     
-     
-     
-     // Create view and set its appearance
-     let view = UIView(frame: CGRect(x: 0, y: 0, width: 150, height: 150))
-     view.backgroundColor = .white
-     
-     
-     
-     
-     
-     animation.repeatCount = .infinity
-     
-     // And finally add the linear animation to the shape!
-     layer.add(animation, forKey: "line")
-     */
     
     
     /*
