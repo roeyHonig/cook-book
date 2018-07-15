@@ -24,6 +24,7 @@ class ingredientsForEachShoopingListRecipeTableViewCell: UITableViewCell, CAAnim
     var numOfVerticalSections: Int = 0
     var i: Int = 1 // a running index like in a for loop
     var myLayers: [CAShapeLayer] = []
+    var haveTheArrayOfLayersBeenInit = false // we only want to init once, so to not loose the pointers to the layers in a single seesion
     
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -56,7 +57,8 @@ class ingredientsForEachShoopingListRecipeTableViewCell: UITableViewCell, CAAnim
                 nonAnimatingCustomUIVIew.setNeedsDisplay()
                 numOfVerticalSections = numOfLines
                 // let's also init the Array of layers
-                if myLayers.count == 0 {
+                if myLayers.count == 0 && !haveTheArrayOfLayersBeenInit{
+                    haveTheArrayOfLayersBeenInit = true
                     myLayers.removeAll()
                     for j in 1...numOfLines {
                         let tmpLayer = CAShapeLayer()
@@ -75,7 +77,22 @@ class ingredientsForEachShoopingListRecipeTableViewCell: UITableViewCell, CAAnim
                 }
                 appDelegate.updateDataInCoreDataEntitesMatchedBy(attribute1: "idOfRecipe", attribute2: "index", value1: thisCellGlobalRecipyDBNumber, value2: (thisCellIndexPathRow + 1), newValueAttribute: "cheacked", newValue: 0)
                 
+                
+                // let's also init the Array of layers
+                if myLayers.count == 0 && !haveTheArrayOfLayersBeenInit{
+                    haveTheArrayOfLayersBeenInit = true
+                    myLayers.removeAll()
+                    for j in 1...numOfVerticalSections {
+                        let tmpLayer = CAShapeLayer()
+                        myLayers.append(tmpLayer)
+                    }
+                }
+                // we first need to instatntlly draw the lines of all layers
+                //staticPreReverseAnimation(in: animatedLayerUIView, forTotalNumberOfCrossLines: numOfVerticalSections)
             }
+            
+           
+            
             let myLayer = myLayers[i - 1]
             // animate the dynamic cross
             self.animateCrossPath(in: animatedLayerUIView, withLayer: myLayer ,willBeCrossed: toCross, forTotalNumberOfCrossLines: numOfVerticalSections)
@@ -159,6 +176,30 @@ class ingredientsForEachShoopingListRecipeTableViewCell: UITableViewCell, CAAnim
         }
         
         
+    }
+    
+    func staticPreReverseAnimation(in view: UIView, forTotalNumberOfCrossLines num: Int) {
+        for k in 1...myLayers.count {
+            print ("instetntlly drawing a line")
+            // prepre the path
+            let path = UIBezierPath()
+            // draw the line from left to right
+            let rect = view.bounds
+            let rec = CGRect(x: rect.minX, y: CGFloat(Float(k - 1)) * (rect.height / CGFloat(Float(num))), width: rect.width, height: rect.height / CGFloat(Float(num)))
+            path.move(to: CGPoint(x: rec.minX + 5, y: rec.midY))
+            path.addLine(to: CGPoint(x: rec.maxX - 5, y: rec.midY))
+           
+            myLayers[k - 1].path = path.cgPath
+            
+            // Set up the appearance of the shape layer
+            myLayers[k - 1].lineWidth = 5
+            //myLayers[k - 1].strokeEnd = 1
+            myLayers[k - 1].strokeColor = UIColor.purple.cgColor
+            myLayers[k - 1].lineCap = kCALineCapRound
+            
+            // strike
+           // path.stroke()
+        }
     }
     
     /*
