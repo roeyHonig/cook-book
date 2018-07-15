@@ -70,9 +70,12 @@ class ingredientsForEachShoopingListRecipeTableViewCell: UITableViewCell, CAAnim
                 }
                 
                 // ok, lets init the array of views
+                staticCrossedViews.removeAll()
                 for k in 1...numOfLines {
                     let myCustomView = CustomUIView9(currentNumOfVerticalSections: k, outOfTotalNumOfVerticalSections: numOfLines, toBeSubViewdIn: nonAnimatingCustomUIVIew)
                     myCustomView.translatesAutoresizingMaskIntoConstraints = false
+                    myCustomView.backgroundColor = UIColor.clear
+                    myCustomView.alpha = 1
                     
                     //add subview
                     self.nonAnimatingCustomUIVIew.addSubview(myCustomView)
@@ -88,6 +91,12 @@ class ingredientsForEachShoopingListRecipeTableViewCell: UITableViewCell, CAAnim
                     self.contentView.addConstraint(ConstraintBottom)
                     self.contentView.addConstraint(ConstraintTrailing)
                     self.contentView.addConstraint(ConstraintLeading)
+                    
+                    // redrawing
+                    myCustomView.setNeedsDisplay()
+                    
+                    // appending
+                    staticCrossedViews.append(myCustomView)
                 }
                 
             } else {
