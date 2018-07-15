@@ -34,7 +34,7 @@ class CustomUIView9: UIView {
         let path = UIBezierPath()
         path.lineWidth = 5
         path.lineCapStyle = CGLineCap.round
-        UIColor.yellow.setStroke()
+        UIColor.lightGray.setStroke()
         let rec = CGRect(x: rect.minX, y: CGFloat(Float(currentNumOfVerticalSections - 1)) * (rect.height / CGFloat(Float(numOfVerticalSections))), width: rect.width, height: rect.height / CGFloat(Float(numOfVerticalSections)))
         path.move(to: CGPoint(x: rec.minX + 5, y: rec.midY))
         path.addLine(to: CGPoint(x: rec.maxX - 5, y: rec.midY))
