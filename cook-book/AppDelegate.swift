@@ -176,6 +176,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate, GIDSignInDelegate {
                 newEntery.setValue(title, forKeyPath: "title")
                 newEntery.setValue(ingrdientInList, forKeyPath: "ingredient")
                 newEntery.setValue(0, forKeyPath: "cheacked")
+                newEntery.setValue(0, forKeyPath: "ingredientNumTextLines")
                 newEntery.setValue(index, forKeyPath: "index")
                 index += 1
                 print("This was written")
@@ -191,6 +192,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate, GIDSignInDelegate {
                 newEntery.setValue(title, forKeyPath: "title")
                 newEntery.setValue(ingrdientInList, forKeyPath: "ingredient")
                 newEntery.setValue(0, forKeyPath: "cheacked")
+                newEntery.setValue(0, forKeyPath: "ingredientNumTextLines")
                 newEntery.setValue(index, forKeyPath: "index")
                 index += 1
                 print("This was written")
@@ -206,6 +208,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate, GIDSignInDelegate {
                 newEntery.setValue(title, forKeyPath: "title")
                 newEntery.setValue(ingrdientInList, forKeyPath: "ingredient")
                 newEntery.setValue(0, forKeyPath: "cheacked")
+                newEntery.setValue(0, forKeyPath: "ingredientNumTextLines") 
                 newEntery.setValue(index, forKeyPath: "index")
                 index += 1
                 print("This was written")
