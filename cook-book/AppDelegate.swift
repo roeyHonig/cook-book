@@ -221,8 +221,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate, GIDSignInDelegate {
         do {
             try managedContext.save()
             defults.setValue(true, forKey: "areCoreDataChangesPending")
-            let roey = defults.value(forKey: "areCoreDataChangesPending") as! Bool
-            print("was here \(roey)")
             didSaveActionWentOk = true
         } catch let error as NSError {
             print("Could not save. \(error), \(error.userInfo)")
@@ -286,6 +284,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate, GIDSignInDelegate {
         
         do {
             try managedContext.save()
+            defults.setValue(true, forKey: "areCoreDataChangesPending")
         } catch let error as NSError {
             print("Could not save. \(error), \(error.userInfo)")
         }
@@ -311,6 +310,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate, GIDSignInDelegate {
         
         do {
             try managedContext.save()
+            defults.setValue(true, forKey: "areCoreDataChangesPending")
         } catch let error as NSError {
             print("Could not save. \(error), \(error.userInfo)")
         }
@@ -335,6 +335,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate, GIDSignInDelegate {
         
         do {
             try managedContext.save()
+            defults.setValue(true, forKey: "areCoreDataChangesPending")
         } catch let error as NSError {
             print("Could not save. \(error), \(error.userInfo)")
         }
