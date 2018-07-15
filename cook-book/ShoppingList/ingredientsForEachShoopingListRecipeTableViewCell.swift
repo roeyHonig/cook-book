@@ -34,40 +34,44 @@ class ingredientsForEachShoopingListRecipeTableViewCell: UITableViewCell, CAAnim
     
     
     @objc func toggleIngredientCheackedStatus() {
-        // static cross
-        if self.innerCircleImageView.alpha == 0 {
-            toCross = true
-            
-            self.innerCircleImageView.alpha = 1
-            self.nonAnimatingCustomUIVIew.alpha = 1
-            print("some prograss bla bla, the heigt is: \(nonAnimatingCustomUIVIew.frame.height) and the line height is: \(secondaryLabel.font.lineHeight)")
-            //self.drawStaticCrossLines(inside: self.nonAnimatingLayerView, theNumberOfLines: 1)
-            guard let appDelegate = UIApplication.shared.delegate as? AppDelegate else {
-                return
+        
+        if !isDrawingNow {
+            // static cross
+            if self.innerCircleImageView.alpha == 0 {
+                toCross = true
+                
+                self.innerCircleImageView.alpha = 1
+                self.nonAnimatingCustomUIVIew.alpha = 1
+                print("some prograss bla bla, the heigt is: \(nonAnimatingCustomUIVIew.frame.height) and the line height is: \(secondaryLabel.font.lineHeight)")
+                //self.drawStaticCrossLines(inside: self.nonAnimatingLayerView, theNumberOfLines: 1)
+                guard let appDelegate = UIApplication.shared.delegate as? AppDelegate else {
+                    return
+                }
+                appDelegate.updateDataInCoreDataEntitesMatchedBy(attribute1: "idOfRecipe", attribute2: "index", value1: thisCellGlobalRecipyDBNumber, value2: (thisCellIndexPathRow + 1), newValueAttribute: "cheacked", newValue: 1)
+                let numOfLines = Int(Float(nonAnimatingCustomUIVIew.frame.height / secondaryLabel.font.lineHeight))
+                appDelegate.updateDataInCoreDataEntitesMatchedBy(attribute1: "idOfRecipe", attribute2: "index", value1: thisCellGlobalRecipyDBNumber, value2: (thisCellIndexPathRow + 1), newValueAttribute: "ingredientNumTextLines", newValue: numOfLines)
+                nonAnimatingCustomUIVIew.numOfVerticalSections = numOfLines
+                nonAnimatingCustomUIVIew.setNeedsDisplay()
+                numOfVerticalSections = numOfLines
+                
+            } else {
+                toCross = false
+                
+                self.innerCircleImageView.alpha = 0
+                self.nonAnimatingCustomUIVIew.alpha = 0
+                guard let appDelegate = UIApplication.shared.delegate as? AppDelegate else {
+                    return
+                }
+                appDelegate.updateDataInCoreDataEntitesMatchedBy(attribute1: "idOfRecipe", attribute2: "index", value1: thisCellGlobalRecipyDBNumber, value2: (thisCellIndexPathRow + 1), newValueAttribute: "cheacked", newValue: 0)
+                
             }
-            appDelegate.updateDataInCoreDataEntitesMatchedBy(attribute1: "idOfRecipe", attribute2: "index", value1: thisCellGlobalRecipyDBNumber, value2: (thisCellIndexPathRow + 1), newValueAttribute: "cheacked", newValue: 1)
-            let numOfLines = Int(Float(nonAnimatingCustomUIVIew.frame.height / secondaryLabel.font.lineHeight))
-            appDelegate.updateDataInCoreDataEntitesMatchedBy(attribute1: "idOfRecipe", attribute2: "index", value1: thisCellGlobalRecipyDBNumber, value2: (thisCellIndexPathRow + 1), newValueAttribute: "ingredientNumTextLines", newValue: numOfLines)
-            nonAnimatingCustomUIVIew.numOfVerticalSections = numOfLines
-            nonAnimatingCustomUIVIew.setNeedsDisplay()
-            numOfVerticalSections = numOfLines
             
-        } else {
-            toCross = false
-            
-            self.innerCircleImageView.alpha = 0
-            self.nonAnimatingCustomUIVIew.alpha = 0
-            guard let appDelegate = UIApplication.shared.delegate as? AppDelegate else {
-                return
-            }
-            appDelegate.updateDataInCoreDataEntitesMatchedBy(attribute1: "idOfRecipe", attribute2: "index", value1: thisCellGlobalRecipyDBNumber, value2: (thisCellIndexPathRow + 1), newValueAttribute: "cheacked", newValue: 0)
+            // animate the dynamic cross
+            self.animateCrossPath(in: animatedLayerUIView, withLayer: myLayer ,willBeCrossed: toCross, forTotalNumberOfCrossLines: numOfVerticalSections)
             
         }
         
-        // animate the dynamic cross
-        if !self.isDrawingNow{
-            self.animateCrossPath(in: animatedLayerUIView, withLayer: myLayer ,willBeCrossed: isDrawingNow, forTotalNumberOfCrossLines: numOfVerticalSections)
-        }
+        
     }
 
     
