@@ -9,16 +9,22 @@
 import UIKit
 
 class CustomUIView7: UIView {
+    var numOfVerticalSections: Int = 1
     
     override func draw(_ rect: CGRect) {
-        let path = UIBezierPath()
-        path.lineWidth = 5
-        path.lineCapStyle = CGLineCap.round
-        UIColor.black.setStroke()
-        path.move(to: CGPoint(x: rect.minX + 5, y: rect.midY))
-        path.addLine(to: CGPoint(x: rect.maxX - 5, y: rect.midY))
-        path.stroke()
-        
+        guard numOfVerticalSections > 0 else {
+            return
+        }
+        for i in 1...numOfVerticalSections {
+            let path = UIBezierPath()
+            path.lineWidth = 5
+            path.lineCapStyle = CGLineCap.round
+            UIColor.black.setStroke()
+            let rec = CGRect(x: rect.minX, y: CGFloat(Float(i - 1)) * (rect.height / CGFloat(Float(numOfVerticalSections))), width: rect.width, height: rect.height / CGFloat(Float(numOfVerticalSections)))
+            path.move(to: CGPoint(x: rec.minX + 5, y: rec.midY))
+            path.addLine(to: CGPoint(x: rec.maxX - 5, y: rec.midY))
+            path.stroke()
+        }
     }
 
     /*
