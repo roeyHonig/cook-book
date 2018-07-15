@@ -173,6 +173,9 @@ class ingredientsForEachShoopingListRecipeTableViewCell: UITableViewCell, CAAnim
         if toCross {
             // we are crossing out
             staticCrossedViews[i - 1].alpha = 1
+        } else {
+            // we just roll back and we don't want to see the round cap of the layer
+            myLayers[i - 1].strokeColor = UIColor.clear.cgColor
         }
         
         i = i + 1
@@ -219,43 +222,6 @@ class ingredientsForEachShoopingListRecipeTableViewCell: UITableViewCell, CAAnim
            // path.stroke()
         }
     }
-    
-    /*
-    func drawStaticCrossLines(inside view: UIView, theNumberOfLines num:Int)  {
-       // iterate over all the lines need to be plotted
-        guard num > 0 else {
-            return
-        }
-        for i in 1...num {
-             let layer = CAShapeLayer()
-            let path = UIBezierPath()
-            // draw the line from left to right
-            /*
-            let numberOfLines = Float(num)
-            let myCGRectSize = CGSize(width: view.frame.width, height: view.frame.height )
-            let myOriginX = view.frame.minX
-            let indexAsFloat = Float(i - 1)
-            let myOriginY = CGFloat(indexAsFloat) * view.frame.height / CGFloat(numberOfLines)
-            let myOrigin = CGPoint(x: myOriginX, y: myOriginY)
-            */
-            //let rec = CGRect(origin: myOrigin, size: myCGRectSize)
-            path.move(to: CGPoint(x: view.bounds.minX + 5 , y: view.bounds.midY))
-            path.addLine(to: CGPoint(x: view.bounds.maxX - 5, y: view.bounds.midY))
-            layer.path = path.cgPath
-            
-            // Set up the appearance of the shape layer
-            layer.lineWidth = 5
-            layer.strokeColor = UIColor.black.cgColor
-            layer.lineCap = kCALineCapRound
-            layer.strokeEnd = 1
-            
-            view.layer.addSublayer(layer)
-        }
-        
-        
-    }
-     */
- 
     
     func initArrayOfViews() {
         if staticCrossedViews.count > 0{

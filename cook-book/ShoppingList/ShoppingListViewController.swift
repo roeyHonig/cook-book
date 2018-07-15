@@ -45,43 +45,67 @@ class ShoppingListViewController: UIViewController, UITableViewDelegate, UITable
     
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
-        shoppingListTable.removeAll()
-        recipesGlobalDataBaseNumbers.removeAll()
-        recipesTableDataSource.removeAll()
-        ingridentsTableDataSource.removeAll()
-        ingridentsTableDataSourceInnerCircleImageAlpfa.removeAll()
-        ingridentsTableDataSourceNumberOfTextLines.removeAll()
-        
         guard let appDelegate = UIApplication.shared.delegate as? AppDelegate else {
             return
         }
-        shoppingListTable = appDelegate.loadCoreData()
-        var tmp = 0
-        var tmpList: [String] = []
-        var tmpListOfFloats: [Float] = []
-        var tmpListOfIntegers: [Int] = []
         
-        if shoppingListTable.count > 0 {
-            // gather the data from coreData and put it into the tables data source arrays
-            for i in 1...shoppingListTable.count {
+        // did we actually changed anything , saved new recipy , update delete
+        let areChangesPending = appDelegate.defults.value(forKey: "areCoreDataChangesPending") as! Bool
+        print(areChangesPending)
+        if areChangesPending {
+            appDelegate.defults.setValue(false, forKey: "areCoreDataChangesPending")
+            
+            for cell in (mainTableView.visibleCells as! [RecipesTableViewCell]) {
+                if cell.isSecondaryTableOpen {
+                  
+                        mainTableView.beginUpdates()
+                        cell.heightConstraint.constant = 0
+                        cell.expendingArrowImageView.transform = CGAffineTransform.identity
+                        cell.layoutIfNeeded()
+                        mainTableView.endUpdates()
+                  
+                    cell.isSecondaryTableOpen = false
+                }
+            }
+            
+            
+            
+            
+            shoppingListTable.removeAll()
+            recipesGlobalDataBaseNumbers.removeAll()
+            recipesTableDataSource.removeAll()
+            ingridentsTableDataSource.removeAll()
+            ingridentsTableDataSourceInnerCircleImageAlpfa.removeAll()
+            ingridentsTableDataSourceNumberOfTextLines.removeAll()
+            
+            
+            shoppingListTable = appDelegate.loadCoreData()
+            var tmp = 0
+            var tmpList: [String] = []
+            var tmpListOfFloats: [Float] = []
+            var tmpListOfIntegers: [Int] = []
+            
+            if shoppingListTable.count > 0 {
+                // gather the data from coreData and put it into the tables data source arrays
+                for i in 1...shoppingListTable.count {
                     if i != 1 && i != shoppingListTable.count {
                         // an item between the 1st and the last
-                            // make inspectrion
-                            if tmp != shoppingListTable[i-1].value(forKey: "idOfRecipe") as! Int {
-                                // ok we've started a all new recipy shoppinglist, ok to append
-                                ingridentsTableDataSource.append(tmpList) // appending the collected ingridents of the prevouslly recipy
-                                ingridentsTableDataSourceInnerCircleImageAlpfa.append(tmpListOfFloats) // appending the collected ingridents of the prevouslly recipy cheacked status
-                                ingridentsTableDataSourceNumberOfTextLines.append(tmpListOfIntegers) // appending the collected ingridents of the prevouslly recipy number of text lines per ingredient
-                                recipesTableDataSource.append(shoppingListTable[i-1].value(forKey: "title") as! String)
-                                recipesGlobalDataBaseNumbers.append(shoppingListTable[i-1].value(forKey: "idOfRecipe") as! Int)
-                                tmpList = []
-                                tmpListOfFloats = []
-                                tmpListOfIntegers = []
-                            }
-                            tmpList.append(shoppingListTable[i-1].value(forKey: "ingredient") as! String)
-                            tmpListOfFloats.append(shoppingListTable[i-1].value(forKey: "cheacked") as! Float)
-                            tmpListOfIntegers.append(shoppingListTable[i-1].value(forKey: "ingredientNumTextLines") as! Int)
-
+                        // make inspectrion
+                        if tmp != shoppingListTable[i-1].value(forKey: "idOfRecipe") as! Int {
+                            // ok we've started a all new recipy shoppinglist, ok to append
+                            ingridentsTableDataSource.append(tmpList) // appending the collected ingridents of the prevouslly recipy
+                            ingridentsTableDataSourceInnerCircleImageAlpfa.append(tmpListOfFloats) // appending the collected ingridents of the prevouslly recipy cheacked status
+                            ingridentsTableDataSourceNumberOfTextLines.append(tmpListOfIntegers) // appending the collected ingridents of the prevouslly recipy number of text lines per ingredient
+                            recipesTableDataSource.append(shoppingListTable[i-1].value(forKey: "title") as! String)
+                            recipesGlobalDataBaseNumbers.append(shoppingListTable[i-1].value(forKey: "idOfRecipe") as! Int)
+                            tmpList = []
+                            tmpListOfFloats = []
+                            tmpListOfIntegers = []
+                        }
+                        tmpList.append(shoppingListTable[i-1].value(forKey: "ingredient") as! String)
+                        tmpListOfFloats.append(shoppingListTable[i-1].value(forKey: "cheacked") as! Float)
+                        tmpListOfIntegers.append(shoppingListTable[i-1].value(forKey: "ingredientNumTextLines") as! Int)
+                        
                     }else if i == shoppingListTable.count{
                         // the last item
                         // let's append the ingridenyt and also let's append the collection ingredients collected so far
@@ -91,7 +115,7 @@ class ShoppingListViewController: UIViewController, UITableViewDelegate, UITable
                         ingridentsTableDataSourceInnerCircleImageAlpfa.append(tmpListOfFloats)
                         tmpListOfIntegers.append(shoppingListTable[i-1].value(forKey: "ingredientNumTextLines") as! Int)
                         ingridentsTableDataSourceNumberOfTextLines.append(tmpListOfIntegers)
-                       
+                        
                     } else {
                         // the 1st item
                         recipesTableDataSource.append(shoppingListTable[i-1].value(forKey: "title") as! String)
@@ -101,11 +125,14 @@ class ShoppingListViewController: UIViewController, UITableViewDelegate, UITable
                         tmpListOfIntegers.append(shoppingListTable[i-1].value(forKey: "ingredientNumTextLines") as! Int)
                     }
                     tmp = shoppingListTable[i-1].value(forKey: "idOfRecipe") as! Int
-
+                    
+                }
             }
+            
+            mainTableView.reloadData()
         }
         
-        mainTableView.reloadData()
+        
     }
     
    

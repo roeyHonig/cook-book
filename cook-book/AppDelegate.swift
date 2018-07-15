@@ -20,13 +20,13 @@ import FBSDKLoginKit
 class AppDelegate: UIResponder, UIApplicationDelegate, GIDSignInDelegate {
 
     var window: UIWindow?
-    
+    var defults = UserDefaults.standard
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
         // init UserDefults - kind like sheared instance
-        let defults = UserDefaults.standard
-        
+        //let defults = UserDefaults.standard
+        defults.setValue(false, forKey: "areCoreDataChangesPending")
         
         // init firt FireBase
         FirebaseApp.configure()
@@ -145,6 +145,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate, GIDSignInDelegate {
     
     lazy var managedContext = persistentContainer.viewContext
     
+    
     // MARK: - Core Data Saving support
 
     func saveContext () {
@@ -152,6 +153,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate, GIDSignInDelegate {
         if context.hasChanges {
             do {
                 try context.save()
+                
             } catch {
                 // Replace this implementation with code to handle the error appropriately.
                 // fatalError() causes the application to generate a crash log and terminate. You should not use this function in a shipping application, although it may be useful during development.
@@ -218,6 +220,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate, GIDSignInDelegate {
         
         do {
             try managedContext.save()
+            defults.setValue(true, forKey: "areCoreDataChangesPending")
+            let roey = defults.value(forKey: "areCoreDataChangesPending") as! Bool
+            print("was here \(roey)")
             didSaveActionWentOk = true
         } catch let error as NSError {
             print("Could not save. \(error), \(error.userInfo)")
