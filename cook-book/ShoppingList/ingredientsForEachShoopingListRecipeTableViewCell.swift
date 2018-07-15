@@ -56,11 +56,14 @@ class ingredientsForEachShoopingListRecipeTableViewCell: UITableViewCell, CAAnim
                 nonAnimatingCustomUIVIew.setNeedsDisplay()
                 numOfVerticalSections = numOfLines
                 // let's also init the Array of layers
-                myLayers.removeAll()
-                for j in 1...numOfLines {
-                    let tmpLayer = CAShapeLayer()
-                    myLayers.append(tmpLayer)
+                if myLayers.count == 0 {
+                    myLayers.removeAll()
+                    for j in 1...numOfLines {
+                        let tmpLayer = CAShapeLayer()
+                        myLayers.append(tmpLayer)
+                    }
                 }
+                
                 
             } else {
                 toCross = false
@@ -86,7 +89,7 @@ class ingredientsForEachShoopingListRecipeTableViewCell: UITableViewCell, CAAnim
     func animateCrossPath(in view: UIView, withLayer layer: CAShapeLayer ,willBeCrossed bool: Bool, forTotalNumberOfCrossLines num: Int) {
         isDrawingNow = true
         
-        guard numOfVerticalSections > 0 else {
+        guard numOfVerticalSections > 0, myLayers.count > 0 else {
             isDrawingNow = false
             return
         }

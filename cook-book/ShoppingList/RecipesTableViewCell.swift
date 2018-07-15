@@ -133,6 +133,12 @@ class RecipesTableViewCell: UITableViewCell, UITableViewDelegate, UITableViewDat
         cell.nonAnimatingCustomUIVIew.alpha = CGFloat(specificIngredientsDataSourceInnerCircleAlpha[indexPath.row]!)
         cell.thisCellIndexPathRow = indexPath.row
         cell.thisCellGlobalRecipyDBNumber = recipyGlobalDBID
+        // init the arrayof layers
+        cell.myLayers.removeAll()
+        for j in 1...cell.numOfVerticalSections {
+            let tmpLayer = CAShapeLayer()
+            cell.myLayers.append(tmpLayer)
+        }
         //cell.drawStaticCrossLines(inside: cell.nonAnimatingLayerView, theNumberOfLines: 1)
         return cell
     }
