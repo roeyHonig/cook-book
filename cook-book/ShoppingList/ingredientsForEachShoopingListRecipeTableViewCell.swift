@@ -69,35 +69,7 @@ class ingredientsForEachShoopingListRecipeTableViewCell: UITableViewCell, CAAnim
                     }
                 }
                 
-                // ok, lets init the array of views
-                staticCrossedViews.removeAll()
-                for k in 1...numOfLines {
-                    let myCustomView = CustomUIView9(currentNumOfVerticalSections: k, outOfTotalNumOfVerticalSections: numOfLines, toBeSubViewdIn: nonAnimatingCustomUIVIew)
-                    myCustomView.translatesAutoresizingMaskIntoConstraints = false
-                    myCustomView.backgroundColor = UIColor.clear
-                    myCustomView.alpha = 1
-                    
-                    //add subview
-                    self.nonAnimatingCustomUIVIew.addSubview(myCustomView)
-                    
-                    // constraints
-                    let ConstraintTop = NSLayoutConstraint(item: self.nonAnimatingCustomUIVIew, attribute: NSLayoutAttribute.top, relatedBy: .equal, toItem: myCustomView, attribute: NSLayoutAttribute.top , multiplier: 1, constant: 0)
-                    let ConstraintBottom = NSLayoutConstraint(item: self.nonAnimatingCustomUIVIew, attribute: NSLayoutAttribute.bottom, relatedBy: .equal, toItem: myCustomView, attribute: NSLayoutAttribute.bottom , multiplier: 1, constant: 0)
-                    let ConstraintTrailing = NSLayoutConstraint(item: self.nonAnimatingCustomUIVIew, attribute: NSLayoutAttribute.trailing, relatedBy: .equal, toItem: myCustomView, attribute: NSLayoutAttribute.trailing , multiplier: 1, constant: 0)
-                    let ConstraintLeading = NSLayoutConstraint(item: self.nonAnimatingCustomUIVIew, attribute: NSLayoutAttribute.leading, relatedBy: .equal, toItem: myCustomView, attribute: NSLayoutAttribute.leading , multiplier: 1, constant: 0)
-                    
-                    // assign the constraint to a coummon annssector
-                    self.contentView.addConstraint(ConstraintTop)
-                    self.contentView.addConstraint(ConstraintBottom)
-                    self.contentView.addConstraint(ConstraintTrailing)
-                    self.contentView.addConstraint(ConstraintLeading)
-                    
-                    // redrawing
-                    myCustomView.setNeedsDisplay()
-                    
-                    // appending
-                    staticCrossedViews.append(myCustomView)
-                }
+                initArrayOfViews()
                 
             } else {
                 toCross = false
@@ -159,7 +131,7 @@ class ingredientsForEachShoopingListRecipeTableViewCell: UITableViewCell, CAAnim
         } else {
             layer.strokeEnd = 1 // in animation it will change to 0
         }
-        layer.strokeColor = UIColor.clear.cgColor
+        layer.strokeColor = UIColor.lightGray.cgColor
         layer.lineCap = kCALineCapRound
         
         // Create the animation for the shape view
@@ -186,9 +158,21 @@ class ingredientsForEachShoopingListRecipeTableViewCell: UITableViewCell, CAAnim
      
     }
     
+    func animationDidStart(_ anim: CAAnimation) {
+        if !toCross {
+            // we are rolling back
+            staticCrossedViews[i - 1].alpha = 0
+        }
+    }
     
     func animationDidStop(_ anim: CAAnimation, finished flag: Bool) {
         print("Now, Now The animation has ended")
+        if toCross {
+            // we are crossing out
+            staticCrossedViews[i - 1].alpha = 1
+        }
+        
+        
         i = i + 1
         
         if i > numOfVerticalSections {
@@ -270,6 +254,41 @@ class ingredientsForEachShoopingListRecipeTableViewCell: UITableViewCell, CAAnim
     }
      */
  
+    
+    func initArrayOfViews() {
+        // ok, lets init the array of views
+        staticCrossedViews.removeAll()
+        guard numOfVerticalSections > 0 else {
+            return
+        }
+        for k in 1...numOfVerticalSections {
+            let myCustomView = CustomUIView9(currentNumOfVerticalSections: k, outOfTotalNumOfVerticalSections: numOfVerticalSections, toBeSubViewdIn: nonAnimatingCustomUIVIew)
+            myCustomView.translatesAutoresizingMaskIntoConstraints = false
+            myCustomView.backgroundColor = UIColor.clear
+            myCustomView.alpha = 0
+            
+            //add subview
+            self.nonAnimatingCustomUIVIew.addSubview(myCustomView)
+            
+            // constraints
+            let ConstraintTop = NSLayoutConstraint(item: self.nonAnimatingCustomUIVIew, attribute: NSLayoutAttribute.top, relatedBy: .equal, toItem: myCustomView, attribute: NSLayoutAttribute.top , multiplier: 1, constant: 0)
+            let ConstraintBottom = NSLayoutConstraint(item: self.nonAnimatingCustomUIVIew, attribute: NSLayoutAttribute.bottom, relatedBy: .equal, toItem: myCustomView, attribute: NSLayoutAttribute.bottom , multiplier: 1, constant: 0)
+            let ConstraintTrailing = NSLayoutConstraint(item: self.nonAnimatingCustomUIVIew, attribute: NSLayoutAttribute.trailing, relatedBy: .equal, toItem: myCustomView, attribute: NSLayoutAttribute.trailing , multiplier: 1, constant: 0)
+            let ConstraintLeading = NSLayoutConstraint(item: self.nonAnimatingCustomUIVIew, attribute: NSLayoutAttribute.leading, relatedBy: .equal, toItem: myCustomView, attribute: NSLayoutAttribute.leading , multiplier: 1, constant: 0)
+            
+            // assign the constraint to a coummon annssector
+            self.contentView.addConstraint(ConstraintTop)
+            self.contentView.addConstraint(ConstraintBottom)
+            self.contentView.addConstraint(ConstraintTrailing)
+            self.contentView.addConstraint(ConstraintLeading)
+            
+            // redrawing
+            myCustomView.setNeedsDisplay()
+            
+            // appending
+            staticCrossedViews.append(myCustomView)
+        }
+    }
     
     override func setSelected(_ selected: Bool, animated: Bool) {
         super.setSelected(selected, animated: animated)

@@ -133,6 +133,16 @@ class RecipesTableViewCell: UITableViewCell, UITableViewDelegate, UITableViewDat
         cell.nonAnimatingCustomUIVIew.alpha = CGFloat(specificIngredientsDataSourceInnerCircleAlpha[indexPath.row]!)
         cell.thisCellIndexPathRow = indexPath.row
         cell.thisCellGlobalRecipyDBNumber = recipyGlobalDBID
+        
+        cell.initArrayOfViews()
+        if cell.numOfVerticalSections > 0 {
+            for k in 1...cell.numOfVerticalSections {
+                cell.staticCrossedViews[k - 1].alpha = cell.innerCircleImageView.alpha
+            }
+        }
+        
+        
+        /*
         if cell.numOfVerticalSections > 0 && !cell.haveTheArrayOfLayersBeenInit {
             // init the arrayof layers
             cell.haveTheArrayOfLayersBeenInit = true
@@ -145,7 +155,7 @@ class RecipesTableViewCell: UITableViewCell, UITableViewDelegate, UITableViewDat
         if cell.innerCircleImageView.alpha != 0 {
             cell.staticPreReverseAnimation(in: cell.animatedLayerUIView, forTotalNumberOfCrossLines: cell.numOfVerticalSections)
         }
-        
+        */
         
         
  
