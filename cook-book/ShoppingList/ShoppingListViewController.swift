@@ -51,8 +51,7 @@ class ShoppingListViewController: UIViewController, UITableViewDelegate, UITable
         
         // did we actually changed anything , saved new recipy , update delete
         let areChangesPending = appDelegate.defults.value(forKey: "areCoreDataChangesPending") as! Bool
-        print(areChangesPending)
-        if areChangesPending {
+        
             appDelegate.defults.setValue(false, forKey: "areCoreDataChangesPending")
             
             for cell in (mainTableView.visibleCells as! [RecipesTableViewCell]) {
@@ -130,7 +129,7 @@ class ShoppingListViewController: UIViewController, UITableViewDelegate, UITable
             }
             
             mainTableView.reloadData()
-        }
+        
         
         
     }
