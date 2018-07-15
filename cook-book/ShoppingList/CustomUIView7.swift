@@ -15,8 +15,8 @@ class CustomUIView7: UIView {
         path.lineWidth = 5
         path.lineCapStyle = CGLineCap.round
         UIColor.black.setStroke()
-        path.move(to: CGPoint(x: rect.minX, y: rect.midY))
-        path.addLine(to: CGPoint(x: rect.maxX, y: rect.midY))
+        path.move(to: CGPoint(x: rect.minX + 5, y: rect.midY))
+        path.addLine(to: CGPoint(x: rect.maxX - 5, y: rect.midY))
         path.stroke()
         
     }
