@@ -128,6 +128,7 @@ class RecipesTableViewCell: UITableViewCell, UITableViewDelegate, UITableViewDat
         */
         cell.innerCircleImageView.alpha = CGFloat(specificIngredientsDataSourceInnerCircleAlpha[indexPath.row]!)
         cell.nonAnimatingCustomUIVIew.numOfVerticalSections = specificIngredientsDataSourceNumberOfTextLinesForTheIngredients[indexPath.row]!
+        cell.numOfVerticalSections = specificIngredientsDataSourceNumberOfTextLinesForTheIngredients[indexPath.row]!
         cell.nonAnimatingCustomUIVIew.setNeedsDisplay()
         cell.nonAnimatingCustomUIVIew.alpha = CGFloat(specificIngredientsDataSourceInnerCircleAlpha[indexPath.row]!)
         cell.thisCellIndexPathRow = indexPath.row

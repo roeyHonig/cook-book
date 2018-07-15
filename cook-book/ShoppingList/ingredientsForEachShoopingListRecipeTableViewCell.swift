@@ -11,8 +11,6 @@ import UIKit
 class ingredientsForEachShoopingListRecipeTableViewCell: UITableViewCell, CAAnimationDelegate {
 
     @IBOutlet var nonAnimatingCustomUIVIew: CustomUIView7!
-    
-    
     @IBOutlet var animatedLayerUIView: UIView!
     
     @IBOutlet var innerCircleImageView: UIImageView!
@@ -23,6 +21,7 @@ class ingredientsForEachShoopingListRecipeTableViewCell: UITableViewCell, CAAnim
     var isDrawingNow = false // allowing us to lock the pressing of the ingredient while it's beeing animated to prevent irredic behaivor
     let myLayer = CAShapeLayer()
     var toCross = true // boolean to decide whteher to cross out the ingrediant or roll it back
+    var numOfVerticalSections: Int = 0
     
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -51,6 +50,7 @@ class ingredientsForEachShoopingListRecipeTableViewCell: UITableViewCell, CAAnim
             appDelegate.updateDataInCoreDataEntitesMatchedBy(attribute1: "idOfRecipe", attribute2: "index", value1: thisCellGlobalRecipyDBNumber, value2: (thisCellIndexPathRow + 1), newValueAttribute: "ingredientNumTextLines", newValue: numOfLines)
             nonAnimatingCustomUIVIew.numOfVerticalSections = numOfLines
             nonAnimatingCustomUIVIew.setNeedsDisplay()
+            numOfVerticalSections = numOfLines
             
         } else {
             toCross = false
@@ -66,15 +66,75 @@ class ingredientsForEachShoopingListRecipeTableViewCell: UITableViewCell, CAAnim
         
         // animate the dynamic cross
         if !self.isDrawingNow{
-            self.animateCrossPath(in: <#T##UIView#>, willBeCrossed: <#T##Bool#>)
+            self.animateCrossPath(in: animatedLayerUIView, withLayer: myLayer ,willBeCrossed: isDrawingNow, forTotalNumberOfCrossLines: numOfVerticalSections)
         }
     }
 
     
-    func animateCrossPath(in view: UIView, willBeCrossed bool: Bool) {
-        <#function body#>
+    func animateCrossPath(in view: UIView, withLayer layer: CAShapeLayer ,willBeCrossed bool: Bool, forTotalNumberOfCrossLines num: Int) {
+        isDrawingNow = true
+        
+        guard numOfVerticalSections > 0 else {
+            isDrawingNow = false
+            return
+        }
+        // Add the shape layer to view
+        view.layer.addSublayer(layer)
+        // iterat over paths
+        for i in 1...num {
+            // prepre the path
+            let path = UIBezierPath()
+            // draw the line from left to right
+            let rect = view.bounds
+            let rec = CGRect(x: rect.minX, y: CGFloat(Float(i - 1)) * (rect.height / CGFloat(Float(num))), width: rect.width, height: rect.height / CGFloat(Float(num)))
+            path.move(to: CGPoint(x: rec.minX + 5, y: rec.midY))
+            path.addLine(to: CGPoint(x: rec.maxX - 5, y: rec.midY))
+            layer.path = path.cgPath
+            
+            // Set up the appearance of the shape layer
+            layer.lineWidth = 5
+            if bool {
+                layer.strokeEnd = 0 // in animation it will change to 1
+            } else {
+                layer.strokeEnd = 1 // in animation it will change to 0
+            }
+            layer.strokeColor = UIColor.lightGray.cgColor
+            layer.lineCap = kCALineCapRound
+            
+            // Create the animation for the shape view
+            let animation = CABasicAnimation(keyPath: "strokeEnd")
+            animation.delegate = self
+            if bool {
+                animation.toValue = 1
+                animation.fillMode = kCAFillModeForwards
+                animation.isRemovedOnCompletion = false
+            } else {
+                animation.toValue = 0
+                animation.fillMode = kCAFillModeForwards
+                animation.isRemovedOnCompletion = false
+            }
+            animation.duration = 6 // seconds
+            animation.autoreverses = false
+            animation.timingFunction = CAMediaTimingFunction(name: "easeOut")
+            
+            // And finally add the linear animation to the shape!
+            layer.add(animation, forKey: "line")
+        }
+        
+       
+        
     }
     
+    
+    func animationDidStop(_ anim: CAAnimation, finished flag: Bool) {
+        print("Now, Now The animation has ended")
+        if self.toCross {
+            self.toCross = false
+        } else {
+            self.toCross = true
+        }
+        self.isDrawingNow = false
+    }
     
     /*
     func drawStaticCrossLines(inside view: UIView, theNumberOfLines num:Int)  {
