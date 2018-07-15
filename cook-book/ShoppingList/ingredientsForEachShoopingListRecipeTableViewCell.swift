@@ -32,7 +32,7 @@ class ingredientsForEachShoopingListRecipeTableViewCell: UITableViewCell {
         if self.innerCircleImageView.alpha == 0 {
             self.innerCircleImageView.alpha = 1
             self.nonAnimatingCustomUIVIew.alpha = 1
-            print("some prograss bla bla, the heigt is: \(nonAnimatingCustomUIVIew.frame.height)")
+            print("some prograss bla bla, the heigt is: \(nonAnimatingCustomUIVIew.frame.height) and the line height is: \(secondaryLabel.font.lineHeight)")
             //self.drawStaticCrossLines(inside: self.nonAnimatingLayerView, theNumberOfLines: 1)
             guard let appDelegate = UIApplication.shared.delegate as? AppDelegate else {
                 return
