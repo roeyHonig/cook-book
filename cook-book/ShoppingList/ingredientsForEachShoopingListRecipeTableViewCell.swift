@@ -127,7 +127,7 @@ class ingredientsForEachShoopingListRecipeTableViewCell: UITableViewCell, CAAnim
         } else {
             layer.strokeEnd = 1 // in animation it will change to 0
         }
-        layer.strokeColor = UIColor.lightGray.cgColor
+        layer.strokeColor = UIColor.clear.cgColor
         layer.lineCap = kCALineCapRound
         
         // Create the animation for the shape view
@@ -142,7 +142,7 @@ class ingredientsForEachShoopingListRecipeTableViewCell: UITableViewCell, CAAnim
             animation.fillMode = kCAFillModeForwards
             animation.isRemovedOnCompletion = false
         }
-        animation.duration = 6 // seconds
+        animation.duration = 1 // seconds
         animation.autoreverses = false
         animation.timingFunction = CAMediaTimingFunction(name: "easeOut")
         
