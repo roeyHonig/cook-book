@@ -131,6 +131,7 @@ class ShoppingListViewController: UIViewController, UITableViewDelegate, UITable
         cell.recipyGlobalDBID = recipesGlobalDataBaseNumbers[indexPath.row]!
             cell.specificIngredientsDataSource = ingridentsTableDataSource[indexPath.row]
         cell.specificIngredientsDataSourceInnerCircleAlpha = ingridentsTableDataSourceInnerCircleImageAlpfa[indexPath.row]
+        cell.specificIngredientsDataSourceNumberOfTextLinesForTheIngredients = ingridentsTableDataSourceNumberOfTextLines[indexPath.row]
             cell.secondaryTable.reloadData()
             //cell.showSecondaryTable()
             //tableView.selectRow(at: indexPath, animated: true, scrollPosition: UITableViewScrollPosition.bottom)

@@ -287,7 +287,32 @@ class AppDelegate: UIResponder, UIApplicationDelegate, GIDSignInDelegate {
         
     }
     
+    // updating Float Values
     func updateDataInCoreDataEntitesMatchedBy(attribute1: String, attribute2: String, value1: Any?, value2: Any? , newValueAttribute: String, newValue: Float) {
+        var myFetchedEntites: [NSManagedObject] = []
+        let myPredicate = NSPredicate(format: attribute1 + " = %@ AND " + attribute2 + " = %@", argumentArray: [(value1 as! Int), (value2 as! Int)])
+        let fetchRequest = NSFetchRequest<NSManagedObject>(entityName: "ShoppingList")
+        fetchRequest.predicate = myPredicate
+        
+        do {
+            let fetchedEntities = try managedContext.fetch(fetchRequest)
+            myFetchedEntites = fetchedEntities
+        } catch let error as NSError {
+            print("Could not fetch. \(error), \(error.userInfo)")
+        }
+        for entity in myFetchedEntites {
+            entity.setValue(newValue, forKey: newValueAttribute)
+        }
+        
+        do {
+            try managedContext.save()
+        } catch let error as NSError {
+            print("Could not save. \(error), \(error.userInfo)")
+        }
+    }
+    
+    // Updating Int values
+    func updateDataInCoreDataEntitesMatchedBy(attribute1: String, attribute2: String, value1: Any?, value2: Any? , newValueAttribute: String, newValue: Int) {
         var myFetchedEntites: [NSManagedObject] = []
         let myPredicate = NSPredicate(format: attribute1 + " = %@ AND " + attribute2 + " = %@", argumentArray: [(value1 as! Int), (value2 as! Int)])
         let fetchRequest = NSFetchRequest<NSManagedObject>(entityName: "ShoppingList")

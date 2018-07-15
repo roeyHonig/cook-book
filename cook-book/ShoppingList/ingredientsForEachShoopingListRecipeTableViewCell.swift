@@ -38,6 +38,10 @@ class ingredientsForEachShoopingListRecipeTableViewCell: UITableViewCell {
                 return
             }
             appDelegate.updateDataInCoreDataEntitesMatchedBy(attribute1: "idOfRecipe", attribute2: "index", value1: thisCellGlobalRecipyDBNumber, value2: (thisCellIndexPathRow + 1), newValueAttribute: "cheacked", newValue: 1)
+            let numOfLines = Int(Float(nonAnimatingCustomUIVIew.frame.height / secondaryLabel.font.lineHeight))
+            appDelegate.updateDataInCoreDataEntitesMatchedBy(attribute1: "idOfRecipe", attribute2: "index", value1: thisCellGlobalRecipyDBNumber, value2: (thisCellIndexPathRow + 1), newValueAttribute: "ingredientNumTextLines", newValue: numOfLines)
+            nonAnimatingCustomUIVIew.numOfVerticalSections = numOfLines
+            nonAnimatingCustomUIVIew.setNeedsDisplay()
             
         } else {
             self.innerCircleImageView.alpha = 0

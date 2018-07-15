@@ -33,6 +33,7 @@ class RecipesTableViewCell: UITableViewCell, UITableViewDelegate, UITableViewDat
     
     var specificIngredientsDataSource: [String?] = []
     var specificIngredientsDataSourceInnerCircleAlpha: [Float?] = []
+    var specificIngredientsDataSourceNumberOfTextLinesForTheIngredients: [Int?] = []
     
     @IBOutlet var secondaryTable: UITableView!
     
@@ -126,6 +127,8 @@ class RecipesTableViewCell: UITableViewCell, UITableViewDelegate, UITableViewDat
         cell.secondaryLabel.text = "!\(cell.secondaryLabel.bounds.height)" + cell.secondaryLabel.text!
         */
         cell.innerCircleImageView.alpha = CGFloat(specificIngredientsDataSourceInnerCircleAlpha[indexPath.row]!)
+        cell.nonAnimatingCustomUIVIew.numOfVerticalSections = specificIngredientsDataSourceNumberOfTextLinesForTheIngredients[indexPath.row]!
+        cell.nonAnimatingCustomUIVIew.setNeedsDisplay()
         cell.nonAnimatingCustomUIVIew.alpha = CGFloat(specificIngredientsDataSourceInnerCircleAlpha[indexPath.row]!)
         cell.thisCellIndexPathRow = indexPath.row
         cell.thisCellGlobalRecipyDBNumber = recipyGlobalDBID
