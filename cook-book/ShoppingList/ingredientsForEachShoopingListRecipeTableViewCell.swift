@@ -30,7 +30,7 @@ class ingredientsForEachShoopingListRecipeTableViewCell: UITableViewCell {
         
         if self.innerCircleImageView.alpha == 0 {
             self.innerCircleImageView.alpha = 1
-            //nonAnimatingLayerView.alpha = 1
+            self.nonAnimatingCustomUIVIew.alpha = 1
             //self.drawStaticCrossLines(inside: self.nonAnimatingLayerView, theNumberOfLines: 1)
             guard let appDelegate = UIApplication.shared.delegate as? AppDelegate else {
                 return
@@ -39,7 +39,7 @@ class ingredientsForEachShoopingListRecipeTableViewCell: UITableViewCell {
             
         } else {
             self.innerCircleImageView.alpha = 0
-            //nonAnimatingLayerView.alpha = 0
+            self.nonAnimatingCustomUIVIew.alpha = 0
             guard let appDelegate = UIApplication.shared.delegate as? AppDelegate else {
                 return
             }
