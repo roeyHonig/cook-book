@@ -70,11 +70,7 @@ class ingredientsForEachShoopingListRecipeTableViewCell: UITableViewCell, CAAnim
                 }
                 
                 initArrayOfViews()
-                if numOfVerticalSections > 0 {
-                    for k in 1...numOfVerticalSections {
-                        staticCrossedViews[k - 1].alpha = 1
-                    }
-                }
+                
                 
             } else {
                 toCross = false
@@ -86,7 +82,6 @@ class ingredientsForEachShoopingListRecipeTableViewCell: UITableViewCell, CAAnim
                 }
                 appDelegate.updateDataInCoreDataEntitesMatchedBy(attribute1: "idOfRecipe", attribute2: "index", value1: thisCellGlobalRecipyDBNumber, value2: (thisCellIndexPathRow + 1), newValueAttribute: "cheacked", newValue: 0)
                 
-                
                 // let's also init the Array of layers
                 if myLayers.count == 0 && !haveTheArrayOfLayersBeenInit{
                     haveTheArrayOfLayersBeenInit = true
@@ -96,15 +91,8 @@ class ingredientsForEachShoopingListRecipeTableViewCell: UITableViewCell, CAAnim
                         myLayers.append(tmpLayer)
                     }
                 }
-                // we first need to instatntlly draw the lines of all layers
-                //staticPreReverseAnimation(in: animatedLayerUIView, forTotalNumberOfCrossLines: numOfVerticalSections)
-                initArrayOfViews()
-                if numOfVerticalSections > 0 {
-                    for k in 1...numOfVerticalSections {
-                        print("was here with the alpf")
-                        staticCrossedViews[k - 1].alpha = 1
-                    }
-                }
+                
+                
             }
             
            
@@ -127,39 +115,25 @@ class ingredientsForEachShoopingListRecipeTableViewCell: UITableViewCell, CAAnim
             return
         }
         
-        if bool {
-            // prepre the path
-            let path = UIBezierPath()
-            // draw the line from left to right
-            let rect = view.bounds
-            let rec = CGRect(x: rect.minX, y: CGFloat(Float(i - 1)) * (rect.height / CGFloat(Float(num))), width: rect.width, height: rect.height / CGFloat(Float(num)))
-            path.move(to: CGPoint(x: rec.minX + 5, y: rec.midY))
-            path.addLine(to: CGPoint(x: rec.maxX - 5, y: rec.midY))
-            layer.path = path.cgPath
-        } else {
-            // prepre the path
-            let path = UIBezierPath()
-            // draw the line from right to left
-            let rect = view.bounds
-            let rec = CGRect(x: rect.minX, y: CGFloat(Float(i - 1)) * (rect.height / CGFloat(Float(num))), width: rect.width, height: rect.height / CGFloat(Float(num)))
-            path.move(to: CGPoint(x: rec.maxX - 5, y: rec.midY))
-            path.addLine(to: CGPoint(x: rec.minX + 5, y: rec.midY))
-            layer.path = path.cgPath
-        }
-        
-        
-        
-        
+       
+        // prepre the path
+        let path = UIBezierPath()
+        // draw the line from left to right
+        let rect = view.bounds
+        let rec = CGRect(x: rect.minX, y: CGFloat(Float(i - 1)) * (rect.height / CGFloat(Float(num))), width: rect.width, height: rect.height / CGFloat(Float(num)))
+        path.move(to: CGPoint(x: rec.minX + 5, y: rec.midY))
+        path.addLine(to: CGPoint(x: rec.maxX - 5, y: rec.midY))
+        layer.path = path.cgPath
+       
         // Set up the appearance of the shape layer
         layer.lineWidth = 5
         if bool {
             layer.strokeEnd = 0 // in animation it will change to 1
-            layer.strokeColor = UIColor.lightGray.cgColor
+            
         } else {
-            layer.strokeEnd = 0 // in animation it will change to 0
-            layer.strokeColor = UIColor.red.cgColor
+            layer.strokeEnd = 1 // in animation it will change to 0
         }
-        
+        layer.strokeColor = UIColor.lightGray.cgColor
         layer.lineCap = kCALineCapRound
         
         // Create the animation for the shape view
@@ -170,7 +144,7 @@ class ingredientsForEachShoopingListRecipeTableViewCell: UITableViewCell, CAAnim
             animation.fillMode = kCAFillModeForwards
             animation.isRemovedOnCompletion = false
         } else {
-            animation.toValue = 1
+            animation.toValue = 0
             animation.fillMode = kCAFillModeForwards
             animation.isRemovedOnCompletion = false
         }
@@ -186,37 +160,20 @@ class ingredientsForEachShoopingListRecipeTableViewCell: UITableViewCell, CAAnim
      
     }
     
-    /*
+    
     func animationDidStart(_ anim: CAAnimation) {
         if !toCross {
-            initArrayOfViews()
-            if numOfVerticalSections > 0 {
-                for k in 1...numOfVerticalSections {
-                    staticCrossedViews[k - 1].alpha = 1
-                }
-            }
             // we are rolling back
             staticCrossedViews[i - 1].alpha = 0
-            if i < numOfVerticalSections {
-                print ("it got excuted!!!!!")
-                for j in (i + 1)...numOfVerticalSections {
-                    staticCrossedViews[j - 1].alpha = 1
-                }
-            }
-            
         }
     }
-     */
+    
     
     func animationDidStop(_ anim: CAAnimation, finished flag: Bool) {
-        print("Now, Now The animation has ended")
-        print("and the alpha is: \(staticCrossedViews[i - 1].alpha)")
-        print(nonAnimatingCustomUIVIew.subviews.count)
         if toCross {
             // we are crossing out
             staticCrossedViews[i - 1].alpha = 1
         }
-        
         
         i = i + 1
         
