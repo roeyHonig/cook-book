@@ -26,7 +26,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate, GIDSignInDelegate {
         // Override point for customization after application launch.
         // init UserDefults - kind like sheared instance
         //let defults = UserDefaults.standard
-        defults.setValue(false, forKey: "areCoreDataChangesPending")
+        defults.setValue(true, forKey: "areCoreDataChangesPending")
         
         // init firt FireBase
         FirebaseApp.configure()
