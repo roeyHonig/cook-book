@@ -23,6 +23,7 @@ class ingredientsForEachShoopingListRecipeTableViewCell: UITableViewCell, CAAnim
     var toCross = true // boolean to decide whteher to cross out the ingrediant or roll it back
     var numOfVerticalSections: Int = 0
     var i: Int = 1 // a running index like in a for loop
+    var myLayers: [CAShapeLayer] = []
     
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -54,6 +55,12 @@ class ingredientsForEachShoopingListRecipeTableViewCell: UITableViewCell, CAAnim
                 nonAnimatingCustomUIVIew.numOfVerticalSections = numOfLines
                 nonAnimatingCustomUIVIew.setNeedsDisplay()
                 numOfVerticalSections = numOfLines
+                // let's also init the Array of layers
+                myLayers.removeAll()
+                for j in 1...numOfLines {
+                    let tmpLayer = CAShapeLayer()
+                    myLayers.append(tmpLayer)
+                }
                 
             } else {
                 toCross = false
