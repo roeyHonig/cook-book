@@ -20,17 +20,19 @@ class ingredientsForEachShoopingListRecipeTableViewCell: UITableViewCell {
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
-        
         let tapGestureRecognition = UITapGestureRecognizer()
         tapGestureRecognition.addTarget(self, action: #selector(toggleIngredientCheackedStatus))
         self.contentView.addGestureRecognizer(tapGestureRecognition)
     }
+    
+    
     
     @objc func toggleIngredientCheackedStatus() {
         
         if self.innerCircleImageView.alpha == 0 {
             self.innerCircleImageView.alpha = 1
             self.nonAnimatingCustomUIVIew.alpha = 1
+            print("some prograss bla bla, the heigt is: \(nonAnimatingCustomUIVIew.frame.height)")
             //self.drawStaticCrossLines(inside: self.nonAnimatingLayerView, theNumberOfLines: 1)
             guard let appDelegate = UIApplication.shared.delegate as? AppDelegate else {
                 return

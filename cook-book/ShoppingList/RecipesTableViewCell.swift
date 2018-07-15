@@ -121,6 +121,10 @@ class RecipesTableViewCell: UITableViewCell, UITableViewDelegate, UITableViewDat
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "secondaryTableCell") as! ingredientsForEachShoopingListRecipeTableViewCell
         cell.secondaryLabel.text = specificIngredientsDataSource[indexPath.row]!
+        /*
+        var numberOfLines = Int((cell.secondaryLabel.bounds.height / cell.secondaryLabel.font.lineHeight))
+        cell.secondaryLabel.text = "!\(cell.secondaryLabel.bounds.height)" + cell.secondaryLabel.text!
+        */
         cell.innerCircleImageView.alpha = CGFloat(specificIngredientsDataSourceInnerCircleAlpha[indexPath.row]!)
         cell.nonAnimatingCustomUIVIew.alpha = CGFloat(specificIngredientsDataSourceInnerCircleAlpha[indexPath.row]!)
         cell.thisCellIndexPathRow = indexPath.row
