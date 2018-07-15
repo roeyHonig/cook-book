@@ -8,14 +8,21 @@
 
 import UIKit
 
-class ingredientsForEachShoopingListRecipeTableViewCell: UITableViewCell {
+class ingredientsForEachShoopingListRecipeTableViewCell: UITableViewCell, CAAnimationDelegate {
 
     @IBOutlet var nonAnimatingCustomUIVIew: CustomUIView7!
+    
+    
+    @IBOutlet var animatedLayerUIView: UIView!
     
     @IBOutlet var innerCircleImageView: UIImageView!
     @IBOutlet var secondaryLabel: UILabel!
     var thisCellIndexPathRow: Int! // i'm sure to provide this
     var thisCellGlobalRecipyDBNumber: Int! // i'm sure to provide this
+    
+    var isDrawingNow = false // allowing us to lock the pressing of the ingredient while it's beeing animated to prevent irredic behaivor
+    let myLayer = CAShapeLayer()
+    var toCross = true // boolean to decide whteher to cross out the ingrediant or roll it back
     
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -28,8 +35,10 @@ class ingredientsForEachShoopingListRecipeTableViewCell: UITableViewCell {
     
     
     @objc func toggleIngredientCheackedStatus() {
-        
+        // static cross
         if self.innerCircleImageView.alpha == 0 {
+            toCross = true
+            
             self.innerCircleImageView.alpha = 1
             self.nonAnimatingCustomUIVIew.alpha = 1
             print("some prograss bla bla, the heigt is: \(nonAnimatingCustomUIVIew.frame.height) and the line height is: \(secondaryLabel.font.lineHeight)")
@@ -44,6 +53,8 @@ class ingredientsForEachShoopingListRecipeTableViewCell: UITableViewCell {
             nonAnimatingCustomUIVIew.setNeedsDisplay()
             
         } else {
+            toCross = false
+            
             self.innerCircleImageView.alpha = 0
             self.nonAnimatingCustomUIVIew.alpha = 0
             guard let appDelegate = UIApplication.shared.delegate as? AppDelegate else {
@@ -52,8 +63,19 @@ class ingredientsForEachShoopingListRecipeTableViewCell: UITableViewCell {
             appDelegate.updateDataInCoreDataEntitesMatchedBy(attribute1: "idOfRecipe", attribute2: "index", value1: thisCellGlobalRecipyDBNumber, value2: (thisCellIndexPathRow + 1), newValueAttribute: "cheacked", newValue: 0)
             
         }
+        
+        // animate the dynamic cross
+        if !self.isDrawingNow{
+            self.animateCrossPath(in: <#T##UIView#>, willBeCrossed: <#T##Bool#>)
+        }
     }
 
+    
+    func animateCrossPath(in view: UIView, willBeCrossed bool: Bool) {
+        <#function body#>
+    }
+    
+    
     /*
     func drawStaticCrossLines(inside view: UIView, theNumberOfLines num:Int)  {
        // iterate over all the lines need to be plotted

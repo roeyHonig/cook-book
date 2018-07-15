@@ -357,14 +357,22 @@
                                                                         <rect key="frame" x="33" y="0.0" width="189" height="43.5"/>
                                                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                                                     </view>
+                                                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="doE-7j-IKj" userLabel="animatedLayerUIVIew">
+                                                                        <rect key="frame" x="33" y="0.0" width="189" height="43.5"/>
+                                                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                                                    </view>
                                                                 </subviews>
                                                                 <constraints>
                                                                     <constraint firstItem="u0F-ff-f05" firstAttribute="width" secondItem="tx3-bp-tgy" secondAttribute="width" multiplier="0.95" id="5Pm-EK-GZd"/>
                                                                     <constraint firstItem="tx3-bp-tgy" firstAttribute="leading" secondItem="YXm-QT-wmN" secondAttribute="trailing" constant="8" id="5en-2t-9oB"/>
                                                                     <constraint firstItem="u0F-ff-f05" firstAttribute="leading" secondItem="YXm-QT-wmN" secondAttribute="trailing" constant="8" id="6lQ-tg-XYG"/>
+                                                                    <constraint firstItem="doE-7j-IKj" firstAttribute="top" secondItem="u0F-ff-f05" secondAttribute="top" id="HoU-uq-TRe"/>
+                                                                    <constraint firstItem="doE-7j-IKj" firstAttribute="bottom" secondItem="u0F-ff-f05" secondAttribute="bottom" id="Kmm-LG-cLA"/>
                                                                     <constraint firstItem="tx3-bp-tgy" firstAttribute="top" secondItem="IcF-ny-9gG" secondAttribute="top" id="MtV-jg-LMt"/>
                                                                     <constraint firstAttribute="bottom" secondItem="u0F-ff-f05" secondAttribute="bottom" id="NVB-aU-AK2"/>
+                                                                    <constraint firstItem="doE-7j-IKj" firstAttribute="leading" secondItem="u0F-ff-f05" secondAttribute="leading" id="QSI-6z-rqP"/>
                                                                     <constraint firstItem="YXm-QT-wmN" firstAttribute="top" secondItem="IcF-ny-9gG" secondAttribute="top" id="SxR-Yg-uH5"/>
+                                                                    <constraint firstItem="doE-7j-IKj" firstAttribute="trailing" secondItem="u0F-ff-f05" secondAttribute="trailing" id="WHQ-2j-eka"/>
                                                                     <constraint firstAttribute="bottom" secondItem="YXm-QT-wmN" secondAttribute="bottom" id="arT-w8-lnn"/>
                                                                     <constraint firstItem="u0F-ff-f05" firstAttribute="top" secondItem="IcF-ny-9gG" secondAttribute="top" id="eWL-mu-cn3"/>
                                                                     <constraint firstAttribute="bottom" secondItem="tx3-bp-tgy" secondAttribute="bottom" id="o5j-Bo-Csm"/>
@@ -373,6 +381,7 @@
                                                                 </constraints>
                                                             </tableViewCellContentView>
                                                             <connections>
+                                                                <outlet property="animatedLayerUIView" destination="doE-7j-IKj" id="7uT-wP-FhQ"/>
                                                                 <outlet property="innerCircleImageView" destination="9nm-Iy-All" id="ZOP-gC-M0N"/>
                                                                 <outlet property="nonAnimatingCustomUIVIew" destination="u0F-ff-f05" id="kJb-xM-1AV"/>
                                                                 <outlet property="secondaryLabel" destination="tx3-bp-tgy" id="coW-2q-8qf"/>
