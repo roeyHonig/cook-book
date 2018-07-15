@@ -16,7 +16,7 @@ class ShoppingListViewController: UIViewController, UITableViewDelegate, UITable
     var recipesTableDataSource: [String?] = []
     var ingridentsTableDataSource: [[String?]] = [[]]
     var ingridentsTableDataSourceInnerCircleImageAlpfa: [[Float?]] = [[]]
-
+    var ingridentsTableDataSourceNumberOfTextLines: [[Int?]] = [[]]
     
     
     
@@ -50,6 +50,7 @@ class ShoppingListViewController: UIViewController, UITableViewDelegate, UITable
         recipesTableDataSource.removeAll()
         ingridentsTableDataSource.removeAll()
         ingridentsTableDataSourceInnerCircleImageAlpfa.removeAll()
+        ingridentsTableDataSourceNumberOfTextLines.removeAll()
         
         guard let appDelegate = UIApplication.shared.delegate as? AppDelegate else {
             return
@@ -58,6 +59,7 @@ class ShoppingListViewController: UIViewController, UITableViewDelegate, UITable
         var tmp = 0
         var tmpList: [String] = []
         var tmpListOfFloats: [Float] = []
+        var tmpListOfIntegers: [Int] = []
         
         if shoppingListTable.count > 0 {
             // gather the data from coreData and put it into the tables data source arrays
@@ -69,13 +71,16 @@ class ShoppingListViewController: UIViewController, UITableViewDelegate, UITable
                                 // ok we've started a all new recipy shoppinglist, ok to append
                                 ingridentsTableDataSource.append(tmpList) // appending the collected ingridents of the prevouslly recipy
                                 ingridentsTableDataSourceInnerCircleImageAlpfa.append(tmpListOfFloats) // appending the collected ingridents of the prevouslly recipy cheacked status
+                                ingridentsTableDataSourceNumberOfTextLines.append(tmpListOfIntegers) // appending the collected ingridents of the prevouslly recipy number of text lines per ingredient
                                 recipesTableDataSource.append(shoppingListTable[i-1].value(forKey: "title") as! String)
                                 recipesGlobalDataBaseNumbers.append(shoppingListTable[i-1].value(forKey: "idOfRecipe") as! Int)
                                 tmpList = []
                                 tmpListOfFloats = []
+                                tmpListOfIntegers = []
                             }
                             tmpList.append(shoppingListTable[i-1].value(forKey: "ingredient") as! String)
                             tmpListOfFloats.append(shoppingListTable[i-1].value(forKey: "cheacked") as! Float)
+                            tmpListOfIntegers.append(shoppingListTable[i-1].value(forKey: "ingredientNumTextLines") as! Int)
 
                     }else if i == shoppingListTable.count{
                         // the last item
@@ -84,6 +89,8 @@ class ShoppingListViewController: UIViewController, UITableViewDelegate, UITable
                         ingridentsTableDataSource.append(tmpList)
                         tmpListOfFloats.append(shoppingListTable[i-1].value(forKey: "cheacked") as! Float)
                         ingridentsTableDataSourceInnerCircleImageAlpfa.append(tmpListOfFloats)
+                        tmpListOfIntegers.append(shoppingListTable[i-1].value(forKey: "ingredientNumTextLines") as! Int)
+                        ingridentsTableDataSourceNumberOfTextLines.append(tmpListOfIntegers)
                        
                     } else {
                         // the 1st item
@@ -91,6 +98,7 @@ class ShoppingListViewController: UIViewController, UITableViewDelegate, UITable
                         recipesGlobalDataBaseNumbers.append(shoppingListTable[i-1].value(forKey: "idOfRecipe") as! Int)
                         tmpList.append(shoppingListTable[i-1].value(forKey: "ingredient") as! String)
                         tmpListOfFloats.append(shoppingListTable[i-1].value(forKey: "cheacked") as! Float)
+                        tmpListOfIntegers.append(shoppingListTable[i-1].value(forKey: "ingredientNumTextLines") as! Int)
                     }
                     tmp = shoppingListTable[i-1].value(forKey: "idOfRecipe") as! Int
 

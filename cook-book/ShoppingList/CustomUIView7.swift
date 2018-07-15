@@ -7,9 +7,11 @@
 //
 
 import UIKit
+import CoreData
 
 class CustomUIView7: UIView {
-    var numOfVerticalSections: Int = 1
+   
+    var numOfVerticalSections: Int = 0
     
     override func draw(_ rect: CGRect) {
         guard numOfVerticalSections > 0 else {
