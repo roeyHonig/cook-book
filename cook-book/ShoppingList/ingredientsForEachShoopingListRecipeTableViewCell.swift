@@ -22,6 +22,7 @@ class ingredientsForEachShoopingListRecipeTableViewCell: UITableViewCell, CAAnim
     let myLayer = CAShapeLayer()
     var toCross = true // boolean to decide whteher to cross out the ingrediant or roll it back
     var numOfVerticalSections: Int = 0
+    var i: Int = 1 // a running index like in a for loop
     
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -82,62 +83,71 @@ class ingredientsForEachShoopingListRecipeTableViewCell: UITableViewCell, CAAnim
             isDrawingNow = false
             return
         }
+        
+        // prepre the path
+        let path = UIBezierPath()
+        // draw the line from left to right
+        let rect = view.bounds
+        let rec = CGRect(x: rect.minX, y: CGFloat(Float(i - 1)) * (rect.height / CGFloat(Float(num))), width: rect.width, height: rect.height / CGFloat(Float(num)))
+        path.move(to: CGPoint(x: rec.minX + 5, y: rec.midY))
+        path.addLine(to: CGPoint(x: rec.maxX - 5, y: rec.midY))
+        layer.path = path.cgPath
+        
+        // Set up the appearance of the shape layer
+        layer.lineWidth = 5
+        if bool {
+            layer.strokeEnd = 0 // in animation it will change to 1
+        } else {
+            layer.strokeEnd = 1 // in animation it will change to 0
+        }
+        layer.strokeColor = UIColor.lightGray.cgColor
+        layer.lineCap = kCALineCapRound
+        
+        // Create the animation for the shape view
+        let animation = CABasicAnimation(keyPath: "strokeEnd")
+        animation.delegate = self
+        if bool {
+            animation.toValue = 1
+            animation.fillMode = kCAFillModeForwards
+            animation.isRemovedOnCompletion = false
+        } else {
+            animation.toValue = 0
+            animation.fillMode = kCAFillModeForwards
+            animation.isRemovedOnCompletion = false
+        }
+        animation.duration = 6 // seconds
+        animation.autoreverses = false
+        animation.timingFunction = CAMediaTimingFunction(name: "easeOut")
+        
         // Add the shape layer to view
         view.layer.addSublayer(layer)
-        // iterat over paths
-        for i in 1...num {
-            // prepre the path
-            let path = UIBezierPath()
-            // draw the line from left to right
-            let rect = view.bounds
-            let rec = CGRect(x: rect.minX, y: CGFloat(Float(i - 1)) * (rect.height / CGFloat(Float(num))), width: rect.width, height: rect.height / CGFloat(Float(num)))
-            path.move(to: CGPoint(x: rec.minX + 5, y: rec.midY))
-            path.addLine(to: CGPoint(x: rec.maxX - 5, y: rec.midY))
-            layer.path = path.cgPath
-            
-            // Set up the appearance of the shape layer
-            layer.lineWidth = 5
-            if bool {
-                layer.strokeEnd = 0 // in animation it will change to 1
-            } else {
-                layer.strokeEnd = 1 // in animation it will change to 0
-            }
-            layer.strokeColor = UIColor.lightGray.cgColor
-            layer.lineCap = kCALineCapRound
-            
-            // Create the animation for the shape view
-            let animation = CABasicAnimation(keyPath: "strokeEnd")
-            animation.delegate = self
-            if bool {
-                animation.toValue = 1
-                animation.fillMode = kCAFillModeForwards
-                animation.isRemovedOnCompletion = false
-            } else {
-                animation.toValue = 0
-                animation.fillMode = kCAFillModeForwards
-                animation.isRemovedOnCompletion = false
-            }
-            animation.duration = 6 // seconds
-            animation.autoreverses = false
-            animation.timingFunction = CAMediaTimingFunction(name: "easeOut")
-            
-            // And finally add the linear animation to the shape!
-            layer.add(animation, forKey: "line")
-        }
         
-       
-        
+        // And finally add the linear animation to the shape!
+        layer.add(animation, forKey: "line")
+     
     }
     
     
     func animationDidStop(_ anim: CAAnimation, finished flag: Bool) {
         print("Now, Now The animation has ended")
-        if self.toCross {
-            self.toCross = false
+        i = i + 1
+        
+        if i > numOfVerticalSections {
+            // congrtiolations, we've just finished performing our last animation, we've crossed out every line of text!
+            if self.toCross {
+                self.toCross = false
+            } else {
+                self.toCross = true
+            }
+            self.isDrawingNow = false
+            i = 1
+        
         } else {
-            self.toCross = true
+            // we're continuing to the next animation
+            self.animateCrossPath(in: animatedLayerUIView, withLayer: myLayer ,willBeCrossed: toCross, forTotalNumberOfCrossLines: numOfVerticalSections)
         }
-        self.isDrawingNow = false
+        
+        
     }
     
     /*
