@@ -26,6 +26,9 @@ class ingredientsForEachShoopingListRecipeTableViewCell: UITableViewCell, CAAnim
     var myLayers: [CAShapeLayer] = []
     var haveTheArrayOfLayersBeenInit = false // we only want to init once, so to not loose the pointers to the layers in a single seesion
     
+    var staticCrossedViews: [CustomUIView9] = []
+    
+    
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
@@ -66,6 +69,26 @@ class ingredientsForEachShoopingListRecipeTableViewCell: UITableViewCell, CAAnim
                     }
                 }
                 
+                // ok, lets init the array of views
+                for k in 1...numOfLines {
+                    let myCustomView = CustomUIView9(currentNumOfVerticalSections: k, outOfTotalNumOfVerticalSections: numOfLines, toBeSubViewdIn: nonAnimatingCustomUIVIew)
+                    myCustomView.translatesAutoresizingMaskIntoConstraints = false
+                    
+                    //add subview
+                    self.nonAnimatingCustomUIVIew.addSubview(myCustomView)
+                    
+                    // constraints
+                    let ConstraintTop = NSLayoutConstraint(item: self.nonAnimatingCustomUIVIew, attribute: NSLayoutAttribute.top, relatedBy: .equal, toItem: myCustomView, attribute: NSLayoutAttribute.top , multiplier: 1, constant: 0)
+                    let ConstraintBottom = NSLayoutConstraint(item: self.nonAnimatingCustomUIVIew, attribute: NSLayoutAttribute.bottom, relatedBy: .equal, toItem: myCustomView, attribute: NSLayoutAttribute.bottom , multiplier: 1, constant: 0)
+                    let ConstraintTrailing = NSLayoutConstraint(item: self.nonAnimatingCustomUIVIew, attribute: NSLayoutAttribute.trailing, relatedBy: .equal, toItem: myCustomView, attribute: NSLayoutAttribute.trailing , multiplier: 1, constant: 0)
+                    let ConstraintLeading = NSLayoutConstraint(item: self.nonAnimatingCustomUIVIew, attribute: NSLayoutAttribute.leading, relatedBy: .equal, toItem: myCustomView, attribute: NSLayoutAttribute.leading , multiplier: 1, constant: 0)
+                    
+                    // assign the constraint to a coummon annssector
+                    self.contentView.addConstraint(ConstraintTop)
+                    self.contentView.addConstraint(ConstraintBottom)
+                    self.contentView.addConstraint(ConstraintTrailing)
+                    self.contentView.addConstraint(ConstraintLeading)
+                }
                 
             } else {
                 toCross = false
