@@ -19,7 +19,7 @@ class ingredientsForEachShoopingListRecipeTableViewCell: UITableViewCell, CAAnim
     var thisCellGlobalRecipyDBNumber: Int! // i'm sure to provide this
     
     var isDrawingNow = false // allowing us to lock the pressing of the ingredient while it's beeing animated to prevent irredic behaivor
-    let myLayer = CAShapeLayer()
+    //let myLayer = CAShapeLayer()
     var toCross = true // boolean to decide whteher to cross out the ingrediant or roll it back
     var numOfVerticalSections: Int = 0
     var i: Int = 1 // a running index like in a for loop
@@ -76,7 +76,7 @@ class ingredientsForEachShoopingListRecipeTableViewCell: UITableViewCell, CAAnim
                 appDelegate.updateDataInCoreDataEntitesMatchedBy(attribute1: "idOfRecipe", attribute2: "index", value1: thisCellGlobalRecipyDBNumber, value2: (thisCellIndexPathRow + 1), newValueAttribute: "cheacked", newValue: 0)
                 
             }
-            
+            let myLayer = myLayers[i - 1]
             // animate the dynamic cross
             self.animateCrossPath(in: animatedLayerUIView, withLayer: myLayer ,willBeCrossed: toCross, forTotalNumberOfCrossLines: numOfVerticalSections)
             
@@ -154,6 +154,7 @@ class ingredientsForEachShoopingListRecipeTableViewCell: UITableViewCell, CAAnim
         
         } else {
             // we're continuing to the next animation
+            let myLayer = myLayers[i - 1]
             self.animateCrossPath(in: animatedLayerUIView, withLayer: myLayer ,willBeCrossed: toCross, forTotalNumberOfCrossLines: numOfVerticalSections)
         }
         
