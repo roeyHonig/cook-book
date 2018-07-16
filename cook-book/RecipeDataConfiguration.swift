@@ -25,6 +25,10 @@ struct RecipeHeader: Codable {
     var directions: String?
     var id: Int
     
+    init(id x: Int) {
+        self.id = x
+    }
+    
     enum codingKeys: String, CodingKey {
         case title = "title"
         case img = "img"

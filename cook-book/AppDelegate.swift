@@ -22,12 +22,29 @@ class AppDelegate: UIResponder, UIApplicationDelegate, GIDSignInDelegate {
     var window: UIWindow?
     var defults = UserDefaults.standard // init UserDefults - kind like sheared instance
     
-    var sheredRecipyHeader: RecipeHeader?
+    var sheredRecipyHeader: RecipeHeader? // just a test , delete this
+    
+    var firstRec: RecipeHeader = RecipeHeader(id: 1)
+    var secondRec: RecipeHeader = RecipeHeader(id: 2)
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
         // init UserDefults - kind like sheared instance
         //let defults = UserDefaults.standard
+        firstRec.title = "Delicious Meet"
+        firstRec.img = "https://images.media-allrecipes.com/userphotos/560x315/966899.jpg'"
+        firstRec.ingredient_header1 = "Ingredients"
+        firstRec.list1 = ["meet","yams","lemon"]
+        firstRec.directions = "cook very slowlly"
+        
+        secondRec.title = "Delicious Pork"
+        secondRec.img = "https://images.media-allrecipes.com/userphotos/560x315/966899.jpg'"
+        secondRec.ingredient_header1 = "Ingredients"
+        secondRec.list1 = ["pork","potatos","cream"]
+        secondRec.directions = "cook very fast"
+        
+        
+        
         defults.setValue(true, forKey: "areCoreDataChangesPending")
         
         // init firt FireBase
