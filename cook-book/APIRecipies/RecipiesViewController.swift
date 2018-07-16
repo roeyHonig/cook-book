@@ -116,6 +116,8 @@ class RecipiesViewController: UIViewController, UICollectionViewDelegate, UIColl
             cell.recipeImage.sd_setImage(with: URL(string: imgString), completed: { (uiImage, error, sdimagecatchtype, url) in
                 guard let err = error else {
                     cell.activityIndicator.stopAnimating()
+                    cell.favoriteBtn.setBackgroundImage(#imageLiteral(resourceName: "icons8-favorites-steel"), for: .normal)
+                    cell.favoriteBtn.alpha = 0.7
                     return
                 }
                 print("error error loading picture: \(err)")
