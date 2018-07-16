@@ -531,6 +531,16 @@
                             <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="icons8-cooking_pot_filled" translatesAutoresizingMaskIntoConstraints="NO" id="T5p-MA-gFT">
                                 <rect key="frame" x="0.0" y="64" width="375" height="554"/>
                             </imageView>
+                            <button opaque="NO" alpha="0.69999999999999996" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="7GQ-YA-ZXV" userLabel="inRecipyFavoriteBtn">
+                                <rect key="frame" x="325" y="64" width="50" height="50"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="50" id="a9M-fq-yHA"/>
+                                    <constraint firstAttribute="width" constant="50" id="gSL-Wu-LEv"/>
+                                </constraints>
+                                <connections>
+                                    <action selector="toggleState:" destination="eIG-Bg-bsK" eventType="touchUpInside" id="HZD-KW-tiJ"/>
+                                </connections>
+                            </button>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="n0j-XY-3Lp" userLabel="sliderControl">
                                 <rect key="frame" x="0.0" y="114" width="375" height="27.5"/>
                                 <subviews>
@@ -787,12 +797,14 @@
                             <constraint firstItem="AXb-pI-aM6" firstAttribute="bottom" secondItem="0wV-9Y-5R2" secondAttribute="bottom" id="FRY-e7-gaX"/>
                             <constraint firstItem="n0j-XY-3Lp" firstAttribute="leading" secondItem="AXb-pI-aM6" secondAttribute="leading" id="GeL-kq-NCz"/>
                             <constraint firstItem="AXb-pI-aM6" firstAttribute="bottom" secondItem="VWQ-JX-eiW" secondAttribute="bottom" id="KGz-bj-KiO"/>
+                            <constraint firstItem="AXb-pI-aM6" firstAttribute="trailing" secondItem="7GQ-YA-ZXV" secondAttribute="trailing" id="Sgn-kl-b2k"/>
                             <constraint firstItem="n0j-XY-3Lp" firstAttribute="height" secondItem="AXb-pI-aM6" secondAttribute="height" multiplier="0.05" id="Tak-D4-Yt6"/>
                             <constraint firstItem="eeJ-fZ-PBc" firstAttribute="top" secondItem="n0j-XY-3Lp" secondAttribute="bottom" id="Xcb-fS-V3B"/>
                             <constraint firstItem="n0j-XY-3Lp" firstAttribute="width" secondItem="BeK-QD-9mD" secondAttribute="width" id="aEE-a4-ujc"/>
                             <constraint firstItem="eeJ-fZ-PBc" firstAttribute="height" secondItem="BeK-QD-9mD" secondAttribute="width" multiplier="0.1" id="aMj-OU-vQo"/>
                             <constraint firstItem="0wV-9Y-5R2" firstAttribute="top" secondItem="eeJ-fZ-PBc" secondAttribute="bottom" id="f6J-cO-qnz"/>
                             <constraint firstItem="T5p-MA-gFT" firstAttribute="leading" secondItem="AXb-pI-aM6" secondAttribute="leading" id="fdo-Vx-RIm"/>
+                            <constraint firstItem="7GQ-YA-ZXV" firstAttribute="top" secondItem="AXb-pI-aM6" secondAttribute="top" id="fzk-po-xXo"/>
                             <constraint firstItem="AXb-pI-aM6" firstAttribute="trailing" secondItem="VWQ-JX-eiW" secondAttribute="trailing" id="iah-ga-JHe"/>
                             <constraint firstItem="AXb-pI-aM6" firstAttribute="trailing" secondItem="0wV-9Y-5R2" secondAttribute="trailing" id="mKC-AI-VmB"/>
                             <constraint firstItem="n0j-XY-3Lp" firstAttribute="top" secondItem="AXb-pI-aM6" secondAttribute="top" constant="50" id="qyp-am-Oqx"/>
@@ -817,6 +829,7 @@
                         <outlet property="directionsTextLabel" destination="TXv-ww-wO4" id="uu1-Y2-jo4"/>
                         <outlet property="directionsUIView" destination="0wV-9Y-5R2" id="6zp-oa-QDa"/>
                         <outlet property="distanceBetweenIconAndText" destination="KC9-pP-fxb" id="lu1-bQ-W5L"/>
+                        <outlet property="inRecipyFavoriteBtn" destination="7GQ-YA-ZXV" id="7oa-XR-jRV"/>
                         <outlet property="ingridentsBtnView" destination="7vg-e6-Mr5" id="zip-uT-em1"/>
                         <outlet property="ingridentsTable" destination="me8-Yo-xuD" id="RKR-7p-O4c"/>
                         <outlet property="ingridentsTapGesture" destination="r1J-bL-88c" id="fM0-uC-005"/>

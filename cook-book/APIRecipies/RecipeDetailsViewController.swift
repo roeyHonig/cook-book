@@ -12,6 +12,26 @@ import SDWebImage
 
 class RecipeDetailsViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
     
+    
+    @IBOutlet var inRecipyFavoriteBtn: UIButton!
+    
+    
+    @IBAction func toggleState(_ sender: UIButton) {
+        guard let appDelegate = UIApplication.shared.delegate as? AppDelegate, let myRecipyHeader = recipeHeader else {
+            return
+        }
+        
+        if sender.currentBackgroundImage == #imageLiteral(resourceName: "icons8-favorites-red-marchino") {
+            sender.setBackgroundImage(#imageLiteral(resourceName: "icons8-favorites-steel"), for: .normal)
+            appDelegate.defults.set(false, forKey: "\(myRecipyHeader.id)")
+            //TODO: delete from core data
+        } else {
+            sender.setBackgroundImage(#imageLiteral(resourceName: "icons8-favorites-red-marchino"), for: .normal)
+            appDelegate.defults.set(true, forKey: "\(myRecipyHeader.id)")
+            //TODO: write to core data
+        }
+    }
+    
     let sliderControlYPositions: [CGFloat] = [0.5 , 0.2 , 1]
     var currentSliderPositionIndex = 0
     
@@ -134,6 +154,19 @@ class RecipeDetailsViewController: UIViewController, UITableViewDelegate, UITabl
         ingridentsList = [theCurrentRecipy.list1 , theCurrentRecipy.list2, theCurrentRecipy.list3]
         directionsText = theCurrentRecipy.directions
         directionsTextLabel.text = directionsText
+        
+        
+        // init the favorite state
+        inRecipyFavoriteBtn.setBackgroundImage(#imageLiteral(resourceName: "icons8-favorites-steel"), for: .normal)
+        guard let appDelegate = UIApplication.shared.delegate as? AppDelegate else {
+            return
+        }
+        guard let isFavorite = appDelegate.defults.value(forKey: "\(theCurrentRecipy.id)") as? Bool else {
+            return
+        }
+        if isFavorite {
+            inRecipyFavoriteBtn.setBackgroundImage(#imageLiteral(resourceName: "icons8-favorites-red-marchino"), for: .normal)
+        }
         
     }
     

@@ -36,8 +36,13 @@ class RecipiesViewController: UIViewController, UICollectionViewDelegate, UIColl
         myRefreshControl.addTarget(self, action: #selector(self.retriveData), for: UIControlEvents.valueChanged)
         recipiesCollection.refreshControl = myRefreshControl
         recipiesCollection.refreshControl?.beginRefreshing()
-        retriveData()
         
+    }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        
+        retriveData()
+        super.viewDidAppear(animated)
     }
     
     func navigationController(_ navigationController: UINavigationController, willShow viewController: UIViewController, animated: Bool) {
