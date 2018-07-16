@@ -122,11 +122,12 @@ class RecipiesViewController: UIViewController, UICollectionViewDelegate, UIColl
                     guard let appDelegate = UIApplication.shared.delegate as? AppDelegate, let myRecipyHeader = cell.recipeHeader else {
                         return
                     }
-                    
-                    guard let def = appDelegate.defults.value(forKey: "\(myRecipyHeader.id)") else {
+                    guard let isFavorite = appDelegate.defults.value(forKey: "\(myRecipyHeader.id)") as? Bool else {
                         return
                     }
-                    
+                    if isFavorite {
+                        cell.favoriteBtn.setBackgroundImage(#imageLiteral(resourceName: "icons8-favorites-red-marchino"), for: .normal)
+                    }
                     return
                 }
                 print("error error loading picture: \(err)")

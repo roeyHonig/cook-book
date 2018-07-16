@@ -25,10 +25,12 @@ class RecipeCollectionViewCell: UICollectionViewCell {
             
             if sender.currentBackgroundImage == #imageLiteral(resourceName: "icons8-favorites-red-marchino") {
                 sender.setBackgroundImage(#imageLiteral(resourceName: "icons8-favorites-steel"), for: .normal)
-                appDelegate.defults.set(true, forKey: "\(myRecipyHeader.id)")
+                appDelegate.defults.set(false, forKey: "\(myRecipyHeader.id)")
+                //TODO: delete from core data
             } else {
                 sender.setBackgroundImage(#imageLiteral(resourceName: "icons8-favorites-red-marchino"), for: .normal)
                 appDelegate.defults.set(true, forKey: "\(myRecipyHeader.id)")
+                //TODO: write to core data
             }
         }
     }
