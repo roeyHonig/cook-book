@@ -89,9 +89,9 @@ class RecipiesViewController: UIViewController, UICollectionViewDelegate, UIColl
     // the cell frame will be of size with respect to the device screen size and there will be 2 cells columbs
     // the storyboard IB has 10 points margins bwteen cells and left \ righ margin, so 3 margins & 2 cells
     // total width = 3 * 10 + 2 * cell width
-    // 
+    // 0.8 was choosen as the Height \ Width ratio it looks very nice
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-        return CGSize(width: (collectionView.frame.size.width - 30) / 2, height: (collectionView.frame.size.width - 30) / 2)
+        return CGSize(width: (collectionView.frame.size.width - 30) / 2, height: 0.8 * (collectionView.frame.size.width - 30) / 2)
     }
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
