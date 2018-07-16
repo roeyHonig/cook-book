@@ -165,8 +165,11 @@ class RecipiesViewController: UIViewController, UICollectionViewDelegate, UIColl
             recpDetails.numofRecipie = txt
             recpDetails.recipeHeader = cell.recipeHeader
             
-            
-            
+            // this is just a test to save a recipyHeader into the appeDalegate and acces it in another controller , Delete this!!!
+            guard let appDelegate = UIApplication.shared.delegate as? AppDelegate else {
+                return
+            }
+            appDelegate.sheredRecipyHeader = recpDetails.recipeHeader
         }
     }
     

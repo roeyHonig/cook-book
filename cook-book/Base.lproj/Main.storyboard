@@ -22,60 +22,7 @@
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="AzV-Ie-KCa" userLabel="parentView">
                                 <rect key="frame" x="0.0" y="20" width="375" height="598"/>
-                                <subviews>
-                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="V9U-JR-AsI">
-                                        <rect key="frame" x="0.0" y="0.0" width="375" height="299"/>
-                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
-                                    </view>
-                                    <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="m1M-70-cro">
-                                        <rect key="frame" x="0.0" y="299" width="375" height="299"/>
-                                        <subviews>
-                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="rKd-GP-uPZ" userLabel="contentView">
-                                                <rect key="frame" x="0.0" y="0.0" width="375" height="500"/>
-                                                <subviews>
-                                                    <textView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="LDO-fV-zFF">
-                                                        <rect key="frame" x="0.0" y="0.0" width="375" height="500"/>
-                                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                                        <accessibility key="accessibilityConfiguration">
-                                                            <accessibilityTraits key="traits" notEnabled="YES"/>
-                                                        </accessibility>
-                                                        <string key="text">Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Nam liber te conscient to factor tum poen legum odioque civiuda. Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Nam liber te conscient to factor tum poen legum odioque civiuda.</string>
-                                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                                        <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
-                                                    </textView>
-                                                </subviews>
-                                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                                <constraints>
-                                                    <constraint firstItem="LDO-fV-zFF" firstAttribute="height" secondItem="rKd-GP-uPZ" secondAttribute="height" id="4H6-e7-MFl"/>
-                                                    <constraint firstAttribute="trailing" secondItem="LDO-fV-zFF" secondAttribute="trailing" id="9uH-md-hWi"/>
-                                                    <constraint firstAttribute="height" constant="500" id="NrC-5g-0lu"/>
-                                                    <constraint firstAttribute="bottom" secondItem="LDO-fV-zFF" secondAttribute="bottom" id="T7x-m7-iHe"/>
-                                                    <constraint firstItem="LDO-fV-zFF" firstAttribute="width" secondItem="rKd-GP-uPZ" secondAttribute="width" id="cj6-qY-fAb"/>
-                                                    <constraint firstItem="LDO-fV-zFF" firstAttribute="leading" secondItem="rKd-GP-uPZ" secondAttribute="leading" id="f9q-d8-eFh"/>
-                                                    <constraint firstItem="LDO-fV-zFF" firstAttribute="top" secondItem="rKd-GP-uPZ" secondAttribute="top" id="fra-pZ-Xal"/>
-                                                </constraints>
-                                            </view>
-                                        </subviews>
-                                        <constraints>
-                                            <constraint firstItem="rKd-GP-uPZ" firstAttribute="top" secondItem="m1M-70-cro" secondAttribute="top" id="0Ua-1P-hWq"/>
-                                            <constraint firstItem="rKd-GP-uPZ" firstAttribute="leading" secondItem="m1M-70-cro" secondAttribute="leading" id="5VJ-H2-BXJ"/>
-                                            <constraint firstItem="rKd-GP-uPZ" firstAttribute="width" secondItem="m1M-70-cro" secondAttribute="width" id="Qj2-nu-WYo"/>
-                                            <constraint firstAttribute="bottom" secondItem="rKd-GP-uPZ" secondAttribute="bottom" id="fh4-ok-bUM"/>
-                                            <constraint firstAttribute="trailing" secondItem="rKd-GP-uPZ" secondAttribute="trailing" id="hYT-Gv-wsf"/>
-                                        </constraints>
-                                    </scrollView>
-                                </subviews>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                <constraints>
-                                    <constraint firstItem="m1M-70-cro" firstAttribute="top" secondItem="V9U-JR-AsI" secondAttribute="bottom" id="0wC-fj-goH"/>
-                                    <constraint firstItem="m1M-70-cro" firstAttribute="leading" secondItem="AzV-Ie-KCa" secondAttribute="leading" id="2PN-Ex-E9L"/>
-                                    <constraint firstAttribute="trailing" secondItem="m1M-70-cro" secondAttribute="trailing" id="71X-Sh-i2P"/>
-                                    <constraint firstItem="V9U-JR-AsI" firstAttribute="height" secondItem="AzV-Ie-KCa" secondAttribute="height" multiplier="0.5" id="8u5-3q-sBY"/>
-                                    <constraint firstItem="V9U-JR-AsI" firstAttribute="width" secondItem="AzV-Ie-KCa" secondAttribute="width" id="9Ii-pC-rAq"/>
-                                    <constraint firstItem="V9U-JR-AsI" firstAttribute="top" secondItem="AzV-Ie-KCa" secondAttribute="top" id="ZtA-S4-dXs"/>
-                                    <constraint firstAttribute="bottom" secondItem="m1M-70-cro" secondAttribute="bottom" id="pMd-Yd-Grh"/>
-                                    <constraint firstItem="V9U-JR-AsI" firstAttribute="leading" secondItem="AzV-Ie-KCa" secondAttribute="leading" id="qSb-IS-lv1"/>
-                                </constraints>
                             </view>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -88,9 +35,6 @@
                         <viewLayoutGuide key="safeArea" id="2cC-5o-Q4D"/>
                     </view>
                     <tabBarItem key="tabBarItem" title="Item" id="N1w-mT-A1X"/>
-                    <connections>
-                        <outlet property="animatedView" destination="V9U-JR-AsI" id="ddg-Ja-umm"/>
-                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="rcr-9c-YQh" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
