@@ -32,7 +32,7 @@
                                         <state key="normal" title="Button"/>
                                         <connections>
                                             <action selector="presentingARecipy:" destination="tAA-Mf-DuQ" eventType="touchUpInside" id="PXd-a9-jhb"/>
-                                            <segue destination="eIG-Bg-bsK" kind="show" identifier="toRecipyFromFavorites" id="XK6-bl-2Om"/>
+                                            <segue destination="eIG-Bg-bsK" kind="show" identifier="toRecipyFromFavorites" id="UIe-M0-O2G"/>
                                         </connections>
                                     </button>
                                 </subviews>
@@ -485,7 +485,7 @@
         <!--Recipe Details View Controller-->
         <scene sceneID="4BR-90-nrg">
             <objects>
-                <viewController id="eIG-Bg-bsK" customClass="RecipeDetailsViewController" customModule="cook_book" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="RecipeDetailsViewController" id="eIG-Bg-bsK" customClass="RecipeDetailsViewController" customModule="cook_book" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="BeK-QD-9mD">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -1051,6 +1051,6 @@
         <image name="vegetarian50" width="50" height="50"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="XK6-bl-2Om"/>
+        <segue reference="UIe-M0-O2G"/>
     </inferredMetricsTieBreakers>
 </document>

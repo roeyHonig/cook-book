@@ -12,6 +12,7 @@ import SDWebImage
 
 class RecipeDetailsViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
     
+    var sender: Any?
     
     @IBOutlet var inRecipyFavoriteBtn: UIButton!
     
@@ -170,6 +171,9 @@ class RecipeDetailsViewController: UIViewController, UITableViewDelegate, UITabl
         
     }
     
+    
+    
+    
     @objc func addToShoppingList() {
         print("adding ingridents")
         saveToCoreData()
@@ -293,6 +297,15 @@ class RecipeDetailsViewController: UIViewController, UITableViewDelegate, UITabl
     }
     
     override func viewDidAppear(_ animated: Bool) {
+        
+        if sender is UIButton {
+            print("yes")
+        } else if sender == nil {
+            print("nil")
+        } else {
+            print("something")
+        }
+        
         let font = UIFont(name: "Helvetica", size: 12)! // TODO: it might be wise to provide some fallback fonts in case not all devices carry this
         self.navigationController?.navigationBar.titleTextAttributes = [ NSAttributedStringKey.font: font]
     }
