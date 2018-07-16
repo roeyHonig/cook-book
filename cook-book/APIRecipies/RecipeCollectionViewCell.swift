@@ -17,12 +17,20 @@ class RecipeCollectionViewCell: UICollectionViewCell {
     
     
     @IBAction func toggleingFavoriteBtn(_ sender: UIButton) {
-        if sender.currentBackgroundImage == #imageLiteral(resourceName: "icons8-favorites-red-marchino") {
-            sender.setBackgroundImage(#imageLiteral(resourceName: "icons8-favorites-steel"), for: .normal)
-        } else {
-            sender.setBackgroundImage(#imageLiteral(resourceName: "icons8-favorites-red-marchino"), for: .normal)
+        // make sure recipe image has been loaded
+        if sender.alpha > 0 {
+            guard let appDelegate = UIApplication.shared.delegate as? AppDelegate, let myRecipyHeader = recipeHeader else {
+                return
+            }
+            
+            if sender.currentBackgroundImage == #imageLiteral(resourceName: "icons8-favorites-red-marchino") {
+                sender.setBackgroundImage(#imageLiteral(resourceName: "icons8-favorites-steel"), for: .normal)
+                appDelegate.defults.set(true, forKey: "\(myRecipyHeader.id)")
+            } else {
+                sender.setBackgroundImage(#imageLiteral(resourceName: "icons8-favorites-red-marchino"), for: .normal)
+                appDelegate.defults.set(true, forKey: "\(myRecipyHeader.id)")
+            }
         }
-        
     }
     
     var recipeHeader: RecipeHeader?

@@ -20,7 +20,7 @@ import FBSDKLoginKit
 class AppDelegate: UIResponder, UIApplicationDelegate, GIDSignInDelegate {
 
     var window: UIWindow?
-    var defults = UserDefaults.standard
+    var defults = UserDefaults.standard // init UserDefults - kind like sheared instance
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.

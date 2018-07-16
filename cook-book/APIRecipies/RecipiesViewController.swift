@@ -118,6 +118,15 @@ class RecipiesViewController: UIViewController, UICollectionViewDelegate, UIColl
                     cell.activityIndicator.stopAnimating()
                     cell.favoriteBtn.setBackgroundImage(#imageLiteral(resourceName: "icons8-favorites-steel"), for: .normal)
                     cell.favoriteBtn.alpha = 0.7
+                    
+                    guard let appDelegate = UIApplication.shared.delegate as? AppDelegate, let myRecipyHeader = cell.recipeHeader else {
+                        return
+                    }
+                    
+                    guard let def = appDelegate.defults.value(forKey: "\(myRecipyHeader.id)") else {
+                        return
+                    }
+                    
                     return
                 }
                 print("error error loading picture: \(err)")
