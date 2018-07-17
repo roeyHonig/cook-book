@@ -59,26 +59,29 @@
                                                             </constraints>
                                                         </view>
                                                         <view contentMode="scaleToFill" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="gas-r5-Dbr" userLabel="middle">
-                                                            <rect key="frame" x="0.0" y="5" width="375" height="200"/>
+                                                            <rect key="frame" x="0.0" y="5" width="375" height="405"/>
                                                             <subviews>
                                                                 <view contentMode="scaleToFill" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="7fo-Xh-UGy" userLabel="leftContainer">
-                                                                    <rect key="frame" x="0.0" y="0.0" width="200" height="200"/>
+                                                                    <rect key="frame" x="5" y="0.0" width="124" height="405"/>
                                                                     <subviews>
-                                                                        <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="1000" verticalCompressionResistancePriority="1000" fixedFrame="YES" image="Poultry.jpg" translatesAutoresizingMaskIntoConstraints="NO" id="PjJ-mf-TdZ">
-                                                                            <rect key="frame" x="0.0" y="0.0" width="200" height="200"/>
-                                                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                                        <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="1000" verticalCompressionResistancePriority="1000" ambiguous="YES" image="Poultry.jpg" translatesAutoresizingMaskIntoConstraints="NO" id="PjJ-mf-TdZ">
+                                                                            <rect key="frame" x="0.0" y="0.0" width="124" height="405"/>
                                                                         </imageView>
                                                                     </subviews>
                                                                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                                                     <constraints>
-                                                                        <constraint firstAttribute="width" constant="200" id="9Pb-ak-zvb"/>
+                                                                        <constraint firstItem="PjJ-mf-TdZ" firstAttribute="leading" secondItem="7fo-Xh-UGy" secondAttribute="leading" id="BR0-Yo-4Z7"/>
+                                                                        <constraint firstAttribute="width" secondItem="7fo-Xh-UGy" secondAttribute="height" id="KQU-vr-wCs"/>
+                                                                        <constraint firstItem="PjJ-mf-TdZ" firstAttribute="top" secondItem="7fo-Xh-UGy" secondAttribute="top" id="LbE-dT-sdT"/>
+                                                                        <constraint firstAttribute="trailing" secondItem="PjJ-mf-TdZ" secondAttribute="trailing" id="Sqc-wF-GI6"/>
+                                                                        <constraint firstAttribute="bottom" secondItem="PjJ-mf-TdZ" secondAttribute="bottom" id="oEb-ec-Vkx"/>
                                                                     </constraints>
                                                                 </view>
                                                                 <view contentMode="scaleToFill" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="bYU-xq-qBI" userLabel="rightContainer">
-                                                                    <rect key="frame" x="340" y="0.0" width="35" height="200"/>
+                                                                    <rect key="frame" x="340" y="0.0" width="35" height="405"/>
                                                                     <subviews>
                                                                         <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" image="icons8-chevron_right_filled" translatesAutoresizingMaskIntoConstraints="NO" id="XXN-2A-Rcd">
-                                                                            <rect key="frame" x="-0.5" y="83" width="35" height="35"/>
+                                                                            <rect key="frame" x="-0.5" y="185.5" width="35" height="35"/>
                                                                             <constraints>
                                                                                 <constraint firstAttribute="width" secondItem="XXN-2A-Rcd" secondAttribute="height" multiplier="1:1" id="vIf-7M-Flh"/>
                                                                             </constraints>
@@ -93,7 +96,7 @@
                                                                     </constraints>
                                                                 </view>
                                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="Label" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="IHP-tg-Mia">
-                                                                    <rect key="frame" x="200" y="0.0" width="140" height="200"/>
+                                                                    <rect key="frame" x="134" y="0.0" width="206" height="405"/>
                                                                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                                     <nil key="textColor"/>
@@ -104,19 +107,18 @@
                                                             <constraints>
                                                                 <constraint firstAttribute="bottom" secondItem="7fo-Xh-UGy" secondAttribute="bottom" id="0ig-Fh-Awh"/>
                                                                 <constraint firstAttribute="bottom" secondItem="bYU-xq-qBI" secondAttribute="bottom" id="OFh-d2-O9H"/>
-                                                                <constraint firstItem="7fo-Xh-UGy" firstAttribute="leading" secondItem="gas-r5-Dbr" secondAttribute="leading" id="XYy-F5-IPX"/>
+                                                                <constraint firstItem="7fo-Xh-UGy" firstAttribute="leading" secondItem="gas-r5-Dbr" secondAttribute="leading" constant="5" id="XYy-F5-IPX"/>
                                                                 <constraint firstItem="bYU-xq-qBI" firstAttribute="top" secondItem="gas-r5-Dbr" secondAttribute="top" id="Xzu-kK-PzV"/>
                                                                 <constraint firstAttribute="bottom" secondItem="IHP-tg-Mia" secondAttribute="bottom" id="Zmm-lI-VX2"/>
                                                                 <constraint firstItem="bYU-xq-qBI" firstAttribute="leading" secondItem="IHP-tg-Mia" secondAttribute="trailing" id="b0D-0O-lf9"/>
                                                                 <constraint firstAttribute="trailing" secondItem="bYU-xq-qBI" secondAttribute="trailing" id="i8O-gM-2xm"/>
-                                                                <constraint firstItem="IHP-tg-Mia" firstAttribute="leading" secondItem="7fo-Xh-UGy" secondAttribute="trailing" id="iD5-tf-H6w"/>
+                                                                <constraint firstItem="IHP-tg-Mia" firstAttribute="leading" secondItem="7fo-Xh-UGy" secondAttribute="trailing" constant="5" id="iD5-tf-H6w"/>
                                                                 <constraint firstItem="7fo-Xh-UGy" firstAttribute="top" secondItem="gas-r5-Dbr" secondAttribute="top" id="ikA-UA-r5z"/>
-                                                                <constraint firstAttribute="height" constant="200" id="kCb-xM-wS3"/>
                                                                 <constraint firstItem="IHP-tg-Mia" firstAttribute="top" secondItem="gas-r5-Dbr" secondAttribute="top" id="pIz-S5-rq5"/>
                                                             </constraints>
                                                         </view>
                                                         <view contentMode="scaleToFill" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="DPd-Ml-Jq7" userLabel="bottomSpacer">
-                                                            <rect key="frame" x="0.0" y="202.5" width="375" height="5"/>
+                                                            <rect key="frame" x="0.0" y="410" width="375" height="5"/>
                                                             <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
                                                             <constraints>
                                                                 <constraint firstAttribute="height" constant="5" id="Z9W-ga-mMI"/>
@@ -125,6 +127,7 @@
                                                     </subviews>
                                                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                                     <constraints>
+                                                        <constraint firstItem="gas-r5-Dbr" firstAttribute="height" secondItem="06d-MQ-s7q" secondAttribute="width" multiplier="0.33" id="5hs-yI-VKP"/>
                                                         <constraint firstAttribute="bottom" secondItem="DPd-Ml-Jq7" secondAttribute="bottom" id="76P-BD-QhE"/>
                                                         <constraint firstAttribute="trailing" secondItem="gas-r5-Dbr" secondAttribute="trailing" id="I6h-bf-fol"/>
                                                         <constraint firstAttribute="trailing" secondItem="dFo-A0-1JA" secondAttribute="trailing" id="PVQ-zb-F0k"/>
