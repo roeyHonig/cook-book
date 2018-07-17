@@ -17,7 +17,7 @@ class favoriteRecipesViewController: UIViewController, UITableViewDelegate, UITa
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "cellToBeDequed") as! MyTestTableViewCell
-        
+        cell.testLabel.text = testTableDataSource[indexPath.row]
         return cell
     }
     
@@ -89,6 +89,11 @@ class favoriteRecipesViewController: UIViewController, UITableViewDelegate, UITa
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
         // TODO: init datasource from the coreData
+        guard let appDelegate = UIApplication.shared.delegate as? AppDelegate else {
+            return
+        }
+        
+        testTableDataSource = appDelegate.tryingToLoadDataFromCoreDataAndGetItInTheFormOfStringArray()
         testTable.reloadData()
     }
 
