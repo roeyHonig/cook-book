@@ -184,6 +184,10 @@ class AppDelegate: UIResponder, UIApplicationDelegate, GIDSignInDelegate {
     
     // saving a recipy and adding it to myFavorites
     func saveThisFavoriteRecipyToCoreData(recipe: RecipeHeader) {
+        // 1st, let's cheack if it's allready saved in coreData and delete it
+        deletingThisRecipeFromMyFavoritesInCoreData(attribute: "id", whosValue: recipe.id)
+        
+        // now save it
         let entity = NSEntityDescription.entity(forEntityName: "FavoriteRecipes", in: managedContext)!
         let newEntery = NSManagedObject(entity: entity, insertInto: managedContext)
         
