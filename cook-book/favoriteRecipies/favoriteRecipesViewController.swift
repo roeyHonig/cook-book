@@ -22,7 +22,9 @@ class favoriteRecipesViewController: UIViewController {
             return
         }
         detailsViewController.recipeHeader = someRecipyHeader
-        addViewControllerAsChildViewController(childViewController: detailsViewController)
+        //addViewControllerAsChildViewController(childViewController: detailsViewController)
+        self.navigationController?.pushViewController(detailsViewController, animated: true)
+        
     }
     
     var detailsViewController: RecipeDetailsViewController = {
@@ -47,19 +49,19 @@ class favoriteRecipesViewController: UIViewController {
         addChildViewController(childViewController)
         
         // uncomment the follwoing if you want the childViewController to populate the entire view of the parent viewController
-        /*
+        
         self.view.addSubview(childViewController.view)
         childViewController.view.frame = self.view.bounds
         childViewController.view.autoresizingMask = [.flexibleWidth, .flexibleHeight]
-        */
+ 
         
         //uncomment the follwoing if you want the childViewController to populate a certain View inside the parentController
         
-        
+        /*
          parentView.addSubview(childViewController.view)
          childViewController.view.frame = parentView.bounds
          childViewController.view.autoresizingMask = [.flexibleWidth, .flexibleHeight]
-        
+        */
         
         childViewController.didMove(toParentViewController: self)
     }
