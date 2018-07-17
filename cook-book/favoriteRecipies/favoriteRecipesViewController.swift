@@ -9,7 +9,7 @@
 import UIKit
 import SDWebImage
 
-class favoriteRecipesViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
+class favoriteRecipesViewController: UIViewController, UITableViewDelegate, UITableViewDataSource, UINavigationControllerDelegate {
     
     @IBOutlet var testTable: UITableView!
     var testTableDataSource: [String] = []
@@ -19,6 +19,8 @@ class favoriteRecipesViewController: UIViewController, UITableViewDelegate, UITa
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
+        self.navigationController?.delegate = self
+        
         testTable.delegate = self
         testTable.dataSource = self
         
@@ -35,6 +37,17 @@ class favoriteRecipesViewController: UIViewController, UITableViewDelegate, UITa
         testTable.reloadData()
         
         //appDelegate.firstRec = tableDataSource[0]
+    }
+    
+    func navigationController(_ navigationController: UINavigationController, willShow viewController: UIViewController, animated: Bool) {
+        if viewController is favoriteRecipesViewController  {
+            let font = UIFont(name: "Helvetica", size: 42)! // TODO: it might be wise to provide some fallback fonts in case not all devices carry this
+            navigationController.navigationBar.titleTextAttributes = [ NSAttributedStringKey.font: font]
+            
+        } else if viewController is RecipeDetailsViewController {
+            let font = UIFont(name: "Helvetica", size: 12)! // TODO: it might be wise to provide some fallback fonts in case not all devices carry this
+            navigationController.navigationBar.titleTextAttributes = [ NSAttributedStringKey.font: font]
+        }
     }
 
     func readFavoriteRecipesDataFromCoreData() {
