@@ -32,13 +32,13 @@ class AppDelegate: UIResponder, UIApplicationDelegate, GIDSignInDelegate {
         // init UserDefults - kind like sheared instance
         //let defults = UserDefaults.standard
         firstRec.title = "Delicious Meet"
-        firstRec.img = "https://images.media-allrecipes.com/userphotos/560x315/966899.jpg'"
+        firstRec.img = "https://images.media-allrecipes.com/userphotos/560x315/966899.jpg"
         firstRec.ingredient_header1 = "Ingredients"
         firstRec.list1 = ["meet","yams","lemon"]
         firstRec.directions = "cook very slowlly"
         
         secondRec.title = "Delicious Pork"
-        secondRec.img = "https://images.media-allrecipes.com/userphotos/560x315/966899.jpg'"
+        secondRec.img = "https://images.media-allrecipes.com/userphotos/560x315/966899.jpg"
         secondRec.ingredient_header1 = "Ingredients"
         secondRec.list1 = ["pork","potatos","cream"]
         secondRec.directions = "cook very fast"

@@ -18,12 +18,18 @@ class favoriteRecipesViewController: UIViewController {
         guard let appDelegate = UIApplication.shared.delegate as? AppDelegate else {
             return
         }
-        guard let someRecipyHeader = appDelegate.sheredRecipyHeader else {
-            return
-        }
-        detailsViewController.recipeHeader = someRecipyHeader
+       
+        detailsViewController.recipeHeader = appDelegate.firstRec
         //addViewControllerAsChildViewController(childViewController: detailsViewController)
-        self.navigationController?.pushViewController(detailsViewController, animated: true)
+        
+        let detailsViewController2: RecipeDetailsViewController = {
+            let storyboard = UIStoryboard(name: "Main", bundle: Bundle.main)
+            var viewController = storyboard.instantiateViewController(withIdentifier: "RecipeDetailsViewController") as! RecipeDetailsViewController
+            
+            viewController.recipeHeader = appDelegate.firstRec
+            return viewController
+        }()
+        self.navigationController?.pushViewController(detailsViewController2, animated: true)
         
     }
     
