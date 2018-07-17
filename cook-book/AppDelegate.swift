@@ -182,6 +182,18 @@ class AppDelegate: UIResponder, UIApplicationDelegate, GIDSignInDelegate {
         }
     }
     
+    //----------
+    func testingSavingArrayOfStringToCoreData() {
+        let entity = NSEntityDescription.entity(forEntityName: "FavoriteRecipes", in: managedContext)!
+        let newEntery = NSManagedObject(entity: entity, insertInto: managedContext)
+        newEntery.setValue(["roey","rotem","ido"], forKey: "test")
+        do {
+            try managedContext.save()
+        } catch let error as NSError {
+            print("Could not save. \(error), \(error.userInfo)")
+        }
+    }
+    //------------------
     
     func didSaveToCoreDataWasSuccefull(myRecipeHeader: RecipeHeader) -> Bool {
         var didSaveActionWentOk = false
@@ -248,7 +260,32 @@ class AppDelegate: UIResponder, UIApplicationDelegate, GIDSignInDelegate {
         return didSaveActionWentOk
     }
     
-    
+    //------------------
+    func tryingToLoadDataFromCoreDataAndGetItInTheFormOfStringArray() -> [String]{
+        var stringArrayToReturn: [String] = []
+        var myManagedObjectToReturn: [NSManagedObject] = []
+        // fetch the coreData
+        let fetchRequest = NSFetchRequest<NSManagedObject>(entityName: "FavoriteRecipes")
+        /*
+        // no decprots for now
+        let descriptor1 = NSSortDescriptor(key: "idOfRecipe", ascending: true)
+        let descriptor2 = NSSortDescriptor(key: "index", ascending: true)
+        let descriptors = [descriptor1, descriptor2]
+        fetchRequest.sortDescriptors = descriptors
+        //
+        */
+        do {
+            let favoriesTable = try managedContext.fetch(fetchRequest)
+            myManagedObjectToReturn = favoriesTable
+        } catch let error as NSError {
+            print("Could not fetch. \(error), \(error.userInfo)")
+        }
+        
+        stringArrayToReturn = myManagedObjectToReturn[0].value(forKey: "test") as! [String]
+        
+        return stringArrayToReturn
+    }
+    //-----------------
     
     
     func loadCoreData() -> [NSManagedObject] {

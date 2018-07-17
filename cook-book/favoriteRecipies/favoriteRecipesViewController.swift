@@ -9,7 +9,24 @@
 import UIKit
 import SDWebImage
 
-class favoriteRecipesViewController: UIViewController {
+class favoriteRecipesViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
+    
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return testTableDataSource.count
+    }
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cell = tableView.dequeueReusableCell(withIdentifier: "cellToBeDequed") as! MyTestTableViewCell
+        
+        return cell
+    }
+    
+    
+    
+    @IBOutlet var testTable: UITableView!
+    var testTableDataSource: [String] = []
+    
+    var tableDataSource: [RecipeHeader] = []
     
     @IBOutlet var parentView: UIView!
     
@@ -63,11 +80,19 @@ class favoriteRecipesViewController: UIViewController {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
         
-       //self.detailsViewController.view.isHidden = false
+        testTable.delegate = self
+        testTable.dataSource = self
+        
         
     }
-
     
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        // TODO: init datasource from the coreData
+        testTable.reloadData()
+    }
+
+    /*
     func addViewControllerAsChildViewController(childViewController: UIViewController) {
         addChildViewController(childViewController)
         
@@ -88,7 +113,7 @@ class favoriteRecipesViewController: UIViewController {
         
         childViewController.didMove(toParentViewController: self)
     }
-    
+    */
     
     
     /*

@@ -1,5 +1,8 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <model type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="13241" systemVersion="16G1036" minimumToolsVersion="Automatic" sourceLanguage="Swift" userDefinedModelVersionIdentifier="">
+    <entity name="FavoriteRecipes" representedClassName="FavoriteRecipes" syncable="YES" codeGenerationType="class">
+        <attribute name="test" optional="YES" attributeType="Transformable" customClassName="[String]" syncable="YES"/>
+    </entity>
     <entity name="ShoppingList" representedClassName="ShoppingList" syncable="YES" codeGenerationType="class">
         <attribute name="cheacked" optional="YES" attributeType="Float" defaultValueString="0.0" usesScalarValueType="YES" syncable="YES"/>
         <attribute name="idOfRecipe" optional="YES" attributeType="Integer 64" defaultValueString="0" usesScalarValueType="YES" syncable="YES"/>
@@ -10,5 +13,6 @@
     </entity>
     <elements>
         <element name="ShoppingList" positionX="-63" positionY="-18" width="128" height="135"/>
+        <element name="FavoriteRecipes" positionX="-63" positionY="27" width="128" height="58"/>
     </elements>
 </model>

@@ -30,6 +30,8 @@ class RecipeDetailsViewController: UIViewController, UITableViewDelegate, UITabl
             sender.setBackgroundImage(#imageLiteral(resourceName: "icons8-favorites-red-marchino"), for: .normal)
             appDelegate.defults.set(true, forKey: "\(myRecipyHeader.id)")
             //TODO: write to core data
+            // trying to write [String]
+            appDelegate.testingSavingArrayOfStringToCoreData()
         }
     }
     
