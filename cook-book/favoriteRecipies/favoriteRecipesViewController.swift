@@ -21,10 +21,10 @@ class favoriteRecipesViewController: UIViewController, UITableViewDelegate, UITa
         
         if let imgString = tableDataSource[indexPath.row].img {
           let imgUrl = URL(string: imgString)
-            cell.imageView?.sd_setImage(with: imgUrl, completed: { (uiImage, error, sdImageCatchType, url) in
+            cell.recipyImage.sd_setImage(with: imgUrl, completed: { (uiImage, error, sdImageCatchType, url) in
                 // compleation code
             })
-        } else {cell.imageView?.image = #imageLiteral(resourceName: "icons8-cooking_pot_filled")}
+        } else {cell.recipyImage.image = #imageLiteral(resourceName: "icons8-cooking_pot_filled")}
         
         cell.testLabel.text = tableDataSource[indexPath.row].title
         cell.cellRecipyHeader = tableDataSource[indexPath.row]
@@ -104,12 +104,22 @@ class favoriteRecipesViewController: UIViewController, UITableViewDelegate, UITa
         testTable.delegate = self
         testTable.dataSource = self
         
+        readFavoriteRecipesDataFromCoreData()
+        testTable.reloadData()
         
     }
     
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
         // TODO: init datasource from the coreData
+        
+        readFavoriteRecipesDataFromCoreData()
+        testTable.reloadData()
+        
+        //appDelegate.firstRec = tableDataSource[0]
+    }
+
+    func readFavoriteRecipesDataFromCoreData() {
         guard let appDelegate = UIApplication.shared.delegate as? AppDelegate else {
             return
         }
@@ -124,11 +134,8 @@ class favoriteRecipesViewController: UIViewController, UITableViewDelegate, UITa
             }
             
         }
-        testTable.reloadData()
-        
-        //appDelegate.firstRec = tableDataSource[0]
     }
-
+    
     /*
     func addViewControllerAsChildViewController(childViewController: UIViewController) {
         addChildViewController(childViewController)
