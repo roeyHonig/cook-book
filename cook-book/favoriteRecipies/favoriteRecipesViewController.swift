@@ -15,19 +15,20 @@ class favoriteRecipesViewController: UIViewController {
     
     
     @IBAction func pouplateTheParentView(_ sender: UIButton) {
+        guard let appDelegate = UIApplication.shared.delegate as? AppDelegate else {
+            return
+        }
+        guard let someRecipyHeader = appDelegate.sheredRecipyHeader else {
+            return
+        }
+        detailsViewController.recipeHeader = someRecipyHeader
         addViewControllerAsChildViewController(childViewController: detailsViewController)
     }
     
     var detailsViewController: RecipeDetailsViewController = {
         let storyboard = UIStoryboard(name: "Main", bundle: Bundle.main)
         var viewController = storyboard.instantiateViewController(withIdentifier: "RecipeDetailsViewController") as! RecipeDetailsViewController
-        guard let appDelegate = UIApplication.shared.delegate as? AppDelegate else {
-            return viewController
-        }
-        guard let someRecipyHeader = appDelegate.sheredRecipyHeader else {
-            return viewController
-        }
-        viewController.recipeHeader = someRecipyHeader
+        
         
         return viewController
     }()
