@@ -13,7 +13,7 @@ class MyTestTableViewCell: UITableViewCell {
     
     @IBOutlet var testLabel: UILabel!
     
-    
+    var cellRecipyHeader: RecipeHeader?
     
     override func awakeFromNib() {
         super.awakeFromNib()

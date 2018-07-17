@@ -17,10 +17,22 @@ class favoriteRecipesViewController: UIViewController, UITableViewDelegate, UITa
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "cellToBeDequed") as! MyTestTableViewCell
-        cell.testLabel.text = testTableDataSource[indexPath.row]
+        cell.testLabel.text = tableDataSource[indexPath.row].title
+        cell.cellRecipyHeader = tableDataSource[indexPath.row]
         return cell
     }
     
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        let cell = tableView.cellForRow(at: indexPath) as! MyTestTableViewCell
+        let detailsViewController2: RecipeDetailsViewController = {
+            let storyboard = UIStoryboard(name: "Main", bundle: Bundle.main)
+            var viewController = storyboard.instantiateViewController(withIdentifier: "RecipeDetailsViewController") as! RecipeDetailsViewController
+            
+            viewController.recipeHeader = cell.cellRecipyHeader
+            return viewController
+        }()
+        self.navigationController?.pushViewController(detailsViewController2, animated: true)
+    }
     
     
     @IBOutlet var testTable: UITableView!
