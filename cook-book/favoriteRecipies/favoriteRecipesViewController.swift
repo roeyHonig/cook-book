@@ -93,8 +93,19 @@ class favoriteRecipesViewController: UIViewController, UITableViewDelegate, UITa
             return
         }
         
-        testTableDataSource = appDelegate.tryingToLoadDataFromCoreDataAndGetItInTheFormOfStringArray()
+        testTableDataSource.removeAll()
+        tableDataSource = appDelegate.readCoreDataSavedFavoriteRecipies()
+        for recpie in tableDataSource {
+            if recpie.title != nil {
+                testTableDataSource.append(recpie.title!)
+            } else {
+                testTableDataSource.append("blank")
+            }
+            
+        }
         testTable.reloadData()
+        
+        appDelegate.firstRec = tableDataSource[0]
     }
 
     /*
