@@ -1,7 +1,21 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <model type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="13241" systemVersion="16G1036" minimumToolsVersion="Automatic" sourceLanguage="Swift" userDefinedModelVersionIdentifier="">
     <entity name="FavoriteRecipes" representedClassName="FavoriteRecipes" syncable="YES" codeGenerationType="class">
-        <attribute name="test" optional="YES" attributeType="Transformable" customClassName="[String]" syncable="YES"/>
+        <attribute name="author" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="cook_time" optional="YES" attributeType="Integer 64" defaultValueString="0" usesScalarValueType="YES" syncable="YES"/>
+        <attribute name="directions" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="id" optional="YES" attributeType="Integer 64" defaultValueString="0" usesScalarValueType="YES" syncable="YES"/>
+        <attribute name="img" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="ingredient_header1" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="ingredient_header2" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="ingredient_header3" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="list1" optional="YES" attributeType="Transformable" customClassName="[String]" syncable="YES"/>
+        <attribute name="list2" optional="YES" attributeType="Transformable" customClassName="[String]" syncable="YES"/>
+        <attribute name="list3" optional="YES" attributeType="Transformable" customClassName="[String]" syncable="YES"/>
+        <attribute name="prep_time" optional="YES" attributeType="Integer 64" defaultValueString="0" usesScalarValueType="YES" syncable="YES"/>
+        <attribute name="recipe_type" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="serving" optional="YES" attributeType="Integer 64" defaultValueString="0" usesScalarValueType="YES" syncable="YES"/>
+        <attribute name="title" optional="YES" attributeType="String" syncable="YES"/>
     </entity>
     <entity name="ShoppingList" representedClassName="ShoppingList" syncable="YES" codeGenerationType="class">
         <attribute name="cheacked" optional="YES" attributeType="Float" defaultValueString="0.0" usesScalarValueType="YES" syncable="YES"/>
@@ -13,6 +27,6 @@
     </entity>
     <elements>
         <element name="ShoppingList" positionX="-63" positionY="-18" width="128" height="135"/>
-        <element name="FavoriteRecipes" positionX="-63" positionY="27" width="128" height="58"/>
+        <element name="FavoriteRecipes" positionX="-63" positionY="27" width="128" height="268"/>
     </elements>
 </model>
