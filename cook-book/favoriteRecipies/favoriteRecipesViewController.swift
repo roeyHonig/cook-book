@@ -13,6 +13,23 @@ class favoriteRecipesViewController: UIViewController {
     
     @IBOutlet var parentView: UIView!
     
+    @IBAction func pouplateTheParentViewWithADifrrentRecipy(_ sender: UIButton) {
+        guard let appDelegate = UIApplication.shared.delegate as? AppDelegate else {
+            return
+        }
+        
+        detailsViewController.recipeHeader = appDelegate.firstRec
+        //addViewControllerAsChildViewController(childViewController: detailsViewController)
+        
+        let detailsViewController2: RecipeDetailsViewController = {
+            let storyboard = UIStoryboard(name: "Main", bundle: Bundle.main)
+            var viewController = storyboard.instantiateViewController(withIdentifier: "RecipeDetailsViewController") as! RecipeDetailsViewController
+            
+            viewController.recipeHeader = appDelegate.secondRec
+            return viewController
+        }()
+        self.navigationController?.pushViewController(detailsViewController2, animated: true)
+    }
     
     @IBAction func pouplateTheParentView(_ sender: UIButton) {
         guard let appDelegate = UIApplication.shared.delegate as? AppDelegate else {

@@ -24,17 +24,26 @@
                                 <rect key="frame" x="0.0" y="64" width="375" height="554"/>
                                 <subviews>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="WAk-v1-ftl">
-                                        <rect key="frame" x="164" y="262" width="46" height="30"/>
-                                        <state key="normal" title="Button"/>
+                                        <rect key="frame" x="172" y="262" width="30" height="30"/>
+                                        <state key="normal" title="rec1"/>
                                         <connections>
                                             <action selector="pouplateTheParentView:" destination="tAA-Mf-DuQ" eventType="touchUpInside" id="awT-zt-9dJ"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="xma-vq-LkA">
+                                        <rect key="frame" x="172" y="312" width="31" height="30"/>
+                                        <state key="normal" title="rec2"/>
+                                        <connections>
+                                            <action selector="pouplateTheParentViewWithADifrrentRecipy:" destination="tAA-Mf-DuQ" eventType="touchUpInside" id="0Dt-h1-FIc"/>
                                         </connections>
                                     </button>
                                 </subviews>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <constraints>
                                     <constraint firstItem="WAk-v1-ftl" firstAttribute="centerX" secondItem="AzV-Ie-KCa" secondAttribute="centerX" id="dTA-AE-na2"/>
+                                    <constraint firstItem="xma-vq-LkA" firstAttribute="top" secondItem="WAk-v1-ftl" secondAttribute="bottom" constant="20" id="fA8-R1-1Jc"/>
                                     <constraint firstItem="WAk-v1-ftl" firstAttribute="centerY" secondItem="AzV-Ie-KCa" secondAttribute="centerY" id="nuF-st-0xU"/>
+                                    <constraint firstItem="xma-vq-LkA" firstAttribute="centerX" secondItem="AzV-Ie-KCa" secondAttribute="centerX" id="pZu-LL-Yfs"/>
                                 </constraints>
                             </view>
                         </subviews>
