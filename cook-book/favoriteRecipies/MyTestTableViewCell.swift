@@ -13,6 +13,9 @@ class MyTestTableViewCell: UITableViewCell {
     
     @IBOutlet var testLabel: UILabel!
     
+    
+    @IBOutlet var recipyImage: UIImageView!
+    
     var cellRecipyHeader: RecipeHeader?
     
     override func awakeFromNib() {

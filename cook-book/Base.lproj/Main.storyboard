@@ -68,7 +68,7 @@
                                                                     </constraints>
                                                                 </imageView>
                                                             </subviews>
-                                                            <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                                            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                                             <constraints>
                                                                 <constraint firstItem="PjJ-mf-TdZ" firstAttribute="centerX" secondItem="7fo-Xh-UGy" secondAttribute="centerX" id="4Ds-Fw-h6m"/>
                                                                 <constraint firstAttribute="width" constant="100" id="XJ8-QZ-Twk"/>
@@ -78,7 +78,7 @@
                                                         </view>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="IHP-tg-Mia">
                                                             <rect key="frame" x="116" y="5" width="224" height="119.5"/>
-                                                            <color key="backgroundColor" red="1" green="0.65990817859999995" blue="0.087172153840000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                             <nil key="textColor"/>
                                                             <nil key="highlightedColor"/>
@@ -93,7 +93,7 @@
                                                                     </constraints>
                                                                 </imageView>
                                                             </subviews>
-                                                            <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                                            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                                             <constraints>
                                                                 <constraint firstItem="XXN-2A-Rcd" firstAttribute="centerX" secondItem="bYU-xq-qBI" secondAttribute="centerX" id="4wi-f4-RYA"/>
                                                                 <constraint firstItem="XXN-2A-Rcd" firstAttribute="centerY" secondItem="bYU-xq-qBI" secondAttribute="centerY" id="GcE-0w-bK3"/>
@@ -109,7 +109,7 @@
                                                             </constraints>
                                                         </view>
                                                     </subviews>
-                                                    <color key="backgroundColor" red="0.15959769100000001" green="1" blue="0.18528526889999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                                     <constraints>
                                                         <constraint firstItem="DPd-Ml-Jq7" firstAttribute="top" secondItem="IHP-tg-Mia" secondAttribute="bottom" id="BAn-Rm-d4I"/>
                                                         <constraint firstItem="dFo-A0-1JA" firstAttribute="top" secondItem="06d-MQ-s7q" secondAttribute="top" id="BzM-bG-ht9"/>
@@ -130,6 +130,7 @@
                                                     </constraints>
                                                 </tableViewCellContentView>
                                                 <connections>
+                                                    <outlet property="recipyImage" destination="PjJ-mf-TdZ" id="hlf-AV-Ifl"/>
                                                     <outlet property="testLabel" destination="IHP-tg-Mia" id="ZW2-wi-bQq"/>
                                                 </connections>
                                             </tableViewCell>

@@ -17,6 +17,15 @@ class favoriteRecipesViewController: UIViewController, UITableViewDelegate, UITa
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "cellToBeDequed") as! MyTestTableViewCell
+        //cell.recipyImage = tableDataSource[indexPath.row].img
+        
+        if let imgString = tableDataSource[indexPath.row].img {
+          let imgUrl = URL(string: imgString)
+            cell.imageView?.sd_setImage(with: imgUrl, completed: { (uiImage, error, sdImageCatchType, url) in
+                // compleation code
+            })
+        } else {cell.imageView?.image = #imageLiteral(resourceName: "icons8-cooking_pot_filled")}
+        
         cell.testLabel.text = tableDataSource[indexPath.row].title
         cell.cellRecipyHeader = tableDataSource[indexPath.row]
         return cell
@@ -117,7 +126,7 @@ class favoriteRecipesViewController: UIViewController, UITableViewDelegate, UITa
         }
         testTable.reloadData()
         
-        appDelegate.firstRec = tableDataSource[0]
+        //appDelegate.firstRec = tableDataSource[0]
     }
 
     /*
