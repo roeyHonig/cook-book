@@ -289,6 +289,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate, GIDSignInDelegate {
         return didSaveActionWentOk
     }
     
+    /*
     //------------------
     func tryingToLoadDataFromCoreDataAndGetItInTheFormOfStringArray() -> [String]{
         var stringArrayToReturn: [String] = []
@@ -315,20 +316,20 @@ class AppDelegate: UIResponder, UIApplicationDelegate, GIDSignInDelegate {
         return stringArrayToReturn
     }
     //-----------------
-    
+     */
+ 
     func readCoreDataSavedFavoriteRecipies() -> [RecipeHeader] {
         var ArrayToReturn: [RecipeHeader] = []
         var myManagedObjectToReturn: [NSManagedObject] = []
         // fetch the coreData
         let fetchRequest = NSFetchRequest<NSManagedObject>(entityName: "FavoriteRecipes")
-        /*
-         // no decprots for now
-         let descriptor1 = NSSortDescriptor(key: "idOfRecipe", ascending: true)
-         let descriptor2 = NSSortDescriptor(key: "index", ascending: true)
-         let descriptors = [descriptor1, descriptor2]
+        
+         // sort by
+         let descriptor1 = NSSortDescriptor(key: "id", ascending: true)
+         let descriptors = [descriptor1]
          fetchRequest.sortDescriptors = descriptors
-         //
-         */
+        
+        // fetch
         do {
             let favoriesTable = try managedContext.fetch(fetchRequest)
             myManagedObjectToReturn = favoriesTable
