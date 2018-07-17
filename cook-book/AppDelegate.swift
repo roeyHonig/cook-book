@@ -181,20 +181,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate, GIDSignInDelegate {
             }
         }
     }
-    /*
-    //---------- delete this in the end
-    func testingSavingArrayOfStringToCoreData() {
-        let entity = NSEntityDescription.entity(forEntityName: "FavoriteRecipes", in: managedContext)!
-        let newEntery = NSManagedObject(entity: entity, insertInto: managedContext)
-        newEntery.setValue(["roey","rotem","ido"], forKey: "test")
-        do {
-            try managedContext.save()
-        } catch let error as NSError {
-            print("Could not save. \(error), \(error.userInfo)")
-        }
-    }
-    //------------------
-    */
+    
+    // saving a recipy and adding it to myFavorites
     func saveThisFavoriteRecipyToCoreData(recipe: RecipeHeader) {
         let entity = NSEntityDescription.entity(forEntityName: "FavoriteRecipes", in: managedContext)!
         let newEntery = NSManagedObject(entity: entity, insertInto: managedContext)
@@ -224,6 +212,31 @@ class AppDelegate: UIResponder, UIApplicationDelegate, GIDSignInDelegate {
         }
     }
     
+    // deleting, we'll delete according to the id of a recipy
+    func deletingThisRecipeFromMyFavoritesInCoreData(attribute txt: String, whosValue num: Any?) {
+        var myFetchedEntites: [NSManagedObject] = []
+        let myPredicate = NSPredicate(format: txt + " = %@", argumentArray: [(num as! Int)])
+        let fetchRequest = NSFetchRequest<NSManagedObject>(entityName: "FavoriteRecipes")
+        fetchRequest.predicate = myPredicate
+        
+        do {
+            let fetchedEntities = try managedContext.fetch(fetchRequest)
+            myFetchedEntites = fetchedEntities
+        } catch let error as NSError {
+            print("Could not fetch. \(error), \(error.userInfo)")
+        }
+        for entity in myFetchedEntites {
+            managedContext.delete(entity)
+        }
+        
+        do {
+            try managedContext.save()
+        } catch let error as NSError {
+            print("Could not save. \(error), \(error.userInfo)")
+        }
+    }
+    
+    // saving an ingredient list and adding it to my Shopping
     func didSaveToCoreDataWasSuccefull(myRecipeHeader: RecipeHeader) -> Bool {
         var didSaveActionWentOk = false
         var index = 1
@@ -289,35 +302,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate, GIDSignInDelegate {
         return didSaveActionWentOk
     }
     
-    /*
-    //------------------
-    func tryingToLoadDataFromCoreDataAndGetItInTheFormOfStringArray() -> [String]{
-        var stringArrayToReturn: [String] = []
-        var myManagedObjectToReturn: [NSManagedObject] = []
-        // fetch the coreData
-        let fetchRequest = NSFetchRequest<NSManagedObject>(entityName: "FavoriteRecipes")
-        /*
-        // no decprots for now
-        let descriptor1 = NSSortDescriptor(key: "idOfRecipe", ascending: true)
-        let descriptor2 = NSSortDescriptor(key: "index", ascending: true)
-        let descriptors = [descriptor1, descriptor2]
-        fetchRequest.sortDescriptors = descriptors
-        //
-        */
-        do {
-            let favoriesTable = try managedContext.fetch(fetchRequest)
-            myManagedObjectToReturn = favoriesTable
-        } catch let error as NSError {
-            print("Could not fetch. \(error), \(error.userInfo)")
-        }
-        
-        stringArrayToReturn = myManagedObjectToReturn[0].value(forKey: "test") as! [String]
-        
-        return stringArrayToReturn
-    }
-    //-----------------
-     */
- 
+    // fetching from coreData all my favorite recipes
     func readCoreDataSavedFavoriteRecipies() -> [RecipeHeader] {
         var ArrayToReturn: [RecipeHeader] = []
         var myManagedObjectToReturn: [NSManagedObject] = []
@@ -362,7 +347,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate, GIDSignInDelegate {
         return ArrayToReturn
     }
     
-    
+    // fetching from coreData my complete Sopping List
     func loadCoreData() -> [NSManagedObject] {
         var shoppingListTableToReturn: [NSManagedObject] = []
         // fetch the coreData
