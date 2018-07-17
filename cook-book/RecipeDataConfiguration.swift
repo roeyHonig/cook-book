@@ -29,8 +29,8 @@ struct RecipeHeader: Codable {
         self.id = x
     }
     
-    init(id x: Int, title t: String, img i: String, recipe_type rt: String, prep_time prept: Int, cook_time cookt: Int ,serving serv: Int, author aut: String, ingredient_header1 ih1: String, ingredient_header2 ih2: String, ingredient_header3 ih3: String,
-          list1 lis1: [String], list1 lis1: [String], list2 lis2: [String], list3 lis3: [String]) {
+    init(id x: Int, title t: String?, img i: String?, recipe_type rt: String?, prep_time prept: Int?, cook_time cookt: Int? ,serving serv: Int?, author aut: String?, ingredient_header1 ih1: String?, ingredient_header2 ih2: String?, ingredient_header3 ih3: String?,
+          list1 lis1: [String]?, list2 lis2: [String]?, list3 lis3: [String]?, directions dir: String?) {
         self.id = x
         self.title = t
         self.img = i
@@ -43,8 +43,9 @@ struct RecipeHeader: Codable {
         self.ingredient_header2 = ih2
         self.ingredient_header3 = ih3
         self.list1 = lis1
-        self.list2 = list2
+        self.list2 = lis2
         self.list3 = lis3
+        self.directions = dir
         
     }
     

@@ -181,8 +181,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate, GIDSignInDelegate {
             }
         }
     }
-    
-    //----------
+    /*
+    //---------- delete this in the end
     func testingSavingArrayOfStringToCoreData() {
         let entity = NSEntityDescription.entity(forEntityName: "FavoriteRecipes", in: managedContext)!
         let newEntery = NSManagedObject(entity: entity, insertInto: managedContext)
@@ -194,6 +194,35 @@ class AppDelegate: UIResponder, UIApplicationDelegate, GIDSignInDelegate {
         }
     }
     //------------------
+    */
+    func saveThisFavoriteRecipyToCoreData(recipe: RecipeHeader) {
+        let entity = NSEntityDescription.entity(forEntityName: "FavoriteRecipes", in: managedContext)!
+        let newEntery = NSManagedObject(entity: entity, insertInto: managedContext)
+        
+        //TODO: cheack if allready exsists
+        
+        newEntery.setValue(recipe.author, forKey: "author")
+        newEntery.setValue(recipe.cook_time, forKey: "cook_time")
+        newEntery.setValue(recipe.directions, forKey: "directions")
+        newEntery.setValue(recipe.id, forKey: "id")
+        newEntery.setValue(recipe.img, forKey: "img")
+        newEntery.setValue(recipe.ingredient_header1, forKey: "ingredient_header1")
+        newEntery.setValue(recipe.ingredient_header2, forKey: "ingredient_header2")
+        newEntery.setValue(recipe.ingredient_header3, forKey: "ingredient_header3")
+        newEntery.setValue(recipe.list1, forKey: "list1")
+        newEntery.setValue(recipe.list2, forKey: "list2")
+        newEntery.setValue(recipe.list3, forKey: "list3")
+        newEntery.setValue(recipe.prep_time, forKey: "prep_time")
+        newEntery.setValue(recipe.recipe_type, forKey: "recipe_type")
+        newEntery.setValue(recipe.serving, forKey: "serving")
+        newEntery.setValue(recipe.title, forKey: "title")
+        
+        do {
+            try managedContext.save()
+        } catch let error as NSError {
+            print("Could not save. \(error), \(error.userInfo)")
+        }
+    }
     
     func didSaveToCoreDataWasSuccefull(myRecipeHeader: RecipeHeader) -> Bool {
         var didSaveActionWentOk = false
@@ -286,6 +315,51 @@ class AppDelegate: UIResponder, UIApplicationDelegate, GIDSignInDelegate {
         return stringArrayToReturn
     }
     //-----------------
+    
+    func readCoreDataSavedFavoriteRecipies() -> [RecipeHeader] {
+        var ArrayToReturn: [RecipeHeader] = []
+        var myManagedObjectToReturn: [NSManagedObject] = []
+        // fetch the coreData
+        let fetchRequest = NSFetchRequest<NSManagedObject>(entityName: "FavoriteRecipes")
+        /*
+         // no decprots for now
+         let descriptor1 = NSSortDescriptor(key: "idOfRecipe", ascending: true)
+         let descriptor2 = NSSortDescriptor(key: "index", ascending: true)
+         let descriptors = [descriptor1, descriptor2]
+         fetchRequest.sortDescriptors = descriptors
+         //
+         */
+        do {
+            let favoriesTable = try managedContext.fetch(fetchRequest)
+            myManagedObjectToReturn = favoriesTable
+        } catch let error as NSError {
+            print("Could not fetch. \(error), \(error.userInfo)")
+        }
+        
+        // iterate, constrct RecipyHeader and append
+        for obj in myManagedObjectToReturn {
+            let title: String? = obj.value(forKey: "title") as! String?
+            let img: String? = obj.value(forKey: "img") as! String?
+            let recipe_type: String? = obj.value(forKey: "recipe_type") as! String?
+            let prep_time: Int? = obj.value(forKey: "prep_time") as! Int?
+            let cook_time: Int? = obj.value(forKey: "cook_time") as! Int?
+            let serving: Int? = obj.value(forKey: "serving") as! Int?
+            let author: String? = obj.value(forKey: "author") as! String?
+            let ingredient_header1: String? = obj.value(forKey: "ingredient_header1") as! String?
+            let ingredient_header2: String? = obj.value(forKey: "ingredient_header2") as! String?
+            let ingredient_header3: String? = obj.value(forKey: "ingredient_header3") as! String?
+            let list1: [String]? = obj.value(forKey: "list1") as! [String]?
+            let list2: [String]? = obj.value(forKey: "list2") as! [String]?
+            let list3: [String]? = obj.value(forKey: "list3") as! [String]?
+            let directions: String? = obj.value(forKey: "directions") as! String?
+            let id: Int = obj.value(forKey: "id") as! Int
+            
+            let tmpRecipe = RecipeHeader(id: id, title: title, img: img, recipe_type: recipe_type, prep_time: prep_time, cook_time: cook_time, serving: serving, author: author, ingredient_header1: ingredient_header1, ingredient_header2: ingredient_header2, ingredient_header3: ingredient_header3, list1: list1, list2: list2, list3: list3, directions: directions)
+            ArrayToReturn.append(tmpRecipe)
+        }
+        
+        return ArrayToReturn
+    }
     
     
     func loadCoreData() -> [NSManagedObject] {

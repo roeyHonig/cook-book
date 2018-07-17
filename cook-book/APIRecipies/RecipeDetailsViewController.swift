@@ -31,7 +31,7 @@ class RecipeDetailsViewController: UIViewController, UITableViewDelegate, UITabl
             appDelegate.defults.set(true, forKey: "\(myRecipyHeader.id)")
             //TODO: write to core data
             // trying to write [String]
-            appDelegate.testingSavingArrayOfStringToCoreData()
+            appDelegate.saveThisFavoriteRecipyToCoreData(recipe: myRecipyHeader)
         }
     }
     
