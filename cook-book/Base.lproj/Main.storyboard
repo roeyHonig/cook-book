@@ -23,26 +23,9 @@
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="AzV-Ie-KCa" userLabel="parentView">
                                 <rect key="frame" x="0.0" y="64" width="375" height="554"/>
                                 <subviews>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="WAk-v1-ftl">
-                                        <rect key="frame" x="172" y="262" width="30" height="30"/>
-                                        <state key="normal" title="rec1"/>
-                                        <connections>
-                                            <action selector="pouplateTheParentView:" destination="tAA-Mf-DuQ" eventType="touchUpInside" id="awT-zt-9dJ"/>
-                                        </connections>
-                                    </button>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="xma-vq-LkA">
-                                        <rect key="frame" x="172" y="312" width="31" height="30"/>
-                                        <state key="normal" title="rec2"/>
-                                        <connections>
-                                            <action selector="pouplateTheParentViewWithADifrrentRecipy:" destination="tAA-Mf-DuQ" eventType="touchUpInside" id="0Dt-h1-FIc"/>
-                                        </connections>
-                                    </button>
                                     <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="WBH-sC-avc">
-                                        <rect key="frame" x="0.0" y="0.0" width="375" height="250"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="375" height="554"/>
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                        <constraints>
-                                            <constraint firstAttribute="height" constant="250" id="gV6-03-mig"/>
-                                        </constraints>
                                         <prototypes>
                                             <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="cellToBeDequed" rowHeight="208" id="7en-zY-DBh" customClass="MyTestTableViewCell" customModule="cook_book" customModuleProvider="target">
                                                 <rect key="frame" x="0.0" y="28" width="375" height="208"/>
@@ -151,12 +134,9 @@
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <constraints>
                                     <constraint firstAttribute="trailing" secondItem="WBH-sC-avc" secondAttribute="trailing" id="6lN-Yt-Jm0"/>
+                                    <constraint firstAttribute="bottom" secondItem="WBH-sC-avc" secondAttribute="bottom" id="GgW-qH-tQ3"/>
                                     <constraint firstItem="WBH-sC-avc" firstAttribute="top" secondItem="AzV-Ie-KCa" secondAttribute="top" id="OdR-iZ-Y7d"/>
                                     <constraint firstItem="WBH-sC-avc" firstAttribute="leading" secondItem="AzV-Ie-KCa" secondAttribute="leading" id="ctj-82-Arb"/>
-                                    <constraint firstItem="WAk-v1-ftl" firstAttribute="centerX" secondItem="AzV-Ie-KCa" secondAttribute="centerX" id="dTA-AE-na2"/>
-                                    <constraint firstItem="xma-vq-LkA" firstAttribute="top" secondItem="WAk-v1-ftl" secondAttribute="bottom" constant="20" id="fA8-R1-1Jc"/>
-                                    <constraint firstItem="WAk-v1-ftl" firstAttribute="centerY" secondItem="AzV-Ie-KCa" secondAttribute="centerY" id="nuF-st-0xU"/>
-                                    <constraint firstItem="xma-vq-LkA" firstAttribute="centerX" secondItem="AzV-Ie-KCa" secondAttribute="centerX" id="pZu-LL-Yfs"/>
                                 </constraints>
                             </view>
                         </subviews>
