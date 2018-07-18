@@ -4,7 +4,7 @@
 //
 //  Created by hackeru on 3 Tamuz 5778.
 //  Copyright © 5778 student.roey.honig. All rights reserved.
-// lets bring the favorites
+// lets bring the openingAnimation
 
 import UIKit
 import CoreData
