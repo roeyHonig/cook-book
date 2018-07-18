@@ -24,6 +24,7 @@ class OpeningScreenViewController: UIViewController {
         
         paintingTheFrame()
         paintingOrangeDiagonal()
+        paintingSemiTransperentBlueTrinagle()
         
         UIView.animate(withDuration: 3, animations: {
             // animate stuff
@@ -71,6 +72,27 @@ class OpeningScreenViewController: UIViewController {
         
         path.move(to: CGPoint(x: 0, y: 0))
         path.addLine(to: CGPoint(x: 240, y: 128))
+        
+        boundaryShapeLayer.path = path.cgPath
+        layeredView.layer.addSublayer(boundaryShapeLayer)
+    }
+    
+    func paintingSemiTransperentBlueTrinagle() {
+        let boundaryShapeLayer = CAShapeLayer()
+        boundaryShapeLayer.frame = layeredView.bounds
+        
+        boundaryShapeLayer.lineWidth = 2.0
+        //boundaryShapeLayer.strokeColor = UIColor.blue.cgColor
+        let uiColor = UIColor(red: 46.0/255.0, green: 44.0/255.0, blue: 171.0/255.0, alpha: 0.5) //UIColor requires a float from 0 - 1, not from 0 - 255
+        boundaryShapeLayer.fillColor = uiColor.cgColor
+        boundaryShapeLayer.strokeColor = uiColor.cgColor
+        
+        let path = UIBezierPath()
+        // the corrdinates here are in the bounds, that is realitive to the view, that is, origin is 0,0
+        path.move(to: CGPoint(x: layeredView.bounds.midX, y: layeredView.bounds.minY))
+        path.addLine(to: CGPoint(x: layeredView.bounds.minX, y: layeredView.bounds.maxY))
+        path.addLine(to: CGPoint(x: layeredView.bounds.maxX, y: layeredView.bounds.maxY))
+        path.close()
         
         boundaryShapeLayer.path = path.cgPath
         layeredView.layer.addSublayer(boundaryShapeLayer)
