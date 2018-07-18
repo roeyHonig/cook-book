@@ -123,7 +123,7 @@ class ingredientsForEachShoopingListRecipeTableViewCell: UITableViewCell, CAAnim
         let rec = CGRect(x: rect.minX, y: CGFloat(Float(i - 1)) * (rect.height / CGFloat(Float(num))), width: rect.width, height: rect.height / CGFloat(Float(num)))
         path.move(to: CGPoint(x: rec.minX + 5, y: rec.midY))
         path.addLine(to: CGPoint(x: rec.maxX - 5, y: rec.midY))
-        layer.path = path.cgPath
+        layer.path = path.cgPath // return a CGpath from the UIBezierPath and assign it to the path property of the layer
        
         // Set up the appearance of the shape layer
         layer.lineWidth = 5
