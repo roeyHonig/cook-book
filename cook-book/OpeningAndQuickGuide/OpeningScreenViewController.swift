@@ -83,9 +83,10 @@ class OpeningScreenViewController: UIViewController {
         
         boundaryShapeLayer.lineWidth = 2.0
         //boundaryShapeLayer.strokeColor = UIColor.blue.cgColor
-        let uiColor = UIColor(red: 46.0/255.0, green: 44.0/255.0, blue: 171.0/255.0, alpha: 0.5) //UIColor requires a float from 0 - 1, not from 0 - 255
+        let uiColor = UIColor(red: 46.0/255.0, green: 44.0/255.0, blue: 171.0/255.0, alpha: 1) //UIColor requires a float from 0 - 1, not from 0 - 255
         boundaryShapeLayer.fillColor = uiColor.cgColor
         boundaryShapeLayer.strokeColor = uiColor.cgColor
+        boundaryShapeLayer.opacity = 0
         
         let path = UIBezierPath()
         // the corrdinates here are in the bounds, that is realitive to the view, that is, origin is 0,0
@@ -95,7 +96,21 @@ class OpeningScreenViewController: UIViewController {
         path.close()
         
         boundaryShapeLayer.path = path.cgPath
+        
+        // Create the animation for the shape view
+        let animation = CABasicAnimation(keyPath: "opacity")
+        //animation.delegate = self
+        animation.toValue = 1
+        animation.fillMode = kCAFillModeForwards
+        animation.isRemovedOnCompletion = false
+        animation.duration = 3 // seconds
+        animation.autoreverses = false
+        animation.timingFunction = CAMediaTimingFunction(name: "easeOut")
+        
+        // add th layer to a view
         layeredView.layer.addSublayer(boundaryShapeLayer)
+        // add animation to the layer
+        boundaryShapeLayer.add(animation, forKey: "opacity")
     }
     
     /*
