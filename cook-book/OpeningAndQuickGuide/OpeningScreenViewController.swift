@@ -22,7 +22,28 @@ class OpeningScreenViewController: UIViewController {
 
         // Do any additional setup after loading the view.
         
+        paintingTheFrame()
+        paintingOrangeDiagonal()
         
+        UIView.animate(withDuration: 3, animations: {
+            // animate stuff
+            self.backgroungView.alpha = 1
+            //self.layeredView.transform = CGAffineTransform(translationX: 0, y: 300)
+        }) { (bool) in
+            //upon compleation
+            print("Congrats, animation is over")
+            //self.performSegue(withIdentifier: "startApp", sender: self)
+        }
+        
+    }
+
+    override func didReceiveMemoryWarning() {
+        super.didReceiveMemoryWarning()
+        // Dispose of any resources that can be recreated.
+    }
+    
+    
+    func paintingTheFrame() {
         let boundaryShapeLayer = CAShapeLayer()
         
         
@@ -34,25 +55,25 @@ class OpeningScreenViewController: UIViewController {
         
         boundaryShapeLayer.path = UIBezierPath(rect: boundaryShapeLayer.bounds).cgPath
         layeredView.layer.addSublayer(boundaryShapeLayer)
-        
-        
-        
-        
-        UIView.animate(withDuration: 3, animations: {
-            // animate stuff
-            self.backgroungView.alpha = 1
-            self.layeredView.transform = CGAffineTransform(translationX: 0, y: 300)
-        }) { (bool) in
-            //upon compleation
-            print("Congrats, animation is over")
-            self.performSegue(withIdentifier: "startApp", sender: self)
-        }
-        
     }
-
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
+    
+    func paintingOrangeDiagonal() {
+        let boundaryShapeLayer = CAShapeLayer()
+        boundaryShapeLayer.frame = layeredView.bounds
+        
+        boundaryShapeLayer.lineWidth = 2.0
+        boundaryShapeLayer.fillColor = nil
+        boundaryShapeLayer.strokeColor = UIColor.orange.cgColor
+        
+        let path = UIBezierPath()
+        
+        // the corrdinates here are in the bounds, that is realitive to the view, that is, origin is 0,0
+        
+        path.move(to: CGPoint(x: 0, y: 0))
+        path.addLine(to: CGPoint(x: 240, y: 128))
+        
+        boundaryShapeLayer.path = path.cgPath
+        layeredView.layer.addSublayer(boundaryShapeLayer)
     }
     
     /*
