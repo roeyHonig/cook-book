@@ -22,6 +22,8 @@ class OpeningScreenViewController: UIViewController {
 
         // Do any additional setup after loading the view.
         
+        
+        
         paintingTheFrame()
         paintingOrangeDiagonal()
         //paintingSemiTransperentBlueTrinagle()
@@ -29,7 +31,7 @@ class OpeningScreenViewController: UIViewController {
         
         //--------------
         // init the views
-        initSingleSubView(triHeight: CGFloat(1), parentView: layeredView, red: 46.0/255.0, green: 44.0/255.0, blue: 171.0/255.0, viewAlpha: CGFloat(1))
+        initSingleSubView(triHeight: CGFloat(0), parentView: layeredView, red: 46.0/255.0, green: 44.0/255.0, blue: 171.0/255.0, viewAlpha: CGFloat(1))
         
         
         
@@ -44,6 +46,24 @@ class OpeningScreenViewController: UIViewController {
         }) { (bool) in
             //upon compleation
             print("Congrats, animation is over")
+            self.layeredViewSubViews[0].setNeedsDisplay()
+            UIView.animate(withDuration: 5, animations: {
+                self.layeredViewSubViews[0].alpha = 0.99
+                self.layeredViewSubViews[0].triHeight = 0.5
+            }, completion: { (bool) in
+                print ("the 0.5 is just now completing")
+                self.layeredViewSubViews[0].setNeedsDisplay()
+                UIView.animate(withDuration: 5, animations: {
+                    self.layeredViewSubViews[0].alpha = 1
+                    self.layeredViewSubViews[0].triHeight = 1
+                }, completion: { (bool) in
+                    self.layeredViewSubViews[0].setNeedsDisplay()
+                    print ("the 1 is just now completing")
+                })
+            })
+            
+            
+            
             //self.performSegue(withIdentifier: "startApp", sender: self)
             
             /*
@@ -58,21 +78,25 @@ class OpeningScreenViewController: UIViewController {
             }, completion: nil)
             */
             
-            
+            /*
             let relitiveDurationForThisAnimation: Double = 0.1
             
             
             
-            UIView.animateKeyframes(withDuration: 10.0, delay: 0, options: [], animations: {
+            UIView.animateKeyframes(withDuration: 5.0, delay: 0, options: [UIViewKeyframeAnimationOptions.layoutSubviews], animations: {
                 // define keyframes here
                 
-                UIView.addKeyframe(withRelativeStartTime: 0.0 , relativeDuration: 1 / 3.0, animations: {
+                UIView.addKeyframe(withRelativeStartTime: 0.0 , relativeDuration: 1 / 2.0, animations: {
                     // change something
                     
                     for customView in self.layeredViewSubViews {
-                        //customView.triHeight = 0.1
+                        customView.triHeight = 0.1
+                        self.view.alpha = 0.99
+                        //self.view.layoutIfNeeded()
                         //customView.setNeedsDisplay()
-                        customView.alpha = 0
+                        //customView.alpha = 0
+                        //customView.removeFromSuperview()
+                        //self.initSingleSubView(triHeight: CGFloat(0.3), parentView: self.layeredView, red: 46.0/255.0, green: 44.0/255.0, blue: 171.0/255.0, viewAlpha: CGFloat(1))
                         print(0.1)
                     }
                    
@@ -80,36 +104,29 @@ class OpeningScreenViewController: UIViewController {
                 
                 
                 
-                UIView.addKeyframe(withRelativeStartTime: 1 / 3.0 , relativeDuration: 1 / 3.0, animations: {
+                UIView.addKeyframe(withRelativeStartTime: 0.5 , relativeDuration: 1 / 2.0, animations: {
                     // change something
+                    
                     for customView in self.layeredViewSubViews {
-                        //customView.triHeight = 0.5
-                        //customView.setNeedsDisplay()
-                        customView.alpha = 1
-                        print(0.5)
+                        customView.setNeedsDisplay()
+                        customView.triHeight = 0.2
+                        self.view.alpha = 0.99
+                        //self.view.layoutIfNeeded()
+                        
+                        //customView.alpha = 0
+                        //customView.removeFromSuperview()
+                        //self.initSingleSubView(triHeight: CGFloat(0.3), parentView: self.layeredView, red: 46.0/255.0, green: 44.0/255.0, blue: 171.0/255.0, viewAlpha: CGFloat(1))
+                        print(0.1)
                     }
                     
                 })
                 
-                UIView.addKeyframe(withRelativeStartTime: 2 / 3.0 , relativeDuration: 1 / 3.0, animations: {
-                    // change something
-                    for customView in self.layeredViewSubViews {
-                        //customView.triHeight = 1
-                        //customView.setNeedsDisplay()
-                        customView.alpha = 0
-                        print(1)
-                    }
-                    
-                })
-       
             
-                
-               
-                
             }) { (bool) in
                 //upon completion
+                print("over")
             }
-            
+            */
             
         }
         
