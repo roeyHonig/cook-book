@@ -26,6 +26,28 @@ class OpeningScreenViewController: UIViewController {
         paintingOrangeDiagonal()
         //paintingSemiTransperentBlueTrinagle()
         
+        
+        //--------------
+        // init the views
+        
+        let customView = TrinagleUIView(triHeight: CGFloat(1), parentView: self.view, red: 46.0/255.0, green: 44.0/255.0, blue: 171.0/255.0, viewAlpha: CGFloat(1))
+        customView.translatesAutoresizingMaskIntoConstraints = false
+        layeredView.addSubview(customView)
+        // constraints
+        let constraintTop = NSLayoutConstraint(item: layeredView, attribute: NSLayoutAttribute.top, relatedBy: .equal, toItem: customView, attribute: NSLayoutAttribute.top , multiplier: 1, constant: 0)
+        let constraintBottom = NSLayoutConstraint(item: layeredView, attribute: NSLayoutAttribute.bottom, relatedBy: .equal, toItem: customView, attribute: NSLayoutAttribute.bottom , multiplier: 1, constant: 0)
+        let constraintTrailing = NSLayoutConstraint(item: layeredView, attribute: NSLayoutAttribute.trailing, relatedBy: .equal, toItem: customView, attribute: NSLayoutAttribute.trailing , multiplier: 1, constant: 0)
+        let constraintLeading = NSLayoutConstraint(item: layeredView, attribute: NSLayoutAttribute.leading, relatedBy: .equal, toItem: customView, attribute: NSLayoutAttribute.leading , multiplier: 1, constant: 0)
+        // assign the constraint to a coummon annssector
+        view.addConstraint(constraintTop)
+        view.contentView.addConstraint(constraintBottom)
+        view.contentView.addConstraint(constraintTrailing)
+        view.contentView.addConstraint(constraintLeading)
+      
+        
+        
+        //----------
+        
         UIView.animate(withDuration: 3, animations: {
             // animate stuff
             self.backgroungView.alpha = 1
