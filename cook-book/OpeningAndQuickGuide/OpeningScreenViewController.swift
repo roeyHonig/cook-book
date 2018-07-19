@@ -12,7 +12,7 @@ class OpeningScreenViewController: UIViewController {
 
     
     @IBOutlet var layeredView: UIView!
-    
+    var layeredViewSubViews: [TrinagleUIView] = []
     
     @IBOutlet var backgroungView: UIView!
     var myLayers: [CAShapeLayer] = []
@@ -29,7 +29,9 @@ class OpeningScreenViewController: UIViewController {
         
         //--------------
         // init the views
+        initSingleSubView(triHeight: CGFloat(1), parentView: layeredView, red: 46.0/255.0, green: 44.0/255.0, blue: 171.0/255.0, viewAlpha: CGFloat(1))
         
+        /*
         let customView = TrinagleUIView(triHeight: CGFloat(1), parentView: self.view, red: 46.0/255.0, green: 44.0/255.0, blue: 171.0/255.0, viewAlpha: CGFloat(1))
         customView.translatesAutoresizingMaskIntoConstraints = false
         layeredView.addSubview(customView)
@@ -40,10 +42,10 @@ class OpeningScreenViewController: UIViewController {
         let constraintLeading = NSLayoutConstraint(item: layeredView, attribute: NSLayoutAttribute.leading, relatedBy: .equal, toItem: customView, attribute: NSLayoutAttribute.leading , multiplier: 1, constant: 0)
         // assign the constraint to a coummon annssector
         view.addConstraint(constraintTop)
-        view.contentView.addConstraint(constraintBottom)
-        view.contentView.addConstraint(constraintTrailing)
-        view.contentView.addConstraint(constraintLeading)
-      
+        view.addConstraint(constraintBottom)
+        view.addConstraint(constraintTrailing)
+        view.addConstraint(constraintLeading)
+      */
         
         
         //----------
@@ -51,13 +53,31 @@ class OpeningScreenViewController: UIViewController {
         UIView.animate(withDuration: 3, animations: {
             // animate stuff
             self.backgroungView.alpha = 1
-            //self.layeredView.transform = CGAffineTransform(translationX: 0, y: 300)
+            self.layeredView.transform = CGAffineTransform(translationX: 0, y: 300)
         }) { (bool) in
             //upon compleation
             print("Congrats, animation is over")
             //self.performSegue(withIdentifier: "startApp", sender: self)
         }
         
+    }
+    
+    func initSingleSubView(triHeight th: CGFloat, parentView pv: UIView,red r: Float, green g: Float, blue b: Float, viewAlpha va: CGFloat) {
+        let customView = TrinagleUIView(triHeight: th, parentView: pv, red: r, green: g, blue: b, viewAlpha: va)
+        customView.translatesAutoresizingMaskIntoConstraints = false
+        layeredView.addSubview(customView)
+        // constraints
+        let constraintTop = NSLayoutConstraint(item: layeredView, attribute: NSLayoutAttribute.top, relatedBy: .equal, toItem: customView, attribute: NSLayoutAttribute.top , multiplier: 1, constant: 0)
+        let constraintBottom = NSLayoutConstraint(item: layeredView, attribute: NSLayoutAttribute.bottom, relatedBy: .equal, toItem: customView, attribute: NSLayoutAttribute.bottom , multiplier: 1, constant: 0)
+        let constraintTrailing = NSLayoutConstraint(item: layeredView, attribute: NSLayoutAttribute.trailing, relatedBy: .equal, toItem: customView, attribute: NSLayoutAttribute.trailing , multiplier: 1, constant: 0)
+        let constraintLeading = NSLayoutConstraint(item: layeredView, attribute: NSLayoutAttribute.leading, relatedBy: .equal, toItem: customView, attribute: NSLayoutAttribute.leading , multiplier: 1, constant: 0)
+        // assign the constraint to a coummon annssector
+        view.addConstraint(constraintTop)
+        view.addConstraint(constraintBottom)
+        view.addConstraint(constraintTrailing)
+        view.addConstraint(constraintLeading)
+        
+        layeredViewSubViews.append(customView)
     }
 
     override func didReceiveMemoryWarning() {

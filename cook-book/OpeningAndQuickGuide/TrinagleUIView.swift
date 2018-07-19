@@ -27,6 +27,7 @@ class TrinagleUIView: UIView {
         self.viewAlpha = va
         super.init(frame: pv.frame)
         self.alpha = va
+        self.backgroundColor = UIColor.clear
     }
     
     required init?(coder aDecoder: NSCoder) {
