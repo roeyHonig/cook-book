@@ -24,7 +24,7 @@ class OpeningScreenViewController: UIViewController {
         
         paintingTheFrame()
         paintingOrangeDiagonal()
-        paintingSemiTransperentBlueTrinagle()
+        //paintingSemiTransperentBlueTrinagle()
         
         UIView.animate(withDuration: 3, animations: {
             // animate stuff
