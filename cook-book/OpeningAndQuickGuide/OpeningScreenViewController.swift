@@ -29,35 +29,121 @@ class OpeningScreenViewController: UIViewController {
         
         //--------------
         // init the views
-        initSingleSubView(triHeight: CGFloat(1), parentView: layeredView, red: 46.0/255.0, green: 44.0/255.0, blue: 171.0/255.0, viewAlpha: CGFloat(1))
+        initSingleSubView(triHeight: CGFloat(0), parentView: layeredView, red: 46.0/255.0, green: 44.0/255.0, blue: 171.0/255.0, viewAlpha: CGFloat(1))
         
-        /*
-        let customView = TrinagleUIView(triHeight: CGFloat(1), parentView: self.view, red: 46.0/255.0, green: 44.0/255.0, blue: 171.0/255.0, viewAlpha: CGFloat(1))
-        customView.translatesAutoresizingMaskIntoConstraints = false
-        layeredView.addSubview(customView)
-        // constraints
-        let constraintTop = NSLayoutConstraint(item: layeredView, attribute: NSLayoutAttribute.top, relatedBy: .equal, toItem: customView, attribute: NSLayoutAttribute.top , multiplier: 1, constant: 0)
-        let constraintBottom = NSLayoutConstraint(item: layeredView, attribute: NSLayoutAttribute.bottom, relatedBy: .equal, toItem: customView, attribute: NSLayoutAttribute.bottom , multiplier: 1, constant: 0)
-        let constraintTrailing = NSLayoutConstraint(item: layeredView, attribute: NSLayoutAttribute.trailing, relatedBy: .equal, toItem: customView, attribute: NSLayoutAttribute.trailing , multiplier: 1, constant: 0)
-        let constraintLeading = NSLayoutConstraint(item: layeredView, attribute: NSLayoutAttribute.leading, relatedBy: .equal, toItem: customView, attribute: NSLayoutAttribute.leading , multiplier: 1, constant: 0)
-        // assign the constraint to a coummon annssector
-        view.addConstraint(constraintTop)
-        view.addConstraint(constraintBottom)
-        view.addConstraint(constraintTrailing)
-        view.addConstraint(constraintLeading)
-      */
         
+        
+       
         
         //----------
         
         UIView.animate(withDuration: 3, animations: {
             // animate stuff
             self.backgroungView.alpha = 1
-            self.layeredView.transform = CGAffineTransform(translationX: 0, y: 300)
+            //self.layeredView.transform = CGAffineTransform(translationX: 0, y: 300)
         }) { (bool) in
             //upon compleation
             print("Congrats, animation is over")
             //self.performSegue(withIdentifier: "startApp", sender: self)
+            
+            /*
+            UIView.animateKeyframes(withDuration: 2, delay: 0, options: [], animations: {
+                //
+                UIView.addKeyframe(withRelativeStartTime: 0.5, relativeDuration: 0.5, animations: {
+                    //
+                    self.layeredViewSubViews[0].triHeight = CGFloat(1)
+                    let rect = self.layeredView.frame
+                    self.layeredViewSubViews[0].setNeedsDisplay()
+                })
+            }, completion: nil)
+            */
+            
+            
+            let relitiveDurationForThisAnimation: Double = 0.1
+            
+            UIView.animateKeyframes(withDuration: 100, delay: 0, options: [], animations: {
+                // define keyframes here
+                
+                UIView.addKeyframe(withRelativeStartTime: 0.1 , relativeDuration: relitiveDurationForThisAnimation, animations: {
+                    // change something
+                    
+                    for customView in self.layeredViewSubViews {
+                        customView.triHeight = 0.1
+                        customView.setNeedsDisplay()
+                    }
+                })
+                
+                UIView.addKeyframe(withRelativeStartTime: 0.2 , relativeDuration: relitiveDurationForThisAnimation, animations: {
+                    // change something
+                    for customView in self.layeredViewSubViews {
+                        customView.triHeight = 0.2
+                        customView.setNeedsDisplay()
+                    }
+                })
+                
+                UIView.addKeyframe(withRelativeStartTime: 0.3 , relativeDuration: relitiveDurationForThisAnimation, animations: {
+                    // change something
+                    for customView in self.layeredViewSubViews {
+                        customView.triHeight = 0.3
+                        customView.setNeedsDisplay()
+                    }
+                })
+                
+                UIView.addKeyframe(withRelativeStartTime: 0.4 , relativeDuration: relitiveDurationForThisAnimation, animations: {
+                    // change something
+                    for customView in self.layeredViewSubViews {
+                        customView.triHeight = 0.4
+                        customView.setNeedsDisplay()
+                    }
+                })
+                
+                UIView.addKeyframe(withRelativeStartTime: 0.5 , relativeDuration: relitiveDurationForThisAnimation, animations: {
+                    // change something
+                    for customView in self.layeredViewSubViews {
+                        customView.triHeight = 0.5
+                        customView.setNeedsDisplay()
+                    }
+                })
+                
+                UIView.addKeyframe(withRelativeStartTime: 0.6 , relativeDuration: relitiveDurationForThisAnimation, animations: {
+                    // change something
+                    for customView in self.layeredViewSubViews {
+                        customView.triHeight = 0.6
+                        customView.setNeedsDisplay()
+                    }
+                })
+                
+                UIView.addKeyframe(withRelativeStartTime: 0.7 , relativeDuration: relitiveDurationForThisAnimation, animations: {
+                    // change something
+                    for customView in self.layeredViewSubViews {
+                        customView.triHeight = 0.7
+                        customView.setNeedsDisplay()
+                    }
+                })
+                
+                UIView.addKeyframe(withRelativeStartTime: 0.8 , relativeDuration: relitiveDurationForThisAnimation, animations: {
+                    // change something
+                    for customView in self.layeredViewSubViews {
+                        customView.triHeight = 0.8
+                        customView.setNeedsDisplay()
+                    }
+                })
+                
+                UIView.addKeyframe(withRelativeStartTime: 0.9 , relativeDuration: relitiveDurationForThisAnimation, animations: {
+                    // change something
+                    for customView in self.layeredViewSubViews {
+                        customView.triHeight = 0.9
+                        customView.setNeedsDisplay()
+                    }
+                })
+                
+               
+                
+            }) { (bool) in
+                //upon completion
+            }
+            
+            
         }
         
     }

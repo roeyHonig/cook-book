@@ -40,7 +40,7 @@ class TrinagleUIView: UIView {
         let uiColor = UIColor(red: CGFloat(red), green: CGFloat(green), blue :CGFloat(blue), alpha: 1) //UIColor requires a float from 0 - 1, not from 0 - 255
         uiColor.setStroke()
         uiColor.setFill()
-        path.move(to: CGPoint(x: rect.midX, y: rect.minY))
+        path.move(to: CGPoint(x: rect.midX, y: rect.maxY - triHeight * rect.height ))
         path.addLine(to: CGPoint(x: rect.minX, y: rect.maxY))
         path.addLine(to: CGPoint(x: rect.maxX, y: rect.maxY))
         path.close()
