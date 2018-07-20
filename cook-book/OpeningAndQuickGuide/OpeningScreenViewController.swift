@@ -38,7 +38,7 @@ class OpeningScreenViewController: UIViewController {
        
         
         //----------
-        
+        /*
         UIView.animate(withDuration: 2, animations: {
             // animate stuff
             self.backgroungView.alpha = 1
@@ -51,6 +51,21 @@ class OpeningScreenViewController: UIViewController {
         }) { (bool) in
             //upon compleation
             
+        }
+        */
+        
+        UIView.animate(withDuration: 2, delay: 0, options: UIViewAnimationOptions.autoreverse, animations: {
+            // animate stuff
+            self.backgroungView.alpha = 1
+            //self.layeredView.transform = CGAffineTransform(translationX: 0, y: 300)
+            //-------------
+            let angleY = 45.0 // angle between y axis and the y' axis after the skew
+            //
+            self.layeredViewSubViews[0].transform = __CGAffineTransformMake(1, 0, CGFloat(atan(Double.pi * angleY / 180)) ,1, CGFloat(-(Double(self.layeredViewSubViews[0].frame.height) * sin(Double.pi * angleY / 180) / 2)), 0)
+            //------------------
+        }) { (bool) in
+            //upon compleation
+            self.layeredViewSubViews[0].transform = CGAffineTransform.identity
         }
         
     }
