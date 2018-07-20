@@ -58,15 +58,16 @@ class OpeningScreenViewController: UIViewController {
             // animate stuff
             self.backgroungView.alpha = 1
             //self.layeredView.transform = CGAffineTransform(translationX: 0, y: 300)
-            //-------------
-            let angleY = 45.0 // angle between y axis and the y' axis after the skew
-            //
-            self.layeredViewSubViews[0].transform = __CGAffineTransformMake(1,
+            //----Botom Right anchored flames---------
+            let angleY = 80.0 // angle between y axis and the y' axis after the skew
+            let scaleX = CGFloat(0.5)
+            let scaleY = CGFloat(1.4)
+            self.layeredViewSubViews[0].transform = __CGAffineTransformMake(scaleX,
                                                                             0,
                                                                             CGFloat(atan(Double.pi * angleY / 180)),
-                                                                            1.5,
-                                                                            CGFloat(-(Double(self.layeredViewSubViews[0].frame.height) * sin(Double.pi * angleY / 180) / 2)),
-                                                                            -(1.5-1) * self.layeredViewSubViews[0].frame.height / 2
+                                                                            scaleY,
+                                                                            CGFloat(-(Double(self.layeredViewSubViews[0].frame.height) * sin(Double.pi * angleY / 180) / 2)) - (scaleX-1) * self.layeredViewSubViews[0].frame.width / 2,
+                                                                            -(scaleY-1) * self.layeredViewSubViews[0].frame.height / 2
             )
             //------------------
         }) { (bool) in
