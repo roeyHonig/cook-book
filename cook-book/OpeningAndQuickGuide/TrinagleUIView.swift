@@ -12,11 +12,13 @@ import UIKit
 class TrinagleUIView: UIView {
     var triHeight: CGFloat
     var parentView: UIView
-    var red: Float
-    var green: Float
-    var blue: Float
+    //var red: Float
+    //var green: Float
+    //var blue: Float
     var viewAlpha: CGFloat
+    var flameColor: UIColor
     
+    /*
     init(triHeight th: CGFloat, parentView pv: UIView,red r: Float, green g: Float, blue b: Float, viewAlpha va: CGFloat) {
         
         self.triHeight = th
@@ -29,6 +31,18 @@ class TrinagleUIView: UIView {
         self.alpha = va
         //self.backgroundColor = UIColor.clear
     }
+    */
+    
+    init(triHeight th: CGFloat, parentView pv: UIView,uiColor uic: UIColor, viewAlpha va: CGFloat) {
+        
+        self.triHeight = th
+        self.parentView = pv
+        self.flameColor = uic
+        self.viewAlpha = va
+        super.init(frame: pv.frame)
+        self.alpha = va
+        self.backgroundColor = UIColor.clear
+    }
     
     required init?(coder aDecoder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
@@ -37,7 +51,7 @@ class TrinagleUIView: UIView {
     override func draw(_ rect: CGRect) {
         let path = UIBezierPath()
         path.lineWidth = 2
-        let uiColor = UIColor(red: CGFloat(red), green: CGFloat(green), blue :CGFloat(blue), alpha: 1) //UIColor requires a float from 0 - 1, not from 0 - 255
+        let uiColor = flameColor
         uiColor.setStroke()
         uiColor.setFill()
         path.move(to: CGPoint(x: rect.midX, y: rect.maxY - triHeight * rect.height ))

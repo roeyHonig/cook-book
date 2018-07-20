@@ -31,7 +31,7 @@ class OpeningScreenViewController: UIViewController {
         
         //--------------
         // init the views
-        initSingleSubView(triHeight: CGFloat(1), parentView: layeredView, red: 46.0/255.0, green: 44.0/255.0, blue: 171.0/255.0, viewAlpha: CGFloat(1))
+        initSingleSubView(triHeight: CGFloat(1), parentView: layeredView, uicolor: UIColor().whiteFlame() , viewAlpha: CGFloat(1))
         
         
         
@@ -77,8 +77,8 @@ class OpeningScreenViewController: UIViewController {
         
     }
     
-    func initSingleSubView(triHeight th: CGFloat, parentView pv: UIView,red r: Float, green g: Float, blue b: Float, viewAlpha va: CGFloat) {
-        let customView = TrinagleUIView(triHeight: th, parentView: pv, red: r, green: g, blue: b, viewAlpha: va)
+    func initSingleSubView(triHeight th: CGFloat, parentView pv: UIView,uicolor uic: UIColor, viewAlpha va: CGFloat) {
+        let customView = TrinagleUIView(triHeight: th, parentView: pv, uiColor :uic, viewAlpha: va)
         customView.translatesAutoresizingMaskIntoConstraints = false
         layeredView.addSubview(customView)
         // constraints
@@ -234,6 +234,28 @@ class OpeningScreenViewController: UIViewController {
         return CGFloat(n < 0 ? -1 : 1)
     }
 
+}
+
+extension UIColor {
+    func redFlame() -> UIColor {
+        let uiColor = UIColor(red: CGFloat(230.0 / 255), green: CGFloat(86.0 / 255), blue :CGFloat(9.0 / 255), alpha: 1) //UIColor requires a float from 0 - 1, not from 0 - 255
+        return uiColor
+    }
+    
+    func orangeFlame() -> UIColor {
+        let uiColor = UIColor(red: CGFloat(251.0 / 255), green: CGFloat(154.0 / 255), blue :CGFloat(7.0 / 255), alpha: 1) //UIColor requires a float from 0 - 1, not from 0 - 255
+        return uiColor
+    }
+    
+    func yellowFlame() -> UIColor {
+        let uiColor = UIColor(red: CGFloat(254.0 / 255), green: CGFloat(204.0 / 255), blue :CGFloat(44.0 / 255), alpha: 1) //UIColor requires a float from 0 - 1, not from 0 - 255
+        return uiColor
+    }
+    
+    func whiteFlame() -> UIColor {
+        let uiColor = UIColor(red: CGFloat(254.0 / 255), green: CGFloat(228.0 / 255), blue :CGFloat(203.0 / 255), alpha: 1) //UIColor requires a float from 0 - 1, not from 0 - 255
+        return uiColor
+    }
 }
 
 
