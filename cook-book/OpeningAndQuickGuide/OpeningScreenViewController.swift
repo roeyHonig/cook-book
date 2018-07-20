@@ -66,7 +66,7 @@ class OpeningScreenViewController: UIViewController {
                                                                             0,
                                                                             CGFloat(atan(Double.pi * angleY / 180)),
                                                                             scaleY,
-                                                                            CGFloat(-(Double(self.layeredViewSubViews[0].frame.height) * sin(Double.pi * angleY / 180) / 2)) + (scaleX-1) * self.layeredViewSubViews[0].frame.width / 2,
+                                                                            CGFloat(-(Double(self.layeredViewSubViews[0].frame.height) * sin(Double.pi * angleY / 180) / 2)) - 1.0 * self.signOf(number: angleY) * (scaleX-1) * self.layeredViewSubViews[0].frame.width / 2,
                                                                             -(scaleY-1) * self.layeredViewSubViews[0].frame.height / 2
             )
             //------------------
@@ -229,5 +229,11 @@ class OpeningScreenViewController: UIViewController {
         // Pass the selected object to the new view controller.
     }
     */
+    
+    func signOf(number n: Double) -> CGFloat {
+        return CGFloat(n < 0 ? -1 : 1)
+    }
 
 }
+
+
