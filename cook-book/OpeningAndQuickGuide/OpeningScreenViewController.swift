@@ -13,7 +13,7 @@ class OpeningScreenViewController: UIViewController {
     
     @IBOutlet var layeredView: UIView!
     var layeredViewSubViews: [TrinagleUIView] = []
-    
+    var myHeights: [NSLayoutConstraint] = []
     @IBOutlet var backgroungView: UIView!
     var myLayers: [CAShapeLayer] = []
     
@@ -31,7 +31,7 @@ class OpeningScreenViewController: UIViewController {
         
         //--------------
         // init the views
-        initSingleSubView(triHeight: CGFloat(0), parentView: layeredView, red: 46.0/255.0, green: 44.0/255.0, blue: 171.0/255.0, viewAlpha: CGFloat(1))
+        initSingleSubView(triHeight: CGFloat(1), parentView: layeredView, red: 46.0/255.0, green: 44.0/255.0, blue: 171.0/255.0, viewAlpha: CGFloat(1))
         
         
         
@@ -39,94 +39,17 @@ class OpeningScreenViewController: UIViewController {
         
         //----------
         
-        UIView.animate(withDuration: 3, animations: {
+        UIView.animate(withDuration: 2, animations: {
             // animate stuff
             self.backgroungView.alpha = 1
             //self.layeredView.transform = CGAffineTransform(translationX: 0, y: 300)
+            //-------------
+            let angleY = 45.0 // angle between y axis and the y' axis after the skew
+            //
+            self.layeredViewSubViews[0].transform = __CGAffineTransformMake(1, 0, CGFloat(atan(Double.pi * angleY / 180)) ,1, CGFloat(-(Double(self.layeredViewSubViews[0].frame.height) * sin(Double.pi * angleY / 180) / 2)), 0)
+            //------------------
         }) { (bool) in
             //upon compleation
-            print("Congrats, animation is over")
-            self.layeredViewSubViews[0].setNeedsDisplay()
-            UIView.animate(withDuration: 5, animations: {
-                self.layeredViewSubViews[0].alpha = 0.99
-                self.layeredViewSubViews[0].triHeight = 0.5
-            }, completion: { (bool) in
-                print ("the 0.5 is just now completing")
-                self.layeredViewSubViews[0].setNeedsDisplay()
-                UIView.animate(withDuration: 5, animations: {
-                    self.layeredViewSubViews[0].alpha = 1
-                    self.layeredViewSubViews[0].triHeight = 1
-                }, completion: { (bool) in
-                    self.layeredViewSubViews[0].setNeedsDisplay()
-                    print ("the 1 is just now completing")
-                })
-            })
-            
-            
-            
-            //self.performSegue(withIdentifier: "startApp", sender: self)
-            
-            /*
-            UIView.animateKeyframes(withDuration: 2, delay: 0, options: [], animations: {
-                //
-                UIView.addKeyframe(withRelativeStartTime: 0.5, relativeDuration: 0.5, animations: {
-                    //
-                    self.layeredViewSubViews[0].triHeight = CGFloat(1)
-                    let rect = self.layeredView.frame
-                    self.layeredViewSubViews[0].setNeedsDisplay()
-                })
-            }, completion: nil)
-            */
-            
-            /*
-            let relitiveDurationForThisAnimation: Double = 0.1
-            
-            
-            
-            UIView.animateKeyframes(withDuration: 5.0, delay: 0, options: [UIViewKeyframeAnimationOptions.layoutSubviews], animations: {
-                // define keyframes here
-                
-                UIView.addKeyframe(withRelativeStartTime: 0.0 , relativeDuration: 1 / 2.0, animations: {
-                    // change something
-                    
-                    for customView in self.layeredViewSubViews {
-                        customView.triHeight = 0.1
-                        self.view.alpha = 0.99
-                        //self.view.layoutIfNeeded()
-                        //customView.setNeedsDisplay()
-                        //customView.alpha = 0
-                        //customView.removeFromSuperview()
-                        //self.initSingleSubView(triHeight: CGFloat(0.3), parentView: self.layeredView, red: 46.0/255.0, green: 44.0/255.0, blue: 171.0/255.0, viewAlpha: CGFloat(1))
-                        print(0.1)
-                    }
-                   
-                })
-                
-                
-                
-                UIView.addKeyframe(withRelativeStartTime: 0.5 , relativeDuration: 1 / 2.0, animations: {
-                    // change something
-                    
-                    for customView in self.layeredViewSubViews {
-                        customView.setNeedsDisplay()
-                        customView.triHeight = 0.2
-                        self.view.alpha = 0.99
-                        //self.view.layoutIfNeeded()
-                        
-                        //customView.alpha = 0
-                        //customView.removeFromSuperview()
-                        //self.initSingleSubView(triHeight: CGFloat(0.3), parentView: self.layeredView, red: 46.0/255.0, green: 44.0/255.0, blue: 171.0/255.0, viewAlpha: CGFloat(1))
-                        print(0.1)
-                    }
-                    
-                })
-                
-            
-            }) { (bool) in
-                //upon completion
-                print("over")
-            }
-            */
             
         }
         
@@ -137,9 +60,9 @@ class OpeningScreenViewController: UIViewController {
         customView.translatesAutoresizingMaskIntoConstraints = false
         layeredView.addSubview(customView)
         // constraints
-        let constraintTop = NSLayoutConstraint(item: layeredView, attribute: NSLayoutAttribute.top, relatedBy: .equal, toItem: customView, attribute: NSLayoutAttribute.top , multiplier: 1, constant: 0)
+        let constraintTop = NSLayoutConstraint(item: layeredView, attribute: NSLayoutAttribute.height, relatedBy: .equal, toItem: customView, attribute: NSLayoutAttribute.height , multiplier: 1, constant: 0)
         let constraintBottom = NSLayoutConstraint(item: layeredView, attribute: NSLayoutAttribute.bottom, relatedBy: .equal, toItem: customView, attribute: NSLayoutAttribute.bottom , multiplier: 1, constant: 0)
-        let constraintTrailing = NSLayoutConstraint(item: layeredView, attribute: NSLayoutAttribute.trailing, relatedBy: .equal, toItem: customView, attribute: NSLayoutAttribute.trailing , multiplier: 1, constant: 0)
+        let constraintTrailing = NSLayoutConstraint(item: layeredView, attribute: NSLayoutAttribute.width, relatedBy: .equal, toItem: customView, attribute: NSLayoutAttribute.width , multiplier: 1, constant: 0)
         let constraintLeading = NSLayoutConstraint(item: layeredView, attribute: NSLayoutAttribute.leading, relatedBy: .equal, toItem: customView, attribute: NSLayoutAttribute.leading , multiplier: 1, constant: 0)
         // assign the constraint to a coummon annssector
         view.addConstraint(constraintTop)
@@ -148,6 +71,7 @@ class OpeningScreenViewController: UIViewController {
         view.addConstraint(constraintLeading)
         
         layeredViewSubViews.append(customView)
+        myHeights.append(constraintTop)
     }
 
     override func didReceiveMemoryWarning() {
