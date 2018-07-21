@@ -59,8 +59,10 @@ class OpeningScreenViewController: UIViewController {
                 scaleY = 1.4
                 scaleX = 1.4
             }
-            
-            var alpha = CGFloat(Double(numOfFlames) - 1 / Double(numOfFlames))
+          
+            //var alpha = CGFloat(Float(Double(numOfFlames) - Double(i-1) / Double(numOfFlames)))
+            var alpha = CGFloat(Double((numOfFlames - i + 1)) / Double(numOfFlames))
+            print("the alpha is: \(alpha)")
             if alpha == 0 {alpha = 1}
             let angle = Double(Int().RandomInt(min: 1, max: 141) - 71)
             
@@ -123,6 +125,7 @@ class OpeningScreenViewController: UIViewController {
     func initSingleSubView(triHeight th: CGFloat, parentView pv: UIView,uicolor uic: UIColor, viewAlpha va: CGFloat, skewAngle sa: Double, scaleX sx: CGFloat, scaleY sy: CGFloat) {
         let customView = TrinagleUIView(triHeight: th, parentView: pv, uiColor: uic, viewAlpha: va, skewAngle: sa, scaleX: sx, scaleY: sy)
         customView.translatesAutoresizingMaskIntoConstraints = false
+        customView.alpha = va
         layeredView.addSubview(customView)
         // constraints
         let constraintTop = NSLayoutConstraint(item: layeredView, attribute: NSLayoutAttribute.height, relatedBy: .equal, toItem: customView, attribute: NSLayoutAttribute.height , multiplier: 1, constant: 0)
