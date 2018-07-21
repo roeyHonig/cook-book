@@ -33,6 +33,7 @@ class OpeningScreenViewController: UIViewController {
         // init the views
         
         for i in 1...numOfFlames{
+            let h: CGFloat
             let uiColor: UIColor
             let scaleX: CGFloat
             let scaleY: CGFloat
@@ -42,22 +43,27 @@ class OpeningScreenViewController: UIViewController {
                 uiColor = UIColor().redFlame()
                 scaleY = 1.5
                 scaleX = 1.5
+                h = CGFloat(Double(Int().RandomInt(min: 75, max: 100)) / 100.0)
             case 2:
                 uiColor = UIColor().orangeFlame()
                 scaleY = 1.3
                 scaleX = 1.3
+                h = CGFloat(Double(Int().RandomInt(min: 50, max: 75)) / 100.0)
             case 3:
                 uiColor = UIColor().yellowFlame()
                 scaleY = 1.1
                 scaleX = 1.1
+                h = CGFloat(Double(Int().RandomInt(min: 25, max: 50)) / 100.0)
             case 4:
                 uiColor = UIColor().whiteFlame()
                 scaleY = 0.8
                 scaleX = 0.8
+                h = CGFloat(Double(Int().RandomInt(min: 10, max: 25)) / 100.0)
             default:
                 uiColor = UIColor().orangeFlame()
                 scaleY = 1.4
                 scaleX = 1.4
+                h = CGFloat(1)
             }
           
             //var alpha = CGFloat(Float(Double(numOfFlames) - Double(i-1) / Double(numOfFlames)))
@@ -67,7 +73,7 @@ class OpeningScreenViewController: UIViewController {
             let angle = Double(Int().RandomInt(min: 1, max: 141) - 71)
             
             
-            initSingleSubView(triHeight: CGFloat(1), parentView: layeredView, uicolor: uiColor , viewAlpha: alpha, skewAngle: angle, scaleX: scaleX, scaleY: scaleY)
+            initSingleSubView(triHeight: h, parentView: layeredView, uicolor: uiColor , viewAlpha: alpha, skewAngle: angle, scaleX: scaleX, scaleY: scaleY)
             
         }
  
