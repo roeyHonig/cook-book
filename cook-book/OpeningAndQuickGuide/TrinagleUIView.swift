@@ -17,6 +17,9 @@ class TrinagleUIView: UIView {
     //var blue: Float
     var viewAlpha: CGFloat
     var flameColor: UIColor
+    var skewAngle: Double
+    var scaleX: CGFloat
+    var scaleY: CGFloat
     
     /*
     init(triHeight th: CGFloat, parentView pv: UIView,red r: Float, green g: Float, blue b: Float, viewAlpha va: CGFloat) {
@@ -33,12 +36,15 @@ class TrinagleUIView: UIView {
     }
     */
     
-    init(triHeight th: CGFloat, parentView pv: UIView,uiColor uic: UIColor, viewAlpha va: CGFloat) {
+    init(triHeight th: CGFloat, parentView pv: UIView,uiColor uic: UIColor, viewAlpha va: CGFloat, skewAngle sa: Double, scaleX sx: CGFloat, scaleY sy: CGFloat) {
         
         self.triHeight = th
         self.parentView = pv
         self.flameColor = uic
         self.viewAlpha = va
+        self.skewAngle = sa
+        self.scaleX = sx
+        self.scaleY = sy
         super.init(frame: pv.frame)
         self.alpha = va
         self.backgroundColor = UIColor.clear

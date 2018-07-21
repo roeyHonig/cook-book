@@ -10,7 +10,7 @@ import UIKit
 
 class OpeningScreenViewController: UIViewController {
 
-    
+    let numOfFlames = 3
     @IBOutlet var layeredView: UIView!
     var layeredViewSubViews: [TrinagleUIView] = []
     var myHeights: [NSLayoutConstraint] = []
@@ -31,7 +31,46 @@ class OpeningScreenViewController: UIViewController {
         
         //--------------
         // init the views
-        initSingleSubView(triHeight: CGFloat(1), parentView: layeredView, uicolor: UIColor().whiteFlame() , viewAlpha: CGFloat(1))
+        
+        for i in 1...numOfFlames{
+            let uiColor: UIColor
+            let scaleX: CGFloat
+            let scaleY: CGFloat
+            let randomNumber = Int().RandomInt(min: 1, max: 4)
+            switch randomNumber {
+            case 1:
+                uiColor = UIColor().redFlame()
+                scaleY = 1.5
+                scaleX = 1.5
+            case 2:
+                uiColor = UIColor().orangeFlame()
+                scaleY = 1.4
+                scaleX = 1.4
+            case 3:
+                uiColor = UIColor().yellowFlame()
+                scaleY = 1.3
+                scaleX = 1.3
+            case 4:
+                uiColor = UIColor().whiteFlame()
+                scaleY = 1.2
+                scaleX = 1.2
+            default:
+                uiColor = UIColor().orangeFlame()
+                scaleY = 1.4
+                scaleX = 1.4
+            }
+            
+            var alpha = CGFloat(Double(numOfFlames) - 1 / Double(numOfFlames))
+            if alpha == 0 {alpha = 1}
+            let angle = Double(Int().RandomInt(min: 1, max: 141) - 71)
+            
+            initSingleSubView(triHeight: CGFloat(1), parentView: layeredView, uicolor: uiColor , viewAlpha: alpha, skewAngle: angle, scaleX: scaleX, scaleY: scaleY)
+            
+        }
+ 
+        
+        
+       // initSingleSubView(triHeight: CGFloat(1), parentView: layeredView, uicolor: UIColor().whiteFlame() , viewAlpha: CGFloat(1))
         
         
         
@@ -54,31 +93,35 @@ class OpeningScreenViewController: UIViewController {
         }
         */
         
-        UIView.animate(withDuration: 1, delay: 0, options: [UIViewAnimationOptions.autoreverse, UIViewAnimationOptions.repeat], animations: {
-            // animate stuff
-            self.backgroungView.alpha = 1
-            //self.layeredView.transform = CGAffineTransform(translationX: 0, y: 300)
-            //----Botom Left anchored flames---------
-            let angleY = -80.0 // angle between y axis and the y' axis after the skew
-            let scaleX = CGFloat(0.5)
-            let scaleY = CGFloat(1.4)
-            self.layeredViewSubViews[0].transform = __CGAffineTransformMake(scaleX,
-                                                                            0,
-                                                                            CGFloat(atan(Double.pi * angleY / 180)),
-                                                                            scaleY,
-                                                                            CGFloat(-(Double(self.layeredViewSubViews[0].frame.height) * sin(Double.pi * angleY / 180) / 2)) - 1.0 * self.signOf(number: angleY) * (scaleX-1) * self.layeredViewSubViews[0].frame.width / 2,
-                                                                            -(scaleY-1) * self.layeredViewSubViews[0].frame.height / 2
-            )
-            //------------------
-        }) { (bool) in
-            //upon compleation
-            self.layeredViewSubViews[0].transform = CGAffineTransform.identity
+        for flameView in layeredViewSubViews{
+            UIView.animate(withDuration: 1, delay: 0, options: [UIViewAnimationOptions.autoreverse, UIViewAnimationOptions.repeat], animations: {
+                // animate stuff
+                self.backgroungView.alpha = 1
+                //self.layeredView.transform = CGAffineTransform(translationX: 0, y: 300)
+        
+                let angleY = flameView.skewAngle // angle between y axis and the y' axis after the skew
+                let scaleX = flameView.scaleX
+                let scaleY = flameView.scaleY
+                flameView.transform = __CGAffineTransformMake(scaleX,
+                                                                                0,
+                                                                                CGFloat(atan(Double.pi * angleY / 180)),
+                                                                                scaleY,
+                                                                                CGFloat(-(Double(flameView.frame.height) * sin(Double.pi * angleY / 180) / 2)) - 1.0 * self.signOf(number: angleY) * (scaleX-1) * flameView.frame.width / 2,
+                                                                                -(scaleY-1) * flameView.frame.height / 2
+                )
+                
+            }) { (bool) in
+                //upon compleation
+                flameView.transform = CGAffineTransform.identity
+            }
         }
+        
+        
         
     }
     
-    func initSingleSubView(triHeight th: CGFloat, parentView pv: UIView,uicolor uic: UIColor, viewAlpha va: CGFloat) {
-        let customView = TrinagleUIView(triHeight: th, parentView: pv, uiColor :uic, viewAlpha: va)
+    func initSingleSubView(triHeight th: CGFloat, parentView pv: UIView,uicolor uic: UIColor, viewAlpha va: CGFloat, skewAngle sa: Double, scaleX sx: CGFloat, scaleY sy: CGFloat) {
+        let customView = TrinagleUIView(triHeight: th, parentView: pv, uiColor: uic, viewAlpha: va, skewAngle: sa, scaleX: sx, scaleY: sy)
         customView.translatesAutoresizingMaskIntoConstraints = false
         layeredView.addSubview(customView)
         // constraints
@@ -234,6 +277,13 @@ class OpeningScreenViewController: UIViewController {
         return CGFloat(n < 0 ? -1 : 1)
     }
 
+}
+
+extension Int {
+    func RandomInt(min: Int, max: Int) -> Int {
+        if max < min { return min }
+        return Int(arc4random_uniform(UInt32((max - min) + 1))) + min
+    }
 }
 
 extension UIColor {
