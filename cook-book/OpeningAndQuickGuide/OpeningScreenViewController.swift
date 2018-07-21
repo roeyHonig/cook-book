@@ -10,7 +10,7 @@ import UIKit
 
 class OpeningScreenViewController: UIViewController {
 
-    let numOfFlames = 3
+    let numOfFlames = 100
     @IBOutlet var layeredView: UIView!
     var layeredViewSubViews: [TrinagleUIView] = []
     var myHeights: [NSLayoutConstraint] = []
@@ -44,16 +44,16 @@ class OpeningScreenViewController: UIViewController {
                 scaleX = 1.5
             case 2:
                 uiColor = UIColor().orangeFlame()
-                scaleY = 1.4
-                scaleX = 1.4
-            case 3:
-                uiColor = UIColor().yellowFlame()
                 scaleY = 1.3
                 scaleX = 1.3
+            case 3:
+                uiColor = UIColor().yellowFlame()
+                scaleY = 1.1
+                scaleX = 1.1
             case 4:
                 uiColor = UIColor().whiteFlame()
-                scaleY = 1.2
-                scaleX = 1.2
+                scaleY = 0.8
+                scaleX = 0.8
             default:
                 uiColor = UIColor().orangeFlame()
                 scaleY = 1.4
@@ -62,9 +62,10 @@ class OpeningScreenViewController: UIViewController {
           
             //var alpha = CGFloat(Float(Double(numOfFlames) - Double(i-1) / Double(numOfFlames)))
             var alpha = CGFloat(Double((numOfFlames - i + 1)) / Double(numOfFlames))
-            print("the alpha is: \(alpha)")
+            
             if alpha == 0 {alpha = 1}
             let angle = Double(Int().RandomInt(min: 1, max: 141) - 71)
+            
             
             initSingleSubView(triHeight: CGFloat(1), parentView: layeredView, uicolor: uiColor , viewAlpha: alpha, skewAngle: angle, scaleX: scaleX, scaleY: scaleY)
             
@@ -96,7 +97,7 @@ class OpeningScreenViewController: UIViewController {
         */
         
         for flameView in layeredViewSubViews{
-            UIView.animate(withDuration: 1, delay: 0, options: [UIViewAnimationOptions.autoreverse, UIViewAnimationOptions.repeat], animations: {
+            UIView.animate(withDuration: 0.5, delay: 0, options: [UIViewAnimationOptions.autoreverse, UIViewAnimationOptions.repeat], animations: {
                 // animate stuff
                 self.backgroungView.alpha = 1
                 //self.layeredView.transform = CGAffineTransform(translationX: 0, y: 300)
