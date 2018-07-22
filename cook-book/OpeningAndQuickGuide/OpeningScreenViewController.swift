@@ -103,6 +103,9 @@ class OpeningScreenViewController: UIViewController {
         */
         
         for flameView in layeredViewSubViews{
+            
+            
+            /*
             UIView.animate(withDuration: 0.5, delay: 0, options: [UIViewAnimationOptions.autoreverse, UIViewAnimationOptions.repeat], animations: {
                 // animate stuff
                 self.backgroungView.alpha = 1
@@ -123,6 +126,9 @@ class OpeningScreenViewController: UIViewController {
                 //upon compleation
                 flameView.transform = CGAffineTransform.identity
             }
+             */
+ 
+ 
         }
         
         
