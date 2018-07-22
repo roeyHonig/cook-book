@@ -129,7 +129,7 @@ class OpeningScreenViewController: UIViewController {
                     
                     let angleY = flameView.skewAngle // angle between y axis and the y' axis after the skew
                     let scaleX = flameView.scaleX
-                    let scaleY = flameView.scaleY * 1.2
+                    let scaleY = flameView.scaleY * 0.5
                     flameView.transform = __CGAffineTransformMake(scaleX,
                                                                   0,
                                                                   CGFloat(atan(Double.pi * angleY / 180)),
@@ -144,7 +144,7 @@ class OpeningScreenViewController: UIViewController {
                     
                     let angleY = flameView.skewAngle // angle between y axis and the y' axis after the skew
                     let scaleX = flameView.scaleX
-                    let scaleY = flameView.scaleY * 1.1
+                    let scaleY = flameView.scaleY * 0.3
                     flameView.transform = __CGAffineTransformMake(scaleX,
                                                                   0,
                                                                   CGFloat(atan(Double.pi * angleY / 180)),
@@ -159,7 +159,7 @@ class OpeningScreenViewController: UIViewController {
                     
                     let angleY = flameView.skewAngle // angle between y axis and the y' axis after the skew
                     let scaleX = flameView.scaleX
-                    let scaleY = flameView.scaleY * 1.3
+                    let scaleY = flameView.scaleY * 1
                     flameView.transform = __CGAffineTransformMake(scaleX,
                                                                   0,
                                                                   CGFloat(atan(Double.pi * angleY / 180)),
@@ -174,7 +174,7 @@ class OpeningScreenViewController: UIViewController {
                     
                     let angleY = flameView.skewAngle // angle between y axis and the y' axis after the skew
                     let scaleX = flameView.scaleX
-                    let scaleY = flameView.scaleY * 1.2
+                    let scaleY = flameView.scaleY * 0.5
                     flameView.transform = __CGAffineTransformMake(scaleX,
                                                                   0,
                                                                   CGFloat(atan(Double.pi * angleY / 180)),
@@ -189,7 +189,7 @@ class OpeningScreenViewController: UIViewController {
                     
                     let angleY = flameView.skewAngle // angle between y axis and the y' axis after the skew
                     let scaleX = flameView.scaleX
-                    let scaleY = flameView.scaleY * 1.4
+                    let scaleY = flameView.scaleY * 1.2
                     flameView.transform = __CGAffineTransformMake(scaleX,
                                                                   0,
                                                                   CGFloat(atan(Double.pi * angleY / 180)),
@@ -204,7 +204,7 @@ class OpeningScreenViewController: UIViewController {
                     
                     let angleY = flameView.skewAngle // angle between y axis and the y' axis after the skew
                     let scaleX = flameView.scaleX
-                    let scaleY = flameView.scaleY * 1.3
+                    let scaleY = flameView.scaleY * 1
                     flameView.transform = __CGAffineTransformMake(scaleX,
                                                                   0,
                                                                   CGFloat(atan(Double.pi * angleY / 180)),
