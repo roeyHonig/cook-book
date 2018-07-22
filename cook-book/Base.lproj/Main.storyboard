@@ -1120,27 +1120,36 @@
                                 <rect key="frame" x="150" y="296" width="75" height="75"/>
                                 <color key="backgroundColor" red="0.15959769100000001" green="1" blue="0.18528526889999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             </view>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="icons8-campfire" translatesAutoresizingMaskIntoConstraints="NO" id="al4-kM-KXI" userLabel="campFireLogs">
+                                <rect key="frame" x="150" y="320.5" width="75" height="75"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="75" id="AnQ-Oh-HaH"/>
+                                    <constraint firstAttribute="width" constant="75" id="ouD-eI-a5m"/>
+                                </constraints>
+                            </imageView>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="icons8-cooking_pot_filled" translatesAutoresizingMaskIntoConstraints="NO" id="MdH-QJ-FUN">
                                 <rect key="frame" x="149.5" y="295.5" width="75" height="75"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                             </imageView>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="pgw-3u-gpX">
-                                <rect key="frame" x="175" y="370.5" width="25" height="15"/>
+                                <rect key="frame" x="181" y="365.5" width="13" height="10"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="15" id="W0L-ie-k1S"/>
-                                    <constraint firstAttribute="width" constant="25" id="atf-VJ-gB7"/>
+                                    <constraint firstAttribute="height" constant="10" id="W0L-ie-k1S"/>
+                                    <constraint firstAttribute="width" constant="13" id="atf-VJ-gB7"/>
                                 </constraints>
                             </view>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
+                            <constraint firstItem="al4-kM-KXI" firstAttribute="centerX" secondItem="qee-Oz-2HL" secondAttribute="centerX" id="MOL-Gy-IZz"/>
                             <constraint firstItem="n13-Fp-H2k" firstAttribute="height" secondItem="MdH-QJ-FUN" secondAttribute="height" id="Oqh-Bt-gBQ"/>
                             <constraint firstItem="n13-Fp-H2k" firstAttribute="centerY" secondItem="qee-Oz-2HL" secondAttribute="centerY" id="RHX-Rb-AfW"/>
-                            <constraint firstItem="pgw-3u-gpX" firstAttribute="top" secondItem="MdH-QJ-FUN" secondAttribute="bottom" id="UwC-2v-7el"/>
+                            <constraint firstItem="pgw-3u-gpX" firstAttribute="bottom" secondItem="MdH-QJ-FUN" secondAttribute="bottom" constant="5" id="UwC-2v-7el"/>
                             <constraint firstItem="n13-Fp-H2k" firstAttribute="centerX" secondItem="qee-Oz-2HL" secondAttribute="centerX" id="W3c-bM-t4u"/>
                             <constraint firstItem="n13-Fp-H2k" firstAttribute="width" secondItem="MdH-QJ-FUN" secondAttribute="width" id="dHz-mI-8Vp"/>
                             <constraint firstItem="MdH-QJ-FUN" firstAttribute="centerY" secondItem="qee-Oz-2HL" secondAttribute="centerY" id="fvA-5i-N4U"/>
+                            <constraint firstItem="al4-kM-KXI" firstAttribute="top" secondItem="MdH-QJ-FUN" secondAttribute="bottom" constant="-50" id="jmu-YZ-w6Z"/>
                             <constraint firstItem="pgw-3u-gpX" firstAttribute="centerX" secondItem="qee-Oz-2HL" secondAttribute="centerX" id="o1x-eW-g6i"/>
                             <constraint firstItem="MdH-QJ-FUN" firstAttribute="centerX" secondItem="qee-Oz-2HL" secondAttribute="centerX" id="ypW-Nk-yPW"/>
                         </constraints>
@@ -1203,6 +1212,7 @@
         <image name="beef50" width="48" height="48"/>
         <image name="fisf-food50" width="50" height="50"/>
         <image name="googleSignIn.png" width="512" height="512"/>
+        <image name="icons8-campfire" width="64" height="64"/>
         <image name="icons8-chevron_right_filled" width="50" height="50"/>
         <image name="icons8-circle_filled" width="25" height="25"/>
         <image name="icons8-cooking_pot" width="24" height="24"/>
