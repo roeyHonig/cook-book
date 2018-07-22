@@ -105,8 +105,9 @@ class OpeningScreenViewController: UIViewController {
         for flameView in layeredViewSubViews{
             let originalHeight = flameView.frame.height
             let originalWidth = flameView.frame.width
+            var animatinoCounter = 1
             
-            UIView.animateKeyframes(withDuration: 2, delay: 0, options: [UIViewKeyframeAnimationOptions.autoreverse ,UIViewKeyframeAnimationOptions.repeat], animations: {
+            UIView.animateKeyframes(withDuration: 2, delay: 0, options: [], animations: {
                 // define keyFrames
                 
                 UIView.addKeyframe(withRelativeStartTime: 0 / 6.0, relativeDuration: 0 / 6.0, animations: {
@@ -216,8 +217,11 @@ class OpeningScreenViewController: UIViewController {
                 
             }, completion: { (bool) in
                 // upon completion
-                flameView.transform = CGAffineTransform.identity
+                animatinoCounter = animatinoCounter + 1
+                //flameView.transform = CGAffineTransform.identity
                 print("animation is ")
+                if animatinoCounter >=
+                self.performSegue(withIdentifier: "startApp", sender: self)
             })
             
             /*
