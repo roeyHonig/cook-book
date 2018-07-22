@@ -106,8 +106,23 @@ class OpeningScreenViewController: UIViewController {
             let originalHeight = flameView.frame.height
             let originalWidth = flameView.frame.width
             
-            UIView.animateKeyframes(withDuration: 6, delay: 0, options: [UIViewKeyframeAnimationOptions.autoreverse ,UIViewKeyframeAnimationOptions.repeat], animations: {
+            UIView.animateKeyframes(withDuration: 2, delay: 0, options: [UIViewKeyframeAnimationOptions.autoreverse ,UIViewKeyframeAnimationOptions.repeat], animations: {
                 // define keyFrames
+                
+                UIView.addKeyframe(withRelativeStartTime: 0 / 6.0, relativeDuration: 0 / 6.0, animations: {
+                    // aninmate stuff
+                    
+                    let angleY = flameView.skewAngle // angle between y axis and the y' axis after the skew
+                    let scaleX = flameView.scaleX
+                    let scaleY = flameView.scaleY * 0
+                    flameView.transform = __CGAffineTransformMake(scaleX,
+                                                                  0,
+                                                                  CGFloat(atan(Double.pi * angleY / 180)),
+                                                                  scaleY,
+                                                                  CGFloat(-(Double(originalHeight) * sin(Double.pi * angleY / 180) / 2)) - 1.0 * self.signOf(number: angleY) * (scaleX-1) * originalWidth / 2,
+                                                                  -(scaleY-1) * originalHeight / 2
+                    )
+                })
                 
                 UIView.addKeyframe(withRelativeStartTime: 0 / 6.0, relativeDuration: 1 / 6.0, animations: {
                     // aninmate stuff
@@ -202,6 +217,7 @@ class OpeningScreenViewController: UIViewController {
             }, completion: { (bool) in
                 // upon completion
                 flameView.transform = CGAffineTransform.identity
+                print("animation is ")
             })
             
             /*
