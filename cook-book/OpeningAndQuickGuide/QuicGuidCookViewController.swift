@@ -16,8 +16,8 @@ class QuicGuidCookViewController: UIViewController {
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
-        view.backgroundColor = UIColor.lightGray
-        parentView.backgroundColor = UIColor.lightGray
+        //view.backgroundColor = UIColor.lightGray
+        //parentView.backgroundColor = UIColor.lightGray
     }
 
     override func didReceiveMemoryWarning() {

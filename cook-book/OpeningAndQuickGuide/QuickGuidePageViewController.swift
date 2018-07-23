@@ -65,6 +65,8 @@ class QuickGuidePageViewController: UIPageViewController , UIPageViewControllerD
         
         
         setViewControllers([pages.first!], direction: .forward, animated: true, completion: nil)
+        
+        
     }
     
     override func viewDidLayoutSubviews() {
@@ -74,6 +76,11 @@ class QuickGuidePageViewController: UIPageViewController , UIPageViewControllerD
                 //v.frame = UIScreen.main.bounds
             } else if v is UIPageControl {
                 v.backgroundColor = UIColor.lightGray
+                let rect = CGRect(x: view.bounds.minX, y: view.bounds.maxY - v.bounds.height - 60, width: view.frame.width, height: 60)
+                let skipLabel = UILabel(frame: rect)
+                skipLabel.text = "Hello , did you miss me"
+                skipLabel.backgroundColor = UIColor.orange
+                view.addSubview(skipLabel)
             }
             
         }
