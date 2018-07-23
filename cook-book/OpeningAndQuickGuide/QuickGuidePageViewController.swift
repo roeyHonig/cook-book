@@ -10,22 +10,50 @@ import UIKit
 
 class QuickGuidePageViewController: UIPageViewController , UIPageViewControllerDelegate , UIPageViewControllerDataSource {
     
+    lazy var pages: [UIViewController] = {
+        return [instenceOfVC(named: "cookQG"), instenceOfVC(named: "shopQG"), instenceOfVC(named: "customizeQG") ]
+    }()
+    
+    func instenceOfVC(named id: String) -> UIViewController {
+        return UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: id)
+    }
+    
     func pageViewController(_ pageViewController: UIPageViewController, viewControllerBefore viewController: UIViewController) -> UIViewController? {
-        <#code#>
+        guard let currentPageIndex = pages.index(of: viewController) else {
+            return nil
+        }
+        
+        guard currentPageIndex > 0 else {
+            return nil
+        }
+        
+        return pages[currentPageIndex - 1]
     }
     
     func pageViewController(_ pageViewController: UIPageViewController, viewControllerAfter viewController: UIViewController) -> UIViewController? {
-        <#code#>
+        guard let currentPageIndex = pages.index(of: viewController) else {
+            return nil
+        }
+        
+        guard currentPageIndex < (pages.count - 1) else {
+            return nil
+        }
+        
+        return pages[currentPageIndex + 1]
     }
     
     // The number of items reflected in the page indicator.
     func presentationCount(for pageViewController: UIPageViewController) -> Int {
-        
+        return pages.count
     }
     
     // The selected item reflected in the page indicator.
     func presentationIndex(for pageViewController: UIPageViewController) -> Int {
+        guard let firstViewController = pages.first , let firstViewControllerIndex = pages.index(of: firstViewController) else {
+            return 0
+        }
         
+        return firstViewControllerIndex
     }
 
     override func viewDidLoad() {
