@@ -71,9 +71,9 @@ class QuickGuidePageViewController: UIPageViewController , UIPageViewControllerD
         super.viewDidLayoutSubviews()
         for v in view.subviews {
             if v is UIScrollView {
-                v.frame = UIScreen.main.bounds
+                //v.frame = UIScreen.main.bounds
             } else if v is UIPageControl {
-                v.backgroundColor = UIColor.clear
+                v.backgroundColor = UIColor.lightGray
             }
             
         }
