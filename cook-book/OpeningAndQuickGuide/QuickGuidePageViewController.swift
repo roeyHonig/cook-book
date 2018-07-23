@@ -63,7 +63,20 @@ class QuickGuidePageViewController: UIPageViewController , UIPageViewControllerD
         self.delegate = self
         self.dataSource = self
         
+        
         setViewControllers([pages.first!], direction: .forward, animated: true, completion: nil)
+    }
+    
+    override func viewDidLayoutSubviews() {
+        super.viewDidLayoutSubviews()
+        for v in view.subviews {
+            if v is UIScrollView {
+                v.frame = UIScreen.main.bounds
+            } else if v is UIPageControl {
+                v.backgroundColor = UIColor.clear
+            }
+            
+        }
     }
 
     override func didReceiveMemoryWarning() {
