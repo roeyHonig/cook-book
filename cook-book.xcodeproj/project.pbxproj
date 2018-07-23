@@ -32,6 +32,7 @@
 		6DF1ED6820E803C7005B614F /* IngridientTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6DF1ED6720E803C7005B614F /* IngridientTableViewCell.swift */; };
 		6DF2F90D20FAC3A7000054D2 /* CustomUIView7.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6DF2F90C20FAC3A7000054D2 /* CustomUIView7.swift */; };
 		6DF6FA7620DBBC7100D210C6 /* RecipeDetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6DF6FA7520DBBC7100D210C6 /* RecipeDetailsViewController.swift */; };
+		6DFA7E1D2105A360008A8D0C /* QuickGuidePageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6DFA7E1C2105A35F008A8D0C /* QuickGuidePageViewController.swift */; };
 		6DFFF47920D5737700368A45 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6DFFF47820D5737700368A45 /* AppDelegate.swift */; };
 		6DFFF47B20D5737700368A45 /* MyRecipiesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6DFFF47A20D5737700368A45 /* MyRecipiesViewController.swift */; };
 		6DFFF47E20D5737700368A45 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 6DFFF47C20D5737700368A45 /* Main.storyboard */; };
@@ -70,6 +71,7 @@
 		6DF1ED6720E803C7005B614F /* IngridientTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IngridientTableViewCell.swift; sourceTree = "<group>"; };
 		6DF2F90C20FAC3A7000054D2 /* CustomUIView7.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomUIView7.swift; sourceTree = "<group>"; };
 		6DF6FA7520DBBC7100D210C6 /* RecipeDetailsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecipeDetailsViewController.swift; sourceTree = "<group>"; };
+		6DFA7E1C2105A35F008A8D0C /* QuickGuidePageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuickGuidePageViewController.swift; sourceTree = "<group>"; };
 		6DFFF47520D5737700368A45 /* cook-book.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "cook-book.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		6DFFF47820D5737700368A45 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		6DFFF47A20D5737700368A45 /* MyRecipiesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyRecipiesViewController.swift; sourceTree = "<group>"; };
@@ -119,6 +121,7 @@
 			children = (
 				6DD7D0DD20FF1ECE007141DD /* OpeningScreenViewController.swift */,
 				6DBA6E562100AD8300C827FE /* TrinagleUIView.swift */,
+				6DFA7E1C2105A35F008A8D0C /* QuickGuidePageViewController.swift */,
 			);
 			path = OpeningAndQuickGuide;
 			sourceTree = "<group>";
@@ -371,6 +374,7 @@
 				6DF6FA7620DBBC7100D210C6 /* RecipeDetailsViewController.swift in Sources */,
 				6D0CF14C20E6688800A2B670 /* RecipeDataConfiguration.swift in Sources */,
 				6D0CF14A20E6639F00A2B670 /* favoriteRecipesViewController.swift in Sources */,
+				6DFA7E1D2105A360008A8D0C /* QuickGuidePageViewController.swift in Sources */,
 				6DF192E120F1665700FD3EA4 /* customDraw5.swift in Sources */,
 				6DFFF48120D5737700368A45 /* cook_book.xcdatamodeld in Sources */,
 				6DF1ED6820E803C7005B614F /* IngridientTableViewCell.swift in Sources */,
