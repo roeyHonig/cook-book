@@ -63,6 +63,7 @@ class QuickGuidePageViewController: UIPageViewController , UIPageViewControllerD
         self.delegate = self
         self.dataSource = self
         
+        setViewControllers([pages.first!], direction: .forward, animated: true, completion: nil)
     }
 
     override func didReceiveMemoryWarning() {

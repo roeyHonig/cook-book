@@ -1158,6 +1158,7 @@
                     <connections>
                         <outlet property="backgroungView" destination="n13-Fp-H2k" id="MBB-TN-yzu"/>
                         <outlet property="layeredView" destination="pgw-3u-gpX" id="qMF-Z9-WzG"/>
+                        <segue destination="1G5-Ms-KDZ" kind="show" identifier="startApp" id="e0z-bn-pu5"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="aMR-f7-wAx" userLabel="First Responder" sceneMemberID="firstResponder"/>
