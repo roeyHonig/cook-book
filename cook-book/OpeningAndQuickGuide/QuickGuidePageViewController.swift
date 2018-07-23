@@ -10,6 +10,10 @@ import UIKit
 
 class QuickGuidePageViewController: UIPageViewController , UIPageViewControllerDelegate , UIPageViewControllerDataSource {
     
+    var tapToSkip = UITapGestureRecognizer()
+    
+    var tapToSkipAndNeverShowAgain = UITapGestureRecognizer()
+    
     lazy var pages: [UIViewController] = {
         return [instenceOfVC(named: "cookQG"), instenceOfVC(named: "shopQG"), instenceOfVC(named: "customizeQG") ]
     }()
@@ -73,19 +77,54 @@ class QuickGuidePageViewController: UIPageViewController , UIPageViewControllerD
         super.viewDidLayoutSubviews()
         for v in view.subviews {
             if v is UIScrollView {
-                //v.frame = UIScreen.main.bounds
+                v.frame = UIScreen.main.bounds
             } else if v is UIPageControl {
-                v.backgroundColor = UIColor.lightGray
-                let rect = CGRect(x: view.bounds.minX, y: view.bounds.maxY - v.bounds.height - 60, width: view.frame.width, height: 60)
+                v.backgroundColor = UIColor.clear
+                
+                // setup "skip" label
+                let rect = CGRect(x: view.bounds.minX + 5, y: view.bounds.maxY - v.bounds.height - 60, width: 60, height: 60)
                 let skipLabel = UILabel(frame: rect)
-                skipLabel.text = "Hello , did you miss me"
-                skipLabel.backgroundColor = UIColor.orange
+                skipLabel.text = "Skip"
+                skipLabel.backgroundColor = UIColor.clear
+                skipLabel.isUserInteractionEnabled = true // very important
+                
+                // setup TapGestuere
+                tapToSkip.addTarget(self, action: #selector(GoToApp))
+                skipLabel.addGestureRecognizer(tapToSkip)
+                // add the view
                 view.addSubview(skipLabel)
+                
+                // setup "never Show agin label"
+                let rect2 = CGRect(x: view.bounds.maxX - 165, y: view.bounds.maxY - v.bounds.height - 60, width: 160, height: 60)
+                let skipLabel2 = UILabel(frame: rect2)
+                skipLabel2.text = "Never Show Again"
+                skipLabel2.textAlignment = NSTextAlignment.right
+                skipLabel2.backgroundColor = UIColor.clear
+                view.addSubview(skipLabel2)
+                
+                // setup taping gestuere
+                
+                
+                
+                /*
+                 
+                 ingridentsTapGesture.addTarget(self, action: #selector(showIngridents))
+                 ingridentsBtnView.addGestureRecognizer(ingridentsTapGesture)
+                 
+                 */
+                
             }
             
         }
     }
 
+    
+    
+    @objc func GoToApp() {
+        print("skip was clicked")
+        performSegue(withIdentifier: "goToTheApp", sender: self)
+    }
+    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.

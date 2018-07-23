@@ -1168,7 +1168,11 @@
         <!--Quick Guide Page View Controller-->
         <scene sceneID="PQ9-ZN-4Ra">
             <objects>
-                <pageViewController autoresizesArchivedViewToFullSize="NO" transitionStyle="scroll" navigationOrientation="horizontal" spineLocation="none" id="1G5-Ms-KDZ" customClass="QuickGuidePageViewController" customModule="cook_book" customModuleProvider="target" sceneMemberID="viewController"/>
+                <pageViewController autoresizesArchivedViewToFullSize="NO" transitionStyle="scroll" navigationOrientation="horizontal" spineLocation="none" id="1G5-Ms-KDZ" customClass="QuickGuidePageViewController" customModule="cook_book" customModuleProvider="target" sceneMemberID="viewController">
+                    <connections>
+                        <segue destination="f1N-gz-ajN" kind="show" identifier="goToTheApp" id="gYv-1l-Ecj"/>
+                    </connections>
+                </pageViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="4W8-DJ-Pgd" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="-2521" y="-1882"/>
