@@ -11,7 +11,6 @@ import UIKit
 class QuickGuidePageViewController: UIPageViewController , UIPageViewControllerDelegate , UIPageViewControllerDataSource {
     
     var tapToSkip = UITapGestureRecognizer()
-    
     var tapToSkipAndNeverShowAgain = UITapGestureRecognizer()
     
     lazy var pages: [UIViewController] = {
@@ -100,18 +99,15 @@ class QuickGuidePageViewController: UIPageViewController , UIPageViewControllerD
                 skipLabel2.text = "Never Show Again"
                 skipLabel2.textAlignment = NSTextAlignment.right
                 skipLabel2.backgroundColor = UIColor.clear
-                view.addSubview(skipLabel2)
+                skipLabel2.isUserInteractionEnabled = true // very important
                 
                 // setup taping gestuere
+                tapToSkipAndNeverShowAgain.addTarget(self, action: #selector(GoToAppAndNeverShowAgain))
+                skipLabel2.addGestureRecognizer(tapToSkipAndNeverShowAgain)
+                // add the view
+                view.addSubview(skipLabel2)
                 
                 
-                
-                /*
-                 
-                 ingridentsTapGesture.addTarget(self, action: #selector(showIngridents))
-                 ingridentsBtnView.addGestureRecognizer(ingridentsTapGesture)
-                 
-                 */
                 
             }
             
@@ -123,6 +119,11 @@ class QuickGuidePageViewController: UIPageViewController , UIPageViewControllerD
     @objc func GoToApp() {
         print("skip was clicked")
         performSegue(withIdentifier: "goToTheApp", sender: self)
+    }
+    
+    @objc func GoToAppAndNeverShowAgain() {
+        //TODO: app delegate defults to never show again
+        GoToApp()
     }
     
     override func didReceiveMemoryWarning() {
