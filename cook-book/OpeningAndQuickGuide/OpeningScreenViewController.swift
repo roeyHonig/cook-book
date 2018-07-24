@@ -217,7 +217,7 @@ class OpeningScreenViewController: UIViewController {
                     guard let appDelegate = UIApplication.shared.delegate as? AppDelegate else {
                         return
                     }
-                    if var shouldSKipQuickGuide = appDelegate.defults.value(forKey: "shouldSkipQuickGuid") as? Bool {
+                    if let shouldSKipQuickGuide = appDelegate.defults.value(forKey: "shouldSkipQuickGuid") as? Bool {
                         bool = shouldSKipQuickGuide
                     }
                     
