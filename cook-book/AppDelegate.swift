@@ -6,6 +6,9 @@
 //  Copyright © 5778 student.roey.honig. All rights reserved.
 // lets bring the quickGuide
 
+
+// TODO: design the last screen of the quickGuide
+
 import UIKit
 import CoreData
 import Firebase

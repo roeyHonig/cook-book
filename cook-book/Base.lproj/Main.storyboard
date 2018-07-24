@@ -1258,7 +1258,31 @@ Choose from our collection of recipes, conveniently, arranged into 8 groups </st
                     <view key="view" contentMode="scaleToFill" id="6Lq-pL-RTw">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Z8S-jl-qWG">
+                                <rect key="frame" x="20" y="60" width="335" height="81.5"/>
+                                <string key="text">On your way to the supermarket, add ingredients of recipes you’d like to cook this week to the shopping list.
+This way, you’ll never run out </string>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="icons8-ingredients" translatesAutoresizingMaskIntoConstraints="NO" id="bCk-LL-Hhf">
+                                <rect key="frame" x="137" y="161.5" width="100" height="100"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="100" id="GnA-Y5-k7C"/>
+                                    <constraint firstAttribute="width" constant="100" id="e5K-fq-bne"/>
+                                </constraints>
+                            </imageView>
+                        </subviews>
                         <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="bCk-LL-Hhf" firstAttribute="centerX" secondItem="6Lq-pL-RTw" secondAttribute="centerX" id="6x0-cI-Fdg"/>
+                            <constraint firstItem="Z8S-jl-qWG" firstAttribute="leading" secondItem="9PB-Ui-ojG" secondAttribute="leading" constant="20" id="BcP-It-bW5"/>
+                            <constraint firstItem="9PB-Ui-ojG" firstAttribute="trailing" secondItem="Z8S-jl-qWG" secondAttribute="trailing" constant="20" id="ZJC-kP-f16"/>
+                            <constraint firstItem="Z8S-jl-qWG" firstAttribute="top" secondItem="9PB-Ui-ojG" secondAttribute="top" constant="40" id="b7M-zX-jd8"/>
+                            <constraint firstItem="bCk-LL-Hhf" firstAttribute="top" secondItem="Z8S-jl-qWG" secondAttribute="bottom" constant="20" id="hVs-6q-IRD"/>
+                        </constraints>
                         <viewLayoutGuide key="safeArea" id="9PB-Ui-ojG"/>
                     </view>
                 </viewController>
@@ -1337,6 +1361,7 @@ Choose from our collection of recipes, conveniently, arranged into 8 groups </st
         <image name="icons8-expand_arrow_filled" width="50" height="50"/>
         <image name="icons8-favorites-red-marchino" width="50" height="50"/>
         <image name="icons8-filled_circle" width="24" height="24"/>
+        <image name="icons8-ingredients" width="96" height="96"/>
         <image name="icons8-ingredients_spring" width="50" height="50"/>
         <image name="icons8-kitchen_steel" width="50" height="50"/>
         <image name="icons8-like_filled" width="25" height="25"/>
