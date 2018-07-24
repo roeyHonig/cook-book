@@ -123,6 +123,10 @@ class QuickGuidePageViewController: UIPageViewController , UIPageViewControllerD
     
     @objc func GoToAppAndNeverShowAgain() {
         //TODO: app delegate defults to never show again
+        guard let appDelegate = UIApplication.shared.delegate as? AppDelegate else {
+            return
+        }
+        appDelegate.defults.set(true, forKey: "shouldSkipQuickGuid")
         GoToApp()
     }
     

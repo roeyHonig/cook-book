@@ -213,7 +213,24 @@ class OpeningScreenViewController: UIViewController {
                 //flameView.transform = CGAffineTransform.identity
                 print(animatinoCounter)
                 if animatinoCounter >= self.layeredViewSubViews.count {
-                    self.performSegue(withIdentifier: "startApp", sender: self)
+                    var bool = false
+                    guard let appDelegate = UIApplication.shared.delegate as? AppDelegate else {
+                        return
+                    }
+                    if var shouldSKipQuickGuide = appDelegate.defults.value(forKey: "shouldSkipQuickGuid") as? Bool {
+                        bool = shouldSKipQuickGuide
+                    }
+                    
+                    
+                    if bool {
+                        // don't present quickGuide and go strait to the recipes themself
+                        self.performSegue(withIdentifier: "startAppWithNoQuickGuide", sender: self)
+                    } else {
+                        // present quick guide
+                        self.performSegue(withIdentifier: "startApp", sender: self)
+                    }
+                    
+                    
                 }
                 
             })

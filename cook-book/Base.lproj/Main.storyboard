@@ -1159,6 +1159,7 @@
                         <outlet property="backgroungView" destination="n13-Fp-H2k" id="MBB-TN-yzu"/>
                         <outlet property="layeredView" destination="pgw-3u-gpX" id="qMF-Z9-WzG"/>
                         <segue destination="1G5-Ms-KDZ" kind="show" identifier="startApp" id="e0z-bn-pu5"/>
+                        <segue destination="f1N-gz-ajN" kind="show" identifier="startAppWithNoQuickGuide" id="brA-Jd-ujw"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="aMR-f7-wAx" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -1303,4 +1304,7 @@
         <image name="side-dish50" width="50" height="50"/>
         <image name="vegetarian50" width="50" height="50"/>
     </resources>
+    <inferredMetricsTieBreakers>
+        <segue reference="brA-Jd-ujw"/>
+    </inferredMetricsTieBreakers>
 </document>
