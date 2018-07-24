@@ -574,7 +574,13 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="VWG-gF-mDP"/>
                     </view>
-                    <navigationItem key="navigationItem" title="Shopping List" id="hsx-eA-11a"/>
+                    <navigationItem key="navigationItem" title="Shopping List" id="hsx-eA-11a">
+                        <barButtonItem key="rightBarButtonItem" systemItem="add" id="LG2-gk-LTd">
+                            <connections>
+                                <action selector="addCustomShoppingList:" destination="a0Z-xd-4ap" id="xMk-lT-7N0"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                     <connections>
                         <outlet property="mainTableView" destination="jLG-NC-yO3" id="iWv-L9-nGQ"/>
                     </connections>

@@ -18,7 +18,9 @@ class ShoppingListViewController: UIViewController, UITableViewDelegate, UITable
     var ingridentsTableDataSourceInnerCircleImageAlpfa: [[Float?]] = [[]]
     var ingridentsTableDataSourceNumberOfTextLines: [[Int?]] = [[]]
     
-    
+    @IBAction func addCustomShoppingList(_ sender: UIBarButtonItem) {
+        print("add was pressed")
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
