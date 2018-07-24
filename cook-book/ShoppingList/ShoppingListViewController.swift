@@ -8,7 +8,7 @@
 
 import UIKit
 import CoreData
-class ShoppingListViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
+class ShoppingListViewController: UIViewController, UITableViewDelegate, UITableViewDataSource, UINavigationControllerDelegate {
     
     @IBOutlet var mainTableView: UITableView!
     var shoppingListTable: [NSManagedObject] = []
@@ -24,6 +24,7 @@ class ShoppingListViewController: UIViewController, UITableViewDelegate, UITable
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
+        self.navigationController?.delegate = self
         
         // init tables data
         //TODO: needs to be retrived from the core data DB or shered instance
@@ -134,7 +135,12 @@ class ShoppingListViewController: UIViewController, UITableViewDelegate, UITable
         
     }
     
-   
+    func navigationController(_ navigationController: UINavigationController, willShow viewController: UIViewController, animated: Bool) {
+        if viewController is ShoppingListViewController  {
+            let font = UIFont(name: "Helvetica", size: 42)! // TODO: it might be wise to provide some fallback fonts in case not all devices carry this
+            navigationController.navigationBar.titleTextAttributes = [ NSAttributedStringKey.font: font]
+        }        
+    }
 
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         
