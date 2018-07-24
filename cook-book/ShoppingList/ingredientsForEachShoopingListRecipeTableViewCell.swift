@@ -148,7 +148,7 @@ class ingredientsForEachShoopingListRecipeTableViewCell: UITableViewCell, CAAnim
             animation.fillMode = kCAFillModeForwards
             animation.isRemovedOnCompletion = false
         }
-        animation.duration = 1 // seconds
+        animation.duration = 0.1 // seconds
         animation.autoreverses = false
         animation.timingFunction = CAMediaTimingFunction(name: "easeOut")
         
