@@ -20,6 +20,7 @@ class ShoppingListViewController: UIViewController, UITableViewDelegate, UITable
     
     @IBAction func addCustomShoppingList(_ sender: UIBarButtonItem) {
         print("add was pressed")
+        showInputDialog()
     }
     
     override func viewDidLoad() {
@@ -45,6 +46,30 @@ class ShoppingListViewController: UIViewController, UITableViewDelegate, UITable
         mainTableView.dataSource = self
         
     }
+    
+    func showInputDialog() {
+        let alertController = UIAlertController(title: "Add Ingredient", message: nil, preferredStyle: .alert)
+        let confirmAction = UIAlertAction(title: "OK", style: .default) { (uiAlertAction) in
+            // code that runs after confirmation
+            // getting the input value from the user
+            if alertController.textFields!.first!.text! != "" {
+                print("your custom ingredient is: \(alertController.textFields!.first!.text!)")
+            }
+            
+        }
+        let cancelAction = UIAlertAction(title: "Cancel", style: .cancel) { (uiAlertAction) in
+            
+        }
+        alertController.addTextField { (textField) in
+            textField.placeholder = "Ingredient Name"
+        }
+        alertController.addAction(confirmAction)
+        alertController.addAction(cancelAction)
+        self.present(alertController, animated: true) {
+            // upon completion
+        }
+    }
+    
     
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
