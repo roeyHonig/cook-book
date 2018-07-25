@@ -679,7 +679,122 @@
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="o9g-vN-sf0" userLabel="left" customClass="customDraw1" customModule="cook_book" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="0.0" width="281.5" height="37.5"/>
+                                        <subviews>
+                                            <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="PDZ-O2-voH">
+                                                <rect key="frame" x="0.0" y="0.0" width="281.5" height="37.5"/>
+                                                <subviews>
+                                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="sSQ-hM-C42" userLabel="prepContainer">
+                                                        <rect key="frame" x="0.0" y="0.0" width="87" height="37.5"/>
+                                                        <subviews>
+                                                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="icons8-cleaver_filled" translatesAutoresizingMaskIntoConstraints="NO" id="uIH-4W-ITU" userLabel="bigIcon">
+                                                                <rect key="frame" x="0.0" y="0.0" width="37.5" height="37.5"/>
+                                                            </imageView>
+                                                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="icons8-clock_filled" translatesAutoresizingMaskIntoConstraints="NO" id="DVc-Lc-ZlT" userLabel="smallIcon">
+                                                                <rect key="frame" x="37.5" y="0.0" width="19" height="19"/>
+                                                                <constraints>
+                                                                    <constraint firstAttribute="width" secondItem="DVc-Lc-ZlT" secondAttribute="height" id="sBz-lQ-yGr"/>
+                                                                </constraints>
+                                                            </imageView>
+                                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="999 min" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="f8R-4v-Pmd">
+                                                                <rect key="frame" x="56.5" y="0.0" width="30.5" height="37.5"/>
+                                                                <fontDescription key="fontDescription" type="system" pointSize="13"/>
+                                                                <nil key="textColor"/>
+                                                                <nil key="highlightedColor"/>
+                                                            </label>
+                                                        </subviews>
+                                                        <color key="backgroundColor" red="1" green="1" blue="0.40000000600000002" alpha="1" colorSpace="calibratedRGB"/>
+                                                        <constraints>
+                                                            <constraint firstItem="f8R-4v-Pmd" firstAttribute="top" secondItem="sSQ-hM-C42" secondAttribute="top" id="3Km-yX-AJO"/>
+                                                            <constraint firstAttribute="bottom" secondItem="uIH-4W-ITU" secondAttribute="bottom" id="6Pp-Af-uRg"/>
+                                                            <constraint firstItem="uIH-4W-ITU" firstAttribute="leading" secondItem="sSQ-hM-C42" secondAttribute="leading" id="K3J-BY-SUc"/>
+                                                            <constraint firstItem="DVc-Lc-ZlT" firstAttribute="top" secondItem="sSQ-hM-C42" secondAttribute="top" id="KaA-LZ-zud"/>
+                                                            <constraint firstItem="uIH-4W-ITU" firstAttribute="width" secondItem="sSQ-hM-C42" secondAttribute="height" id="LuF-9H-b3c"/>
+                                                            <constraint firstItem="uIH-4W-ITU" firstAttribute="top" secondItem="sSQ-hM-C42" secondAttribute="top" id="PU9-OU-c4o"/>
+                                                            <constraint firstItem="DVc-Lc-ZlT" firstAttribute="leading" secondItem="uIH-4W-ITU" secondAttribute="trailing" id="TkF-7s-vOV"/>
+                                                            <constraint firstItem="DVc-Lc-ZlT" firstAttribute="width" secondItem="sSQ-hM-C42" secondAttribute="height" multiplier="0.5" id="h7g-Sa-xQw"/>
+                                                            <constraint firstAttribute="bottom" secondItem="f8R-4v-Pmd" secondAttribute="bottom" id="iO6-2C-XsV"/>
+                                                            <constraint firstItem="f8R-4v-Pmd" firstAttribute="leading" secondItem="DVc-Lc-ZlT" secondAttribute="trailing" id="nvm-Ue-BOp"/>
+                                                            <constraint firstAttribute="trailing" secondItem="f8R-4v-Pmd" secondAttribute="trailing" id="vn5-h3-MRR"/>
+                                                        </constraints>
+                                                    </view>
+                                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="5rQ-yc-elE" userLabel="cookContainer">
+                                                        <rect key="frame" x="97" y="0.0" width="87.5" height="37.5"/>
+                                                        <subviews>
+                                                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="icons8-cooker" translatesAutoresizingMaskIntoConstraints="NO" id="d0r-Wt-rpw" userLabel="bigIcon">
+                                                                <rect key="frame" x="0.0" y="0.0" width="37.5" height="37.5"/>
+                                                            </imageView>
+                                                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="icons8-clock_filled" translatesAutoresizingMaskIntoConstraints="NO" id="9KW-m9-rgG" userLabel="smallIcon">
+                                                                <rect key="frame" x="37.5" y="0.0" width="19" height="19"/>
+                                                                <constraints>
+                                                                    <constraint firstAttribute="width" secondItem="9KW-m9-rgG" secondAttribute="height" id="wGv-IQ-M4t"/>
+                                                                </constraints>
+                                                            </imageView>
+                                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="999 min" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Sve-1v-IsN">
+                                                                <rect key="frame" x="56.5" y="0.0" width="31" height="37.5"/>
+                                                                <fontDescription key="fontDescription" type="system" pointSize="13"/>
+                                                                <nil key="textColor"/>
+                                                                <nil key="highlightedColor"/>
+                                                            </label>
+                                                        </subviews>
+                                                        <color key="backgroundColor" red="1" green="0.25357913100000001" blue="0.96946313760000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                        <constraints>
+                                                            <constraint firstItem="d0r-Wt-rpw" firstAttribute="width" secondItem="5rQ-yc-elE" secondAttribute="height" id="5Qh-7N-VYZ"/>
+                                                            <constraint firstAttribute="trailing" secondItem="Sve-1v-IsN" secondAttribute="trailing" id="EIj-R5-4EZ"/>
+                                                            <constraint firstItem="9KW-m9-rgG" firstAttribute="leading" secondItem="d0r-Wt-rpw" secondAttribute="trailing" id="WsS-u5-XFk"/>
+                                                            <constraint firstItem="d0r-Wt-rpw" firstAttribute="leading" secondItem="5rQ-yc-elE" secondAttribute="leading" id="hCp-Po-cRh"/>
+                                                            <constraint firstItem="Sve-1v-IsN" firstAttribute="top" secondItem="5rQ-yc-elE" secondAttribute="top" id="iW2-GF-39k"/>
+                                                            <constraint firstItem="9KW-m9-rgG" firstAttribute="top" secondItem="5rQ-yc-elE" secondAttribute="top" id="jKb-SX-Q7R"/>
+                                                            <constraint firstItem="Sve-1v-IsN" firstAttribute="leading" secondItem="9KW-m9-rgG" secondAttribute="trailing" id="kPB-h0-eHt"/>
+                                                            <constraint firstItem="9KW-m9-rgG" firstAttribute="width" secondItem="5rQ-yc-elE" secondAttribute="height" multiplier="0.5" id="li7-78-Obh"/>
+                                                            <constraint firstAttribute="bottom" secondItem="Sve-1v-IsN" secondAttribute="bottom" id="pqg-v1-zLV"/>
+                                                            <constraint firstAttribute="bottom" secondItem="d0r-Wt-rpw" secondAttribute="bottom" id="wRf-8b-wch"/>
+                                                            <constraint firstItem="d0r-Wt-rpw" firstAttribute="top" secondItem="5rQ-yc-elE" secondAttribute="top" id="wXZ-Ut-QSp"/>
+                                                        </constraints>
+                                                    </view>
+                                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="SC2-BC-Adj" userLabel="servingContainer">
+                                                        <rect key="frame" x="194.5" y="0.0" width="87" height="37.5"/>
+                                                        <subviews>
+                                                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="icons8-gender_neutral_user_filled" translatesAutoresizingMaskIntoConstraints="NO" id="74y-hG-CaT" userLabel="bigIcon">
+                                                                <rect key="frame" x="0.0" y="0.0" width="37.5" height="37.5"/>
+                                                            </imageView>
+                                                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="icons8-clock_filled" translatesAutoresizingMaskIntoConstraints="NO" id="kpe-2r-LGA" userLabel="smallIcon">
+                                                                <rect key="frame" x="37.5" y="0.0" width="18.5" height="18.5"/>
+                                                                <constraints>
+                                                                    <constraint firstAttribute="width" secondItem="kpe-2r-LGA" secondAttribute="height" id="hG7-3h-Cn3"/>
+                                                                </constraints>
+                                                            </imageView>
+                                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="4" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="zTe-Bv-YIf">
+                                                                <rect key="frame" x="56" y="0.0" width="31" height="37.5"/>
+                                                                <fontDescription key="fontDescription" type="system" pointSize="13"/>
+                                                                <nil key="textColor"/>
+                                                                <nil key="highlightedColor"/>
+                                                            </label>
+                                                        </subviews>
+                                                        <color key="backgroundColor" red="1" green="0.65867885969999995" blue="0.001031347811" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                        <constraints>
+                                                            <constraint firstItem="zTe-Bv-YIf" firstAttribute="top" secondItem="SC2-BC-Adj" secondAttribute="top" id="Du7-NN-glE"/>
+                                                            <constraint firstItem="74y-hG-CaT" firstAttribute="width" secondItem="SC2-BC-Adj" secondAttribute="height" id="GK1-8A-v2c"/>
+                                                            <constraint firstItem="kpe-2r-LGA" firstAttribute="top" secondItem="SC2-BC-Adj" secondAttribute="top" id="JOX-uT-Tir"/>
+                                                            <constraint firstAttribute="trailing" secondItem="zTe-Bv-YIf" secondAttribute="trailing" id="RAb-Nh-Cbp"/>
+                                                            <constraint firstItem="kpe-2r-LGA" firstAttribute="leading" secondItem="74y-hG-CaT" secondAttribute="trailing" id="SF2-WX-6ab"/>
+                                                            <constraint firstItem="kpe-2r-LGA" firstAttribute="width" secondItem="SC2-BC-Adj" secondAttribute="height" multiplier="0.5" id="Tr0-xL-Qra"/>
+                                                            <constraint firstAttribute="bottom" secondItem="74y-hG-CaT" secondAttribute="bottom" id="nSN-NX-dkl"/>
+                                                            <constraint firstItem="zTe-Bv-YIf" firstAttribute="leading" secondItem="kpe-2r-LGA" secondAttribute="trailing" id="njm-0B-R4P"/>
+                                                            <constraint firstAttribute="bottom" secondItem="zTe-Bv-YIf" secondAttribute="bottom" id="pXd-VS-cFA"/>
+                                                            <constraint firstItem="74y-hG-CaT" firstAttribute="top" secondItem="SC2-BC-Adj" secondAttribute="top" id="tnr-5L-lSL"/>
+                                                            <constraint firstItem="74y-hG-CaT" firstAttribute="leading" secondItem="SC2-BC-Adj" secondAttribute="leading" id="vvh-PL-YE0"/>
+                                                        </constraints>
+                                                    </view>
+                                                </subviews>
+                                            </stackView>
+                                        </subviews>
                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                        <constraints>
+                                            <constraint firstAttribute="bottom" secondItem="PDZ-O2-voH" secondAttribute="bottom" id="1Ui-06-Yp1"/>
+                                            <constraint firstAttribute="trailing" secondItem="PDZ-O2-voH" secondAttribute="trailing" id="Dvf-8k-Go7"/>
+                                            <constraint firstItem="PDZ-O2-voH" firstAttribute="top" secondItem="o9g-vN-sf0" secondAttribute="top" id="d7x-0n-Kpm"/>
+                                            <constraint firstItem="PDZ-O2-voH" firstAttribute="leading" secondItem="o9g-vN-sf0" secondAttribute="leading" id="pd9-kE-Am0"/>
+                                        </constraints>
                                     </view>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="CrU-sj-jn8" userLabel="right">
                                         <rect key="frame" x="281.5" y="0.0" width="93.5" height="38"/>
@@ -738,7 +853,7 @@
                                         </constraints>
                                     </view>
                                 </subviews>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <color key="backgroundColor" red="0.40000000600000002" green="0.80000001190000003" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                 <constraints>
                                     <constraint firstItem="CrU-sj-jn8" firstAttribute="leading" secondItem="o9g-vN-sf0" secondAttribute="trailing" id="375-iU-3Ya"/>
                                     <constraint firstItem="o9g-vN-sf0" firstAttribute="height" secondItem="eeJ-fZ-PBc" secondAttribute="height" id="4Ij-KJ-hTd"/>
@@ -1383,6 +1498,9 @@ This way, you’ll never run out </string>
         <image name="icons8-campfire" width="64" height="64"/>
         <image name="icons8-chevron_right_filled" width="50" height="50"/>
         <image name="icons8-circle_filled" width="25" height="25"/>
+        <image name="icons8-cleaver_filled" width="50" height="50"/>
+        <image name="icons8-clock_filled" width="50" height="50"/>
+        <image name="icons8-cooker" width="50" height="50"/>
         <image name="icons8-cooking_pot" width="24" height="24"/>
         <image name="icons8-cooking_pot_filled" width="75" height="75"/>
         <image name="icons8-delete" width="26" height="26"/>
@@ -1390,6 +1508,7 @@ This way, you’ll never run out </string>
         <image name="icons8-expand_arrow_filled-1" width="50" height="50"/>
         <image name="icons8-favorites-red-marchino" width="50" height="50"/>
         <image name="icons8-filled_circle" width="24" height="24"/>
+        <image name="icons8-gender_neutral_user_filled" width="50" height="50"/>
         <image name="icons8-ingredients" width="96" height="96"/>
         <image name="icons8-ingredients_spring" width="50" height="50"/>
         <image name="icons8-kitchen_steel" width="50" height="50"/>
