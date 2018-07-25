@@ -469,28 +469,28 @@
                                                     <rect key="frame" x="0.0" y="0.0" width="375" height="50"/>
                                                     <subviews>
                                                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="i0a-8s-9lB" userLabel="imageContainer">
-                                                            <rect key="frame" x="0.0" y="0.0" width="25" height="50"/>
+                                                            <rect key="frame" x="0.0" y="0.0" width="40" height="50"/>
                                                             <subviews>
-                                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="icons8-expand_arrow_filled" translatesAutoresizingMaskIntoConstraints="NO" id="u2M-aK-B0t">
-                                                                    <rect key="frame" x="4" y="16" width="17.5" height="18"/>
+                                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="icons8-expand_arrow_filled-1" translatesAutoresizingMaskIntoConstraints="NO" id="u2M-aK-B0t">
+                                                                    <rect key="frame" x="6.5" y="11" width="28" height="28.5"/>
                                                                     <constraints>
                                                                         <constraint firstAttribute="width" secondItem="u2M-aK-B0t" secondAttribute="height" id="e2L-0O-547"/>
                                                                     </constraints>
                                                                 </imageView>
                                                             </subviews>
-                                                            <color key="backgroundColor" red="1" green="1" blue="0.40000000600000002" alpha="1" colorSpace="calibratedRGB"/>
+                                                            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                                             <constraints>
                                                                 <constraint firstItem="u2M-aK-B0t" firstAttribute="width" secondItem="i0a-8s-9lB" secondAttribute="width" multiplier="0.7" id="4fI-Mm-WPA"/>
-                                                                <constraint firstAttribute="width" constant="25" id="F2q-iz-gu3"/>
+                                                                <constraint firstAttribute="width" constant="40" id="F2q-iz-gu3"/>
                                                                 <constraint firstItem="u2M-aK-B0t" firstAttribute="centerY" secondItem="i0a-8s-9lB" secondAttribute="centerY" id="rCc-Sd-gZ9"/>
                                                                 <constraint firstItem="u2M-aK-B0t" firstAttribute="centerX" secondItem="i0a-8s-9lB" secondAttribute="centerX" id="rVz-Yp-74O"/>
                                                             </constraints>
                                                         </view>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="1000" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="cRk-Z6-BKg">
-                                                            <rect key="frame" x="25" y="0.0" width="300" height="50"/>
-                                                            <color key="backgroundColor" red="1" green="1" blue="0.40000000600000002" alpha="1" colorSpace="calibratedRGB"/>
+                                                            <rect key="frame" x="50" y="0.0" width="275" height="50"/>
+                                                            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                                            <nil key="textColor"/>
+                                                            <color key="textColor" red="0.0" green="1" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                                             <nil key="highlightedColor"/>
                                                         </label>
                                                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ehc-Xb-CHq" userLabel="deleteImageContainer">
@@ -503,7 +503,7 @@
                                                                     </constraints>
                                                                 </imageView>
                                                             </subviews>
-                                                            <color key="backgroundColor" red="1" green="1" blue="0.40000000600000002" alpha="1" colorSpace="calibratedRGB"/>
+                                                            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                                             <gestureRecognizers/>
                                                             <constraints>
                                                                 <constraint firstAttribute="width" constant="50" id="7lA-kd-s0l"/>
@@ -514,10 +514,10 @@
                                                             </constraints>
                                                         </view>
                                                     </subviews>
-                                                    <color key="backgroundColor" red="0.50196081400000003" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                                    <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
                                                     <constraints>
                                                         <constraint firstItem="cRk-Z6-BKg" firstAttribute="top" secondItem="s6m-PE-5By" secondAttribute="top" id="5Gi-ma-wAF"/>
-                                                        <constraint firstItem="cRk-Z6-BKg" firstAttribute="leading" secondItem="i0a-8s-9lB" secondAttribute="trailing" id="W5q-Ge-LKx"/>
+                                                        <constraint firstItem="cRk-Z6-BKg" firstAttribute="leading" secondItem="i0a-8s-9lB" secondAttribute="trailing" constant="10" id="W5q-Ge-LKx"/>
                                                         <constraint firstItem="i0a-8s-9lB" firstAttribute="leading" secondItem="s6m-PE-5By" secondAttribute="leading" id="ZXx-CG-Ehd"/>
                                                         <constraint firstItem="i0a-8s-9lB" firstAttribute="top" secondItem="s6m-PE-5By" secondAttribute="top" id="b82-64-dZe"/>
                                                         <constraint firstItem="ehc-Xb-CHq" firstAttribute="leading" secondItem="cRk-Z6-BKg" secondAttribute="trailing" id="g12-Ti-d7u"/>
@@ -529,17 +529,18 @@
                                                     </constraints>
                                                 </view>
                                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Bwm-Zc-RQa" userLabel="bottomSpacer">
-                                                    <rect key="frame" x="8" y="425.5" width="359" height="5"/>
-                                                    <color key="backgroundColor" red="1" green="0.25357913100000001" blue="0.96946313760000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                    <rect key="frame" x="8" y="429.5" width="359" height="1"/>
+                                                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                                     <constraints>
-                                                        <constraint firstAttribute="height" constant="5" id="d34-Cf-zqU"/>
+                                                        <constraint firstAttribute="height" constant="1" id="d34-Cf-zqU"/>
                                                     </constraints>
                                                 </view>
                                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="q1H-yq-uTo" userLabel="insideTableContainer">
-                                                    <rect key="frame" x="8" y="50" width="359" height="375.5"/>
+                                                    <rect key="frame" x="8" y="50" width="359" height="379.5"/>
                                                     <color key="backgroundColor" red="0.80000001190000003" green="0.80000001190000003" blue="0.80000001190000003" alpha="1" colorSpace="calibratedRGB"/>
                                                 </view>
                                             </subviews>
+                                            <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
                                             <constraints>
                                                 <constraint firstItem="s6m-PE-5By" firstAttribute="leading" secondItem="8hJ-hX-7CT" secondAttribute="leading" id="2Nr-i4-d29"/>
                                                 <constraint firstAttribute="trailing" secondItem="Bwm-Zc-RQa" secondAttribute="trailing" constant="8" id="30Q-Gt-2xz"/>
@@ -1386,6 +1387,7 @@ This way, you’ll never run out </string>
         <image name="icons8-cooking_pot_filled" width="75" height="75"/>
         <image name="icons8-delete" width="26" height="26"/>
         <image name="icons8-expand_arrow_filled" width="50" height="50"/>
+        <image name="icons8-expand_arrow_filled-1" width="50" height="50"/>
         <image name="icons8-favorites-red-marchino" width="50" height="50"/>
         <image name="icons8-filled_circle" width="24" height="24"/>
         <image name="icons8-ingredients" width="96" height="96"/>
