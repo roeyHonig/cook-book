@@ -332,7 +332,7 @@ class RecipeDetailsViewController: UIViewController, UITableViewDelegate, UITabl
         cell.ingridentDescription.text = ingridentsList[indexPath.section]?[indexPath.row]
         
         if indexPath.row % 2 == 0 {
-            cell.contentView.backgroundColor = UIColor.gray
+            cell.contentView.backgroundColor = UIColor(red: 0.95, green: 0.95, blue: 0.95, alpha: 1) //UIColor requires a float from 0 - 1, not from 0 - 255
         } else {
            cell.contentView.backgroundColor = UIColor.white
         }

@@ -702,7 +702,7 @@
                                                                 <nil key="highlightedColor"/>
                                                             </label>
                                                         </subviews>
-                                                        <color key="backgroundColor" red="1" green="1" blue="0.40000000600000002" alpha="1" colorSpace="calibratedRGB"/>
+                                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                                         <constraints>
                                                             <constraint firstItem="f8R-4v-Pmd" firstAttribute="top" secondItem="sSQ-hM-C42" secondAttribute="top" id="3Km-yX-AJO"/>
                                                             <constraint firstAttribute="bottom" secondItem="uIH-4W-ITU" secondAttribute="bottom" id="6Pp-Af-uRg"/>
@@ -736,7 +736,7 @@
                                                                 <nil key="highlightedColor"/>
                                                             </label>
                                                         </subviews>
-                                                        <color key="backgroundColor" red="1" green="0.25357913100000001" blue="0.96946313760000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                                         <constraints>
                                                             <constraint firstItem="d0r-Wt-rpw" firstAttribute="width" secondItem="5rQ-yc-elE" secondAttribute="height" id="5Qh-7N-VYZ"/>
                                                             <constraint firstAttribute="trailing" secondItem="Sve-1v-IsN" secondAttribute="trailing" id="EIj-R5-4EZ"/>
@@ -757,7 +757,7 @@
                                                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="icons8-gender_neutral_user_filled" translatesAutoresizingMaskIntoConstraints="NO" id="74y-hG-CaT" userLabel="bigIcon">
                                                                 <rect key="frame" x="0.0" y="0.0" width="37.5" height="37.5"/>
                                                             </imageView>
-                                                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="icons8-clock_filled" translatesAutoresizingMaskIntoConstraints="NO" id="kpe-2r-LGA" userLabel="smallIcon">
+                                                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="icons8-pie_chart" translatesAutoresizingMaskIntoConstraints="NO" id="kpe-2r-LGA" userLabel="smallIcon">
                                                                 <rect key="frame" x="37.5" y="0.0" width="18.5" height="18.5"/>
                                                                 <constraints>
                                                                     <constraint firstAttribute="width" secondItem="kpe-2r-LGA" secondAttribute="height" id="hG7-3h-Cn3"/>
@@ -770,7 +770,7 @@
                                                                 <nil key="highlightedColor"/>
                                                             </label>
                                                         </subviews>
-                                                        <color key="backgroundColor" red="1" green="0.65867885969999995" blue="0.001031347811" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                                         <constraints>
                                                             <constraint firstItem="zTe-Bv-YIf" firstAttribute="top" secondItem="SC2-BC-Adj" secondAttribute="top" id="Du7-NN-glE"/>
                                                             <constraint firstItem="74y-hG-CaT" firstAttribute="width" secondItem="SC2-BC-Adj" secondAttribute="height" id="GK1-8A-v2c"/>
@@ -853,7 +853,7 @@
                                         </constraints>
                                     </view>
                                 </subviews>
-                                <color key="backgroundColor" red="0.40000000600000002" green="0.80000001190000003" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <constraints>
                                     <constraint firstItem="CrU-sj-jn8" firstAttribute="leading" secondItem="o9g-vN-sf0" secondAttribute="trailing" id="375-iU-3Ya"/>
                                     <constraint firstItem="o9g-vN-sf0" firstAttribute="height" secondItem="eeJ-fZ-PBc" secondAttribute="height" id="4Ij-KJ-hTd"/>
@@ -1030,7 +1030,7 @@
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="253-MQ-322" userLabel="First Responder" sceneMemberID="firstResponder"/>
-                <tableView clipsSubviews="YES" contentMode="scaleToFill" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="me8-Yo-xuD">
+                <tableView clipsSubviews="YES" contentMode="scaleToFill" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="me8-Yo-xuD">
                     <rect key="frame" x="0.0" y="0.0" width="375" height="516.5"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                     <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -1039,7 +1039,7 @@
                             <rect key="frame" x="0.0" y="28" width="375" height="94"/>
                             <autoresizingMask key="autoresizingMask"/>
                             <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="orp-At-Keo" id="KSI-Eb-EMt">
-                                <rect key="frame" x="0.0" y="0.0" width="375" height="93.5"/>
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="94"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="•" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="rf4-Yf-sSw" userLabel="tableBulletain">
@@ -1513,6 +1513,7 @@ This way, you’ll never run out </string>
         <image name="icons8-ingredients_spring" width="50" height="50"/>
         <image name="icons8-kitchen_steel" width="50" height="50"/>
         <image name="icons8-like_filled" width="25" height="25"/>
+        <image name="icons8-pie_chart" width="52" height="52"/>
         <image name="icons8-shopping_25Steel" width="26" height="26"/>
         <image name="icons8-tableware_filled" width="100" height="100"/>
         <image name="polutary50" width="50" height="50"/>
