@@ -58,7 +58,10 @@ class ShoppingListViewController: UIViewController, UITableViewDelegate, UITable
                 let myCustomIngredient = alertController.textFields!.first!.text!
                 
                 if appDelegate.isAddingSingleIngredientToCustomShoppingListIntoCoreDataSuccesful(ingredient: myCustomIngredient) {
-                    
+                    self.viewDidAppear(true)
+                } else {
+                    // TODO
+                    // present oops , try again alert dialog
                 }
                 
             }

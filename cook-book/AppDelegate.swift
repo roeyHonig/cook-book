@@ -468,6 +468,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate, GIDSignInDelegate {
     
     // writing a single ingredient into my custom shoppong list
     func isAddingSingleIngredientToCustomShoppingListIntoCoreDataSuccesful(ingredient name: String) -> Bool {
+        var didSaveActionWentOk = false
         var myFetchedEntites: [NSManagedObject] = []
         // fetch all the ingredients assoiated with my custom shopping list (id of recipe is 0)
         let myPredicate = NSPredicate(format: "idOfRecipe = %@", argumentArray: [0])
@@ -487,8 +488,29 @@ class AppDelegate: UIResponder, UIApplicationDelegate, GIDSignInDelegate {
         
         let indexToInsert = myFetchedEntites.count + 1 // index start at 1 appearantlly
         
+        // ok so now let's save the ingredient to core data
+        let entity = NSEntityDescription.entity(forEntityName: "ShoppingList", in: managedContext)!
+       
+        let newEntery = NSManagedObject(entity: entity, insertInto: managedContext)
+        let title = "My Ingredients"
+        newEntery.setValue(0, forKeyPath: "idOfRecipe")
+        newEntery.setValue(title, forKeyPath: "title")
+        newEntery.setValue(name, forKeyPath: "ingredient")
+        newEntery.setValue(0, forKeyPath: "cheacked")
+        newEntery.setValue(0, forKeyPath: "ingredientNumTextLines")
+        newEntery.setValue(indexToInsert, forKeyPath: "index")
+       
+        print("This was written")
+        print(newEntery)
+      
+        do {
+            try managedContext.save()
+            didSaveActionWentOk = true
+        } catch let error as NSError {
+            print("Could not save. \(error), \(error.userInfo)")
+        }
         
-        return true
+        return didSaveActionWentOk
     }
     
 
