@@ -10,6 +10,9 @@ import UIKit
 import CoreData
 class ShoppingListViewController: UIViewController, UITableViewDelegate, UITableViewDataSource, UINavigationControllerDelegate {
     
+    // this is because it seems that when the view 1st time appears, the correction of the height of the text line vs the height of the delete icon does not take place. we will use this var to perforem a 1 time recurssion, in which the view did appear methood will call it self twice
+    var isLoadedBefore = false
+    
     @IBOutlet var mainTableView: UITableView!
     var shoppingListTable: [NSManagedObject] = []
     var recipesGlobalDataBaseNumbers: [Int?] = []
@@ -168,6 +171,12 @@ class ShoppingListViewController: UIViewController, UITableViewDelegate, UITable
             
             mainTableView.reloadData()
         
+        //cheack to see if this is the 1st time the view appears
+        // this is because it seems that when the view 1st time appears, the correction of the height of the text line vs the height of the delete icon does not take place
+        if !isLoadedBefore {
+            isLoadedBefore = true
+            viewDidAppear(true)
+        }
         
         
     }
