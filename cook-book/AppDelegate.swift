@@ -492,7 +492,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate, GIDSignInDelegate {
         let entity = NSEntityDescription.entity(forEntityName: "ShoppingList", in: managedContext)!
        
         let newEntery = NSManagedObject(entity: entity, insertInto: managedContext)
-        let title = "My Ingredients"
+        let title = "so this is a test to see how you'd react to more then 1 line so this is a test to see how you'd react to more then 1 line" /*"My Ingredients"*/
         newEntery.setValue(0, forKeyPath: "idOfRecipe")
         newEntery.setValue(title, forKeyPath: "title")
         newEntery.setValue(name, forKeyPath: "ingredient")

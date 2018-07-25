@@ -466,13 +466,13 @@
                                                     </prototypes>
                                                 </tableView>
                                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="s6m-PE-5By" userLabel="headerContainer">
-                                                    <rect key="frame" x="0.0" y="0.0" width="375" height="20.5"/>
+                                                    <rect key="frame" x="0.0" y="0.0" width="375" height="50"/>
                                                     <subviews>
                                                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="i0a-8s-9lB" userLabel="imageContainer">
-                                                            <rect key="frame" x="0.0" y="0.0" width="25" height="20.5"/>
+                                                            <rect key="frame" x="0.0" y="0.0" width="25" height="50"/>
                                                             <subviews>
                                                                 <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="icons8-expand_arrow_filled" translatesAutoresizingMaskIntoConstraints="NO" id="u2M-aK-B0t">
-                                                                    <rect key="frame" x="4" y="1" width="17.5" height="18"/>
+                                                                    <rect key="frame" x="4" y="16" width="17.5" height="18"/>
                                                                     <constraints>
                                                                         <constraint firstAttribute="width" secondItem="u2M-aK-B0t" secondAttribute="height" id="e2L-0O-547"/>
                                                                     </constraints>
@@ -487,17 +487,17 @@
                                                             </constraints>
                                                         </view>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="1000" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="cRk-Z6-BKg">
-                                                            <rect key="frame" x="25" y="0.0" width="325" height="20.5"/>
+                                                            <rect key="frame" x="25" y="0.0" width="300" height="50"/>
                                                             <color key="backgroundColor" red="1" green="1" blue="0.40000000600000002" alpha="1" colorSpace="calibratedRGB"/>
                                                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                             <nil key="textColor"/>
                                                             <nil key="highlightedColor"/>
                                                         </label>
                                                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ehc-Xb-CHq" userLabel="deleteImageContainer">
-                                                            <rect key="frame" x="350" y="0.0" width="25" height="20.5"/>
+                                                            <rect key="frame" x="325" y="0.0" width="50" height="50"/>
                                                             <subviews>
                                                                 <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="icons8-delete" translatesAutoresizingMaskIntoConstraints="NO" id="IUr-zH-D5i">
-                                                                    <rect key="frame" x="3.5" y="1.5" width="17.5" height="17.5"/>
+                                                                    <rect key="frame" x="7.5" y="7.5" width="35" height="35.5"/>
                                                                     <constraints>
                                                                         <constraint firstAttribute="width" secondItem="IUr-zH-D5i" secondAttribute="height" id="YO7-YM-ihI"/>
                                                                     </constraints>
@@ -506,7 +506,8 @@
                                                             <color key="backgroundColor" red="1" green="1" blue="0.40000000600000002" alpha="1" colorSpace="calibratedRGB"/>
                                                             <gestureRecognizers/>
                                                             <constraints>
-                                                                <constraint firstAttribute="width" constant="25" id="7lA-kd-s0l"/>
+                                                                <constraint firstAttribute="width" constant="50" id="7lA-kd-s0l"/>
+                                                                <constraint firstAttribute="height" constant="50" id="FeM-9y-Okd"/>
                                                                 <constraint firstItem="IUr-zH-D5i" firstAttribute="width" secondItem="ehc-Xb-CHq" secondAttribute="width" multiplier="0.7" id="H65-sJ-4zd"/>
                                                                 <constraint firstItem="IUr-zH-D5i" firstAttribute="centerY" secondItem="ehc-Xb-CHq" secondAttribute="centerY" id="R5W-ZO-Td1"/>
                                                                 <constraint firstItem="IUr-zH-D5i" firstAttribute="centerX" secondItem="ehc-Xb-CHq" secondAttribute="centerX" id="SqP-5m-hAk"/>
@@ -535,7 +536,7 @@
                                                     </constraints>
                                                 </view>
                                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="q1H-yq-uTo" userLabel="insideTableContainer">
-                                                    <rect key="frame" x="8" y="20.5" width="359" height="405"/>
+                                                    <rect key="frame" x="8" y="50" width="359" height="375.5"/>
                                                     <color key="backgroundColor" red="0.80000001190000003" green="0.80000001190000003" blue="0.80000001190000003" alpha="1" colorSpace="calibratedRGB"/>
                                                 </view>
                                             </subviews>
