@@ -8,7 +8,7 @@
 
 
 // TODO: design the last screen of the quickGuide
-// make the titles of 1st screens in navigation controllers (like in the recipes \ shopping list...) a bit smaller then 42. i can's notice the  + in shopping
+
 
 import UIKit
 import CoreData

@@ -47,7 +47,7 @@ class RecipiesViewController: UIViewController, UICollectionViewDelegate, UIColl
     
     func navigationController(_ navigationController: UINavigationController, willShow viewController: UIViewController, animated: Bool) {
         if viewController is RecipiesViewController  {
-        let font = UIFont(name: "Helvetica", size: 42)! // TODO: it might be wise to provide some fallback fonts in case not all devices carry this
+        let font = UIFont(name: "Helvetica", size: 36)! // TODO: it might be wise to provide some fallback fonts in case not all devices carry this
         navigationController.navigationBar.titleTextAttributes = [ NSAttributedStringKey.font: font]
             
         } else if viewController is RecipeDetailsViewController {
