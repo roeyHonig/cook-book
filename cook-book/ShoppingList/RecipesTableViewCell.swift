@@ -25,6 +25,7 @@ class RecipesTableViewCell: UITableViewCell, UITableViewDelegate, UITableViewDat
     @IBOutlet var deleteBtn: UIView!
     var deleteBtnGesture = UITapGestureRecognizer()
     
+    @IBOutlet var deleteIconHeight: NSLayoutConstraint!
     
     var isSecondaryTableOpen = false
     var myFrame = CGRect()

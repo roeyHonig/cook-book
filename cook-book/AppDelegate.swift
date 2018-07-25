@@ -8,7 +8,6 @@
 
 
 // TODO: design the last screen of the quickGuide
-// TODO: make the trashcan icon in the shopping list bigger
 // make the titles of 1st screens in navigation controllers (like in the recipes \ shopping list...) a bit smaller then 42. i can's notice the  + in shopping
 
 import UIKit
@@ -492,7 +491,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate, GIDSignInDelegate {
         let entity = NSEntityDescription.entity(forEntityName: "ShoppingList", in: managedContext)!
        
         let newEntery = NSManagedObject(entity: entity, insertInto: managedContext)
-        let title = "so this is a test to see how you'd react to more then 1 line so this is a test to see how you'd react to more then 1 line" /*"My Ingredients"*/
+        let title = "My Ingredients"
         newEntery.setValue(0, forKeyPath: "idOfRecipe")
         newEntery.setValue(title, forKeyPath: "title")
         newEntery.setValue(name, forKeyPath: "ingredient")

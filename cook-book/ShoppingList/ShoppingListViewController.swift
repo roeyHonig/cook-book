@@ -201,6 +201,11 @@ class ShoppingListViewController: UIViewController, UITableViewDelegate, UITable
             cell.specificIngredientsDataSource = ingridentsTableDataSource[indexPath.row]
         cell.specificIngredientsDataSourceInnerCircleAlpha = ingridentsTableDataSourceInnerCircleImageAlpfa[indexPath.row]
         cell.specificIngredientsDataSourceNumberOfTextLinesForTheIngredients = ingridentsTableDataSourceNumberOfTextLines[indexPath.row]
+        if cell.label.intrinsicContentSize.height > 50 {
+            cell.deleteIconHeight.isActive = false
+        } else {
+            cell.deleteIconHeight.isActive = true
+        }
             cell.secondaryTable.reloadData()
             //cell.showSecondaryTable()
             //tableView.selectRow(at: indexPath, animated: true, scrollPosition: UITableViewScrollPosition.bottom)

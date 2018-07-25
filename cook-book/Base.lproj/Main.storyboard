@@ -556,6 +556,7 @@
                                         <connections>
                                             <outlet property="bottomSpacer" destination="Bwm-Zc-RQa" id="0dJ-Oo-E6P"/>
                                             <outlet property="deleteBtn" destination="ehc-Xb-CHq" id="7fV-sL-ory"/>
+                                            <outlet property="deleteIconHeight" destination="FeM-9y-Okd" id="o4M-Uk-WeY"/>
                                             <outlet property="expendingArrowImageView" destination="u2M-aK-B0t" id="jPW-QF-SoP"/>
                                             <outlet property="headerContainer" destination="s6m-PE-5By" id="ome-bG-9V2"/>
                                             <outlet property="insideTableContainer" destination="q1H-yq-uTo" id="y6G-1i-k0W"/>
