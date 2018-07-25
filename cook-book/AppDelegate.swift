@@ -466,6 +466,31 @@ class AppDelegate: UIResponder, UIApplicationDelegate, GIDSignInDelegate {
         }
     }
     
+    // writing a single ingredient into my custom shoppong list
+    func isAddingSingleIngredientToCustomShoppingListIntoCoreDataSuccesful(ingredient name: String) -> Bool {
+        var myFetchedEntites: [NSManagedObject] = []
+        // fetch all the ingredients assoiated with my custom shopping list (id of recipe is 0)
+        let myPredicate = NSPredicate(format: "idOfRecipe = %@", argumentArray: [0])
+        let fetchRequest = NSFetchRequest<NSManagedObject>(entityName: "ShoppingList")
+        fetchRequest.predicate = myPredicate
+        // sorting , i want to know the heighest index value by now
+        let descriptor1 = NSSortDescriptor(key: "index", ascending: true)
+        let descriptors = [descriptor1]
+        fetchRequest.sortDescriptors = descriptors
+        
+        do {
+            let fetchedEntities = try managedContext.fetch(fetchRequest)
+            myFetchedEntites = fetchedEntities
+        } catch let error as NSError {
+            print("Could not fetch. \(error), \(error.userInfo)")
+        }
+        
+        let indexToInsert = myFetchedEntites.count + 1 // index start at 1 appearantlly
+        
+        
+        return true
+    }
+    
 
 }
 

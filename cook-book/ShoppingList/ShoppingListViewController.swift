@@ -50,10 +50,17 @@ class ShoppingListViewController: UIViewController, UITableViewDelegate, UITable
     func showInputDialog() {
         let alertController = UIAlertController(title: "Add Ingredient", message: nil, preferredStyle: .alert)
         let confirmAction = UIAlertAction(title: "OK", style: .default) { (uiAlertAction) in
-            // code that runs after confirmation
-            // getting the input value from the user
             if alertController.textFields!.first!.text! != "" {
-                print("your custom ingredient is: \(alertController.textFields!.first!.text!)")
+                guard let appDelegate = UIApplication.shared.delegate as? AppDelegate else {
+                    print("There was a problem")
+                    return
+                }
+                let myCustomIngredient = alertController.textFields!.first!.text!
+                
+                if appDelegate.isAddingSingleIngredientToCustomShoppingListIntoCoreDataSuccesful(ingredient: myCustomIngredient) {
+                    
+                }
+                
             }
             
         }
