@@ -16,15 +16,29 @@ import FBSDKLoginKit
 
 class RecipiesViewController: UIViewController, UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout, UINavigationControllerDelegate, GIDSignInUIDelegate  {
     
+    var isSideMenuShowing = false
     @IBOutlet var menuBarItem: UIBarButtonItem!
     @IBAction func pressingMenuBarItem(_ sender: UIBarButtonItem) {
-        // TODO: present menu
+        print("side menu")
+        // TODO: present side menu
+        if isSideMenuShowing {
+            // close the menue
+            parentView.transform = CGAffineTransform.identity
+            view.layoutIfNeeded()
+        } else {
+            // open the menu
+            parentView.transform = CGAffineTransform(translationX: -100, y: 0)
+            view.layoutIfNeeded()
+        }
+        
+        isSideMenuShowing = !isSideMenuShowing
+        
     }
     
     var handle : AuthStateDidChangeListenerHandle!
     var signedUser: User?
     
-    @IBOutlet weak var parentView: UIView! // consider to delete
+    @IBOutlet weak var parentView: UIView!
     @IBOutlet weak var recipiesCollection: UICollectionView!
     let myRefreshControl = UIRefreshControl()
     let customBackButton = UIBarButtonItem(title: "Back", style: UIBarButtonItemStyle.done, target: self, action: nil)
