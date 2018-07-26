@@ -367,11 +367,20 @@
                         <outlet property="parentView" destination="0FF-ZS-9lx" id="7CL-0K-1DP"/>
                         <outlet property="recipiesCollection" destination="aeg-CB-Buq" id="Nya-hm-Jnd"/>
                         <outlet property="recipyType" destination="ytq-cj-mNP" id="72i-Vf-GgV"/>
+                        <outlet property="sideMenu" destination="ou2-ZN-cbs" id="dfW-OR-aVF"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="z9d-mq-M1y" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ou2-ZN-cbs">
+                    <rect key="frame" x="0.0" y="0.0" width="240" height="618"/>
+                    <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                    <constraints>
+                        <constraint firstAttribute="width" constant="240" id="7jc-H8-6rP"/>
+                    </constraints>
+                    <viewLayoutGuide key="safeArea" id="dyv-uF-ZL3"/>
+                </view>
             </objects>
-            <point key="canvasLocation" x="-1335" y="481"/>
+            <point key="canvasLocation" x="-1335.2" y="480.80959520239884"/>
         </scene>
         <!--Shopping List-->
         <scene sceneID="Lw0-wh-eko">

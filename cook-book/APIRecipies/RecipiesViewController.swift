@@ -29,6 +29,20 @@ class RecipiesViewController: UIViewController, UICollectionViewDelegate, UIColl
         } else {
             // open the menu
             self.navigationController?.view.transform = CGAffineTransform(translationX: -100, y: 0)
+            
+            self.navigationController?.view.addSubview(sideMenu)
+            // constraints
+            let tableViewConstraintTop1 = NSLayoutConstraint(item: sideMenu, attribute: NSLayoutAttribute.top, relatedBy: .equal, toItem: self.navigationController?.view, attribute: NSLayoutAttribute.top , multiplier: 1, constant: 0)
+            let tableViewConstraintTop2 = NSLayoutConstraint(item: sideMenu, attribute: NSLayoutAttribute.bottom, relatedBy: .equal, toItem: self.navigationController?.view, attribute: NSLayoutAttribute.bottom , multiplier: 1, constant: 0)
+            let tableViewConstraintTop3 = NSLayoutConstraint(item: sideMenu, attribute: NSLayoutAttribute.leading, relatedBy: .equal, toItem: self.navigationController?.view, attribute: NSLayoutAttribute.trailing , multiplier: 1, constant: 0)
+            
+            // assign the constraint to a coummon annssector
+            self.navigationController?.view.addConstraint(tableViewConstraintTop1)
+            self.navigationController?.view.addConstraint(tableViewConstraintTop2)
+            self.navigationController?.view.addConstraint(tableViewConstraintTop3)
+            
+            
+            
             //parentView.transform = CGAffineTransform(translationX: -100, y: 0)
             view.layoutIfNeeded()
         }
@@ -39,6 +53,10 @@ class RecipiesViewController: UIViewController, UICollectionViewDelegate, UIColl
     
     var handle : AuthStateDidChangeListenerHandle!
     var signedUser: User?
+    
+    
+    @IBOutlet var sideMenu: UIView!
+    
     
     @IBOutlet weak var parentView: UIView!
     @IBOutlet weak var recipiesCollection: UICollectionView!
@@ -56,6 +74,8 @@ class RecipiesViewController: UIViewController, UICollectionViewDelegate, UIColl
         // Do any additional setup after loading the view.
         // find out in which tabController item index you are
         print("hello, you are curenttly in index: \(self.tabBarController!.selectedIndex)")
+        
+        sideMenu.backgroundColor = UIColor(red: 235 / 255.0, green: 235 / 255.0, blue: 235 / 255.0, alpha: 1)
         
         initTheVisiabilityStateOfNavigationBarItemsLeftAndRight()
         
@@ -99,6 +119,12 @@ class RecipiesViewController: UIViewController, UICollectionViewDelegate, UIColl
     override func viewWillDisappear(_ animated: Bool) {
         super.viewWillDisappear(animated)
         Auth.auth().removeStateDidChangeListener(handle)
+        
+        // close the menue
+        self.navigationController?.view.transform = CGAffineTransform.identity
+        //parentView.transform = CGAffineTransform.identity
+        view.layoutIfNeeded()
+        isSideMenuShowing = false
     }
    
     
