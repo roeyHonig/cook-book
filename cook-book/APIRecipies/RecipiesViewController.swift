@@ -28,14 +28,16 @@ class RecipiesViewController: UIViewController, UICollectionViewDelegate, UIColl
         // TODO: present side menu
         if isSideMenuShowing {
             // close the menue
-            UIView.animate(withDuration: 1, animations: {
+            self.view.isUserInteractionEnabled = true
+            UIView.animate(withDuration: 0.5, animations: {
                 self.navigationController?.view.transform = CGAffineTransform.identity
                 self.view.layoutIfNeeded()
             })
             
         } else {
             //open the menu
-            UIView.animate(withDuration: 1, animations: {
+            self.view.isUserInteractionEnabled = false
+            UIView.animate(withDuration: 0.5, animations: {
                 
                 // translate to the left the entire viewController
                 self.navigationController?.view.transform = CGAffineTransform(translationX: -(self.sideMenuWidth.constant), y: 0)
@@ -132,8 +134,8 @@ class RecipiesViewController: UIViewController, UICollectionViewDelegate, UIColl
         Auth.auth().removeStateDidChangeListener(handle)
         
         // close the menue
+        self.view.isUserInteractionEnabled = true
         self.navigationController?.view.transform = CGAffineTransform.identity
-        //parentView.transform = CGAffineTransform.identity
         view.layoutIfNeeded()
         isSideMenuShowing = false
     }

@@ -8,7 +8,6 @@
 
 
 // TODO: design the last screen of the quickGuide
-// TODO: when side Menu is open (you hav a boolean var isSideMenuSDhowing for that) cancel actions like favorites , changing recipy type & selectin collection view
 
 import UIKit
 import CoreData
