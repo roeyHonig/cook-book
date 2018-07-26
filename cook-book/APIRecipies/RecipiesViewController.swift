@@ -9,6 +9,10 @@
 
 import UIKit
 import SDWebImage
+import Firebase
+import GoogleSignIn
+import FBSDKCoreKit
+import FBSDKLoginKit
 
 class RecipiesViewController: UIViewController, UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout, UINavigationControllerDelegate  {
     
@@ -17,6 +21,9 @@ class RecipiesViewController: UIViewController, UICollectionViewDelegate, UIColl
     @IBAction func pressingMenuBarItem(_ sender: UIBarButtonItem) {
         // TODO: present menu
     }
+    
+    
+    
     
     @IBOutlet weak var parentView: UIView! // consider to delete
     @IBOutlet weak var recipiesCollection: UICollectionView!
@@ -35,12 +42,7 @@ class RecipiesViewController: UIViewController, UICollectionViewDelegate, UIColl
         // find out in which tabController item index you are
         print("hello, you are curenttly in index: \(self.tabBarController!.selectedIndex)")
         
-        // init state of navigation bar menu icon
-        if self.tabBarController!.selectedIndex == 0 {
-            self.navigationItem.rightBarButtonItem = nil
-        } else {
-            self.navigationItem.rightBarButtonItem = menuBarItem
-        }
+        initTheVisiabilityStateOfNavigationBarItemsLeftAndRight()
         
         recipyType.selectedSegmentIndex = 0
         self.navigationItem.title = "Beef"
@@ -56,16 +58,29 @@ class RecipiesViewController: UIViewController, UICollectionViewDelegate, UIColl
     }
     
     override func viewDidAppear(_ animated: Bool) {
-        // init state of navigation bar menu icon
-        if self.tabBarController!.selectedIndex == 0 {
-            self.navigationItem.rightBarButtonItem = nil
-        } else {
-            self.navigationItem.rightBarButtonItem = menuBarItem
-        }
+        initTheVisiabilityStateOfNavigationBarItemsLeftAndRight()
         
         retriveData()
         super.viewDidAppear(animated)
     }
+    
+   
+    
+    func initTheVisiabilityStateOfNavigationBarItemsLeftAndRight() {
+        if self.tabBarController!.selectedIndex == 1 {
+            self.navigationItem.rightBarButtonItem = nil
+            self.navigationItem.leftBarButtonItem = nil
+        } else {
+            self.navigationItem.rightBarButtonItem = menuBarItem
+            self.navigationItem.leftBarButtonItem = UIBarButtonItem(image: #imageLiteral(resourceName: "icons8-salad"), landscapeImagePhone: nil, style: .plain, target: nil, action: nil)
+            //self.navigationItem.leftBarButtonItem!.setBackgroundImage(#imageLiteral(resourceName: "icons8-salad"), for: .normal, barMetrics: .default)
+            
+        }
+    }
+    
+    
+    
+    
     
     func navigationController(_ navigationController: UINavigationController, willShow viewController: UIViewController, animated: Bool) {
         if viewController is RecipiesViewController  {
