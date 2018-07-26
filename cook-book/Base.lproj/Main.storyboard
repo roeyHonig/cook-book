@@ -368,19 +368,32 @@
                         <outlet property="recipiesCollection" destination="aeg-CB-Buq" id="Nya-hm-Jnd"/>
                         <outlet property="recipyType" destination="ytq-cj-mNP" id="72i-Vf-GgV"/>
                         <outlet property="sideMenu" destination="ou2-ZN-cbs" id="dfW-OR-aVF"/>
+                        <outlet property="sideMenuProfileImage" destination="kgL-be-eHg" id="Nbb-RK-bS3"/>
+                        <outlet property="sideMenuWidth" destination="7jc-H8-6rP" id="qJx-3J-WNJ"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="z9d-mq-M1y" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ou2-ZN-cbs">
                     <rect key="frame" x="0.0" y="0.0" width="240" height="618"/>
+                    <subviews>
+                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="kgL-be-eHg">
+                            <rect key="frame" x="70" y="28" width="100" height="100"/>
+                            <constraints>
+                                <constraint firstAttribute="height" constant="100" id="I3n-q1-zMx"/>
+                                <constraint firstAttribute="width" constant="100" id="KOY-bS-Uvq"/>
+                            </constraints>
+                        </imageView>
+                    </subviews>
                     <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
                     <constraints>
+                        <constraint firstItem="kgL-be-eHg" firstAttribute="top" secondItem="dyv-uF-ZL3" secondAttribute="top" constant="8" id="2Qa-Ms-LGf"/>
                         <constraint firstAttribute="width" constant="240" id="7jc-H8-6rP"/>
+                        <constraint firstItem="kgL-be-eHg" firstAttribute="centerX" secondItem="ou2-ZN-cbs" secondAttribute="centerX" id="Nw2-8r-dmT"/>
                     </constraints>
                     <viewLayoutGuide key="safeArea" id="dyv-uF-ZL3"/>
                 </view>
             </objects>
-            <point key="canvasLocation" x="-1335.2" y="480.80959520239884"/>
+            <point key="canvasLocation" x="-1930" y="481"/>
         </scene>
         <!--Shopping List-->
         <scene sceneID="Lw0-wh-eko">
@@ -1097,7 +1110,7 @@
                 <tapGestureRecognizer id="E7p-aC-SQW"/>
                 <tapGestureRecognizer id="CJr-Bk-JsK"/>
             </objects>
-            <point key="canvasLocation" x="-2143" y="1252"/>
+            <point key="canvasLocation" x="-2742" y="1254"/>
         </scene>
         <!--Sign In View Controller-->
         <scene sceneID="OKi-DH-Qsz">

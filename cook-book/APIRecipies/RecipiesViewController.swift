@@ -15,6 +15,11 @@ import FBSDKCoreKit
 import FBSDKLoginKit
 
 class RecipiesViewController: UIViewController, UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout, UINavigationControllerDelegate, GIDSignInUIDelegate  {
+   
+    
+    @IBOutlet var sideMenuWidth: NSLayoutConstraint!
+    
+    @IBOutlet var sideMenuProfileImage: UIImageView!
     
     var isSideMenuShowing = false
     @IBOutlet var menuBarItem: UIBarButtonItem!
@@ -33,7 +38,7 @@ class RecipiesViewController: UIViewController, UICollectionViewDelegate, UIColl
             UIView.animate(withDuration: 1, animations: {
                 
                 // translate to the left the entire viewController
-                self.navigationController?.view.transform = CGAffineTransform(translationX: -100, y: 0)
+                self.navigationController?.view.transform = CGAffineTransform(translationX: -(self.sideMenuWidth.constant), y: 0)
                 
                 // add as subView the sideMenu view
                 self.navigationController?.view.addSubview(self.sideMenu)
@@ -137,9 +142,13 @@ class RecipiesViewController: UIViewController, UICollectionViewDelegate, UIColl
     func initTheVisiabilityStateOfNavigationBarItemsLeftAndRight() {
         if self.tabBarController!.selectedIndex == 1 {
             self.navigationItem.rightBarButtonItem = nil
-            self.navigationItem.leftBarButtonItem = nil
-        } else {
+        } else if signedUser != nil {
+            
             self.navigationItem.rightBarButtonItem = menuBarItem
+            
+            sideMenuProfileImage.sd_setImage(with: signedUser!.photoURL, completed: nil)
+            
+            
             /*
             if signedUser != nil {
                 var imageToSet = UIImageView(frame: CGRect(origin: CGPoint(x: 20 , y: 20), size: CGSize(width: 50, height: 50)))
@@ -161,6 +170,8 @@ class RecipiesViewController: UIViewController, UICollectionViewDelegate, UIColl
             
             
             
+        } else {
+           self.navigationItem.rightBarButtonItem = nil
         }
     }
     
