@@ -23,11 +23,13 @@ class RecipiesViewController: UIViewController, UICollectionViewDelegate, UIColl
         // TODO: present side menu
         if isSideMenuShowing {
             // close the menue
-            parentView.transform = CGAffineTransform.identity
+            self.navigationController?.view.transform = CGAffineTransform.identity
+            //parentView.transform = CGAffineTransform.identity
             view.layoutIfNeeded()
         } else {
             // open the menu
-            parentView.transform = CGAffineTransform(translationX: -100, y: 0)
+            self.navigationController?.view.transform = CGAffineTransform(translationX: -100, y: 0)
+            //parentView.transform = CGAffineTransform(translationX: -100, y: 0)
             view.layoutIfNeeded()
         }
         
