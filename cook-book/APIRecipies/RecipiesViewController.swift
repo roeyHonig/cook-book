@@ -46,7 +46,7 @@ class RecipiesViewController: UIViewController, UICollectionViewDelegate, UIColl
                 self.navigationController?.view.addSubview(self.sideMenu)
                 // constraints
                 let tableViewConstraintTop = NSLayoutConstraint(item: self.sideMenu, attribute: NSLayoutAttribute.top, relatedBy: .equal, toItem: self.navigationController?.view, attribute: NSLayoutAttribute.top , multiplier: 1, constant: 0)
-                let tableViewConstraintBottom = NSLayoutConstraint(item: self.sideMenu, attribute: NSLayoutAttribute.bottom, relatedBy: .equal, toItem: self.navigationController?.view, attribute: NSLayoutAttribute.bottom , multiplier: 1, constant: 0)
+                let tableViewConstraintBottom = NSLayoutConstraint(item: self.sideMenu, attribute: NSLayoutAttribute.bottom, relatedBy: .equal, toItem: self.parentView, attribute: NSLayoutAttribute.bottom , multiplier: 1, constant: 0)
                 let tableViewConstraintLeadingToTrailing = NSLayoutConstraint(item: self.sideMenu, attribute: NSLayoutAttribute.leading, relatedBy: .equal, toItem: self.navigationController?.view, attribute: NSLayoutAttribute.trailing , multiplier: 1, constant: 0)
                 
                 // assign the constraint to a coummon annssector
