@@ -14,16 +14,15 @@ import GoogleSignIn
 import FBSDKCoreKit
 import FBSDKLoginKit
 
-class RecipiesViewController: UIViewController, UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout, UINavigationControllerDelegate  {
+class RecipiesViewController: UIViewController, UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout, UINavigationControllerDelegate, GIDSignInUIDelegate  {
     
     @IBOutlet var menuBarItem: UIBarButtonItem!
-    
     @IBAction func pressingMenuBarItem(_ sender: UIBarButtonItem) {
         // TODO: present menu
     }
     
-    
-    
+    var handle : AuthStateDidChangeListenerHandle!
+    var signedUser: User?
     
     @IBOutlet weak var parentView: UIView! // consider to delete
     @IBOutlet weak var recipiesCollection: UICollectionView!
@@ -57,6 +56,22 @@ class RecipiesViewController: UIViewController, UICollectionViewDelegate, UIColl
         
     }
     
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        handle = Auth.auth().addStateDidChangeListener { (auth, user) in
+            if  user != nil {
+                // User is signed in.
+                print("Hi, There Is A user and we are in index 0!!!")
+                print("The user name is: \(user!.displayName!)")
+                self.signedUser = user
+            } else {
+                // No user is signed in.
+                print("No User, please sign in, you're still at index 0")
+               
+            }
+        }
+    }
+    
     override func viewDidAppear(_ animated: Bool) {
         initTheVisiabilityStateOfNavigationBarItemsLeftAndRight()
         
@@ -64,6 +79,10 @@ class RecipiesViewController: UIViewController, UICollectionViewDelegate, UIColl
         super.viewDidAppear(animated)
     }
     
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(animated)
+        Auth.auth().removeStateDidChangeListener(handle)
+    }
    
     
     func initTheVisiabilityStateOfNavigationBarItemsLeftAndRight() {
