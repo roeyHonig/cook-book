@@ -92,7 +92,7 @@ class RecipiesViewController: UIViewController, UICollectionViewDelegate, UIColl
             self.navigationItem.leftBarButtonItem = nil
         } else {
             self.navigationItem.rightBarButtonItem = menuBarItem
-            
+            /*
             if signedUser != nil {
                 var imageToSet = UIImageView(frame: CGRect(origin: CGPoint(x: 20 , y: 20), size: CGSize(width: 50, height: 50)))
                 imageToSet.sd_setImage(with: signedUser!.photoURL, completed: nil)
@@ -109,7 +109,7 @@ class RecipiesViewController: UIViewController, UICollectionViewDelegate, UIColl
                 self.navigationItem.leftBarButtonItems = [barButtonItem]
                 
             }
-            
+            */
             
             
             
