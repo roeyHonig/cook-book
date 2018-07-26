@@ -323,13 +323,25 @@
                                             <constraint firstAttribute="bottom" secondItem="aeg-CB-Buq" secondAttribute="bottom" id="nYS-jb-8JM"/>
                                         </constraints>
                                     </view>
+                                    <visualEffectView opaque="NO" alpha="0.80000000000000004" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="7fZ-Vm-Rli" userLabel="blurView">
+                                        <rect key="frame" x="0.0" y="0.0" width="375" height="554"/>
+                                        <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="wRs-WC-ECV">
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="554"/>
+                                            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                                        </view>
+                                        <color key="backgroundColor" cocoaTouchSystemColor="darkTextColor"/>
+                                        <blurEffect style="light"/>
+                                    </visualEffectView>
                                 </subviews>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <constraints>
                                     <constraint firstItem="R6H-dD-7Re" firstAttribute="width" secondItem="0FF-ZS-9lx" secondAttribute="width" id="0Y6-qL-Ib1"/>
+                                    <constraint firstItem="7fZ-Vm-Rli" firstAttribute="leading" secondItem="0FF-ZS-9lx" secondAttribute="leading" id="2ma-iA-XOj"/>
                                     <constraint firstItem="Y1f-GW-9K3" firstAttribute="width" secondItem="0FF-ZS-9lx" secondAttribute="width" id="8ty-KO-oC4"/>
                                     <constraint firstItem="v6q-Sa-Lz1" firstAttribute="height" secondItem="Y1f-GW-9K3" secondAttribute="height" id="9MK-XM-d7a"/>
+                                    <constraint firstAttribute="bottom" secondItem="7fZ-Vm-Rli" secondAttribute="bottom" id="9Qn-ng-tUw"/>
                                     <constraint firstAttribute="bottom" secondItem="l8M-I4-aab" secondAttribute="bottom" id="CdF-pu-bAw"/>
+                                    <constraint firstItem="7fZ-Vm-Rli" firstAttribute="top" secondItem="0FF-ZS-9lx" secondAttribute="top" id="FRq-sr-PGX"/>
                                     <constraint firstItem="Y1f-GW-9K3" firstAttribute="leading" secondItem="0FF-ZS-9lx" secondAttribute="leading" id="MTb-bC-yqB"/>
                                     <constraint firstItem="v6q-Sa-Lz1" firstAttribute="width" secondItem="0FF-ZS-9lx" secondAttribute="width" id="OE1-g8-Q21"/>
                                     <constraint firstItem="v6q-Sa-Lz1" firstAttribute="leading" secondItem="0FF-ZS-9lx" secondAttribute="leading" id="WhL-JZ-MeD"/>
@@ -337,6 +349,7 @@
                                     <constraint firstItem="R6H-dD-7Re" firstAttribute="leading" secondItem="0FF-ZS-9lx" secondAttribute="leading" id="c5U-xL-Ib6"/>
                                     <constraint firstItem="R6H-dD-7Re" firstAttribute="height" secondItem="0FF-ZS-9lx" secondAttribute="height" multiplier="0.12" id="caB-oZ-PBV"/>
                                     <constraint firstAttribute="trailing" secondItem="l8M-I4-aab" secondAttribute="trailing" id="eys-Wm-Gaf"/>
+                                    <constraint firstAttribute="trailing" secondItem="7fZ-Vm-Rli" secondAttribute="trailing" id="fqd-7o-T1R"/>
                                     <constraint firstItem="l8M-I4-aab" firstAttribute="leading" secondItem="0FF-ZS-9lx" secondAttribute="leading" id="gsu-SR-YpB"/>
                                     <constraint firstItem="5yt-KR-aMA" firstAttribute="width" secondItem="0FF-ZS-9lx" secondAttribute="height" multiplier="0.96" id="hCb-bF-mTd"/>
                                     <constraint firstItem="Y1f-GW-9K3" firstAttribute="height" secondItem="0FF-ZS-9lx" secondAttribute="height" multiplier="0.01" id="jDG-jc-Q39"/>
@@ -363,6 +376,7 @@
                         </barButtonItem>
                     </navigationItem>
                     <connections>
+                        <outlet property="blurView" destination="7fZ-Vm-Rli" id="tHJ-QD-1SP"/>
                         <outlet property="menuBarItem" destination="wC0-aL-QfV" id="n90-y5-XRa"/>
                         <outlet property="parentView" destination="0FF-ZS-9lx" id="7CL-0K-1DP"/>
                         <outlet property="recipiesCollection" destination="aeg-CB-Buq" id="Nya-hm-Jnd"/>
@@ -378,6 +392,7 @@
                     <subviews>
                         <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="kgL-be-eHg">
                             <rect key="frame" x="70" y="28" width="100" height="100"/>
+                            <color key="backgroundColor" red="1" green="1" blue="0.40000000600000002" alpha="1" colorSpace="calibratedRGB"/>
                             <constraints>
                                 <constraint firstAttribute="height" constant="100" id="I3n-q1-zMx"/>
                                 <constraint firstAttribute="width" constant="100" id="KOY-bS-Uvq"/>

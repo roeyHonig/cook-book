@@ -18,19 +18,19 @@ class RecipiesViewController: UIViewController, UICollectionViewDelegate, UIColl
    
     
     @IBOutlet var sideMenuWidth: NSLayoutConstraint!
-    
     @IBOutlet var sideMenuProfileImage: UIImageView!
-    
     var isSideMenuShowing = false
+    @IBOutlet var blurView: UIVisualEffectView!
+    
+    
     @IBOutlet var menuBarItem: UIBarButtonItem!
     @IBAction func pressingMenuBarItem(_ sender: UIBarButtonItem) {
-        print("side menu")
-        // TODO: present side menu
         if isSideMenuShowing {
             // close the menue
             self.view.isUserInteractionEnabled = true
             UIView.animate(withDuration: 0.5, animations: {
                 self.navigationController?.view.transform = CGAffineTransform.identity
+                self.blurView.alpha = 0
                 self.view.layoutIfNeeded()
             })
             
@@ -53,6 +53,9 @@ class RecipiesViewController: UIViewController, UICollectionViewDelegate, UIColl
                 self.navigationController?.view.addConstraint(tableViewConstraintTop)
                 self.navigationController?.view.addConstraint(tableViewConstraintBottom)
                 self.navigationController?.view.addConstraint(tableViewConstraintLeadingToTrailing)
+                
+                // blur View
+                self.blurView.alpha = 0.8
                 
                 self.view.layoutIfNeeded()
             })
@@ -87,7 +90,7 @@ class RecipiesViewController: UIViewController, UICollectionViewDelegate, UIColl
         // Do any additional setup after loading the view.
         // find out in which tabController item index you are
         print("hello, you are curenttly in index: \(self.tabBarController!.selectedIndex)")
-        
+        self.blurView.alpha = 0
         sideMenu.backgroundColor = UIColor(red: 235 / 255.0, green: 235 / 255.0, blue: 235 / 255.0, alpha: 1)
         
         initTheVisiabilityStateOfNavigationBarItemsLeftAndRight()
@@ -149,7 +152,9 @@ class RecipiesViewController: UIViewController, UICollectionViewDelegate, UIColl
             self.navigationItem.rightBarButtonItem = menuBarItem
             
             sideMenuProfileImage.sd_setImage(with: signedUser!.photoURL, completed: nil)
-            
+            sideMenuProfileImage.layer.cornerRadius = sideMenuProfileImage.bounds.size.height / 2
+            sideMenuProfileImage.clipsToBounds = true
+            self.blurView.alpha = 0
             
             /*
             if signedUser != nil {
