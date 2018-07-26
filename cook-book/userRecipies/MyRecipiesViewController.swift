@@ -50,6 +50,7 @@ class MyRecipiesViewController: UIViewController , GIDSignInUIDelegate {
                 print("No User, please sign in")
                 self.signInViewController.view.isHidden = false
                 self.CurrentUserRecipiesViewController.view.isHidden = true
+                self.signedUser = nil
             }
         }
         

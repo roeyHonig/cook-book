@@ -64,10 +64,11 @@ class RecipiesViewController: UIViewController, UICollectionViewDelegate, UIColl
                 print("Hi, There Is A user and we are in index 0!!!")
                 print("The user name is: \(user!.displayName!)")
                 self.signedUser = user
+                //self.signedUser!.photoURL
             } else {
                 // No user is signed in.
                 print("No User, please sign in, you're still at index 0")
-               
+               self.signedUser = nil
             }
         }
     }
@@ -91,8 +92,26 @@ class RecipiesViewController: UIViewController, UICollectionViewDelegate, UIColl
             self.navigationItem.leftBarButtonItem = nil
         } else {
             self.navigationItem.rightBarButtonItem = menuBarItem
-            self.navigationItem.leftBarButtonItem = UIBarButtonItem(image: #imageLiteral(resourceName: "icons8-salad"), landscapeImagePhone: nil, style: .plain, target: nil, action: nil)
-            //self.navigationItem.leftBarButtonItem!.setBackgroundImage(#imageLiteral(resourceName: "icons8-salad"), for: .normal, barMetrics: .default)
+            
+            if signedUser != nil {
+                var imageToSet = UIImageView(frame: CGRect(origin: CGPoint(x: 20 , y: 20), size: CGSize(width: 50, height: 50)))
+                imageToSet.sd_setImage(with: signedUser!.photoURL, completed: nil)
+                //self.navigationItem.leftBarButtonItem = UIBarButtonItem(image: imageToSet.image, landscapeImagePhone: nil, style: .plain, target: nil, action: nil)
+                
+               
+                let button = UIButton(type: .custom)
+                
+                button.setImage(imageToSet.image, for: .normal)
+                button.frame = CGRect(x: 0.0, y: 0.0, width: 35.0, height: 35.0)
+                //button.addTarget(target, action: nil, for: .touchUpInside)
+                let barButtonItem = UIBarButtonItem(customView: button)
+                
+                self.navigationItem.leftBarButtonItems = [barButtonItem]
+                
+            }
+            
+            
+            
             
         }
     }
