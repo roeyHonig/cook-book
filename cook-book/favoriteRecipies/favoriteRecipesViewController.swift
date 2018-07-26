@@ -19,6 +19,10 @@ class favoriteRecipesViewController: UIViewController, UITableViewDelegate, UITa
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
+        
+        // find out in which tabController item index you are
+        print("hello, you are curenttly in index: \(self.tabBarController!.selectedIndex)")
+        
         self.navigationController?.delegate = self
         
         testTable.delegate = self

@@ -26,6 +26,9 @@ class RecipiesViewController: UIViewController, UICollectionViewDelegate, UIColl
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
+        // find out in which tabController item index you are
+        print("hello, you are curenttly in index: \(self.tabBarController!.selectedIndex)")
+        
         recipyType.selectedSegmentIndex = 0
         self.navigationItem.title = "Beef"
         self.navigationItem.backBarButtonItem = customBackButton

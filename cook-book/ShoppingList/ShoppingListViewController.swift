@@ -30,6 +30,10 @@ class ShoppingListViewController: UIViewController, UITableViewDelegate, UITable
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
+        
+        // find out in which tabController item index you are
+        print("hello, you are curenttly in index: \(self.tabBarController!.selectedIndex)")
+        
         self.navigationController?.delegate = self
         
         // init tables data
