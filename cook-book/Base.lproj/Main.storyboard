@@ -1010,6 +1010,7 @@
                         <outlet property="addToShoppingListTapGesture" destination="CJr-Bk-JsK" id="eKH-Vo-9o7"/>
                         <outlet property="backgroundImage" destination="T5p-MA-gFT" id="ZTa-Fv-vzK"/>
                         <outlet property="constraintToEditInOrderToCenterTheAddToShopping" destination="eMJ-s4-o6p" id="TLj-hg-rQI"/>
+                        <outlet property="cookTimeLabel" destination="Sve-1v-IsN" id="qEf-eU-W4B"/>
                         <outlet property="directionsBtnView" destination="lcz-n4-VWW" id="y6J-Zl-ad7"/>
                         <outlet property="directionsIconOmage" destination="DUS-l2-cYu" id="roE-mT-jqP"/>
                         <outlet property="directionsTapGesture" destination="5Cd-oZ-bCS" id="kx7-Qc-GTh"/>
@@ -1021,7 +1022,9 @@
                         <outlet property="ingridentsTable" destination="me8-Yo-xuD" id="RKR-7p-O4c"/>
                         <outlet property="ingridentsTapGesture" destination="r1J-bL-88c" id="fM0-uC-005"/>
                         <outlet property="ingridentsiconImage" destination="jFD-H4-khW" id="3bj-Ds-Cpj"/>
+                        <outlet property="prepTimeLabel" destination="f8R-4v-Pmd" id="ZYd-bv-9Og"/>
                         <outlet property="recipeHeaderView" destination="eeJ-fZ-PBc" id="xxR-uL-AkB"/>
+                        <outlet property="servingLabel" destination="zTe-Bv-YIf" id="jCY-Ic-TC1"/>
                         <outlet property="shopinglistContainer" destination="VWQ-JX-eiW" id="yZ9-vX-w5C"/>
                         <outlet property="sliderControllerBtn" destination="23n-ZM-mYK" id="8vS-GC-w4K"/>
                         <outlet property="sliderControllerBtnTapGesture" destination="E7p-aC-SQW" id="nOI-RE-Uci"/>

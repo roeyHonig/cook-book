@@ -16,6 +16,9 @@ class RecipeDetailsViewController: UIViewController, UITableViewDelegate, UITabl
     
     @IBOutlet var inRecipyFavoriteBtn: UIButton!
     
+    @IBOutlet var prepTimeLabel: UILabel!
+    @IBOutlet var cookTimeLabel: UILabel!
+    @IBOutlet var servingLabel: UILabel!
     
     @IBAction func toggleState(_ sender: UIButton) {
         guard let appDelegate = UIApplication.shared.delegate as? AppDelegate, let myRecipyHeader = recipeHeader else {
@@ -114,7 +117,26 @@ class RecipeDetailsViewController: UIViewController, UITableViewDelegate, UITabl
             
         }
         
+        // init the prep \ cook & servings
+        if let prepTime = recipeHeader?.prep_time {
+            prepTimeLabel.text = "\(prepTime) min"
+        } else {
+            prepTimeLabel.text = "N/A"
+        }
         
+        if let cookTime = recipeHeader?.cook_time {
+            cookTimeLabel.text = "\(cookTime) min"
+        } else {
+            cookTimeLabel.text = "N/A"
+        }
+        
+        if let servings = recipeHeader?.serving {
+            servingLabel.text = "\(servings)"
+        } else {
+            servingLabel.text = "N/A"
+        }
+        
+
         
         ingridentsTable.delegate = self
         ingridentsTable.dataSource = self
