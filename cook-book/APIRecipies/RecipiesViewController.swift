@@ -23,28 +23,34 @@ class RecipiesViewController: UIViewController, UICollectionViewDelegate, UIColl
         // TODO: present side menu
         if isSideMenuShowing {
             // close the menue
-            self.navigationController?.view.transform = CGAffineTransform.identity
-            //parentView.transform = CGAffineTransform.identity
-            view.layoutIfNeeded()
+            UIView.animate(withDuration: 1, animations: {
+                self.navigationController?.view.transform = CGAffineTransform.identity
+                self.view.layoutIfNeeded()
+            })
+            
         } else {
-            // open the menu
-            self.navigationController?.view.transform = CGAffineTransform(translationX: -100, y: 0)
+            //open the menu
+            UIView.animate(withDuration: 1, animations: {
+                
+                // translate to the left the entire viewController
+                self.navigationController?.view.transform = CGAffineTransform(translationX: -100, y: 0)
+                
+                // add as subView the sideMenu view
+                self.navigationController?.view.addSubview(self.sideMenu)
+                // constraints
+                let tableViewConstraintTop = NSLayoutConstraint(item: self.sideMenu, attribute: NSLayoutAttribute.top, relatedBy: .equal, toItem: self.navigationController?.view, attribute: NSLayoutAttribute.top , multiplier: 1, constant: 0)
+                let tableViewConstraintBottom = NSLayoutConstraint(item: self.sideMenu, attribute: NSLayoutAttribute.bottom, relatedBy: .equal, toItem: self.navigationController?.view, attribute: NSLayoutAttribute.bottom , multiplier: 1, constant: 0)
+                let tableViewConstraintLeadingToTrailing = NSLayoutConstraint(item: self.sideMenu, attribute: NSLayoutAttribute.leading, relatedBy: .equal, toItem: self.navigationController?.view, attribute: NSLayoutAttribute.trailing , multiplier: 1, constant: 0)
+                
+                // assign the constraint to a coummon annssector
+                self.navigationController?.view.addConstraint(tableViewConstraintTop)
+                self.navigationController?.view.addConstraint(tableViewConstraintBottom)
+                self.navigationController?.view.addConstraint(tableViewConstraintLeadingToTrailing)
+                
+                self.view.layoutIfNeeded()
+            })
             
-            self.navigationController?.view.addSubview(sideMenu)
-            // constraints
-            let tableViewConstraintTop1 = NSLayoutConstraint(item: sideMenu, attribute: NSLayoutAttribute.top, relatedBy: .equal, toItem: self.navigationController?.view, attribute: NSLayoutAttribute.top , multiplier: 1, constant: 0)
-            let tableViewConstraintTop2 = NSLayoutConstraint(item: sideMenu, attribute: NSLayoutAttribute.bottom, relatedBy: .equal, toItem: self.navigationController?.view, attribute: NSLayoutAttribute.bottom , multiplier: 1, constant: 0)
-            let tableViewConstraintTop3 = NSLayoutConstraint(item: sideMenu, attribute: NSLayoutAttribute.leading, relatedBy: .equal, toItem: self.navigationController?.view, attribute: NSLayoutAttribute.trailing , multiplier: 1, constant: 0)
             
-            // assign the constraint to a coummon annssector
-            self.navigationController?.view.addConstraint(tableViewConstraintTop1)
-            self.navigationController?.view.addConstraint(tableViewConstraintTop2)
-            self.navigationController?.view.addConstraint(tableViewConstraintTop3)
-            
-            
-            
-            //parentView.transform = CGAffineTransform(translationX: -100, y: 0)
-            view.layoutIfNeeded()
         }
         
         isSideMenuShowing = !isSideMenuShowing
