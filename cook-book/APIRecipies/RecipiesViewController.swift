@@ -12,6 +12,12 @@ import SDWebImage
 
 class RecipiesViewController: UIViewController, UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout, UINavigationControllerDelegate  {
     
+    @IBOutlet var menuBarItem: UIBarButtonItem!
+    
+    @IBAction func pressingMenuBarItem(_ sender: UIBarButtonItem) {
+        // TODO: present menu
+    }
+    
     @IBOutlet weak var parentView: UIView! // consider to delete
     @IBOutlet weak var recipiesCollection: UICollectionView!
     let myRefreshControl = UIRefreshControl()
@@ -29,6 +35,13 @@ class RecipiesViewController: UIViewController, UICollectionViewDelegate, UIColl
         // find out in which tabController item index you are
         print("hello, you are curenttly in index: \(self.tabBarController!.selectedIndex)")
         
+        // init state of navigation bar menu icon
+        if self.tabBarController!.selectedIndex == 0 {
+            self.navigationItem.rightBarButtonItem = nil
+        } else {
+            self.navigationItem.rightBarButtonItem = menuBarItem
+        }
+        
         recipyType.selectedSegmentIndex = 0
         self.navigationItem.title = "Beef"
         self.navigationItem.backBarButtonItem = customBackButton
@@ -43,6 +56,12 @@ class RecipiesViewController: UIViewController, UICollectionViewDelegate, UIColl
     }
     
     override func viewDidAppear(_ animated: Bool) {
+        // init state of navigation bar menu icon
+        if self.tabBarController!.selectedIndex == 0 {
+            self.navigationItem.rightBarButtonItem = nil
+        } else {
+            self.navigationItem.rightBarButtonItem = menuBarItem
+        }
         
         retriveData()
         super.viewDidAppear(animated)

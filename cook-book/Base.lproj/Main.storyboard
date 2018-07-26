@@ -356,9 +356,14 @@
                         <viewLayoutGuide key="safeArea" id="tNa-Ly-Bwj"/>
                     </view>
                     <navigationItem key="navigationItem" title="Beef" id="Ep7-dX-9SA">
-                        <barButtonItem key="rightBarButtonItem" image="icons8-menu25" id="wC0-aL-QfV"/>
+                        <barButtonItem key="rightBarButtonItem" image="icons8-menu25" id="wC0-aL-QfV">
+                            <connections>
+                                <action selector="pressingMenuBarItem:" destination="Hft-ft-9u5" id="YI4-xN-VhF"/>
+                            </connections>
+                        </barButtonItem>
                     </navigationItem>
                     <connections>
+                        <outlet property="menuBarItem" destination="wC0-aL-QfV" id="n90-y5-XRa"/>
                         <outlet property="parentView" destination="0FF-ZS-9lx" id="7CL-0K-1DP"/>
                         <outlet property="recipiesCollection" destination="aeg-CB-Buq" id="Nya-hm-Jnd"/>
                         <outlet property="recipyType" destination="ytq-cj-mNP" id="72i-Vf-GgV"/>
