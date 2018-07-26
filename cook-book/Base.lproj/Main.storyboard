@@ -169,7 +169,7 @@
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
-                    <tabBarItem key="tabBarItem" title="myRecipes" image="icons8-gender_neutral_user_filled" id="clo-5n-7M7"/>
+                    <tabBarItem key="tabBarItem" title="myRecipes" image="icons8-gender_neutral_user_filled-1" id="clo-5n-7M7"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
@@ -356,7 +356,7 @@
                         <viewLayoutGuide key="safeArea" id="tNa-Ly-Bwj"/>
                     </view>
                     <navigationItem key="navigationItem" title="Beef" id="Ep7-dX-9SA">
-                        <barButtonItem key="rightBarButtonItem" image="icons8-menu_filled" id="wC0-aL-QfV"/>
+                        <barButtonItem key="rightBarButtonItem" image="icons8-menu25" id="wC0-aL-QfV"/>
                     </navigationItem>
                     <connections>
                         <outlet property="parentView" destination="0FF-ZS-9lx" id="7CL-0K-1DP"/>
@@ -1514,11 +1514,12 @@ This way, you’ll never run out </string>
         <image name="icons8-favorites-red-marchino" width="50" height="50"/>
         <image name="icons8-filled_circle" width="24" height="24"/>
         <image name="icons8-gender_neutral_user_filled" width="50" height="50"/>
+        <image name="icons8-gender_neutral_user_filled-1" width="25" height="25"/>
         <image name="icons8-ingredients" width="96" height="96"/>
         <image name="icons8-ingredients_spring" width="50" height="50"/>
         <image name="icons8-kitchen_steel" width="50" height="50"/>
         <image name="icons8-like_filled" width="25" height="25"/>
-        <image name="icons8-menu_filled" width="50" height="50"/>
+        <image name="icons8-menu25" width="24" height="24"/>
         <image name="icons8-pie_chart" width="52" height="52"/>
         <image name="icons8-shopping_25Steel" width="26" height="26"/>
         <image name="icons8-tableware_filled" width="100" height="100"/>
