@@ -47,17 +47,7 @@ class RecipiesViewController: UIViewController, UICollectionViewDelegate, UIColl
                 // translate to the left the entire viewController
                 self.navigationController?.view.transform = CGAffineTransform(translationX: -(self.sideMenuWidth.constant), y: 0)
                 
-                // add as subView the sideMenu view
-                self.navigationController?.view.addSubview(self.sideMenu)
-                // constraints
-                let tableViewConstraintTop = NSLayoutConstraint(item: self.sideMenu, attribute: NSLayoutAttribute.top, relatedBy: .equal, toItem: self.navigationController?.view, attribute: NSLayoutAttribute.top , multiplier: 1, constant: 0)
-                let tableViewConstraintBottom = NSLayoutConstraint(item: self.sideMenu, attribute: NSLayoutAttribute.bottom, relatedBy: .equal, toItem: self.parentView, attribute: NSLayoutAttribute.bottom , multiplier: 1, constant: 0)
-                let tableViewConstraintLeadingToTrailing = NSLayoutConstraint(item: self.sideMenu, attribute: NSLayoutAttribute.leading, relatedBy: .equal, toItem: self.navigationController?.view, attribute: NSLayoutAttribute.trailing , multiplier: 1, constant: 0)
                 
-                // assign the constraint to a coummon annssector
-                self.navigationController?.view.addConstraint(tableViewConstraintTop)
-                self.navigationController?.view.addConstraint(tableViewConstraintBottom)
-                self.navigationController?.view.addConstraint(tableViewConstraintLeadingToTrailing)
                 
                 // blur View
                 self.blurView.alpha = 0.8
@@ -98,7 +88,7 @@ class RecipiesViewController: UIViewController, UICollectionViewDelegate, UIColl
         self.blurView.alpha = 0
         sideMenu.backgroundColor = UIColor(red: 235 / 255.0, green: 235 / 255.0, blue: 235 / 255.0, alpha: 1)
         sideMenuWidth.constant = view.frame.size.width * 0.8 // side menu width
-        
+        sideMenu.translatesAutoresizingMaskIntoConstraints = false
         
         
         recipyType.selectedSegmentIndex = 0
@@ -119,12 +109,17 @@ class RecipiesViewController: UIViewController, UICollectionViewDelegate, UIColl
         handle = Auth.auth().addStateDidChangeListener { (auth, user) in
             if  user != nil {
                 // User is signed in.
+                // TODO: add the side menu to the naviagation controller view
                 print("Hi, There Is A user and we are in index 0!!!")
                 print("The user name is: \(user!.displayName!)")
                 self.signedUser = user
+                self.addTheSideMenuAsSubView(withTheFollowingSignedUser: self.signedUser!)
                 self.initTheVisiabilityStateOfNavigationBarItemsLeftAndRightAndSideMenu()
             } else {
                 // No user is signed in.
+                // TODO: close the menu
+                // remove the side menu from it's super view
+                self.sideMenu.removeFromSuperview()
                 print("No User, please sign in, you're still at index 0")
                self.signedUser = nil
                 self.initTheVisiabilityStateOfNavigationBarItemsLeftAndRightAndSideMenu()
@@ -133,8 +128,6 @@ class RecipiesViewController: UIViewController, UICollectionViewDelegate, UIColl
     }
     
     override func viewDidAppear(_ animated: Bool) {
-        
-        
         retriveData()
         super.viewDidAppear(animated)
     }
@@ -158,17 +151,9 @@ class RecipiesViewController: UIViewController, UICollectionViewDelegate, UIColl
         } else if signedUser != nil {
             
             self.navigationItem.rightBarButtonItem = menuBarItem
-            // set the image
-            sideMenuProfileImage.sd_setImage(with: signedUser!.photoURL, completed: nil)
-            sideMenuProfileImage.layer.cornerRadius = sideMenuProfileImage.bounds.size.height / 2
-            sideMenuProfileImage.clipsToBounds = true
+           
             self.blurView.alpha = 0
-            // set the frame around the image
-            framForProfileImage.layer.cornerRadius = sideMenuProfileImage.bounds.size.height / 2
-            framForProfileImage.clipsToBounds = true
-            // set display name & email
-            displayNameLabel.text = signedUser!.displayName
-            emailLabel.text = signedUser!.email
+            
             
         } else {
            self.navigationItem.rightBarButtonItem = nil
@@ -386,4 +371,34 @@ class RecipiesViewController: UIViewController, UICollectionViewDelegate, UIColl
     }
     */
 
+    
+    func addTheSideMenuAsSubView(withTheFollowingSignedUser usr: User) {
+        // add as subView the sideMenu view
+        self.navigationController?.view.addSubview(self.sideMenu)
+        // constraints
+        let tableViewConstraintTop = NSLayoutConstraint(item: self.sideMenu, attribute: NSLayoutAttribute.top, relatedBy: .equal, toItem: self.navigationController?.view, attribute: NSLayoutAttribute.top , multiplier: 1, constant: 0)
+        let tableViewConstraintBottom = NSLayoutConstraint(item: self.sideMenu, attribute: NSLayoutAttribute.bottom, relatedBy: .equal, toItem: self.parentView, attribute: NSLayoutAttribute.bottom , multiplier: 1, constant: 0)
+        let tableViewConstraintLeadingToTrailing = NSLayoutConstraint(item: self.sideMenu, attribute: NSLayoutAttribute.leading, relatedBy: .equal, toItem: self.navigationController?.view, attribute: NSLayoutAttribute.trailing , multiplier: 1, constant: 0)
+        
+        // assign the constraint to a coummon annssector
+        self.navigationController?.view.addConstraint(tableViewConstraintTop)
+        self.navigationController?.view.addConstraint(tableViewConstraintBottom)
+        self.navigationController?.view.addConstraint(tableViewConstraintLeadingToTrailing)
+        
+        // set the image
+        sideMenuProfileImage.sd_setImage(with: signedUser!.photoURL, completed: nil)
+        sideMenuProfileImage.layer.cornerRadius = sideMenuProfileImage.bounds.size.height / 2
+        sideMenuProfileImage.clipsToBounds = true
+        self.blurView.alpha = 0
+        // set the frame around the image
+        framForProfileImage.layer.cornerRadius = sideMenuProfileImage.bounds.size.height / 2
+        framForProfileImage.clipsToBounds = true
+        // set display name & email
+        displayNameLabel.text = signedUser!.displayName
+        emailLabel.text = signedUser!.email
+        
+        self.view.layoutIfNeeded()
+        
+    }
+    
 }
