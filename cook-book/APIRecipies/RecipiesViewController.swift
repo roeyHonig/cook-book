@@ -292,6 +292,10 @@ class RecipiesViewController: UIViewController, UICollectionViewDelegate, UIColl
         cell.contentView.layoutMargins.left = 2
         cell.contentView.layoutMargins.right = 2
         
+        cell.recipeImage.layer.cornerRadius = 8
+        cell.recipeImage.clipsToBounds = true
+        cell.contentView.layer.cornerRadius = 8
+        cell.contentView.clipsToBounds = true
         return cell
     }
     
