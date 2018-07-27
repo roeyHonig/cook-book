@@ -32,7 +32,7 @@ class SideMenuViewController: UIViewController {
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
-        //profileImage.sd_setImage(with: currentUser?.photoURL, completed: nil)
+        profileImage.sd_setImage(with: currentUser?.photoURL, completed: nil)
         
     }
 

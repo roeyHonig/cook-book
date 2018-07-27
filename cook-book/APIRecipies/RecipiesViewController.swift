@@ -21,6 +21,7 @@ class RecipiesViewController: UIViewController, UICollectionViewDelegate, UIColl
     lazy var mySideMenuController: SideMenuViewController = {
         let storyboard = UIStoryboard(name: "Main", bundle: Bundle.main)
         var viewController = storyboard.instantiateViewController(withIdentifier: "SideMenuViewController") as! SideMenuViewController
+        viewController.currentUser = self.signedUser! // when the lazy var will be called, you can be surew there is a user
         viewController.view.translatesAutoresizingMaskIntoConstraints = false
         self.navigationController!.addChildViewController(viewController)
         //viewController.view.frame = self.navigationController!.view.bounds
@@ -194,7 +195,7 @@ class RecipiesViewController: UIViewController, UICollectionViewDelegate, UIColl
             
             self.navigationItem.rightBarButtonItem = menuBarItem
             mySideMenuController.currentUser = signedUser
-            mySideMenuController.profileImage.sd_setImage(with: signedUser!.photoURL, completed: nil)
+            //mySideMenuController.profileImage.sd_setImage(with: signedUser!.photoURL, completed: nil)
             // set the image
             /*
             sideMenuProfileImage.sd_setImage(with: signedUser!.photoURL, completed: nil)
