@@ -377,6 +377,8 @@
                     </navigationItem>
                     <connections>
                         <outlet property="blurView" destination="7fZ-Vm-Rli" id="tHJ-QD-1SP"/>
+                        <outlet property="displayNameLabel" destination="9GP-qA-Di8" id="aZi-2O-tJV"/>
+                        <outlet property="emailLabel" destination="41B-ee-F9G" id="41A-ST-Eve"/>
                         <outlet property="framForProfileImage" destination="hSg-iz-lXu" id="gIM-SY-VDS"/>
                         <outlet property="menuBarItem" destination="wC0-aL-QfV" id="n90-y5-XRa"/>
                         <outlet property="parentView" destination="0FF-ZS-9lx" id="7CL-0K-1DP"/>
@@ -403,16 +405,34 @@
                                 <constraint firstAttribute="width" constant="100" id="KOY-bS-Uvq"/>
                             </constraints>
                         </imageView>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="9GP-qA-Di8">
+                            <rect key="frame" x="0.0" y="154" width="240" height="21"/>
+                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                            <nil key="textColor"/>
+                            <nil key="highlightedColor"/>
+                        </label>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="41B-ee-F9G">
+                            <rect key="frame" x="0.0" y="183" width="240" height="21"/>
+                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                            <nil key="textColor"/>
+                            <nil key="highlightedColor"/>
+                        </label>
                     </subviews>
                     <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
                     <constraints>
                         <constraint firstItem="hSg-iz-lXu" firstAttribute="centerX" secondItem="ou2-ZN-cbs" secondAttribute="centerX" id="2IE-Gj-Cdp"/>
                         <constraint firstItem="kgL-be-eHg" firstAttribute="top" secondItem="dyv-uF-ZL3" secondAttribute="top" constant="8" id="2Qa-Ms-LGf"/>
+                        <constraint firstItem="dyv-uF-ZL3" firstAttribute="trailing" secondItem="41B-ee-F9G" secondAttribute="trailing" id="7QP-Ro-VpD"/>
                         <constraint firstAttribute="width" constant="240" id="7jc-H8-6rP"/>
+                        <constraint firstItem="41B-ee-F9G" firstAttribute="leading" secondItem="dyv-uF-ZL3" secondAttribute="leading" id="9xz-oF-0wF"/>
                         <constraint firstItem="hSg-iz-lXu" firstAttribute="top" secondItem="dyv-uF-ZL3" secondAttribute="top" constant="6" id="DW2-ip-oCr"/>
                         <constraint firstItem="hSg-iz-lXu" firstAttribute="height" secondItem="kgL-be-eHg" secondAttribute="height" constant="4" id="HB4-pT-Ivn"/>
                         <constraint firstItem="kgL-be-eHg" firstAttribute="centerX" secondItem="ou2-ZN-cbs" secondAttribute="centerX" id="Nw2-8r-dmT"/>
+                        <constraint firstItem="dyv-uF-ZL3" firstAttribute="trailing" secondItem="9GP-qA-Di8" secondAttribute="trailing" id="YkL-jH-ft3"/>
+                        <constraint firstItem="9GP-qA-Di8" firstAttribute="top" secondItem="hSg-iz-lXu" secondAttribute="bottom" constant="24" id="pBG-E4-23j"/>
+                        <constraint firstItem="9GP-qA-Di8" firstAttribute="leading" secondItem="dyv-uF-ZL3" secondAttribute="leading" id="paV-zI-yr5"/>
                         <constraint firstItem="hSg-iz-lXu" firstAttribute="width" secondItem="kgL-be-eHg" secondAttribute="width" constant="4" id="r2P-eT-50G"/>
+                        <constraint firstItem="41B-ee-F9G" firstAttribute="top" secondItem="9GP-qA-Di8" secondAttribute="bottom" constant="8" id="vQI-SA-iMy"/>
                     </constraints>
                     <viewLayoutGuide key="safeArea" id="dyv-uF-ZL3"/>
                 </view>

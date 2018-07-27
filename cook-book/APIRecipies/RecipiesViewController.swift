@@ -21,8 +21,9 @@ class RecipiesViewController: UIViewController, UICollectionViewDelegate, UIColl
     @IBOutlet var sideMenuProfileImage: UIImageView!
     var isSideMenuShowing = false
     @IBOutlet var blurView: UIVisualEffectView!
-    
     @IBOutlet var framForProfileImage: UIImageView!
+    @IBOutlet var displayNameLabel: UILabel!
+    @IBOutlet var emailLabel: UILabel!
     
     
     @IBOutlet var menuBarItem: UIBarButtonItem!
@@ -94,7 +95,7 @@ class RecipiesViewController: UIViewController, UICollectionViewDelegate, UIColl
         print("hello, you are curenttly in index: \(self.tabBarController!.selectedIndex)")
         self.blurView.alpha = 0
         sideMenu.backgroundColor = UIColor(red: 235 / 255.0, green: 235 / 255.0, blue: 235 / 255.0, alpha: 1)
-        sideMenuWidth.constant = view.frame.size.width * 0.8
+        sideMenuWidth.constant = view.frame.size.width * 0.8 // side menu width
         
         initTheVisiabilityStateOfNavigationBarItemsLeftAndRightAndSideMenu()
         
@@ -161,6 +162,9 @@ class RecipiesViewController: UIViewController, UICollectionViewDelegate, UIColl
             // set the frame around the image
             framForProfileImage.layer.cornerRadius = sideMenuProfileImage.bounds.size.height / 2
             framForProfileImage.clipsToBounds = true
+            // set display name & email
+            displayNameLabel.text = signedUser!.displayName
+            emailLabel.text = signedUser!.email
             
         } else {
            self.navigationItem.rightBarButtonItem = nil
