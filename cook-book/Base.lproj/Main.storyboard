@@ -1289,6 +1289,50 @@
             </objects>
             <point key="canvasLocation" x="1502" y="481"/>
         </scene>
+        <!--Side Menu View Controller-->
+        <scene sceneID="guz-9f-mT9">
+            <objects>
+                <viewController storyboardIdentifier="SideMenuViewController" id="l3x-t2-qvr" customClass="SideMenuViewController" customModule="cook_book" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="tXQ-LN-FOJ">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="V4h-3d-5Fs" userLabel="sideMenuView">
+                                <rect key="frame" x="0.0" y="20" width="300" height="647"/>
+                                <subviews>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Uy6-X6-p58" userLabel="profileImageContainer">
+                                        <rect key="frame" x="75" y="8" width="150" height="150"/>
+                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" secondItem="Uy6-X6-p58" secondAttribute="height" id="tbh-5z-CqA"/>
+                                        </constraints>
+                                    </view>
+                                </subviews>
+                                <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstItem="Uy6-X6-p58" firstAttribute="width" secondItem="V4h-3d-5Fs" secondAttribute="width" multiplier="0.5" id="6ur-Uf-G8t"/>
+                                    <constraint firstItem="Uy6-X6-p58" firstAttribute="top" secondItem="V4h-3d-5Fs" secondAttribute="top" constant="8" id="mEF-xP-njT"/>
+                                    <constraint firstItem="Uy6-X6-p58" firstAttribute="centerX" secondItem="V4h-3d-5Fs" secondAttribute="centerX" id="xDH-MQ-3R9"/>
+                                </constraints>
+                            </view>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="V4h-3d-5Fs" firstAttribute="width" secondItem="tXQ-LN-FOJ" secondAttribute="width" multiplier="0.8" id="OD5-Bm-Zff"/>
+                            <constraint firstItem="V4h-3d-5Fs" firstAttribute="top" secondItem="Y5W-vz-Szg" secondAttribute="top" id="VX4-4s-s9m"/>
+                            <constraint firstItem="V4h-3d-5Fs" firstAttribute="leading" secondItem="Y5W-vz-Szg" secondAttribute="leading" id="ZfU-kK-3tY"/>
+                            <constraint firstAttribute="bottom" secondItem="V4h-3d-5Fs" secondAttribute="bottom" id="phv-03-2O8"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="Y5W-vz-Szg"/>
+                    </view>
+                    <connections>
+                        <outlet property="sideMenuView" destination="V4h-3d-5Fs" id="qdH-tr-iND"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="ZA1-AM-2Bb" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-2541.5999999999999" y="-179.46026986506749"/>
+        </scene>
         <!--APIRecipies-->
         <scene sceneID="XuT-Rm-NAS">
             <objects>
@@ -1602,6 +1646,6 @@ This way, you’ll never run out </string>
         <image name="vegetarian50" width="50" height="50"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="brA-Jd-ujw"/>
+        <segue reference="gYv-1l-Ecj"/>
     </inferredMetricsTieBreakers>
 </document>

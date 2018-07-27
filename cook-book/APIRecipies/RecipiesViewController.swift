@@ -16,6 +16,38 @@ import FBSDKLoginKit
 
 class RecipiesViewController: UIViewController, UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout, UINavigationControllerDelegate, GIDSignInUIDelegate  {
    
+    // new
+    
+    lazy var mySideMenuController: SideMenuViewController = {
+        let storyboard = UIStoryboard(name: "Main", bundle: Bundle.main)
+        var viewController = storyboard.instantiateViewController(withIdentifier: "SideMenuViewController") as! SideMenuViewController
+        viewController.view.translatesAutoresizingMaskIntoConstraints = false
+        self.navigationController!.addChildViewController(viewController)
+        //viewController.view.frame = self.navigationController!.view.bounds
+        //viewController.view.autoresizingMask = [.flexibleWidth, .flexibleHeight]
+        
+        
+        self.navigationController?.view.addSubview(viewController.view)
+        
+        let tableViewConstraintTop = NSLayoutConstraint(item: viewController.view, attribute: NSLayoutAttribute.top, relatedBy: .equal, toItem: self.navigationController?.view, attribute: NSLayoutAttribute.top , multiplier: 1, constant: 0)
+        let tableViewConstraintBottom = NSLayoutConstraint(item: viewController.view, attribute: NSLayoutAttribute.bottom, relatedBy: .equal, toItem: self.navigationController?.view, attribute: NSLayoutAttribute.bottom , multiplier: 1, constant: 0)
+        let tableViewConstraintLeadingToTrailing = NSLayoutConstraint(item: viewController.view, attribute: NSLayoutAttribute.leading, relatedBy: .equal, toItem: self.navigationController?.view, attribute: NSLayoutAttribute.trailing , multiplier: 1, constant: 0)
+        let tableViewConstraintwidth = NSLayoutConstraint(item: viewController.view, attribute: NSLayoutAttribute.width, relatedBy: .equal, toItem: self.navigationController?.view, attribute: NSLayoutAttribute.width , multiplier: 1, constant: 0)
+        
+        // assign the constraint to a coummon annssector
+        self.navigationController?.view.addConstraint(tableViewConstraintTop)
+        self.navigationController?.view.addConstraint(tableViewConstraintBottom)
+        self.navigationController?.view.addConstraint(tableViewConstraintLeadingToTrailing)
+        self.navigationController?.view.addConstraint(tableViewConstraintwidth)
+        
+        
+        print("initinitinitnitnitnintintint")
+        return viewController
+    }()
+    
+    
+    
+    //-----------old
     
     @IBOutlet var sideMenuWidth: NSLayoutConstraint!
     @IBOutlet var sideMenuProfileImage: UIImageView!
@@ -42,23 +74,27 @@ class RecipiesViewController: UIViewController, UICollectionViewDelegate, UIColl
         } else {
             //open the menu
             self.view.isUserInteractionEnabled = false
+            
+            
+            
             UIView.animate(withDuration: 0.5, animations: {
                 
                 // translate to the left the entire viewController
-                self.navigationController?.view.transform = CGAffineTransform(translationX: -(self.sideMenuWidth.constant), y: 0)
-                
+                self.navigationController?.view.transform = CGAffineTransform(translationX: -(100), y: 0)
+                self.mySideMenuController.view.transform =  CGAffineTransform(translationX: -(0), y: 0) // just for the lazy var
+                /*
                 // add as subView the sideMenu view
-                self.navigationController?.view.addSubview(self.sideMenu)
+                self.navigationController?.view.addSubview(self.mySideMenuController.view)
                 // constraints
-                let tableViewConstraintTop = NSLayoutConstraint(item: self.sideMenu, attribute: NSLayoutAttribute.top, relatedBy: .equal, toItem: self.navigationController?.view, attribute: NSLayoutAttribute.top , multiplier: 1, constant: 0)
-                let tableViewConstraintBottom = NSLayoutConstraint(item: self.sideMenu, attribute: NSLayoutAttribute.bottom, relatedBy: .equal, toItem: self.parentView, attribute: NSLayoutAttribute.bottom , multiplier: 1, constant: 0)
-                let tableViewConstraintLeadingToTrailing = NSLayoutConstraint(item: self.sideMenu, attribute: NSLayoutAttribute.leading, relatedBy: .equal, toItem: self.navigationController?.view, attribute: NSLayoutAttribute.trailing , multiplier: 1, constant: 0)
+                let tableViewConstraintTop = NSLayoutConstraint(item: self.mySideMenuController.view, attribute: NSLayoutAttribute.top, relatedBy: .equal, toItem: self.navigationController?.view, attribute: NSLayoutAttribute.top , multiplier: 1, constant: 0)
+                let tableViewConstraintBottom = NSLayoutConstraint(item: self.mySideMenuController.view, attribute: NSLayoutAttribute.bottom, relatedBy: .equal, toItem: self.parentView, attribute: NSLayoutAttribute.bottom , multiplier: 1, constant: 0)
+                let tableViewConstraintLeadingToTrailing = NSLayoutConstraint(item: self.mySideMenuController.view, attribute: NSLayoutAttribute.leading, relatedBy: .equal, toItem: self.navigationController?.view, attribute: NSLayoutAttribute.trailing , multiplier: 1, constant: 0)
                 
                 // assign the constraint to a coummon annssector
                 self.navigationController?.view.addConstraint(tableViewConstraintTop)
                 self.navigationController?.view.addConstraint(tableViewConstraintBottom)
                 self.navigationController?.view.addConstraint(tableViewConstraintLeadingToTrailing)
-                
+                */
                 // blur View
                 self.blurView.alpha = 0.8
                 
@@ -157,17 +193,20 @@ class RecipiesViewController: UIViewController, UICollectionViewDelegate, UIColl
             
             self.navigationItem.rightBarButtonItem = menuBarItem
             // set the image
+            /*
             sideMenuProfileImage.sd_setImage(with: signedUser!.photoURL, completed: nil)
             sideMenuProfileImage.layer.cornerRadius = sideMenuProfileImage.bounds.size.height / 2
             sideMenuProfileImage.clipsToBounds = true
+             */
             self.blurView.alpha = 0
             // set the frame around the image
+            /*
             framForProfileImage.layer.cornerRadius = sideMenuProfileImage.bounds.size.height / 2
             framForProfileImage.clipsToBounds = true
             // set display name & email
             displayNameLabel.text = signedUser!.displayName
             emailLabel.text = signedUser!.email
-            
+            */
         } else {
            self.navigationItem.rightBarButtonItem = nil
         }
