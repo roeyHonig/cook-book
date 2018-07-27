@@ -4,7 +4,7 @@
 //
 //  Created by hackeru on 3 Tamuz 5778.
 //  Copyright © 5778 student.roey.honig. All rights reserved.
-// lets bring the myRecipes
+// lets bring the sideMenu as a reusable View
 
 
 // TODO: design the last screen of the quickGuide

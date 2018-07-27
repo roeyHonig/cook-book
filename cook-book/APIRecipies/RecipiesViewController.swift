@@ -24,6 +24,8 @@ class RecipiesViewController: UIViewController, UICollectionViewDelegate, UIColl
     @IBOutlet var framForProfileImage: UIImageView!
     @IBOutlet var displayNameLabel: UILabel!
     @IBOutlet var emailLabel: UILabel!
+    @IBOutlet var sideMenu: UIView!
+    
     
     
     @IBOutlet var menuBarItem: UIBarButtonItem!
@@ -74,7 +76,7 @@ class RecipiesViewController: UIViewController, UICollectionViewDelegate, UIColl
     var signedUser: User?
     
     
-    @IBOutlet var sideMenu: UIView!
+    
     
     
     @IBOutlet weak var parentView: UIView!
