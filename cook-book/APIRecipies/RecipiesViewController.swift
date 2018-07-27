@@ -32,11 +32,9 @@ class RecipiesViewController: UIViewController, UICollectionViewDelegate, UIColl
     @IBAction func pressingMenuBarItem(_ sender: UIBarButtonItem) {
         if isSideMenuShowing {
             // close the menue
-            self.view.isUserInteractionEnabled = true
+            //self.view.isUserInteractionEnabled = true
             UIView.animate(withDuration: 0.5, animations: {
-                self.navigationController?.view.transform = CGAffineTransform.identity
-                self.blurView.alpha = 0
-                self.view.layoutIfNeeded()
+                self.closeTheSideMenu()
             })
             
         } else {
@@ -109,19 +107,19 @@ class RecipiesViewController: UIViewController, UICollectionViewDelegate, UIColl
         handle = Auth.auth().addStateDidChangeListener { (auth, user) in
             if  user != nil {
                 // User is signed in.
-                // TODO: add the side menu to the naviagation controller view
                 print("Hi, There Is A user and we are in index 0!!!")
                 print("The user name is: \(user!.displayName!)")
                 self.signedUser = user
                 self.addTheSideMenuAsSubView(withTheFollowingSignedUser: self.signedUser!)
                 self.initTheVisiabilityStateOfNavigationBarItemsLeftAndRightAndSideMenu()
+                //TODO: reload the data, this time IAW the other DB table
             } else {
                 // No user is signed in.
-                // TODO: close the menu
-                // remove the side menu from it's super view
+                self.closeTheSideMenu()
+                self.isSideMenuShowing = false
                 self.sideMenu.removeFromSuperview()
                 print("No User, please sign in, you're still at index 0")
-               self.signedUser = nil
+                self.signedUser = nil
                 self.initTheVisiabilityStateOfNavigationBarItemsLeftAndRightAndSideMenu()
             }
         }
@@ -136,34 +134,22 @@ class RecipiesViewController: UIViewController, UICollectionViewDelegate, UIColl
         super.viewWillDisappear(animated)
         Auth.auth().removeStateDidChangeListener(handle)
         
-        // close the menue
-        self.view.isUserInteractionEnabled = true
-        self.navigationController?.view.transform = CGAffineTransform.identity
-        view.layoutIfNeeded()
+        closeTheSideMenu()
         isSideMenuShowing = false
         self.blurView.alpha = 0
     }
    
     
     func initTheVisiabilityStateOfNavigationBarItemsLeftAndRightAndSideMenu() {
-        if self.tabBarController!.selectedIndex == 1 {
-            self.navigationItem.rightBarButtonItem = nil
-        } else if signedUser != nil {
-            
+        if signedUser != nil {
             self.navigationItem.rightBarButtonItem = menuBarItem
-           
             self.blurView.alpha = 0
-            
-            
         } else {
            self.navigationItem.rightBarButtonItem = nil
         }
     }
     
-    
-    
-    
-    
+  
     func navigationController(_ navigationController: UINavigationController, willShow viewController: UIViewController, animated: Bool) {
         if viewController is RecipiesViewController  {
         let font = UIFont(name: "Helvetica", size: 36)! // TODO: it might be wise to provide some fallback fonts in case not all devices carry this
@@ -399,6 +385,13 @@ class RecipiesViewController: UIViewController, UICollectionViewDelegate, UIColl
         
         self.view.layoutIfNeeded()
         
+    }
+    
+    func closeTheSideMenu() {
+        view.isUserInteractionEnabled = true
+        navigationController?.view.transform = CGAffineTransform.identity
+        blurView.alpha = 0
+        view.layoutIfNeeded()
     }
     
 }
