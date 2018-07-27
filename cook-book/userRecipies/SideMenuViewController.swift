@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import SDWebImage
 import Firebase
 import GoogleSignIn
 import FBSDKCoreKit
@@ -14,7 +15,7 @@ import FBSDKLoginKit
 
 class SideMenuViewController: UIViewController {
     var currentUser: User?
-
+    @IBOutlet var profileImage: UIImageView!
     @IBOutlet var sideMenuView: UIView!
     
     /*
@@ -31,6 +32,8 @@ class SideMenuViewController: UIViewController {
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
+        //profileImage.sd_setImage(with: currentUser?.photoURL, completed: nil)
+        
     }
 
     override func didReceiveMemoryWarning() {

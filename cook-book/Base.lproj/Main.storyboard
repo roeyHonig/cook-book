@@ -1302,8 +1302,17 @@
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Uy6-X6-p58" userLabel="profileImageContainer">
                                         <rect key="frame" x="75" y="8" width="150" height="150"/>
+                                        <subviews>
+                                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="d9M-wp-5e5">
+                                                <rect key="frame" x="0.0" y="0.0" width="150" height="150"/>
+                                            </imageView>
+                                        </subviews>
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                         <constraints>
+                                            <constraint firstItem="d9M-wp-5e5" firstAttribute="height" secondItem="Uy6-X6-p58" secondAttribute="height" id="Hd0-nX-bdW"/>
+                                            <constraint firstItem="d9M-wp-5e5" firstAttribute="centerX" secondItem="Uy6-X6-p58" secondAttribute="centerX" id="ZwQ-pn-5hl"/>
+                                            <constraint firstItem="d9M-wp-5e5" firstAttribute="width" secondItem="Uy6-X6-p58" secondAttribute="width" id="epf-TM-Oey"/>
+                                            <constraint firstItem="d9M-wp-5e5" firstAttribute="centerY" secondItem="Uy6-X6-p58" secondAttribute="centerY" id="ieN-C6-CTQ"/>
                                             <constraint firstAttribute="width" secondItem="Uy6-X6-p58" secondAttribute="height" id="tbh-5z-CqA"/>
                                         </constraints>
                                     </view>
@@ -1326,6 +1335,7 @@
                         <viewLayoutGuide key="safeArea" id="Y5W-vz-Szg"/>
                     </view>
                     <connections>
+                        <outlet property="profileImage" destination="d9M-wp-5e5" id="8Y5-0I-z76"/>
                         <outlet property="sideMenuView" destination="V4h-3d-5Fs" id="qdH-tr-iND"/>
                     </connections>
                 </viewController>

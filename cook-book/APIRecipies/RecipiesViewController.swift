@@ -80,8 +80,8 @@ class RecipiesViewController: UIViewController, UICollectionViewDelegate, UIColl
             UIView.animate(withDuration: 0.5, animations: {
                 
                 // translate to the left the entire viewController
-                self.navigationController?.view.transform = CGAffineTransform(translationX: -(100), y: 0)
-                self.mySideMenuController.view.transform =  CGAffineTransform(translationX: -(0), y: 0) // just for the lazy var
+                self.navigationController?.view.transform = CGAffineTransform(translationX: -(self.parentView.bounds.width * 0.8), y: 0)
+                //self.mySideMenuController.view.transform =  CGAffineTransform(translationX: -(0), y: 0) // just for the lazy var
                 /*
                 // add as subView the sideMenu view
                 self.navigationController?.view.addSubview(self.mySideMenuController.view)
@@ -158,6 +158,7 @@ class RecipiesViewController: UIViewController, UICollectionViewDelegate, UIColl
                 print("Hi, There Is A user and we are in index 0!!!")
                 print("The user name is: \(user!.displayName!)")
                 self.signedUser = user
+                self.initTheVisiabilityStateOfNavigationBarItemsLeftAndRightAndSideMenu()
                 //self.signedUser!.photoURL
             } else {
                 // No user is signed in.
@@ -192,6 +193,8 @@ class RecipiesViewController: UIViewController, UICollectionViewDelegate, UIColl
         } else if signedUser != nil {
             
             self.navigationItem.rightBarButtonItem = menuBarItem
+            mySideMenuController.currentUser = signedUser
+            mySideMenuController.profileImage.sd_setImage(with: signedUser!.photoURL, completed: nil)
             // set the image
             /*
             sideMenuProfileImage.sd_setImage(with: signedUser!.photoURL, completed: nil)
