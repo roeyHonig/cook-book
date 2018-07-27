@@ -340,7 +340,7 @@ class RecipiesViewController: UIViewController, UICollectionViewDelegate, UIColl
         // constraints
         let tableViewConstraintTop = NSLayoutConstraint(item: self.sideMenu, attribute: NSLayoutAttribute.top, relatedBy: .equal, toItem: self.navigationController?.view, attribute: NSLayoutAttribute.top , multiplier: 1, constant: 0)
         let tableViewConstraintBottom = NSLayoutConstraint(item: self.sideMenu, attribute: NSLayoutAttribute.bottom, relatedBy: .equal, toItem: self.parentView, attribute: NSLayoutAttribute.bottom , multiplier: 1, constant: 0)
-        let tableViewConstraintLeadingToTrailing = NSLayoutConstraint(item: self.sideMenu, attribute: NSLayoutAttribute.leading, relatedBy: .equal, toItem: self.navigationController?.view, attribute: NSLayoutAttribute.trailing , multiplier: 1, constant: 0)
+        let tableViewConstraintLeadingToTrailing = NSLayoutConstraint(item: self.sideMenu, attribute: NSLayoutAttribute.leading, relatedBy: .equal, toItem: self.navigationController?.view, attribute: NSLayoutAttribute.leading , multiplier: 1, constant: 0)
         
         // assign the constraint to a coummon annssector
         self.navigationController?.view.addConstraint(tableViewConstraintTop)
@@ -358,6 +358,61 @@ class RecipiesViewController: UIViewController, UICollectionViewDelegate, UIColl
         // set display name & email
         displayNameLabel.text = signedUser!.displayName
         emailLabel.text = signedUser!.email
+        
+        
+        let storyboard = UIStoryboard(name: "Main", bundle: Bundle.main)
+        var viewController = storyboard.instantiateViewController(withIdentifier: "sideMenuController") as! SideMenuViewController
+        viewController.view.translatesAutoresizingMaskIntoConstraints = false
+        self.navigationController!.addChildViewController(viewController)
+        self.navigationController!.view.addSubview(viewController.view)
+        
+        // constraints
+        let tableViewConstraintTop1 = NSLayoutConstraint(item: viewController.view, attribute: NSLayoutAttribute.top, relatedBy: .equal, toItem: self.navigationController?.view, attribute: NSLayoutAttribute.top , multiplier: 1, constant: 0)
+        let tableViewConstraintBottom1 = NSLayoutConstraint(item: viewController.view, attribute: NSLayoutAttribute.bottom, relatedBy: .equal, toItem: self.parentView, attribute: NSLayoutAttribute.bottom , multiplier: 1, constant: 0)
+        let tableViewConstraintLeadingToTrailing1 = NSLayoutConstraint(item: viewController.view, attribute: NSLayoutAttribute.leading, relatedBy: .equal, toItem: self.navigationController?.view, attribute: NSLayoutAttribute.trailing , multiplier: 1, constant: 0)
+        let tableViewConstraintLeadingToTrailing2 = NSLayoutConstraint(item: viewController.view, attribute: NSLayoutAttribute.width, relatedBy: .equal, toItem: self.navigationController?.view, attribute: NSLayoutAttribute.width , multiplier: 1, constant: 0)
+        
+        // assign the constraint to a coummon annssector
+        self.navigationController?.view.addConstraint(tableViewConstraintTop1)
+        self.navigationController?.view.addConstraint(tableViewConstraintBottom1)
+        self.navigationController?.view.addConstraint(tableViewConstraintLeadingToTrailing1)
+        self.navigationController?.view.addConstraint(tableViewConstraintLeadingToTrailing2)
+        
+        viewController.didMove(toParentViewController: self.navigationController!)
+        
+        /*
+         lazy var signInViewController: SignInViewController = {
+         let storyboard = UIStoryboard(name: "Main", bundle: Bundle.main)
+         var viewController = storyboard.instantiateViewController(withIdentifier: "SignInViewController") as! SignInViewController
+         self.addViewControllerAsChildViewController(childViewController: viewController)
+         return viewController
+         }()
+         
+         
+         func addViewControllerAsChildViewController(childViewController: UIViewController) {
+         addChildViewController(childViewController)
+         
+         // uncomment the follwoing if you want the childViewController to populate the entire view of the parent viewController
+         
+         self.view.addSubview(childViewController.view)
+         childViewController.view.frame = self.view.bounds
+         childViewController.view.autoresizingMask = [.flexibleWidth, .flexibleHeight]
+         
+         
+         /*
+         containerView.addSubview(childViewController.view)
+         childViewController.view.frame = containerView.bounds
+         childViewController.view.autoresizingMask = [.flexibleWidth, .flexibleHeight]
+         */
+         
+         childViewController.didMove(toParentViewController: self)
+         }
+         
+         */
+        
+        
+        
+        
         
         self.view.layoutIfNeeded()
         

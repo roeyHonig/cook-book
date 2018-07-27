@@ -175,6 +175,33 @@
             </objects>
             <point key="canvasLocation" x="1192.8" y="-291.00449775112446"/>
         </scene>
+        <!--Side Menu View Controller-->
+        <scene sceneID="5fi-RX-3i6">
+            <objects>
+                <viewController storyboardIdentifier="sideMenuController" id="Xax-3m-RyS" customClass="SideMenuViewController" customModule="cook_book" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="8Fp-m7-zd8">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="vfw-lS-Vg9">
+                                <rect key="frame" x="375" y="0.0" width="375" height="667"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                            </view>
+                        </subviews>
+                        <color key="backgroundColor" red="1" green="0.65990817859999995" blue="0.087172153840000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstItem="vfw-lS-Vg9" firstAttribute="leading" secondItem="WEj-pZ-Qkf" secondAttribute="trailing" id="9SL-h2-y2t"/>
+                            <constraint firstItem="vfw-lS-Vg9" firstAttribute="bottom" secondItem="WEj-pZ-Qkf" secondAttribute="bottom" id="YGI-fG-5sj"/>
+                            <constraint firstItem="vfw-lS-Vg9" firstAttribute="width" secondItem="8Fp-m7-zd8" secondAttribute="width" id="pOk-2x-Az9"/>
+                            <constraint firstItem="vfw-lS-Vg9" firstAttribute="top" secondItem="8Fp-m7-zd8" secondAttribute="top" id="r0H-W1-wbn"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="WEj-pZ-Qkf"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Ccg-Nn-f8C" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-2719.1999999999998" y="-48.125937031484263"/>
+        </scene>
         <!--Beef-->
         <scene sceneID="v3q-Kf-H2w">
             <objects>
