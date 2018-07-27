@@ -99,7 +99,7 @@ class RecipiesViewController: UIViewController, UICollectionViewDelegate, UIColl
         sideMenu.backgroundColor = UIColor(red: 235 / 255.0, green: 235 / 255.0, blue: 235 / 255.0, alpha: 1)
         sideMenuWidth.constant = view.frame.size.width * 0.8 // side menu width
         
-        initTheVisiabilityStateOfNavigationBarItemsLeftAndRightAndSideMenu()
+        
         
         recipyType.selectedSegmentIndex = 0
         self.navigationItem.title = "Beef"
@@ -122,17 +122,18 @@ class RecipiesViewController: UIViewController, UICollectionViewDelegate, UIColl
                 print("Hi, There Is A user and we are in index 0!!!")
                 print("The user name is: \(user!.displayName!)")
                 self.signedUser = user
-                //self.signedUser!.photoURL
+                self.initTheVisiabilityStateOfNavigationBarItemsLeftAndRightAndSideMenu()
             } else {
                 // No user is signed in.
                 print("No User, please sign in, you're still at index 0")
                self.signedUser = nil
+                self.initTheVisiabilityStateOfNavigationBarItemsLeftAndRightAndSideMenu()
             }
         }
     }
     
     override func viewDidAppear(_ animated: Bool) {
-        initTheVisiabilityStateOfNavigationBarItemsLeftAndRightAndSideMenu()
+        
         
         retriveData()
         super.viewDidAppear(animated)
@@ -147,6 +148,7 @@ class RecipiesViewController: UIViewController, UICollectionViewDelegate, UIColl
         self.navigationController?.view.transform = CGAffineTransform.identity
         view.layoutIfNeeded()
         isSideMenuShowing = false
+        self.blurView.alpha = 0
     }
    
     
