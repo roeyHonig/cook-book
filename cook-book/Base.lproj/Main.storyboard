@@ -377,6 +377,7 @@
                     </navigationItem>
                     <connections>
                         <outlet property="blurView" destination="7fZ-Vm-Rli" id="tHJ-QD-1SP"/>
+                        <outlet property="framForProfileImage" destination="hSg-iz-lXu" id="gIM-SY-VDS"/>
                         <outlet property="menuBarItem" destination="wC0-aL-QfV" id="n90-y5-XRa"/>
                         <outlet property="parentView" destination="0FF-ZS-9lx" id="7CL-0K-1DP"/>
                         <outlet property="recipiesCollection" destination="aeg-CB-Buq" id="Nya-hm-Jnd"/>
@@ -390,6 +391,10 @@
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ou2-ZN-cbs">
                     <rect key="frame" x="0.0" y="0.0" width="240" height="618"/>
                     <subviews>
+                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="hSg-iz-lXu">
+                            <rect key="frame" x="68" y="26" width="104" height="104"/>
+                            <color key="backgroundColor" red="1" green="1" blue="0.40000000600000002" alpha="1" colorSpace="calibratedRGB"/>
+                        </imageView>
                         <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="kgL-be-eHg">
                             <rect key="frame" x="70" y="28" width="100" height="100"/>
                             <color key="backgroundColor" red="1" green="1" blue="0.40000000600000002" alpha="1" colorSpace="calibratedRGB"/>
@@ -401,9 +406,13 @@
                     </subviews>
                     <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
                     <constraints>
+                        <constraint firstItem="hSg-iz-lXu" firstAttribute="centerX" secondItem="ou2-ZN-cbs" secondAttribute="centerX" id="2IE-Gj-Cdp"/>
                         <constraint firstItem="kgL-be-eHg" firstAttribute="top" secondItem="dyv-uF-ZL3" secondAttribute="top" constant="8" id="2Qa-Ms-LGf"/>
                         <constraint firstAttribute="width" constant="240" id="7jc-H8-6rP"/>
+                        <constraint firstItem="hSg-iz-lXu" firstAttribute="top" secondItem="dyv-uF-ZL3" secondAttribute="top" constant="6" id="DW2-ip-oCr"/>
+                        <constraint firstItem="hSg-iz-lXu" firstAttribute="height" secondItem="kgL-be-eHg" secondAttribute="height" constant="4" id="HB4-pT-Ivn"/>
                         <constraint firstItem="kgL-be-eHg" firstAttribute="centerX" secondItem="ou2-ZN-cbs" secondAttribute="centerX" id="Nw2-8r-dmT"/>
+                        <constraint firstItem="hSg-iz-lXu" firstAttribute="width" secondItem="kgL-be-eHg" secondAttribute="width" constant="4" id="r2P-eT-50G"/>
                     </constraints>
                     <viewLayoutGuide key="safeArea" id="dyv-uF-ZL3"/>
                 </view>
@@ -1267,7 +1276,7 @@
                     <tabBarItem key="tabBarItem" title="APIRecipies" image="icons8-cooking_pot" id="iWa-fe-Pwb"/>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="b4Y-LD-FFX">
-                        <rect key="frame" x="0.0" y="20" width="375" height="48"/>
+                        <rect key="frame" x="0.0" y="20" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
                     <nil name="viewControllers"/>
@@ -1504,7 +1513,7 @@ This way, you’ll never run out </string>
                     <tabBarItem key="tabBarItem" title="Favorites" image="icons8-like_filled" id="N1w-mT-A1X"/>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="Hcx-XO-Pqi">
-                        <rect key="frame" x="0.0" y="20" width="375" height="48"/>
+                        <rect key="frame" x="0.0" y="20" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
                     <nil name="viewControllers"/>
@@ -1523,7 +1532,7 @@ This way, you’ll never run out </string>
                     <tabBarItem key="tabBarItem" title="Shopping List" image="icons8-shopping_25Steel" id="QaT-tj-fbZ"/>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="Ux6-kF-cMv">
-                        <rect key="frame" x="0.0" y="20" width="375" height="48"/>
+                        <rect key="frame" x="0.0" y="20" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
                     <nil name="viewControllers"/>

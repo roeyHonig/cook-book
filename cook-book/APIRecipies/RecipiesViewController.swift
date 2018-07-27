@@ -22,6 +22,8 @@ class RecipiesViewController: UIViewController, UICollectionViewDelegate, UIColl
     var isSideMenuShowing = false
     @IBOutlet var blurView: UIVisualEffectView!
     
+    @IBOutlet var framForProfileImage: UIImageView!
+    
     
     @IBOutlet var menuBarItem: UIBarButtonItem!
     @IBAction func pressingMenuBarItem(_ sender: UIBarButtonItem) {
@@ -92,8 +94,9 @@ class RecipiesViewController: UIViewController, UICollectionViewDelegate, UIColl
         print("hello, you are curenttly in index: \(self.tabBarController!.selectedIndex)")
         self.blurView.alpha = 0
         sideMenu.backgroundColor = UIColor(red: 235 / 255.0, green: 235 / 255.0, blue: 235 / 255.0, alpha: 1)
+        sideMenuWidth.constant = view.frame.size.width * 0.8
         
-        initTheVisiabilityStateOfNavigationBarItemsLeftAndRight()
+        initTheVisiabilityStateOfNavigationBarItemsLeftAndRightAndSideMenu()
         
         recipyType.selectedSegmentIndex = 0
         self.navigationItem.title = "Beef"
@@ -126,7 +129,7 @@ class RecipiesViewController: UIViewController, UICollectionViewDelegate, UIColl
     }
     
     override func viewDidAppear(_ animated: Bool) {
-        initTheVisiabilityStateOfNavigationBarItemsLeftAndRight()
+        initTheVisiabilityStateOfNavigationBarItemsLeftAndRightAndSideMenu()
         
         retriveData()
         super.viewDidAppear(animated)
@@ -144,38 +147,20 @@ class RecipiesViewController: UIViewController, UICollectionViewDelegate, UIColl
     }
    
     
-    func initTheVisiabilityStateOfNavigationBarItemsLeftAndRight() {
+    func initTheVisiabilityStateOfNavigationBarItemsLeftAndRightAndSideMenu() {
         if self.tabBarController!.selectedIndex == 1 {
             self.navigationItem.rightBarButtonItem = nil
         } else if signedUser != nil {
             
             self.navigationItem.rightBarButtonItem = menuBarItem
-            
+            // set the image
             sideMenuProfileImage.sd_setImage(with: signedUser!.photoURL, completed: nil)
             sideMenuProfileImage.layer.cornerRadius = sideMenuProfileImage.bounds.size.height / 2
             sideMenuProfileImage.clipsToBounds = true
             self.blurView.alpha = 0
-            
-            /*
-            if signedUser != nil {
-                var imageToSet = UIImageView(frame: CGRect(origin: CGPoint(x: 20 , y: 20), size: CGSize(width: 50, height: 50)))
-                imageToSet.sd_setImage(with: signedUser!.photoURL, completed: nil)
-                //self.navigationItem.leftBarButtonItem = UIBarButtonItem(image: imageToSet.image, landscapeImagePhone: nil, style: .plain, target: nil, action: nil)
-                
-               
-                let button = UIButton(type: .custom)
-                
-                button.setImage(imageToSet.image, for: .normal)
-                button.frame = CGRect(x: 0.0, y: 0.0, width: 35.0, height: 35.0)
-                //button.addTarget(target, action: nil, for: .touchUpInside)
-                let barButtonItem = UIBarButtonItem(customView: button)
-                
-                self.navigationItem.leftBarButtonItems = [barButtonItem]
-                
-            }
-            */
-            
-            
+            // set the frame around the image
+            framForProfileImage.layer.cornerRadius = sideMenuProfileImage.bounds.size.height / 2
+            framForProfileImage.clipsToBounds = true
             
         } else {
            self.navigationItem.rightBarButtonItem = nil
