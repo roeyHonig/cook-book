@@ -16,7 +16,6 @@ import FBSDKLoginKit
 
 class RecipiesViewController: UIViewController, UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout, UINavigationControllerDelegate, GIDSignInUIDelegate  {
    
-    
     @IBOutlet var sideMenuWidth: NSLayoutConstraint!
     @IBOutlet var sideMenuProfileImage: UIImageView!
     var isSideMenuShowing = false
@@ -25,14 +24,10 @@ class RecipiesViewController: UIViewController, UICollectionViewDelegate, UIColl
     @IBOutlet var displayNameLabel: UILabel!
     @IBOutlet var emailLabel: UILabel!
     @IBOutlet var sideMenu: UIView!
-    
-    
-    
     @IBOutlet var menuBarItem: UIBarButtonItem!
     @IBAction func pressingMenuBarItem(_ sender: UIBarButtonItem) {
         if isSideMenuShowing {
             // close the menue
-            //self.view.isUserInteractionEnabled = true
             UIView.animate(withDuration: 0.5, animations: {
                 self.closeTheSideMenu()
             })
@@ -41,31 +36,22 @@ class RecipiesViewController: UIViewController, UICollectionViewDelegate, UIColl
             //open the menu
             self.view.isUserInteractionEnabled = false
             UIView.animate(withDuration: 0.5, animations: {
-                
-                // translate to the left the entire viewController
-                self.navigationController?.view.transform = CGAffineTransform(translationX: -(self.sideMenuWidth.constant), y: 0)
-                
-                
-                
-                // blur View
-                self.blurView.alpha = 0.8
-                
-                self.view.layoutIfNeeded()
+            // translate to the left the entire viewController
+            self.navigationController?.view.transform = CGAffineTransform(translationX: -(self.sideMenuWidth.constant), y: 0)
+            // blur View
+            self.blurView.alpha = 0.8
+            
+            self.view.layoutIfNeeded()
             })
             
             
         }
-        
+        // toggle state
         isSideMenuShowing = !isSideMenuShowing
-        
     }
     
     var handle : AuthStateDidChangeListenerHandle!
     var signedUser: User?
-    
-    
-    
-    
     
     @IBOutlet weak var parentView: UIView!
     @IBOutlet weak var recipiesCollection: UICollectionView!
@@ -87,7 +73,6 @@ class RecipiesViewController: UIViewController, UICollectionViewDelegate, UIColl
         sideMenu.backgroundColor = UIColor(red: 235 / 255.0, green: 235 / 255.0, blue: 235 / 255.0, alpha: 1)
         sideMenuWidth.constant = view.frame.size.width * 0.8 // side menu width
         sideMenu.translatesAutoresizingMaskIntoConstraints = false
-        
         
         recipyType.selectedSegmentIndex = 0
         self.navigationItem.title = "Beef"
@@ -149,7 +134,6 @@ class RecipiesViewController: UIViewController, UICollectionViewDelegate, UIColl
         }
     }
     
-  
     func navigationController(_ navigationController: UINavigationController, willShow viewController: UIViewController, animated: Bool) {
         if viewController is RecipiesViewController  {
         let font = UIFont(name: "Helvetica", size: 36)! // TODO: it might be wise to provide some fallback fonts in case not all devices carry this
@@ -282,15 +266,7 @@ class RecipiesViewController: UIViewController, UICollectionViewDelegate, UIColl
         }
     }
     
-    /*
-    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        let cell = collectionView.cellForItem(at: indexPath) as! RecipeCollectionViewCell
-        print(cell.lab.text!)
-        // no need for "performe" because the segue is autmetically trigered upon selecting a cell
-        //performSegue(withIdentifier: "toRecipyDetails", sender: cell)
-    }
-    */
- 
+   
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
