@@ -5,6 +5,8 @@
 //  Created by hackeru on 3 Tamuz 5778.
 //  Copyright © 5778 student.roey.honig. All rights reserved.
 // lets bring the sideMenu as a reusable View, not easy, we did but everything else falls apart
+// it seems that when tranlating the navigation controller view (that is the navigation bar) we step into no man's land and no
+// UI gestureRecogniazer is active there
 
 
 // TODO: design the last screen of the quickGuide
