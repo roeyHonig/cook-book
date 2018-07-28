@@ -19,6 +19,15 @@ class RecipiesViewController: UIViewController, UICollectionViewDelegate, UIColl
     
     @IBAction func signingOut(_ sender: UIButton) {
         print("byeeeee")
+        let firebaseAuth = Auth.auth()
+        do {
+            try firebaseAuth.signOut()
+            GIDSignIn.sharedInstance().signOut()
+            FBSDKLoginManager().logOut()
+            print("signed out?")
+        } catch let signOutError as NSError {
+            print ("Error signing out: %@", signOutError)
+        }
     }
     
     @IBOutlet var sideMenuProfileImage: UIImageView!
