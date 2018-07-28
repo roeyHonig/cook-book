@@ -16,7 +16,11 @@ import FBSDKLoginKit
 
 class RecipiesViewController: UIViewController, UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout, UINavigationControllerDelegate, GIDSignInUIDelegate  {
    
-    @IBOutlet var sideMenuWidth: NSLayoutConstraint!
+    
+    @IBAction func signingOut(_ sender: UIButton) {
+        print("byeeeee")
+    }
+    
     @IBOutlet var sideMenuProfileImage: UIImageView!
     var isSideMenuShowing = false
     @IBOutlet var blurView: UIVisualEffectView!
@@ -34,10 +38,10 @@ class RecipiesViewController: UIViewController, UICollectionViewDelegate, UIColl
             
         } else {
             //open the menu
-            self.view.isUserInteractionEnabled = false
+            self.parentView.isUserInteractionEnabled = false
             UIView.animate(withDuration: 0.5, animations: {
             // translate to the left the entire viewController
-            self.navigationController?.view.transform = CGAffineTransform(translationX: -(self.sideMenuWidth.constant), y: 0)
+            self.parentView.transform = CGAffineTransform(translationX: -(self.sideMenu.bounds.width), y: 0)
             // blur View
             self.blurView.alpha = 0.8
             
@@ -71,8 +75,8 @@ class RecipiesViewController: UIViewController, UICollectionViewDelegate, UIColl
         print("hello, you are curenttly in index: \(self.tabBarController!.selectedIndex)")
         self.blurView.alpha = 0
         sideMenu.backgroundColor = UIColor(red: 235 / 255.0, green: 235 / 255.0, blue: 235 / 255.0, alpha: 1)
-        sideMenuWidth.constant = view.frame.size.width * 0.8 // side menu width
-        sideMenu.translatesAutoresizingMaskIntoConstraints = false
+        
+        
         
         recipyType.selectedSegmentIndex = 0
         self.navigationItem.title = "Beef"
@@ -102,7 +106,6 @@ class RecipiesViewController: UIViewController, UICollectionViewDelegate, UIColl
                 // No user is signed in.
                 self.closeTheSideMenu()
                 self.isSideMenuShowing = false
-                self.sideMenu.removeFromSuperview()
                 print("No User, please sign in, you're still at index 0")
                 self.signedUser = nil
                 self.initTheVisiabilityStateOfNavigationBarItemsLeftAndRightAndSideMenu()
@@ -335,17 +338,7 @@ class RecipiesViewController: UIViewController, UICollectionViewDelegate, UIColl
 
     
     func addTheSideMenuAsSubView(withTheFollowingSignedUser usr: User) {
-        // add as subView the sideMenu view
-        self.navigationController?.view.addSubview(self.sideMenu)
-        // constraints
-        let tableViewConstraintTop = NSLayoutConstraint(item: self.sideMenu, attribute: NSLayoutAttribute.top, relatedBy: .equal, toItem: self.navigationController?.view, attribute: NSLayoutAttribute.top , multiplier: 1, constant: 0)
-        let tableViewConstraintBottom = NSLayoutConstraint(item: self.sideMenu, attribute: NSLayoutAttribute.bottom, relatedBy: .equal, toItem: self.parentView, attribute: NSLayoutAttribute.bottom , multiplier: 1, constant: 0)
-        let tableViewConstraintLeadingToTrailing = NSLayoutConstraint(item: self.sideMenu, attribute: NSLayoutAttribute.leading, relatedBy: .equal, toItem: self.navigationController?.view, attribute: NSLayoutAttribute.trailing , multiplier: 1, constant: 0)
         
-        // assign the constraint to a coummon annssector
-        self.navigationController?.view.addConstraint(tableViewConstraintTop)
-        self.navigationController?.view.addConstraint(tableViewConstraintBottom)
-        self.navigationController?.view.addConstraint(tableViewConstraintLeadingToTrailing)
         
         // set the image
         sideMenuProfileImage.sd_setImage(with: signedUser!.photoURL, completed: nil)
@@ -364,8 +357,8 @@ class RecipiesViewController: UIViewController, UICollectionViewDelegate, UIColl
     }
     
     func closeTheSideMenu() {
-        view.isUserInteractionEnabled = true
-        navigationController?.view.transform = CGAffineTransform.identity
+        parentView.isUserInteractionEnabled = true
+        parentView.transform = CGAffineTransform.identity
         blurView.alpha = 0
         view.layoutIfNeeded()
     }
