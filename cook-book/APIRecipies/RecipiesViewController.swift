@@ -154,7 +154,7 @@ class RecipiesViewController: UIViewController, UICollectionViewDelegate, UIColl
             let font = UIFont(name: "Helvetica", size: 12)! // TODO: it might be wise to provide some fallback fonts in case not all devices carry this
             navigationController.navigationBar.titleTextAttributes = [ NSAttributedStringKey.font: font]
         }
-        navigationItem.hidesBackButton = true 
+        navigationItem.hidesBackButton = true // we don't need a back button for this screen
     }
  
     @objc func retriveData(){

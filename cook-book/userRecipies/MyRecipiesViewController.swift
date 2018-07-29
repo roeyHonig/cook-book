@@ -19,21 +19,41 @@ class MyRecipiesViewController: UIViewController , GIDSignInUIDelegate {
    
     var signedUser: User?
     
+    var signedCreatedOnce = false
+    var recipiesCreatedsOnce = false
+    
+    /*
     lazy var signInViewController: SignInViewController = {
         let storyboard = UIStoryboard(name: "Main", bundle: Bundle.main)
         var viewController = storyboard.instantiateViewController(withIdentifier: "SignInViewController") as! SignInViewController
         self.addViewControllerAsChildViewController(childViewController: viewController)
         return viewController
     }()
+    */
     
+    /*
     lazy var CurrentUserRecipiesViewController: CurrentUserRecipiesViewController = {
         let storyboard = UIStoryboard(name: "Main", bundle: Bundle.main)
         var viewController = storyboard.instantiateViewController(withIdentifier: "CurrentUserRecipiesViewController") as! CurrentUserRecipiesViewController
         self.addViewControllerAsChildViewController(childViewController: viewController)
         return viewController
     }()
-   
+   */
 
+    lazy var myRecipiesViewController: RecipiesViewController = {
+        let storyboard = UIStoryboard(name: "Main", bundle: Bundle.main)
+        var viewController = storyboard.instantiateViewController(withIdentifier: "RecipiesViewController") as! RecipiesViewController
+        
+        return viewController
+    }()
+    
+    lazy var mySignInViewController: SignInViewController = {
+    let storyboard = UIStoryboard(name: "Main", bundle: Bundle.main)
+    var viewController = storyboard.instantiateViewController(withIdentifier: "SignInViewController") as! SignInViewController
+    
+    return viewController
+    }()
+    
     override func viewWillAppear(_ animated: Bool) {
         handle = Auth.auth().addStateDidChangeListener { (auth, user) in
             if  user != nil {
@@ -41,16 +61,40 @@ class MyRecipiesViewController: UIViewController , GIDSignInUIDelegate {
                 print("Hi, There Is A user!!!")
                 print("The user name is: \(user!.displayName!)")
                 self.signedUser = user
-                self.setUpCurrentUserRecipiesViewController(user: self.signedUser!)
-                self.signInViewController.view.isHidden = true
-                self.CurrentUserRecipiesViewController.view.isHidden = false
+               // self.setUpCurrentUserRecipiesViewController(user: self.signedUser!)
+                //self.navigationController!.popViewController(animated: true)
+                //self.navigationController?.viewControllers.removeAll()
+               // self.navigationController!.pushViewController(self.myRecipiesViewController, animated: true)
+                
+                if self.recipiesCreatedsOnce {
+                    self.navigationController?.popToViewController(self.myRecipiesViewController, animated: false)
+                } else {
+                    self.navigationController?.pushViewController(self.myRecipiesViewController, animated: true)
+                    self.recipiesCreatedsOnce = true
+                }
                 
             } else {
                 // No user is signed in.
+                self.recipiesCreatedsOnce = false
                 print("No User, please sign in")
-                self.signInViewController.view.isHidden = false
-                self.CurrentUserRecipiesViewController.view.isHidden = true
                 self.signedUser = nil
+                //self.navigationController!.popViewController(animated: true)
+                
+                //self.navigationController?.viewControllers.removeAll()
+                
+                
+                if self.signedCreatedOnce {
+                    self.navigationController?.popToViewController(self.mySignInViewController, animated: false)
+                } else {
+                    self.navigationController?.pushViewController(self.mySignInViewController, animated: true)
+                    self.signedCreatedOnce = true
+                }
+              
+                
+                
+                
+                
+                
             }
         }
         
@@ -59,7 +103,7 @@ class MyRecipiesViewController: UIViewController , GIDSignInUIDelegate {
     }
     
     override func viewWillDisappear(_ animated: Bool) {
-        Auth.auth().removeStateDidChangeListener(handle)
+        //Auth.auth().removeStateDidChangeListener(handle)
     }
     
     override func viewDidLoad() {

@@ -93,6 +93,11 @@ class SignInViewController: UIViewController, GIDSignInUIDelegate, FBSDKLoginBut
         
     }
 
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        navigationItem.hidesBackButton = true // we don't need a back button for this screen
+    }
+    
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
         // find out in which tabController item index you are
