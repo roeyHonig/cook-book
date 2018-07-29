@@ -91,11 +91,14 @@ class SignInViewController: UIViewController, GIDSignInUIDelegate, FBSDKLoginBut
         faceBookLoginButton.setAttributedTitle(fbButtonText, for: .normal)
         faceBookLoginButton.titleLabel?.font = UIFont(name: "System", size: 30)
         
+        
+        
     }
 
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         navigationItem.hidesBackButton = true // we don't need a back button for this screen
+        navigationItem.title = "My cook-book"
     }
     
     override func viewDidAppear(_ animated: Bool) {
@@ -103,6 +106,7 @@ class SignInViewController: UIViewController, GIDSignInUIDelegate, FBSDKLoginBut
         // find out in which tabController item index you are
         print("hello, you are curenttly in index: \(self.tabBarController!.selectedIndex)")
     }
+    
     
     
     override func didReceiveMemoryWarning() {

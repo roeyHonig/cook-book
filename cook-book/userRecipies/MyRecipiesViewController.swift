@@ -14,7 +14,7 @@ import UIKit
 import Firebase
 import GoogleSignIn
 
-class MyRecipiesViewController: UIViewController , GIDSignInUIDelegate {
+class MyRecipiesViewController: UIViewController , GIDSignInUIDelegate, UINavigationControllerDelegate {
     var handle : AuthStateDidChangeListenerHandle!
    
     var signedUser: User?
@@ -92,10 +92,19 @@ class MyRecipiesViewController: UIViewController , GIDSignInUIDelegate {
         GIDSignIn.sharedInstance().uiDelegate = self
         //GIDSignIn.sharedInstance().signIn()
         
-        
+        self.navigationController?.delegate = self
         
     }
 
+    func navigationController(_ navigationController: UINavigationController, willShow viewController: UIViewController, animated: Bool) {
+        if viewController is SignInViewController  {
+            let font = UIFont(name: "Helvetica", size: 36)! // TODO: it might be wise to provide some fallback fonts in case not all devices carry this
+            navigationController.navigationBar.titleTextAttributes = [ NSAttributedStringKey.font: font]
+            
+        } 
+        navigationItem.hidesBackButton = true // we don't need a back button for this screen
+    }
+    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
