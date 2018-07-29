@@ -66,28 +66,47 @@ class MyRecipiesViewController: UIViewController , GIDSignInUIDelegate {
                 //self.navigationController?.viewControllers.removeAll()
                // self.navigationController!.pushViewController(self.myRecipiesViewController, animated: true)
                 
+                /*
                 if self.recipiesCreatedsOnce {
                     self.navigationController?.popToViewController(self.myRecipiesViewController, animated: false)
                 } else {
                     self.navigationController?.pushViewController(self.myRecipiesViewController, animated: true)
                     self.recipiesCreatedsOnce = true
                 }
+ */
+                
+                var viewControllerExsist = false
+                for vc in self.navigationController!.viewControllers {
+                    if vc is RecipiesViewController {
+                        viewControllerExsist = true
+                    }
+                }
+                
+                if viewControllerExsist {
+                    self.navigationController?.popToViewController(self.myRecipiesViewController, animated: false)
+                } else {
+                    self.navigationController?.pushViewController(self.myRecipiesViewController, animated: true)
+                }
                 
             } else {
                 // No user is signed in.
-                self.recipiesCreatedsOnce = false
+                //self.recipiesCreatedsOnce = false
                 print("No User, please sign in")
                 self.signedUser = nil
                 //self.navigationController!.popViewController(animated: true)
                 
                 //self.navigationController?.viewControllers.removeAll()
+                var viewControllerExsist = false
+                for vc in self.navigationController!.viewControllers {
+                    if vc is SignInViewController {
+                        viewControllerExsist = true
+                    }
+                }
                 
-                
-                if self.signedCreatedOnce {
+                if viewControllerExsist {
                     self.navigationController?.popToViewController(self.mySignInViewController, animated: false)
                 } else {
                     self.navigationController?.pushViewController(self.mySignInViewController, animated: true)
-                    self.signedCreatedOnce = true
                 }
               
                 
