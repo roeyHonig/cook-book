@@ -105,9 +105,7 @@ func getRecipeHeaderAPI(nameOfDBTable: String ,nameOfAutor: String? ,typeOfRecip
         //https://enigmatic-oasis-37206.herokuapp.com/select?table_name=recipes_draft2&col_name=recipe_type&value=Pork&limit=3&offset=0
         apiAddress = "https://enigmatic-oasis-37206.herokuapp.com/select?table_name=\(nameOfDBTable)&col_name=recipe_type&value=\(typeOfRecipyQuery)&limit=\(limit)&offset=\(offset)"
     }
-    
-   
-    
+  
     let apiUrl = URL(string: apiAddress)!
     
     myDataTask = session.dataTask(with: apiUrl) { (data, res, err) in

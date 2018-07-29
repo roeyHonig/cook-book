@@ -179,6 +179,20 @@ class RecipiesViewController: UIViewController, UICollectionViewDelegate, UIColl
         // only retrive data from the DB if this is the 1st time the recipy item eas clicked or a refreshing task was sent by the user
         if (yet2bePreseedOnce[table_col_value]! || recipiesCollection.refreshControl!.isRefreshing) {
             getRecipeHeaderAPI(nameOfDBTable: tableName, nameOfAutor: autor, typeOfRecipyQuery: table_col_value, limit: limit, offset: offset) { (recipeHeaderApi , theRecipyType, stateCodeForTheTask) in
+                
+                // firstthing, let's make sure to negate the id of recipes which belongs to the user
+                var tempRecipiesApi = recipeHeaderApi
+                tempRecipiesApi.rows.removeAll()
+                for recipe in recipeHeaderApi.rows {
+                    if recipe.user_recipe == true {
+                        // negitive id
+                        tempRecipiesApi.rows.append(RecipeHeader(id: -recipe.id, title: recipe.title, img: recipe.img, recipe_type: recipe.recipe_type, prep_time: recipe.prep_time, cook_time: recipe.cook_time, serving: recipe.serving, author: recipe.author, ingredient_header1: recipe.ingredient_header1, ingredient_header2: recipe.ingredient_header2, ingredient_header3: recipe.ingredient_header3, list1: recipe.list1, list2: recipe.list2, list3: recipe.list3, directions: recipe.directions))
+                    } else {
+                        // keep the id
+                        tempRecipiesApi.rows.append(RecipeHeader(id: recipe.id, title: recipe.title, img: recipe.img, recipe_type: recipe.recipe_type, prep_time: recipe.prep_time, cook_time: recipe.cook_time, serving: recipe.serving, author: recipe.author, ingredient_header1: recipe.ingredient_header1, ingredient_header2: recipe.ingredient_header2, ingredient_header3: recipe.ingredient_header3, list1: recipe.list1, list2: recipe.list2, list3: recipe.list3, directions: recipe.directions))
+                    }
+                }
+                
                 if self.recipes[theRecipyType]! == nil {
                     // there is no data
                     self.recipes[theRecipyType]! = recipeHeaderApi
