@@ -10,6 +10,8 @@
 
 
 // TODO: design the last screen of the quickGuide
+// TODO: design the shopping list secondary table cells
+// TODO: design the login Screen
 
 import UIKit
 import CoreData
