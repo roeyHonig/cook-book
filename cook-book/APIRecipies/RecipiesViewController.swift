@@ -104,12 +104,13 @@ class RecipiesViewController: UIViewController, UICollectionViewDelegate, UIColl
         handle = Auth.auth().addStateDidChangeListener { (auth, user) in
             if  user != nil {
                 // User is signed in.
-                print("Hi, There Is A user and we are in index 0!!!")
+                print("Hi, There Is A user and we are in index \(self.tabBarController!.selectedIndex)!!!")
                 print("The user name is: \(user!.displayName!)")
                 self.signedUser = user
                 self.addTheSideMenuAsSubView(withTheFollowingSignedUser: self.signedUser!)
                 self.initTheVisiabilityStateOfNavigationBarItemsLeftAndRightAndSideMenu()
                 //TODO: reload the data, this time IAW the other DB table
+                self.retriveData()
             } else {
                 // No user is signed in.
                 self.closeTheSideMenu()
@@ -117,13 +118,9 @@ class RecipiesViewController: UIViewController, UICollectionViewDelegate, UIColl
                 print("No User, please sign in, you're still at index 0")
                 self.signedUser = nil
                 self.initTheVisiabilityStateOfNavigationBarItemsLeftAndRightAndSideMenu()
+                self.retriveData()
             }
         }
-    }
-    
-    override func viewDidAppear(_ animated: Bool) {
-        retriveData()
-        super.viewDidAppear(animated)
     }
     
     override func viewWillDisappear(_ animated: Bool) {
