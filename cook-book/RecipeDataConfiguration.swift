@@ -88,14 +88,26 @@ var myDataTask: URLSessionDataTask?
 // we can give it an alias , a nickname we know
 typealias Json = Dictionary<String, Any>
 
-func getRecipeHeaderAPI(nameOfDBTable: String ,typeOfRecipyQuery: String , limit: Int, offset: Int,callback: @escaping (RecipeHeaderAPI, String , Int)-> Void) {
+func getRecipeHeaderAPI(nameOfDBTable: String ,nameOfAutor: String? ,typeOfRecipyQuery: String , limit: Int, offset: Int,callback: @escaping (RecipeHeaderAPI, String , Int)-> Void) {
     
     myDataTask?.cancel() // cancel any previus tasks
     
-    // This adress will select from the table "recipes_draft2" where the columb "recipe_type" is equal to ?  we have to append that value
-    // also we have to append the limit and offset values
-    //https://enigmatic-oasis-37206.herokuapp.com/select?table_name=recipes_draft2&col_name=recipe_type&value=Pork&limit=3&offset=0
-    let apiAddress = "https://enigmatic-oasis-37206.herokuapp.com/select?table_name=\(nameOfDBTable)&col_name=recipe_type&value=\(typeOfRecipyQuery)&limit=\(limit)&offset=\(offset)"
+    // choose between 2 diffrent API web adress, 1 for public recipes (there is no autor) & 1 for a specific user
+    var apiAddress: String
+    if nameOfAutor != nil {
+        // user based recipes
+        // https://enigmatic-oasis-37206.herokuapp.com/selectBasedAutor?table_name=recipes_of_users&col_name=recipe_type&value=Beef&autor=talefroni94@gmail.com&limit=3&offset=0
+        apiAddress = "https://enigmatic-oasis-37206.herokuapp.com/selectBasedAutor?table_name=\(nameOfDBTable)&col_name=recipe_type&value=\(typeOfRecipyQuery)&autor=\(nameOfAutor!)&limit=\(limit)&offset=\(offset)"
+    } else {
+        // public
+        // This adress will select from the table "recipes_draft2" where the columb "recipe_type" is equal to ?  we have to append that value
+        // also we have to append the limit and offset values
+        //https://enigmatic-oasis-37206.herokuapp.com/select?table_name=recipes_draft2&col_name=recipe_type&value=Pork&limit=3&offset=0
+        apiAddress = "https://enigmatic-oasis-37206.herokuapp.com/select?table_name=\(nameOfDBTable)&col_name=recipe_type&value=\(typeOfRecipyQuery)&limit=\(limit)&offset=\(offset)"
+    }
+    
+   
+    
     let apiUrl = URL(string: apiAddress)!
     
     myDataTask = session.dataTask(with: apiUrl) { (data, res, err) in

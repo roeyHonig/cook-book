@@ -168,13 +168,17 @@ class RecipiesViewController: UIViewController, UICollectionViewDelegate, UIColl
         
         // cheack are we in the API recipes? or in a user recipes?, so we know for which table in the DB to query
         var tableName = "recipes_draft2"
+        var autor: String?// the email representing which user owns a particular recipy
+        
         if self.tabBarController?.selectedIndex == 3 {
             tableName = "recipes_of_users"
+            autor = signedUser?.email
         }
+        
         
         // only retrive data from the DB if this is the 1st time the recipy item eas clicked or a refreshing task was sent by the user
         if (yet2bePreseedOnce[table_col_value]! || recipiesCollection.refreshControl!.isRefreshing) {
-            getRecipeHeaderAPI(nameOfDBTable: tableName, typeOfRecipyQuery: table_col_value, limit: limit, offset: offset) { (recipeHeaderApi , theRecipyType, stateCodeForTheTask) in
+            getRecipeHeaderAPI(nameOfDBTable: tableName, nameOfAutor: autor, typeOfRecipyQuery: table_col_value, limit: limit, offset: offset) { (recipeHeaderApi , theRecipyType, stateCodeForTheTask) in
                 if self.recipes[theRecipyType]! == nil {
                     // there is no data
                     self.recipes[theRecipyType]! = recipeHeaderApi
