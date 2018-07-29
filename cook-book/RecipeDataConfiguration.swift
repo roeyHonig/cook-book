@@ -23,6 +23,7 @@ struct RecipeHeader: Codable {
     var list2: [String]?
     var list3: [String]?
     var directions: String?
+    var user_recipe: Bool?
     var id: Int
     
     init(id x: Int) {
@@ -64,6 +65,7 @@ struct RecipeHeader: Codable {
         case list2 = "list2"
         case list3 = "list3"
         case directions = "directions"
+        case user_recipe = "user_recipe"
         case id = "id"
     }
 }
