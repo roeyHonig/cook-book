@@ -195,10 +195,10 @@ class RecipiesViewController: UIViewController, UICollectionViewDelegate, UIColl
                 
                 if self.recipes[theRecipyType]! == nil {
                     // there is no data
-                    self.recipes[theRecipyType]! = recipeHeaderApi
+                    self.recipes[theRecipyType]! = tempRecipiesApi
                 } else {
                     // there is already some data, so we need to append
-                    self.recipes[theRecipyType]!!.rows.append(contentsOf: recipeHeaderApi.rows)
+                    self.recipes[theRecipyType]!!.rows.append(contentsOf: tempRecipiesApi.rows)
                 }
                 
                 self.recipHeaderApi = self.recipes[theRecipyType]!
