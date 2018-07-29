@@ -14,15 +14,46 @@ import GoogleSignIn
 import FBSDKCoreKit
 import FBSDKLoginKit
 
-class CurrentUserRecipiesViewController: UIViewController, GIDSignInUIDelegate {
+class CurrentUserRecipiesViewController: UIViewController, GIDSignInUIDelegate, UINavigationControllerDelegate {
     
+    var myHandle : AuthStateDidChangeListenerHandle!
+    var mySignedUser: User?
     
     override func viewDidLoad() {
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
+        self.navigationController?.delegate = self
+       
+        
+        
+        
+        
     }
 
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        myHandle = Auth.auth().addStateDidChangeListener { (auth, user) in
+            if  user != nil {
+                self.mySignedUser = user
+                let myRecipiesViewController: RecipiesViewController = {
+                    let storyboard = UIStoryboard(name: "Main", bundle: Bundle.main)
+                    var viewController = storyboard.instantiateViewController(withIdentifier: "RecipiesViewController") as! RecipiesViewController
+                    
+                    return viewController
+                }()
+                self.navigationController?.pushViewController(myRecipiesViewController, animated: true)
+            } else {
+                // No user is signed in.
+                self.mySignedUser = nil
+            }
+        }
+    }
+    
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(animated)
+        Auth.auth().removeStateDidChangeListener(myHandle)
+    }
     
     /*
      
