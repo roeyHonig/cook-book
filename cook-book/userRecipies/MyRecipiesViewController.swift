@@ -19,27 +19,6 @@ class MyRecipiesViewController: UIViewController , GIDSignInUIDelegate {
    
     var signedUser: User?
     
-    var signedCreatedOnce = false
-    var recipiesCreatedsOnce = false
-    
-    /*
-    lazy var signInViewController: SignInViewController = {
-        let storyboard = UIStoryboard(name: "Main", bundle: Bundle.main)
-        var viewController = storyboard.instantiateViewController(withIdentifier: "SignInViewController") as! SignInViewController
-        self.addViewControllerAsChildViewController(childViewController: viewController)
-        return viewController
-    }()
-    */
-    
-    /*
-    lazy var CurrentUserRecipiesViewController: CurrentUserRecipiesViewController = {
-        let storyboard = UIStoryboard(name: "Main", bundle: Bundle.main)
-        var viewController = storyboard.instantiateViewController(withIdentifier: "CurrentUserRecipiesViewController") as! CurrentUserRecipiesViewController
-        self.addViewControllerAsChildViewController(childViewController: viewController)
-        return viewController
-    }()
-   */
-
     lazy var myRecipiesViewController: RecipiesViewController = {
         let storyboard = UIStoryboard(name: "Main", bundle: Bundle.main)
         var viewController = storyboard.instantiateViewController(withIdentifier: "RecipiesViewController") as! RecipiesViewController
@@ -57,63 +36,42 @@ class MyRecipiesViewController: UIViewController , GIDSignInUIDelegate {
     override func viewWillAppear(_ animated: Bool) {
         handle = Auth.auth().addStateDidChangeListener { (auth, user) in
             if  user != nil {
-                // User is signed in.
-                print("Hi, There Is A user!!!")
-                print("The user name is: \(user!.displayName!)")
-                self.signedUser = user
-               // self.setUpCurrentUserRecipiesViewController(user: self.signedUser!)
-                //self.navigationController!.popViewController(animated: true)
-                //self.navigationController?.viewControllers.removeAll()
-               // self.navigationController!.pushViewController(self.myRecipiesViewController, animated: true)
+                    // User is signed in.
+                    print("Hi, There Is A user!!!")
+                    print("The user name is: \(user!.displayName!)")
+                    self.signedUser = user
                 
-                /*
-                if self.recipiesCreatedsOnce {
-                    self.navigationController?.popToViewController(self.myRecipiesViewController, animated: false)
-                } else {
-                    self.navigationController?.pushViewController(self.myRecipiesViewController, animated: true)
-                    self.recipiesCreatedsOnce = true
-                }
- */
-                
-                var viewControllerExsist = false
-                for vc in self.navigationController!.viewControllers {
-                    if vc is RecipiesViewController {
-                        viewControllerExsist = true
+                    var viewControllerExsist = false
+                    for vc in self.navigationController!.viewControllers {
+                        if vc is RecipiesViewController {
+                            viewControllerExsist = true
+                        }
                     }
-                }
                 
-                if viewControllerExsist {
-                    self.navigationController?.popToViewController(self.myRecipiesViewController, animated: false)
-                } else {
-                    self.navigationController?.pushViewController(self.myRecipiesViewController, animated: true)
-                }
+                    if viewControllerExsist {
+                        self.navigationController?.popToViewController(self.myRecipiesViewController, animated: false)
+                    } else {
+                        self.navigationController?.pushViewController(self.myRecipiesViewController, animated: true)
+                    }
                 
             } else {
-                // No user is signed in.
-                //self.recipiesCreatedsOnce = false
-                print("No User, please sign in")
-                self.signedUser = nil
-                //self.navigationController!.popViewController(animated: true)
+                    // No user is signed in.
+                    print("No User, please sign in")
+                    self.signedUser = nil
                 
-                //self.navigationController?.viewControllers.removeAll()
-                var viewControllerExsist = false
-                for vc in self.navigationController!.viewControllers {
-                    if vc is SignInViewController {
-                        viewControllerExsist = true
+                    var viewControllerExsist = false
+                    for vc in self.navigationController!.viewControllers {
+                        if vc is SignInViewController {
+                            viewControllerExsist = true
+                        }
                     }
-                }
                 
-                if viewControllerExsist {
-                    self.navigationController?.popToViewController(self.mySignInViewController, animated: false)
-                } else {
-                    self.navigationController?.pushViewController(self.mySignInViewController, animated: true)
-                }
-              
-                
-                
-                
-                
-                
+                    if viewControllerExsist {
+                        self.navigationController?.popToViewController(self.mySignInViewController, animated: false)
+                    } else {
+                        self.navigationController?.pushViewController(self.mySignInViewController, animated: true)
+                    }
+       
             }
         }
         
