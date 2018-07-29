@@ -101,7 +101,7 @@ class MyRecipiesViewController: UIViewController , GIDSignInUIDelegate {
     }
     
     func setUpCurrentUserRecipiesViewController(user: User) {
-        CurrentUserRecipiesViewController.GreetingLabel.text = "Hello \(user.displayName!)"
+        //CurrentUserRecipiesViewController.GreetingLabel.text = "Hello \(user.displayName!)"
     }
 
 }

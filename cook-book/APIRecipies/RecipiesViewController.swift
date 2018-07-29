@@ -85,8 +85,6 @@ class RecipiesViewController: UIViewController, UICollectionViewDelegate, UIColl
         self.blurView.alpha = 0
         sideMenu.backgroundColor = UIColor(red: 235 / 255.0, green: 235 / 255.0, blue: 235 / 255.0, alpha: 1)
         
-        
-        
         recipyType.selectedSegmentIndex = 0
         self.navigationItem.title = "Beef"
         self.navigationItem.backBarButtonItem = customBackButton
@@ -102,6 +100,7 @@ class RecipiesViewController: UIViewController, UICollectionViewDelegate, UIColl
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
+        // a listener for when the status of a user changes (will also cheack 1 time when initaliazed)
         handle = Auth.auth().addStateDidChangeListener { (auth, user) in
             if  user != nil {
                 // User is signed in.

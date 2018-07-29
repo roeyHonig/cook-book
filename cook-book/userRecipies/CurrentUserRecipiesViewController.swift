@@ -15,18 +15,7 @@ import FBSDKCoreKit
 import FBSDKLoginKit
 
 class CurrentUserRecipiesViewController: UIViewController, GIDSignInUIDelegate {
-    @IBOutlet weak var GreetingLabel: UILabel!
-    @IBAction func signOut(_ sender: UIButton) {
-        let firebaseAuth = Auth.auth()
-        do {
-            try firebaseAuth.signOut()
-            GIDSignIn.sharedInstance().signOut()
-            FBSDKLoginManager().logOut()
-            print("signed out?")
-        } catch let signOutError as NSError {
-            print ("Error signing out: %@", signOutError)
-        }
-    }
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -34,6 +23,22 @@ class CurrentUserRecipiesViewController: UIViewController, GIDSignInUIDelegate {
         // Do any additional setup after loading the view.
     }
 
+    
+    /*
+     
+     let detailsViewController2: RecipeDetailsViewController = {
+     let storyboard = UIStoryboard(name: "Main", bundle: Bundle.main)
+     var viewController = storyboard.instantiateViewController(withIdentifier: "RecipeDetailsViewController") as! RecipeDetailsViewController
+     
+     viewController.recipeHeader = cell.cellRecipyHeader
+     return viewController
+     }()
+     self.navigationController?.pushViewController(detailsViewController2, animated: true)
+     
+     */
+    
+    
+    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
