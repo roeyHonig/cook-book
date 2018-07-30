@@ -82,6 +82,9 @@ class RecipiesViewController: UIViewController, UICollectionViewDelegate, UIColl
         // Do any additional setup after loading the view.
         // find out in which tabController item index you are
         print("hello, you are curenttly in index: \(self.tabBarController!.selectedIndex)")
+        var s1 = preperForSql(fromTheFollwingStringArray: ["parcelly, in salt","lymes, cut in half","some, good stuff"])
+        print(s1)
+        
         self.blurView.alpha = 0
         sideMenu.backgroundColor = UIColor(red: 235 / 255.0, green: 235 / 255.0, blue: 235 / 255.0, alpha: 1)
         
@@ -181,6 +184,7 @@ class RecipiesViewController: UIViewController, UICollectionViewDelegate, UIColl
             getRecipeHeaderAPI(nameOfDBTable: tableName, nameOfAutor: autor, typeOfRecipyQuery: table_col_value, limit: limit, offset: offset) { (recipeHeaderApi , theRecipyType, stateCodeForTheTask) in
                 
                 // firstthing, let's make sure to negate the id of recipes which belongs to the user
+                // we want negitive id# for the user recipies so that they won't mix with the public recipies with core data issiues like favirites & shopping list
                 var tempRecipiesApi = recipeHeaderApi
                 tempRecipiesApi.rows.removeAll()
                 for recipe in recipeHeaderApi.rows {

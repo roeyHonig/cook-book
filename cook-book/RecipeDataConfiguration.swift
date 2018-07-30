@@ -130,3 +130,28 @@ func getRecipeHeaderAPI(nameOfDBTable: String ,nameOfAutor: String? ,typeOfRecip
    
 }
 
+
+func surrondWithDoubleQutationMark(theFollowingString s: String) -> String {
+    let s1 = """
+    "\(s)"
+    """
+    return s1
+}
+
+// will transfer ["parcelly, in salt", "lymes, cut in half", "some, good stuff"] --> '{"parcelly, in salt","lymes, cut in half","some, good stuff"}'
+// this is how we need to enter it via the fet request so the sql query will function properlly
+func preperForSql(fromTheFollwingStringArray arr: [String]) -> String {
+    var stringToReturn = ""
+    stringToReturn = stringToReturn + "'{"
+    
+    for i in 1...arr.count {
+        if i == arr.count {
+            stringToReturn = stringToReturn + surrondWithDoubleQutationMark(theFollowingString: arr[i-1])
+        } else {
+            stringToReturn = stringToReturn + surrondWithDoubleQutationMark(theFollowingString: arr[i-1]) + ","
+        }
+    }
+    
+    stringToReturn = stringToReturn + "}'"
+    return stringToReturn
+}
