@@ -112,7 +112,6 @@ class RecipiesViewController: UIViewController, UICollectionViewDelegate, UIColl
                 self.signedUser = user
                 self.addTheSideMenuAsSubView(withTheFollowingSignedUser: self.signedUser!)
                 self.initTheVisiabilityStateOfNavigationBarItemsLeftAndRightAndSideMenu()
-                //TODO: reload the data, this time IAW the other DB table
                 self.retriveData()
             } else {
                 // No user is signed in.

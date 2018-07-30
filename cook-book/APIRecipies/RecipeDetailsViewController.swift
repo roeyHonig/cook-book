@@ -9,10 +9,24 @@
 import UIKit
 import CoreData
 import SDWebImage
+import Firebase
+import GoogleSignIn
+import FBSDKCoreKit
+import FBSDKLoginKit
 
 class RecipeDetailsViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
     
     var sender: Any?
+    
+    
+    @IBAction func makeItYourOwn(_ sender: UIButton) {
+        // TODO: add this specific recipy to the user recipies
+        print("make it your own")
+      
+    }
+    
+    @IBOutlet var branchBtn: UIButton!
+    
     
     @IBOutlet var inRecipyFavoriteBtn: UIButton!
     
@@ -86,6 +100,8 @@ class RecipeDetailsViewController: UIViewController, UITableViewDelegate, UITabl
     
     @IBOutlet var directionsIconOmage: UIImageView!
     
+    var handle : AuthStateDidChangeListenerHandle!
+    var signedUser: User?
     
     var numofRecipie = ""
     
@@ -191,10 +207,42 @@ class RecipeDetailsViewController: UIViewController, UITableViewDelegate, UITabl
             inRecipyFavoriteBtn.setBackgroundImage(#imageLiteral(resourceName: "icons8-favorites-red-marchino"), for: .normal)
         }
         
+        
+        
     }
     
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        
+        // a listener for when the status of a user changes (will also cheack 1 time when initaliazed)
+        handle = Auth.auth().addStateDidChangeListener { (auth, user) in
+            if  user != nil {
+                // User is signed in.
+                print("Hi, There Is A user and we are in index \(self.tabBarController!.selectedIndex)!!!")
+                print("The user name is: \(user!.displayName!)")
+                self.signedUser = user
+            } else {
+                // No user is signed in.
+                self.signedUser = nil
+            }
+             self.initTheMakeItYourOwnBtn()
+        }
+    }
     
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(animated)
+        Auth.auth().removeStateDidChangeListener(handle)
+    }
     
+    func initTheMakeItYourOwnBtn() {
+        branchBtn.isUserInteractionEnabled = false
+        branchBtn.alpha = 0
+        guard let usr = signedUser else {return}
+        if tabBarController!.selectedIndex == 0 {
+            branchBtn.isUserInteractionEnabled = true
+            branchBtn.alpha = 1
+        }
+    }
     
     @objc func addToShoppingList() {
         print("adding ingridents")

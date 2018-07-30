@@ -699,6 +699,19 @@
                                     <action selector="toggleState:" destination="eIG-Bg-bsK" eventType="touchUpInside" id="HZD-KW-tiJ"/>
                                 </connections>
                             </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="nO3-fS-4dq" userLabel="branchBtn">
+                                <rect key="frame" x="267" y="64" width="50" height="50"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="50" id="4Ow-Hf-nRT"/>
+                                    <constraint firstAttribute="width" constant="50" id="6Yd-n3-42O"/>
+                                </constraints>
+                                <state key="normal" title="Button" image="icons8-git_filled_stell"/>
+                                <state key="selected" image="icons8-git_filled_marchino"/>
+                                <state key="highlighted" image="icons8-git_filled_marchino"/>
+                                <connections>
+                                    <action selector="makeItYourOwn:" destination="eIG-Bg-bsK" eventType="touchUpInside" id="Gon-tA-YCE"/>
+                                </connections>
+                            </button>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="n0j-XY-3Lp" userLabel="sliderControl">
                                 <rect key="frame" x="0.0" y="114" width="375" height="27.5"/>
                                 <subviews>
@@ -1070,6 +1083,7 @@
                             <constraint firstItem="AXb-pI-aM6" firstAttribute="bottom" secondItem="0wV-9Y-5R2" secondAttribute="bottom" id="FRY-e7-gaX"/>
                             <constraint firstItem="n0j-XY-3Lp" firstAttribute="leading" secondItem="AXb-pI-aM6" secondAttribute="leading" id="GeL-kq-NCz"/>
                             <constraint firstItem="AXb-pI-aM6" firstAttribute="bottom" secondItem="VWQ-JX-eiW" secondAttribute="bottom" id="KGz-bj-KiO"/>
+                            <constraint firstItem="7GQ-YA-ZXV" firstAttribute="leading" secondItem="nO3-fS-4dq" secondAttribute="trailing" constant="8" id="MV8-AW-3v8"/>
                             <constraint firstItem="AXb-pI-aM6" firstAttribute="trailing" secondItem="7GQ-YA-ZXV" secondAttribute="trailing" id="Sgn-kl-b2k"/>
                             <constraint firstItem="n0j-XY-3Lp" firstAttribute="height" secondItem="AXb-pI-aM6" secondAttribute="height" multiplier="0.05" id="Tak-D4-Yt6"/>
                             <constraint firstItem="eeJ-fZ-PBc" firstAttribute="top" secondItem="n0j-XY-3Lp" secondAttribute="bottom" id="Xcb-fS-V3B"/>
@@ -1080,6 +1094,7 @@
                             <constraint firstItem="7GQ-YA-ZXV" firstAttribute="top" secondItem="AXb-pI-aM6" secondAttribute="top" id="fzk-po-xXo"/>
                             <constraint firstItem="AXb-pI-aM6" firstAttribute="trailing" secondItem="VWQ-JX-eiW" secondAttribute="trailing" id="iah-ga-JHe"/>
                             <constraint firstItem="AXb-pI-aM6" firstAttribute="trailing" secondItem="0wV-9Y-5R2" secondAttribute="trailing" id="mKC-AI-VmB"/>
+                            <constraint firstItem="nO3-fS-4dq" firstAttribute="top" secondItem="AXb-pI-aM6" secondAttribute="top" id="nAl-Jg-hm9"/>
                             <constraint firstItem="n0j-XY-3Lp" firstAttribute="top" secondItem="AXb-pI-aM6" secondAttribute="top" constant="50" id="qyp-am-Oqx"/>
                             <constraint firstItem="eeJ-fZ-PBc" firstAttribute="width" secondItem="BeK-QD-9mD" secondAttribute="width" id="sf8-6Y-CZu"/>
                             <constraint firstItem="eeJ-fZ-PBc" firstAttribute="leading" secondItem="AXb-pI-aM6" secondAttribute="leading" id="t6d-Nq-8io"/>
@@ -1095,6 +1110,7 @@
                         <outlet property="addToShoppingListLabel" destination="fM5-P3-WUP" id="3Si-oM-Ia1"/>
                         <outlet property="addToShoppingListTapGesture" destination="CJr-Bk-JsK" id="eKH-Vo-9o7"/>
                         <outlet property="backgroundImage" destination="T5p-MA-gFT" id="ZTa-Fv-vzK"/>
+                        <outlet property="branchBtn" destination="nO3-fS-4dq" id="1WC-un-Pkr"/>
                         <outlet property="constraintToEditInOrderToCenterTheAddToShopping" destination="eMJ-s4-o6p" id="TLj-hg-rQI"/>
                         <outlet property="cookTimeLabel" destination="Sve-1v-IsN" id="qEf-eU-W4B"/>
                         <outlet property="directionsBtnView" destination="lcz-n4-VWW" id="y6J-Zl-ad7"/>
@@ -1581,6 +1597,8 @@ This way, you’ll never run out </string>
         <image name="icons8-filled_circle" width="24" height="24"/>
         <image name="icons8-gender_neutral_user_filled" width="50" height="50"/>
         <image name="icons8-gender_neutral_user_filled-1" width="25" height="25"/>
+        <image name="icons8-git_filled_marchino" width="50" height="50"/>
+        <image name="icons8-git_filled_stell" width="50" height="50"/>
         <image name="icons8-ingredients" width="96" height="96"/>
         <image name="icons8-ingredients_spring" width="50" height="50"/>
         <image name="icons8-kitchen_steel" width="50" height="50"/>
