@@ -159,11 +159,26 @@ func writeRecipeHeaderIntoSQLTableAPI(myRecipe: RecipeHeader ,callback: @escapin
     var list2 = "null"
     var list3 = "null"
     var directions = "null"
-/*
+
+    /*
     
-    apiAddress = "https://enigmatic-oasis-37206.herokuapp.com/insertRecipe?title="+title+"&img="+img+"&recipeType="+recipeType+"&prepTime="+prepTime+"&cookTime="+cookTime+"&serving="+serving+"&author='roeyhonig100@walla.com'&ingredientHeader1='ingredients for cake'&ingredientHeader2='ingredients for icing on the cake'&ingredientHeader3='ingredients for topincs on the cake'&list1='{"parcelly","lemon and lymes", "donats"}'&list2='{"parcelly","lemon and lymes, with jelly beans", "donats"}'&list3='{"parcelly","lemon and lymes, with jelly beans", "donats"}'&directions='Place meat in slow cooker. In a small bowl mix together the flour, salt, and pepper; pour over meat, and stir'"
+    apiAddress = "https://enigmatic-oasis-37206.herokuapp.com/insertRecipe?title="
+    apiAddress = apiAddress + title
+    apiAddress = apiAddress + "&img=" + img
+    apiAddress = apiAddress + "&recipeType=" + recipeType
+    apiAddress = apiAddress + "&prepTime=" + prepTime
+    apiAddress = apiAddress + "&cookTime=" + cookTime
+    apiAddress = apiAddress + + "&serving=" + serving
+    apiAddress = apiAddress + "&author=" + author
+    apiAddress = apiAddress + "&ingredientHeader1="+ingredientHeader1
+    apiAddress = apiAddress
+    apiAddress = apiAddress
+    apiAddress = apiAddress
+    apiAddress = apiAddress
     
-    */
+    apiAddress = "https://enigmatic-oasis-37206.herokuapp.com/insertRecipe?title="+title+"&img="+img+"&recipeType="+recipeType+"&prepTime="+prepTime+"&cookTime="+cookTime+"&serving="+serving+"&author="+author+"&ingredientHeader1="+ingredientHeader1+"&ingredientHeader2="+ingredientHeader2+"&ingredientHeader3="+ingredientHeader3+"&list1="+list1+"&list2="+list2+"&list3="+list3+"&directions="+directions
+    
+ */
    
     /*
      
@@ -172,7 +187,7 @@ func writeRecipeHeaderIntoSQLTableAPI(myRecipe: RecipeHeader ,callback: @escapin
      
      */
     
-    
+    apiAddress = "https://enigmatic-oasis-37206.herokuapp.com/insertRecipeManual"
     let apiUrl = URL(string: apiAddress)!
     
     myDataTask = session.dataTask(with: apiUrl) { (data, res, err) in
