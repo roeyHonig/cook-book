@@ -131,6 +131,76 @@ func getRecipeHeaderAPI(nameOfDBTable: String ,nameOfAutor: String? ,typeOfRecip
 }
 
 
+
+
+
+
+func writeRecipeHeaderIntoSQLTableAPI(myRecipe: RecipeHeader ,callback: @escaping (Error?)-> Void) {
+    
+    myDataTask?.cancel() // cancel any previus tasks
+    
+    // choose between 2 diffrent API web adress, 1 for public recipes (there is no autor) & 1 for a specific user
+    var apiAddress: String
+    
+        // user based recipes
+        // https://enigmatic-oasis-37206.herokuapp.com/insertRecipe?title='very delicios3'&img='img.url'&recipeType='Pork'&prepTime=20&cookTime=10&serving=5&author='roeyhonig100@walla.com'&ingredientHeader1='ingredients for cake'&ingredientHeader2='ingredients for icing on the cake'&ingredientHeader3='ingredients for topincs on the cake'&list1='{"parcelly","lemon and lymes", "donats"}'&list2='{"parcelly","lemon and lymes, with jelly beans", "donats"}'&list3='{"parcelly","lemon and lymes, with jelly beans", "donats"}'&directions='Place meat in slow cooker. In a small bowl mix together the flour, salt, and pepper; pour over meat, and stir'
+    
+    var title = "'very'"
+    var img = "'img'"
+    var recipeType = "'Beef'"
+    var prepTime = 10
+    var cookTime = 2
+    var serving = 3
+    var author = "'roeyhonig92@walla.com'"
+    var ingredientHeader1 = "'for cake'"
+    var ingredientHeader2 = "'for icing'"
+    var ingredientHeader3 = "'topics'"
+    var list1 = "null"
+    var list2 = "null"
+    var list3 = "null"
+    var directions = "null"
+/*
+    
+    apiAddress = "https://enigmatic-oasis-37206.herokuapp.com/insertRecipe?title="+title+"&img="+img+"&recipeType="+recipeType+"&prepTime="+prepTime+"&cookTime="+cookTime+"&serving="+serving+"&author='roeyhonig100@walla.com'&ingredientHeader1='ingredients for cake'&ingredientHeader2='ingredients for icing on the cake'&ingredientHeader3='ingredients for topincs on the cake'&list1='{"parcelly","lemon and lymes", "donats"}'&list2='{"parcelly","lemon and lymes, with jelly beans", "donats"}'&list3='{"parcelly","lemon and lymes, with jelly beans", "donats"}'&directions='Place meat in slow cooker. In a small bowl mix together the flour, salt, and pepper; pour over meat, and stir'"
+    
+    */
+   
+    /*
+     
+     https://enigmatic-oasis-37206.herokuapp.com/insertRecipe?title='very delicios3'&img='img.url'&recipeType='Pork'&prepTime=20&cookTime=10&serving=5&author='roeyhonig100@walla.com'&ingredientHeader1='ingredients for cake'&ingredientHeader2='ingredients for icing on the cake'&ingredientHeader3='ingredients for topincs on the cake'&list1='{"parcelly","lemon and lymes", "donats"}'&list2='{"parcelly","lemon and lymes, with jelly beans", "donats"}'&list3='{"parcelly","lemon and lymes, with jelly beans", "donats"}'&directions='Place meat in slow cooker. In a small bowl mix together the flour, salt, and pepper; pour over meat, and stir'
+     
+     
+     */
+    
+    
+    let apiUrl = URL(string: apiAddress)!
+    
+    myDataTask = session.dataTask(with: apiUrl) { (data, res, err) in
+        guard let data = data else {return}
+        // if we got here, we have data
+        //let decoder = JSONDecoder()
+       // guard let result = try? decoder.decode(RecipeHeaderAPI.self, from: data) else {return /*SHOW DIALOG*/}
+        
+        
+        // Run code on the UI Thread
+        
+        DispatchQueue.main.async {
+            callback(err)
+        }
+        
+        
+        
+        //print(result.rows)
+    }
+    
+    myDataTask?.resume()
+    
+}
+
+
+
+
+
 func surrondWithDoubleQutationMark(theFollowingString s: String) -> String {
     let s1 = """
     "\(s)"

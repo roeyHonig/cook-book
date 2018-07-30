@@ -22,7 +22,13 @@ class RecipeDetailsViewController: UIViewController, UITableViewDelegate, UITabl
     @IBAction func makeItYourOwn(_ sender: UIButton) {
         // TODO: add this specific recipy to the user recipies
         print("make it your own")
-      
+        writeRecipeHeaderIntoSQLTableAPI(myRecipe: recipeHeader!) { (err) in
+            if let errorCode = err {
+                print("i think we have a problem!!!!: \(errorCode.localizedDescription)")
+            } else {
+                print("i think we wrote it")
+            }
+        }
     }
     
     @IBOutlet var branchBtn: UIButton!
