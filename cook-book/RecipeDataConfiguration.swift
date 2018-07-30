@@ -163,7 +163,7 @@ func writeRecipeHeaderIntoSQLTableAPI(myRecipe: RecipeHeader ,callback: @escapin
     var directions = preperForSql(TheFollwingString: myRecipe.directions)
 
     
-    
+    // TODO: change the api to the new                      insertRecipeStrings
     apiAddress = "https://enigmatic-oasis-37206.herokuapp.com/insertRecipe?title="
     apiAddress = apiAddress + title
     apiAddress = apiAddress + "&img=" + img
