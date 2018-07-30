@@ -134,7 +134,9 @@ func getRecipeHeaderAPI(nameOfDBTable: String ,nameOfAutor: String? ,typeOfRecip
 
 
 
-
+// Be Advided!!
+// URL class needs a clean string for the init, what does that mean?
+// it means the following chracters are probited: " " white space replace with _   , " double qoutation mark replace with $  , {   curelly braces replace with [
 func writeRecipeHeaderIntoSQLTableAPI(myRecipe: RecipeHeader ,callback: @escaping (Error?)-> Void) {
     
     myDataTask?.cancel() // cancel any previus tasks
@@ -148,14 +150,14 @@ func writeRecipeHeaderIntoSQLTableAPI(myRecipe: RecipeHeader ,callback: @escapin
     var title = "'very'"
     var img = "'img'"
     var recipeType = "'Beef'"
-    var prepTime = 17
+    var prepTime = 39
     var cookTime = 2
     var serving = 3
     var author = "'roeyhonig92@walla.com'"
-    var ingredientHeader1 = "'for_cake'"
+    var ingredientHeader1 = "'for_cake,_and[]'"
     var ingredientHeader2 = "'for_icing'"
     var ingredientHeader3 = "'topics'"
-    var list1 = "null"
+    var list1 = preperForSql(fromTheFollwingStringArray: ["lemon_yes", "lyme_no","a_lot_of_love"])
     var list2 = "null"
     var list3 = "null"
     var directions = "null"
@@ -213,16 +215,16 @@ func writeRecipeHeaderIntoSQLTableAPI(myRecipe: RecipeHeader ,callback: @escapin
 
 func surrondWithDoubleQutationMark(theFollowingString s: String) -> String {
     let s1 = """
-    "\(s)"
+    $\(s)$
     """
     return s1
 }
 
-// will transfer ["parcelly, in salt", "lymes, cut in half", "some, good stuff"] --> '{"parcelly, in salt","lymes, cut in half","some, good stuff"}'
+// will transfer ["parcelly, in salt", "lymes, cut in half", "some, good stuff"] --> '[$parcelly, in salt$,$lymes, cut in half$,$some, good stuff$]'
 // this is how we need to enter it via the fet request so the sql query will function properlly
 func preperForSql(fromTheFollwingStringArray arr: [String]) -> String {
     var stringToReturn = ""
-    stringToReturn = stringToReturn + "'{"
+    stringToReturn = stringToReturn + "'["
     
     for i in 1...arr.count {
         if i == arr.count {
@@ -232,6 +234,6 @@ func preperForSql(fromTheFollwingStringArray arr: [String]) -> String {
         }
     }
     
-    stringToReturn = stringToReturn + "}'"
+    stringToReturn = stringToReturn + "]'"
     return stringToReturn
 }
