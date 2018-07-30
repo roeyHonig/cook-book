@@ -148,47 +148,42 @@ func writeRecipeHeaderIntoSQLTableAPI(myRecipe: RecipeHeader ,callback: @escapin
     var title = "'very'"
     var img = "'img'"
     var recipeType = "'Beef'"
-    var prepTime = 10
+    var prepTime = 17
     var cookTime = 2
     var serving = 3
     var author = "'roeyhonig92@walla.com'"
-    var ingredientHeader1 = "'for cake'"
-    var ingredientHeader2 = "'for icing'"
+    var ingredientHeader1 = "'for_cake'"
+    var ingredientHeader2 = "'for_icing'"
     var ingredientHeader3 = "'topics'"
     var list1 = "null"
     var list2 = "null"
     var list3 = "null"
     var directions = "null"
 
-    /*
+    
     
     apiAddress = "https://enigmatic-oasis-37206.herokuapp.com/insertRecipe?title="
     apiAddress = apiAddress + title
     apiAddress = apiAddress + "&img=" + img
     apiAddress = apiAddress + "&recipeType=" + recipeType
-    apiAddress = apiAddress + "&prepTime=" + prepTime
-    apiAddress = apiAddress + "&cookTime=" + cookTime
-    apiAddress = apiAddress + + "&serving=" + serving
+    apiAddress = apiAddress + "&prepTime=" + "\(prepTime)"
+    apiAddress = apiAddress + "&cookTime=" + "\(cookTime)"
+    apiAddress = apiAddress + "&serving=" + "\(serving)"
     apiAddress = apiAddress + "&author=" + author
     apiAddress = apiAddress + "&ingredientHeader1="+ingredientHeader1
-    apiAddress = apiAddress
-    apiAddress = apiAddress
-    apiAddress = apiAddress
-    apiAddress = apiAddress
+    apiAddress = apiAddress + "&ingredientHeader2="+ingredientHeader2
+    apiAddress = apiAddress + "&ingredientHeader3="+ingredientHeader3
+    apiAddress = apiAddress + "&list1="+list1
+    apiAddress = apiAddress + "&list2="+list2
+    apiAddress = apiAddress + "&list3="+list3
+    apiAddress = apiAddress + "&directions="+directions
     
-    apiAddress = "https://enigmatic-oasis-37206.herokuapp.com/insertRecipe?title="+title+"&img="+img+"&recipeType="+recipeType+"&prepTime="+prepTime+"&cookTime="+cookTime+"&serving="+serving+"&author="+author+"&ingredientHeader1="+ingredientHeader1+"&ingredientHeader2="+ingredientHeader2+"&ingredientHeader3="+ingredientHeader3+"&list1="+list1+"&list2="+list2+"&list3="+list3+"&directions="+directions
-    
- */
    
-    /*
-     
-     https://enigmatic-oasis-37206.herokuapp.com/insertRecipe?title='very delicios3'&img='img.url'&recipeType='Pork'&prepTime=20&cookTime=10&serving=5&author='roeyhonig100@walla.com'&ingredientHeader1='ingredients for cake'&ingredientHeader2='ingredients for icing on the cake'&ingredientHeader3='ingredients for topincs on the cake'&list1='{"parcelly","lemon and lymes", "donats"}'&list2='{"parcelly","lemon and lymes, with jelly beans", "donats"}'&list3='{"parcelly","lemon and lymes, with jelly beans", "donats"}'&directions='Place meat in slow cooker. In a small bowl mix together the flour, salt, and pepper; pour over meat, and stir'
-     
-     
-     */
+    //let components = NSURL(string: apiAddress)
     
-    apiAddress = "https://enigmatic-oasis-37206.herokuapp.com/insertRecipeManual"
+    print(apiAddress)
     let apiUrl = URL(string: apiAddress)!
+    //let apiUrl = components!.absoluteURL!
     
     myDataTask = session.dataTask(with: apiUrl) { (data, res, err) in
         guard let data = data else {return}
