@@ -147,20 +147,20 @@ func writeRecipeHeaderIntoSQLTableAPI(myRecipe: RecipeHeader ,callback: @escapin
         // user based recipes
         // https://enigmatic-oasis-37206.herokuapp.com/insertRecipe?title='very delicios3'&img='img.url'&recipeType='Pork'&prepTime=20&cookTime=10&serving=5&author='roeyhonig100@walla.com'&ingredientHeader1='ingredients for cake'&ingredientHeader2='ingredients for icing on the cake'&ingredientHeader3='ingredients for topincs on the cake'&list1='{"parcelly","lemon and lymes", "donats"}'&list2='{"parcelly","lemon and lymes, with jelly beans", "donats"}'&list3='{"parcelly","lemon and lymes, with jelly beans", "donats"}'&directions='Place meat in slow cooker. In a small bowl mix together the flour, salt, and pepper; pour over meat, and stir'
     
-    var title = "'very'"
-    var img = "'img'"
-    var recipeType = "'Beef'"
-    var prepTime = 39
-    var cookTime = 2
-    var serving = 3
-    var author = "'roeyhonig92@walla.com'"
-    var ingredientHeader1 = "'for_cake,_and[]'"
-    var ingredientHeader2 = "'for_icing'"
-    var ingredientHeader3 = "'topics'"
-    var list1 = preperForSql(fromTheFollwingStringArray: ["lemon_yes", "lyme_no","a_lot_of_love"])
-    var list2 = "null"
-    var list3 = "null"
-    var directions = "null"
+    var title = preperForSql(TheFollwingString: myRecipe.title)
+    var img = preperForSql(TheFollwingString: myRecipe.img)
+    var recipeType = preperForSql(TheFollwingString: myRecipe.recipe_type)
+    var prepTime = preperForSql(TheFollwingInt: myRecipe.prep_time)
+    var cookTime = preperForSql(TheFollwingInt: myRecipe.cook_time)
+    var serving = preperForSql(TheFollwingInt: myRecipe.serving)
+    var author = preperForSql(TheFollwingString: myRecipe.author)
+    var ingredientHeader1 = preperForSql(TheFollwingString: myRecipe.ingredient_header1)
+    var ingredientHeader2 = preperForSql(TheFollwingString: myRecipe.ingredient_header2)
+    var ingredientHeader3 = preperForSql(TheFollwingString: myRecipe.ingredient_header3)
+    var list1 = preperForSql(TheFollwingStringArray: myRecipe.list1)
+    var list2 = preperForSql(TheFollwingStringArray: myRecipe.list2)
+    var list3 = preperForSql(TheFollwingStringArray: myRecipe.list3)
+    var directions = preperForSql(TheFollwingString: myRecipe.directions)
 
     
     
@@ -185,7 +185,8 @@ func writeRecipeHeaderIntoSQLTableAPI(myRecipe: RecipeHeader ,callback: @escapin
     
     print(apiAddress)
     let apiUrl = URL(string: apiAddress)!
-    //let apiUrl = components!.absoluteURL!
+    
+    //let apiUrl = URL(string: "https://enigmatic-oasis-37206.herokuapp.com/insertRecipe?title='Awesome_Red_Wine_Pot_Roast'&img='https://images.media-allrecipes.com/userphotos/560x315/597886.jpg'&recipeType='Beef'&prepTime=15&cookTime=240&serving=12&author='https://www.allrecipes.com/recipe/162091/awesome-red-wine-pot-roast/'&ingredientHeader1='_Ingredients_'&ingredientHeader2=null&ingredientHeader3=null&list1='[3_pounds_boneless_beef_chuck_roast,2_tablespoons_all-purpose_flour,2_tablespoons_canola_oil,1/2_cup_water_,1/2_cup_red_wine_,1_teaspoon_dried_basil_,1/2_teaspoon_dried_marjoram_,1/2_teaspoon_dried_thyme_,1_teaspoon_salt_,1/4_teaspoon_ground_black_pepper_,1_onion,_sliced_,6_red_potatoes,_washed_and_halved_,6_carrot,_peeled_and_cut_into_2-inch_lengths_,8_pearl_onions,_peeled_and_halved_]'&list2=null&list3=null&directions='Preheat_an_oven_to_350_degrees_F_(175_degrees_C).#Sprinkle_the_roast_evenly_with_the_flour_and_set_aside._Heat_the_canola_oil_in_an_oven-proof_Dutch_oven_with_lid_over_medium-high_heat._Brown_the_roast_on_all_sides,_about_10_minutes_total_remove_from_the_heat._Pour_in_the_water_and_wine._Sprinkle_with_the_basil,_marjoram,_thyme,_salt,_and_pepper._Arrange_the_onion_slices_on_the_roast.#Replace_the_cover_and_bake_in_the_preheated_oven_for_3_hours._Add_the_potatoes,_carrots,_and_pearl_onions._Pour_in_additional_water_if_the_roast_looks_dry._Continue_baking_covered_until_the_roast_pulls_apart_easily_with_a_fork,_about_1_hour_longer.#'")!
     
     myDataTask = session.dataTask(with: apiUrl) { (data, res, err) in
         guard let data = data else {return}
@@ -209,31 +210,62 @@ func writeRecipeHeaderIntoSQLTableAPI(myRecipe: RecipeHeader ,callback: @escapin
     
 }
 
+func elimanateLineBreakes(fromTheFollowingString str: String) -> String {
+    let components = str.components(separatedBy: "\n")
+    return components.joined(separator: "newLine")
+}
+
+func elimanateWhiteSpaces(fromTheFollowingString aString: String) -> String {
+    let newString = aString.replacingOccurrences(of: " ", with: "_")
+    return newString
+}
 
 
 
-
-func surrondWithDoubleQutationMark(theFollowingString s: String) -> String {
+func surrondWithDollarSignMarkMark(theFollowingString s: String) -> String {
     let s1 = """
-    $\(s)$
+    singleQutation\(s)singleQutation
     """
     return s1
 }
 
 // will transfer ["parcelly, in salt", "lymes, cut in half", "some, good stuff"] --> '[$parcelly, in salt$,$lymes, cut in half$,$some, good stuff$]'
 // this is how we need to enter it via the fet request so the sql query will function properlly
-func preperForSql(fromTheFollwingStringArray arr: [String]) -> String {
+func preperForSql(TheFollwingStringArray myArr: [String]?) -> String {
+    guard let arr = myArr else {
+        return "null"
+    }
+    
     var stringToReturn = ""
     stringToReturn = stringToReturn + "'["
     
     for i in 1...arr.count {
         if i == arr.count {
-            stringToReturn = stringToReturn + surrondWithDoubleQutationMark(theFollowingString: arr[i-1])
+            stringToReturn = stringToReturn + surrondWithDollarSignMarkMark(theFollowingString: elimanateWhiteSpaces(fromTheFollowingString: elimanateLineBreakes(fromTheFollowingString: arr[i-1])))
         } else {
-            stringToReturn = stringToReturn + surrondWithDoubleQutationMark(theFollowingString: arr[i-1]) + ","
+            stringToReturn = stringToReturn + surrondWithDollarSignMarkMark(theFollowingString: elimanateWhiteSpaces(fromTheFollowingString: elimanateLineBreakes(fromTheFollowingString: arr[i-1])))  + ","
         }
     }
     
     stringToReturn = stringToReturn + "]'"
     return stringToReturn
 }
+
+func preperForSql(TheFollwingInt str: Int?) -> String {
+    guard let str1 = str else {
+        return "null"
+    }
+
+    let stringToReturn = "\(str1)"
+    return stringToReturn
+}
+
+func preperForSql(TheFollwingString str: String?) -> String {
+    guard let str1 = str else {
+    return "null"
+    }
+
+    let stringToReturn = "'" + elimanateWhiteSpaces(fromTheFollowingString: elimanateLineBreakes(fromTheFollowingString: str1)) + "'"
+    return stringToReturn
+}
+

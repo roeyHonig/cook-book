@@ -82,7 +82,7 @@ class RecipiesViewController: UIViewController, UICollectionViewDelegate, UIColl
         // Do any additional setup after loading the view.
         // find out in which tabController item index you are
         print("hello, you are curenttly in index: \(self.tabBarController!.selectedIndex)")
-        var s1 = preperForSql(fromTheFollwingStringArray: ["parcelly, in salt","lymes, cut in half","some, good stuff"])
+        var s1 = preperForSql(TheFollwingStringArray: ["parcelly, in salt","lymes, cut in half","some, good stuff"])
         print(s1)
         
         self.blurView.alpha = 0
