@@ -20,13 +20,17 @@ class RecipeDetailsViewController: UIViewController, UITableViewDelegate, UITabl
     
     
     @IBAction func makeItYourOwn(_ sender: UIButton) {
-        // TODO: add this specific recipy to the user recipies
         print("make it your own")
-        writeRecipeHeaderIntoSQLTableAPI(myRecipe: recipeHeader!) { (err) in
+        guard let usrEmail = signedUser!.email else {
+            print("There seems to be a problem with your email adress") //TODO: alert dialog box
+            return
+        }
+        
+        writeRecipeHeaderIntoSQLTableAPI(myRecipe: recipeHeader!, newAuthor: usrEmail) { (err) in
             if let errorCode = err {
-                print("i think we have a problem!!!!: \(errorCode.localizedDescription)")
+                print("i think we have a problem!!!!: \(errorCode.localizedDescription)") // TODO: error dialog box , we need to add or condition in case the number of rows is 0 cheack it , because sometimes the url is valid but nothing was added to the api, so it will give a data json with rows effected 0 , cheack it out
             } else {
-                print("i think we wrote it")
+                print("i think we wrote it") // TODO: sucess alert dialog
             }
         }
     }
