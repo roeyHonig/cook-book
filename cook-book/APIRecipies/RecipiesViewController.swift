@@ -145,8 +145,10 @@ class RecipiesViewController: UIViewController, UICollectionViewDelegate, UIColl
         if signedUser != nil {
             self.navigationItem.rightBarButtonItem = menuBarItem
             self.blurView.alpha = 0
+            if tabBarController!.selectedIndex == 3 {self.navigationItem.leftBarButtonItem = refreshBtn} else {self.navigationItem.leftBarButtonItem = nil}
         } else {
            self.navigationItem.rightBarButtonItem = nil
+            self.navigationItem.leftBarButtonItem = nil
         }
     }
     
