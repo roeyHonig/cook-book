@@ -75,6 +75,12 @@ struct RecipeHeaderAPI: Codable {
     var rows: [RecipeHeader]
 }
 
+// we will use this struct to determin whter the sql qurty of inserting (we want to insert recipe details into the DB) went succecfull
+// if we indeed succedded to inser a recipe , rowCount will be 1
+struct serverResponseToAnSQLQuary: Codable {
+    var rowCount: Int?
+}
+
 
 // https://enigmatic-oasis-37206.herokuapp.com/select?table_name=recipes_draft1&col_name=type_of_recipe&value=Pork
 
@@ -137,7 +143,7 @@ func getRecipeHeaderAPI(nameOfDBTable: String ,nameOfAutor: String? ,typeOfRecip
 // Be Advided!!
 // URL class needs a clean string for the init, what does that mean?
 // it means the following chracters are probited: " " white space replace with _   , " double qoutation mark replace with $  , {   curelly braces replace with [
-func writeRecipeHeaderIntoSQLTableAPI(myRecipe: RecipeHeader, newAuthor: String ,callback: @escaping (Error?)-> Void) {
+func writeRecipeHeaderIntoSQLTableAPI(myRecipe: RecipeHeader, newAuthor: String ,callback: @escaping (Error?, serverResponseToAnSQLQuary)-> Void) {
     
     myDataTask?.cancel() // cancel any previus tasks
     
@@ -203,14 +209,14 @@ func writeRecipeHeaderIntoSQLTableAPI(myRecipe: RecipeHeader, newAuthor: String 
     myDataTask = session.dataTask(with: nonOptionalApiUrl) { (data, res, err) in
         guard let data = data else {return}
         // if we got here, we have data
-        //let decoder = JSONDecoder()
-       // guard let result = try? decoder.decode(RecipeHeaderAPI.self, from: data) else {return /*SHOW DIALOG*/}
+        let decoder = JSONDecoder()
+         guard let result = try? decoder.decode(serverResponseToAnSQLQuary.self, from: data) else {return /*SHOW DIALOG*/}
         
         
         // Run code on the UI Thread
         
         DispatchQueue.main.async {
-            callback(err)
+            callback(err, result)
         }
         
         
