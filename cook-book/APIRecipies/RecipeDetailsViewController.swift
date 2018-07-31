@@ -19,6 +19,13 @@ class RecipeDetailsViewController: UIViewController, UITableViewDelegate, UITabl
     var sender: Any?
     
     
+    @IBOutlet var deleteRecipeBtn: UIButton!
+    
+    @IBAction func deleteThisRecipe(_ sender: UIButton) {
+    }
+    
+    @IBOutlet var positionConstraineForDeleteBtn: NSLayoutConstraint!
+    
     @IBAction func makeItYourOwn(_ sender: UIButton) {
         print("make it your own")
         guard let usrEmail = signedUser!.email else {
@@ -255,10 +262,19 @@ class RecipeDetailsViewController: UIViewController, UITableViewDelegate, UITabl
     func initTheMakeItYourOwnBtn() {
         branchBtn.isUserInteractionEnabled = false
         branchBtn.alpha = 0
+        deleteRecipeBtn.isUserInteractionEnabled = false
+        deleteRecipeBtn.alpha = 0
         guard let usr = signedUser else {return}
+        // we got this far --> There is a user!!
         if tabBarController!.selectedIndex == 0 {
             branchBtn.isUserInteractionEnabled = true
             branchBtn.alpha = 1
+            deleteRecipeBtn.isUserInteractionEnabled = false
+            deleteRecipeBtn.alpha = 0
+        } else {
+            deleteRecipeBtn.isUserInteractionEnabled = true
+            deleteRecipeBtn.alpha = 1
+            positionConstraineForDeleteBtn.constant = -58
         }
     }
     

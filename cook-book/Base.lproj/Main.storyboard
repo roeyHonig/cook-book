@@ -696,7 +696,7 @@
                                 <rect key="frame" x="0.0" y="64" width="375" height="554"/>
                             </imageView>
                             <button opaque="NO" alpha="0.69999999999999996" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="7GQ-YA-ZXV" userLabel="inRecipyFavoriteBtn">
-                                <rect key="frame" x="325" y="64" width="50" height="50"/>
+                                <rect key="frame" x="325" y="72" width="50" height="50"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="50" id="a9M-fq-yHA"/>
                                     <constraint firstAttribute="width" constant="50" id="gSL-Wu-LEv"/>
@@ -706,7 +706,7 @@
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="nO3-fS-4dq" userLabel="branchBtn">
-                                <rect key="frame" x="267" y="64" width="50" height="50"/>
+                                <rect key="frame" x="267" y="72" width="50" height="50"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="50" id="4Ow-Hf-nRT"/>
                                     <constraint firstAttribute="width" constant="50" id="6Yd-n3-42O"/>
@@ -716,6 +716,17 @@
                                 <state key="highlighted" image="icons8-git_filled_marchino"/>
                                 <connections>
                                     <action selector="makeItYourOwn:" destination="eIG-Bg-bsK" eventType="touchUpInside" id="Gon-tA-YCE"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="cDL-l7-iAF" userLabel="deleteRecipeBtn">
+                                <rect key="frame" x="209" y="72" width="50" height="50"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="50" id="5rV-bt-hFT"/>
+                                    <constraint firstAttribute="width" constant="50" id="rHL-1G-psJ"/>
+                                </constraints>
+                                <state key="normal" image="icons8-trash"/>
+                                <connections>
+                                    <action selector="deleteThisRecipe:" destination="eIG-Bg-bsK" eventType="touchUpInside" id="wTP-Fd-Gl5"/>
                                 </connections>
                             </button>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="n0j-XY-3Lp" userLabel="sliderControl">
@@ -1097,13 +1108,15 @@
                             <constraint firstItem="eeJ-fZ-PBc" firstAttribute="height" secondItem="BeK-QD-9mD" secondAttribute="width" multiplier="0.1" id="aMj-OU-vQo"/>
                             <constraint firstItem="0wV-9Y-5R2" firstAttribute="top" secondItem="eeJ-fZ-PBc" secondAttribute="bottom" id="f6J-cO-qnz"/>
                             <constraint firstItem="T5p-MA-gFT" firstAttribute="leading" secondItem="AXb-pI-aM6" secondAttribute="leading" id="fdo-Vx-RIm"/>
-                            <constraint firstItem="7GQ-YA-ZXV" firstAttribute="top" secondItem="AXb-pI-aM6" secondAttribute="top" id="fzk-po-xXo"/>
+                            <constraint firstItem="7GQ-YA-ZXV" firstAttribute="top" secondItem="AXb-pI-aM6" secondAttribute="top" constant="8" id="fzk-po-xXo"/>
                             <constraint firstItem="AXb-pI-aM6" firstAttribute="trailing" secondItem="VWQ-JX-eiW" secondAttribute="trailing" id="iah-ga-JHe"/>
+                            <constraint firstItem="nO3-fS-4dq" firstAttribute="leading" secondItem="cDL-l7-iAF" secondAttribute="trailing" constant="8" id="ln3-9j-qr7"/>
                             <constraint firstItem="AXb-pI-aM6" firstAttribute="trailing" secondItem="0wV-9Y-5R2" secondAttribute="trailing" id="mKC-AI-VmB"/>
-                            <constraint firstItem="nO3-fS-4dq" firstAttribute="top" secondItem="AXb-pI-aM6" secondAttribute="top" id="nAl-Jg-hm9"/>
+                            <constraint firstItem="nO3-fS-4dq" firstAttribute="top" secondItem="AXb-pI-aM6" secondAttribute="top" constant="8" id="nAl-Jg-hm9"/>
                             <constraint firstItem="n0j-XY-3Lp" firstAttribute="top" secondItem="AXb-pI-aM6" secondAttribute="top" constant="50" id="qyp-am-Oqx"/>
                             <constraint firstItem="eeJ-fZ-PBc" firstAttribute="width" secondItem="BeK-QD-9mD" secondAttribute="width" id="sf8-6Y-CZu"/>
                             <constraint firstItem="eeJ-fZ-PBc" firstAttribute="leading" secondItem="AXb-pI-aM6" secondAttribute="leading" id="t6d-Nq-8io"/>
+                            <constraint firstItem="cDL-l7-iAF" firstAttribute="top" secondItem="AXb-pI-aM6" secondAttribute="top" constant="8" id="tMQ-aQ-1bD"/>
                             <constraint firstItem="0wV-9Y-5R2" firstAttribute="leading" secondItem="AXb-pI-aM6" secondAttribute="leading" id="wQm-0v-edC"/>
                             <constraint firstItem="AXb-pI-aM6" firstAttribute="bottom" secondItem="T5p-MA-gFT" secondAttribute="bottom" id="x7b-qi-xJU"/>
                         </constraints>
@@ -1119,6 +1132,7 @@
                         <outlet property="branchBtn" destination="nO3-fS-4dq" id="1WC-un-Pkr"/>
                         <outlet property="constraintToEditInOrderToCenterTheAddToShopping" destination="eMJ-s4-o6p" id="TLj-hg-rQI"/>
                         <outlet property="cookTimeLabel" destination="Sve-1v-IsN" id="qEf-eU-W4B"/>
+                        <outlet property="deleteRecipeBtn" destination="cDL-l7-iAF" id="CTe-6K-FKf"/>
                         <outlet property="directionsBtnView" destination="lcz-n4-VWW" id="y6J-Zl-ad7"/>
                         <outlet property="directionsIconOmage" destination="DUS-l2-cYu" id="roE-mT-jqP"/>
                         <outlet property="directionsTapGesture" destination="5Cd-oZ-bCS" id="kx7-Qc-GTh"/>
@@ -1130,6 +1144,7 @@
                         <outlet property="ingridentsTable" destination="me8-Yo-xuD" id="RKR-7p-O4c"/>
                         <outlet property="ingridentsTapGesture" destination="r1J-bL-88c" id="fM0-uC-005"/>
                         <outlet property="ingridentsiconImage" destination="jFD-H4-khW" id="3bj-Ds-Cpj"/>
+                        <outlet property="positionConstraineForDeleteBtn" destination="ln3-9j-qr7" id="Dh2-Ry-fM7"/>
                         <outlet property="prepTimeLabel" destination="f8R-4v-Pmd" id="ZYd-bv-9Og"/>
                         <outlet property="recipeHeaderView" destination="eeJ-fZ-PBc" id="xxR-uL-AkB"/>
                         <outlet property="servingLabel" destination="zTe-Bv-YIf" id="jCY-Ic-TC1"/>
@@ -1613,6 +1628,7 @@ This way, you’ll never run out </string>
         <image name="icons8-pie_chart" width="52" height="52"/>
         <image name="icons8-shopping_25Steel" width="26" height="26"/>
         <image name="icons8-tableware_filled" width="100" height="100"/>
+        <image name="icons8-trash" width="52" height="52"/>
         <image name="polutary50" width="50" height="50"/>
         <image name="pork50" width="48" height="48"/>
         <image name="real-deasert50" width="50" height="50"/>
