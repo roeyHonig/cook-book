@@ -142,7 +142,7 @@ func getRecipeHeaderAPI(nameOfDBTable: String ,nameOfAutor: String? ,typeOfRecip
 
 // Be Advided!!
 // URL class needs a clean string for the init, what does that mean?
-// it means the following chracters are probited: " " white space replace with _   , " double qoutation mark replace with $  , {   curelly braces replace with [
+// it means the following chracters are probited: " " white space replace with _   , " double qoutation mark replace with singleQutation  , {   curelly braces replace with [ , line breakes replace with newLine
 func writeRecipeHeaderIntoSQLTableAPI(myRecipe: RecipeHeader, newAuthor: String ,callback: @escaping (Error?, serverResponseToAnSQLQuary, Bool)-> Void) {
     
     myDataTask?.cancel() // cancel any previus tasks
