@@ -27,23 +27,18 @@ class RecipeDetailsViewController: UIViewController, UITableViewDelegate, UITabl
         }
         
         writeRecipeHeaderIntoSQLTableAPI(myRecipe: recipeHeader!, newAuthor: usrEmail) { (err , result, recipeyDetailsResultInInvalidURL) in
-            /*
-            var urlWasValidButTheSQLQueryWasNotSucceful = false
-            if result.rowCount != nil {
-            } else {
-                urlWasValidButTheSQLQueryWasNotSucceful = true
-            }
-             */
- 
             if recipeyDetailsResultInInvalidURL {
                 print("Error, Cheack to make sure recipe details don't include URL invalid charcters!!!!")
                 // TODO: failure alert dialog
+                self.showAlertDialog(withMassage: "Ooops, something went wrong :(")
             } else if result.rowCount == nil {
                 print("seems the url went fine but no INSERT succefull")
                 // TODO: failure alert dialog
+                self.showAlertDialog(withMassage: "Ooops, something went wrong :(")
             } else {
                 print("i think we wrote it")
                 // TODO: sucess alert dialog
+                self.showAlertDialog(withMassage: "Recipe added to your pesonal section :)")
             }
         }
     }
@@ -270,11 +265,10 @@ class RecipeDetailsViewController: UIViewController, UITableViewDelegate, UITabl
     @objc func addToShoppingList() {
         print("adding ingridents")
         saveToCoreData()
-        //showAlertDialog()
     }
     
-    func showAlertDialog() {
-        let alertController = UIAlertController(title: nil, message: "Ingredients have been added to your shopping list", preferredStyle: UIAlertControllerStyle.alert)
+    func showAlertDialog(withMassage str: String) {
+        let alertController = UIAlertController(title: nil, message: str, preferredStyle: UIAlertControllerStyle.alert)
         let confirmAction = UIAlertAction(title: "Ok", style: .default, handler: nil)
         alertController.addAction(confirmAction)
         self.present(alertController, animated: true)
@@ -453,7 +447,7 @@ class RecipeDetailsViewController: UIViewController, UITableViewDelegate, UITabl
         }
         
         if appDelegate.didSaveToCoreDataWasSuccefull(myRecipeHeader: myRecipeHeader) {
-            showAlertDialog()
+            showAlertDialog(withMassage: "Ingredients have been added to your shopping list")
         }
         
         

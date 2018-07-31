@@ -393,7 +393,7 @@ class RecipiesViewController: UIViewController, UICollectionViewDelegate, UIColl
             return "Vegetarian"
         case 5:
             print("Side_Dish")
-            return "Side Dish"
+            return "Side_Dish"
         case 6:
             print("Salad")
             return "Salad"
