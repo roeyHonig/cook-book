@@ -20,10 +20,7 @@ class RecipiesViewController: UIViewController, UICollectionViewDelegate, UIColl
     @IBOutlet var refreshBtn: UIBarButtonItem!
     
     @IBAction func refrshingTheDataSource(_ sender: UIBarButtonItem) {
-        let recipyTypeString =  getRecipeTypeOfSelectedIndex(number: recipyType.selectedSegmentIndex)
-        recipes[recipyTypeString]! = nil
-        yet2bePreseedOnce[recipyTypeString]! = true
-        retriveData()
+        refrashData()
     }
     
     @IBAction func signingOut(_ sender: UIButton) {
@@ -223,6 +220,13 @@ class RecipiesViewController: UIViewController, UICollectionViewDelegate, UIColl
         
     }
    
+    func refrashData() {
+        let recipyTypeString =  getRecipeTypeOfSelectedIndex(number: recipyType.selectedSegmentIndex)
+        recipes[recipyTypeString]! = nil
+        yet2bePreseedOnce[recipyTypeString]! = true
+        retriveData()
+    }
+    
     // we've manually configuered this func to return the CGSize we want for the cells in the collection view - and not the hardcoded dimension
     // in the storyboard IB
     // the cell frame will be of size with respect to the device screen size and there will be 2 cells columbs
