@@ -143,7 +143,7 @@ func getRecipeHeaderAPI(nameOfDBTable: String ,nameOfAutor: String? ,typeOfRecip
 // Be Advided!!
 // URL class needs a clean string for the init, what does that mean?
 // it means the following chracters are probited: " " white space replace with _   , " double qoutation mark replace with $  , {   curelly braces replace with [
-func writeRecipeHeaderIntoSQLTableAPI(myRecipe: RecipeHeader, newAuthor: String ,callback: @escaping (Error?, serverResponseToAnSQLQuary)-> Void) {
+func writeRecipeHeaderIntoSQLTableAPI(myRecipe: RecipeHeader, newAuthor: String ,callback: @escaping (Error?, serverResponseToAnSQLQuary, Bool)-> Void) {
     
     myDataTask?.cancel() // cancel any previus tasks
     
@@ -197,14 +197,16 @@ func writeRecipeHeaderIntoSQLTableAPI(myRecipe: RecipeHeader, newAuthor: String 
     
     print(apiAddress)
     // TODO: !!!! very important you must guard of nil values due to invalid adress
-    let nonOptionalApiUrl: URL
+    var nonOptionalApiUrl: URL
+    var recipeyDetailsResultInInvalidURL = false
     if let apiUrl = URL(string: apiAddress)  {
         nonOptionalApiUrl = apiUrl
     } else {
-        nonOptionalApiUrl = URL(string: "url_is_invalid")!
+        nonOptionalApiUrl = URL(string: "https://enigmatic-oasis-37206.herokuapp.com/insertRecipeStrings?title=My")!
+        recipeyDetailsResultInInvalidURL = true
     }
     
-    //let apiUrl = URL(string: "https://enigmatic-oasis-37206.herokuapp.com/insertRecipe?title='Awesome_Red_Wine_Pot_Roast'&img='https://images.media-allrecipes.com/userphotos/560x315/597886.jpg'&recipeType='Beef'&prepTime=15&cookTime=240&serving=12&author='https://www.allrecipes.com/recipe/162091/awesome-red-wine-pot-roast/'&ingredientHeader1='_Ingredients_'&ingredientHeader2=null&ingredientHeader3=null&list1='[3_pounds_boneless_beef_chuck_roast,2_tablespoons_all-purpose_flour,2_tablespoons_canola_oil,1/2_cup_water_,1/2_cup_red_wine_,1_teaspoon_dried_basil_,1/2_teaspoon_dried_marjoram_,1/2_teaspoon_dried_thyme_,1_teaspoon_salt_,1/4_teaspoon_ground_black_pepper_,1_onion,_sliced_,6_red_potatoes,_washed_and_halved_,6_carrot,_peeled_and_cut_into_2-inch_lengths_,8_pearl_onions,_peeled_and_halved_]'&list2=null&list3=null&directions='Preheat_an_oven_to_350_degrees_F_(175_degrees_C).#Sprinkle_the_roast_evenly_with_the_flour_and_set_aside._Heat_the_canola_oil_in_an_oven-proof_Dutch_oven_with_lid_over_medium-high_heat._Brown_the_roast_on_all_sides,_about_10_minutes_total_remove_from_the_heat._Pour_in_the_water_and_wine._Sprinkle_with_the_basil,_marjoram,_thyme,_salt,_and_pepper._Arrange_the_onion_slices_on_the_roast.#Replace_the_cover_and_bake_in_the_preheated_oven_for_3_hours._Add_the_potatoes,_carrots,_and_pearl_onions._Pour_in_additional_water_if_the_roast_looks_dry._Continue_baking_covered_until_the_roast_pulls_apart_easily_with_a_fork,_about_1_hour_longer.#'")!
+   
     
     myDataTask = session.dataTask(with: nonOptionalApiUrl) { (data, res, err) in
         guard let data = data else {return}
@@ -216,7 +218,7 @@ func writeRecipeHeaderIntoSQLTableAPI(myRecipe: RecipeHeader, newAuthor: String 
         // Run code on the UI Thread
         
         DispatchQueue.main.async {
-            callback(err, result)
+            callback(err, result, recipeyDetailsResultInInvalidURL)
         }
         
         

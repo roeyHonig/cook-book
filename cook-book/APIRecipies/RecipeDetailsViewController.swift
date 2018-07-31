@@ -26,20 +26,24 @@ class RecipeDetailsViewController: UIViewController, UITableViewDelegate, UITabl
             return
         }
         
-        writeRecipeHeaderIntoSQLTableAPI(myRecipe: recipeHeader!, newAuthor: usrEmail) { (err , result) in
-            
+        writeRecipeHeaderIntoSQLTableAPI(myRecipe: recipeHeader!, newAuthor: usrEmail) { (err , result, recipeyDetailsResultInInvalidURL) in
+            /*
+            var urlWasValidButTheSQLQueryWasNotSucceful = false
             if result.rowCount != nil {
-                print("ok, this is the rowCount: \(result.rowCount!)")
             } else {
-                print("seems the url went fine but no INSERT succefull")
+                urlWasValidButTheSQLQueryWasNotSucceful = true
             }
-            
-            
-            
-            if let errorCode = err {
-                print("i think we have a problem!!!!: \(errorCode.localizedDescription)") // TODO: error dialog box , we need to add or condition in case the number of rows is 0 cheack it , because sometimes the url is valid but nothing was added to the api, so it will give a data json with rows effected 0 , cheack it out
+             */
+ 
+            if recipeyDetailsResultInInvalidURL {
+                print("Error, Cheack to make sure recipe details don't include URL invalid charcters!!!!")
+                // TODO: failure alert dialog
+            } else if result.rowCount == nil {
+                print("seems the url went fine but no INSERT succefull")
+                // TODO: failure alert dialog
             } else {
-                print("i think we wrote it") // TODO: sucess alert dialog
+                print("i think we wrote it")
+                // TODO: sucess alert dialog
             }
         }
     }
