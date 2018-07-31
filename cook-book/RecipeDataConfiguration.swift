@@ -142,7 +142,7 @@ func getRecipeHeaderAPI(nameOfDBTable: String ,nameOfAutor: String? ,typeOfRecip
 
 // Be Advided!!
 // URL class needs a clean string for the init, what does that mean?
-// it means the following chracters are probited: " " white space replace with _   , " double qoutation mark replace with singleQutation  , {   curelly braces replace with [ , line breakes replace with newLine
+// it means the following chracters are probited: " " white space replace with whiteSpace   , " double qoutation mark replace with singleQutation  , {   curelly braces replace with [ , line breakes replace with newLine
 func writeRecipeHeaderIntoSQLTableAPI(myRecipe: RecipeHeader, newAuthor: String ,callback: @escaping (Error?, serverResponseToAnSQLQuary, Bool)-> Void) {
     
     myDataTask?.cancel() // cancel any previus tasks
@@ -175,8 +175,8 @@ func writeRecipeHeaderIntoSQLTableAPI(myRecipe: RecipeHeader, newAuthor: String 
     var directions = preperForSql(TheFollwingString: myRecipe.directions)
 
     
-    // TODO: change the api to the new                      insertRecipeStrings   // insertRecipeStrings
-    apiAddress = "https://enigmatic-oasis-37206.herokuapp.com/insertRecipeStrings?title="
+    // TODO: change the api to the new                      insertRecipeStrings1   // insertRecipeStrings1
+    apiAddress = "https://enigmatic-oasis-37206.herokuapp.com/insertRecipeStrings1?title="
     apiAddress = apiAddress + title
     apiAddress = apiAddress + "&img=" + img
     apiAddress = apiAddress + "&recipeType=" + recipeType
@@ -202,7 +202,7 @@ func writeRecipeHeaderIntoSQLTableAPI(myRecipe: RecipeHeader, newAuthor: String 
     if let apiUrl = URL(string: apiAddress)  {
         nonOptionalApiUrl = apiUrl
     } else {
-        nonOptionalApiUrl = URL(string: "https://enigmatic-oasis-37206.herokuapp.com/insertRecipeStrings?title=My")!
+        nonOptionalApiUrl = URL(string: "https://enigmatic-oasis-37206.herokuapp.com/insertRecipeStrings1?title=My")!
         recipeyDetailsResultInInvalidURL = true
     }
     
@@ -236,7 +236,7 @@ func elimanateLineBreakes(fromTheFollowingString str: String) -> String {
 }
 
 func elimanateWhiteSpaces(fromTheFollowingString aString: String) -> String {
-    let newString = aString.replacingOccurrences(of: " ", with: "_")
+    let newString = aString.replacingOccurrences(of: " ", with: "whiteSpace")
     return newString
 }
 
