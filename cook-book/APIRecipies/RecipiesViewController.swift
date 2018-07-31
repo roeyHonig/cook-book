@@ -17,6 +17,15 @@ import FBSDKLoginKit
 class RecipiesViewController: UIViewController, UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout, UINavigationControllerDelegate, GIDSignInUIDelegate  {
    
     
+    @IBOutlet var refreshBtn: UIBarButtonItem!
+    
+    @IBAction func refrshingTheDataSource(_ sender: UIBarButtonItem) {
+        let recipyTypeString =  getRecipeTypeOfSelectedIndex(number: recipyType.selectedSegmentIndex)
+        recipes[recipyTypeString]! = nil
+        yet2bePreseedOnce[recipyTypeString]! = true
+        retriveData()
+    }
+    
     @IBAction func signingOut(_ sender: UIButton) {
         print("byeeeee")
         let firebaseAuth = Auth.auth()
@@ -157,7 +166,7 @@ class RecipiesViewController: UIViewController, UICollectionViewDelegate, UIColl
     }
  
     @objc func retriveData(){
-        //TODO go imiddiatell to what we have so far and reload data
+        // go imiddiatell to what we have so far and reload data
         self.recipHeaderApi = recipes[table_col_value]! // i'm assuming that table_col_value conforms to 1 of the predefined keys of the dictionary
         self.recipiesCollection.reloadData()
        
@@ -359,6 +368,39 @@ class RecipiesViewController: UIViewController, UICollectionViewDelegate, UIColl
         }
         
     }
+    
+    func getRecipeTypeOfSelectedIndex(number i: Int) -> String {
+        switch i {
+        case 0:
+            return "Beef"
+        case 1:
+            print("Pork")
+            return "Pork"
+        case 2:
+            print("Poultry")
+            return "Poultry"
+        case 3:
+            print("Seafood")
+            return "Seafood"
+        case 4:
+            print("Vegetarian")
+            return "Vegetarian"
+        case 5:
+            print("Side_Dish")
+            return "Side Dish"
+        case 6:
+            print("Salad")
+            return "Salad"
+        case 7:
+            print("Dessert")
+            return "Dessert"
+        default:
+            print("don't know")
+            return "Beef"
+        }
+    }
+    
+    
     /*
     // MARK: - Navigation
 
