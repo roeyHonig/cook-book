@@ -12,7 +12,7 @@
 import UIKit
 import Firebase
 import GoogleSignIn
-
+import SDWebImage
 import FBSDKCoreKit
 import FBSDKLoginKit
 
@@ -54,7 +54,8 @@ class SignInViewController: UIViewController, GIDSignInUIDelegate, FBSDKLoginBut
         print("out!!!!!")
     }
     
-   
+    @IBOutlet var sketchImgView: UIImageView!
+    
     @IBOutlet weak var googleCustomSignInBtn: UIView!
     @IBOutlet var googleIconForCustomSignInBtn: UIImageView!
     @IBOutlet var contentView: UIView!
@@ -77,6 +78,10 @@ class SignInViewController: UIViewController, GIDSignInUIDelegate, FBSDKLoginBut
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
+        // set image
+        
+        sketchImgView.sd_setImage(with: URL(string: "https://cdn.pixabay.com/photo/2012/04/11/18/07/chef-29205_960_720.png"), completed: nil)
+        
         //SignIn Button
         let googleSignInBtn = GIDSignInButton()
         googleSignInBtn.colorScheme  = GIDSignInButtonColorScheme.dark
