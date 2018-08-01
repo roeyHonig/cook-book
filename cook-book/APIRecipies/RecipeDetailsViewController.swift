@@ -18,6 +18,7 @@ class RecipeDetailsViewController: UIViewController, UITableViewDelegate, UITabl
     
     var sender: Any?
     
+    @IBOutlet var editRecipeBtn: UIButton!
     
     @IBOutlet var deleteRecipeBtn: UIButton!
     
@@ -253,6 +254,8 @@ class RecipeDetailsViewController: UIViewController, UITableViewDelegate, UITabl
         branchBtn.alpha = 0
         deleteRecipeBtn.isUserInteractionEnabled = false
         deleteRecipeBtn.alpha = 0
+        editRecipeBtn.isUserInteractionEnabled = false
+        editRecipeBtn.alpha = 0
         guard let usr = signedUser else {return}
         // we got this far --> There is a user!!
         if tabBarController!.selectedIndex == 0 {
@@ -260,10 +263,21 @@ class RecipeDetailsViewController: UIViewController, UITableViewDelegate, UITabl
             branchBtn.alpha = 1
             deleteRecipeBtn.isUserInteractionEnabled = false
             deleteRecipeBtn.alpha = 0
-        } else {
+            editRecipeBtn.isUserInteractionEnabled = false
+            editRecipeBtn.alpha = 0
+        } else if tabBarController!.selectedIndex == 3 {
             deleteRecipeBtn.isUserInteractionEnabled = true
             deleteRecipeBtn.alpha = 1
+            editRecipeBtn.isUserInteractionEnabled = true
+            editRecipeBtn.alpha = 1
             positionConstraineForDeleteBtn.constant = -58
+        } else {
+            branchBtn.isUserInteractionEnabled = false
+            branchBtn.alpha = 0
+            deleteRecipeBtn.isUserInteractionEnabled = false
+            deleteRecipeBtn.alpha = 0
+            editRecipeBtn.isUserInteractionEnabled = false
+            editRecipeBtn.alpha = 0
         }
     }
     
