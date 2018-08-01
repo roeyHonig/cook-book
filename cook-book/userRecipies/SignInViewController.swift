@@ -57,11 +57,9 @@ class SignInViewController: UIViewController, GIDSignInUIDelegate, FBSDKLoginBut
    
     @IBOutlet weak var googleCustomSignInBtn: UIView!
     @IBOutlet var googleIconForCustomSignInBtn: UIImageView!
-    
     @IBOutlet var contentView: UIView!
-    
     @IBOutlet var facebookCustomSignInBtn: UIView!
-    
+    let tapGestureOnCustomFBSiginInBtn = UITapGestureRecognizer()
     
     
     @IBAction func signInWithCustomButtone(_ sender: UITapGestureRecognizer) {
@@ -89,6 +87,10 @@ class SignInViewController: UIViewController, GIDSignInUIDelegate, FBSDKLoginBut
         //view.addSubview(googleSignInBtn)
         
         
+        // setup tapping on the custom FB btn
+        tapGestureOnCustomFBSiginInBtn.addTarget(self, action: #selector(SiginInWithFaceBook))
+        facebookCustomSignInBtn.addGestureRecognizer(tapGestureOnCustomFBSiginInBtn)
+        
         faceBookLoginButton.delegate = self
         contentView.addSubview(faceBookLoginButton)
         // position at center
@@ -96,7 +98,7 @@ class SignInViewController: UIViewController, GIDSignInUIDelegate, FBSDKLoginBut
         faceBookLoginButton.frame.size.height = facebookCustomSignInBtn.bounds.size.height
         faceBookLoginButton.frame.size.width = facebookCustomSignInBtn.bounds.size.width
         faceBookLoginButton.center = facebookCustomSignInBtn.center
-        
+        faceBookLoginButton.alpha = 0
         /*
         let fbButtonText = NSAttributedString(string: "your FB text here")
         faceBookLoginButton.setAttributedTitle(fbButtonText, for: .normal)
@@ -117,6 +119,11 @@ class SignInViewController: UIViewController, GIDSignInUIDelegate, FBSDKLoginBut
         
     }
 
+    @objc func SiginInWithFaceBook() {
+        // programetcally trigger the FB button, because we won't be able to press it, because it's alpha is 0 , because we want to see our custom FB btn
+        faceBookLoginButton.sendActions(for: .touchUpInside)
+    }
+    
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         navigationItem.hidesBackButton = true // we don't need a back button for this screen

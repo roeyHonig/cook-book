@@ -1298,9 +1298,9 @@
                                             <stackView opaque="NO" contentMode="scaleToFill" distribution="fillProportionally" alignment="center" spacing="12" translatesAutoresizingMaskIntoConstraints="NO" id="wzD-Yy-jb2">
                                                 <rect key="frame" x="10" y="0.0" width="291" height="60"/>
                                                 <subviews>
-                                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="700" verticalHuggingPriority="251" image="googleSignIn.png" translatesAutoresizingMaskIntoConstraints="NO" id="txX-Ae-aKm">
+                                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="700" verticalHuggingPriority="251" image="icons8-facebook_filled" translatesAutoresizingMaskIntoConstraints="NO" id="txX-Ae-aKm">
                                                         <rect key="frame" x="0.0" y="10" width="40" height="40"/>
-                                                        <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                                         <constraints>
                                                             <constraint firstAttribute="width" constant="40" id="Ozb-9u-3PS"/>
                                                             <constraint firstAttribute="height" constant="40" id="Sgh-8q-gLD"/>
@@ -1319,7 +1319,7 @@
                                                 </constraints>
                                             </stackView>
                                         </subviews>
-                                        <color key="backgroundColor" red="0.24978324769999999" green="0.53996664289999996" blue="0.95790475610000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <color key="backgroundColor" red="0.25882352941176467" green="0.40392156862745099" blue="0.69803921568627447" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <gestureRecognizers/>
                                         <constraints>
                                             <constraint firstAttribute="trailing" secondItem="wzD-Yy-jb2" secondAttribute="trailing" constant="10" id="AEh-i1-KYl"/>
@@ -1698,6 +1698,7 @@ This way, you’ll never run out </string>
         <image name="icons8-edit_property_filled" width="50" height="50"/>
         <image name="icons8-expand_arrow_filled" width="50" height="50"/>
         <image name="icons8-expand_arrow_filled-1" width="50" height="50"/>
+        <image name="icons8-facebook_filled" width="50" height="50"/>
         <image name="icons8-favorites-red-marchino" width="50" height="50"/>
         <image name="icons8-filled_circle" width="24" height="24"/>
         <image name="icons8-gender_neutral_user_filled" width="50" height="50"/>
