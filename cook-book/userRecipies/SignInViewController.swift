@@ -56,6 +56,10 @@ class SignInViewController: UIViewController, GIDSignInUIDelegate, FBSDKLoginBut
     
    
     @IBOutlet weak var googleCustomSignInBtn: UIView!
+    
+    @IBOutlet var googleIconForCustomSignInBtn: UIImageView!
+    
+    
     @IBAction func signInWithCustomButtone(_ sender: UITapGestureRecognizer) {
         print("custome Button!!!!!")
         GIDSignIn.sharedInstance().signIn()
@@ -91,7 +95,11 @@ class SignInViewController: UIViewController, GIDSignInUIDelegate, FBSDKLoginBut
         faceBookLoginButton.setAttributedTitle(fbButtonText, for: .normal)
         faceBookLoginButton.titleLabel?.font = UIFont(name: "System", size: 30)
         
-        
+        // init the google custom btn
+        googleCustomSignInBtn.layer.cornerRadius = 8
+        googleCustomSignInBtn.clipsToBounds = true
+        googleIconForCustomSignInBtn.layer.cornerRadius = 4
+        googleIconForCustomSignInBtn.clipsToBounds = true
         
     }
 
