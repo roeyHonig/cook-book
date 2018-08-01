@@ -4,7 +4,7 @@
 //
 //  Created by hackeru on 8 Tamuz 5778.
 //  Copyright © 5778 student.roey.honig. All rights reserved.
-//  TODO: just finsih the last icons and text in the recipe header
+
 
 import UIKit
 import CoreData
@@ -22,7 +22,7 @@ class RecipeDetailsViewController: UIViewController, UITableViewDelegate, UITabl
     @IBOutlet var deleteRecipeBtn: UIButton!
     
     @IBAction func deleteThisRecipe(_ sender: UIButton) {
-        deleteRecipeAndRefreshDisplay()
+        showDeleteAlertDialog()
     }
     
     @IBOutlet var positionConstraineForDeleteBtn: NSLayoutConstraint!
@@ -502,6 +502,20 @@ class RecipeDetailsViewController: UIViewController, UITableViewDelegate, UITabl
             
             self.navigationController!.popViewController(animated: true)
         }
+    }
+    
+    func showDeleteAlertDialog() {
+        let alertController = UIAlertController(title: nil, message: "Are you sure you want to delete this recipe?", preferredStyle: UIAlertControllerStyle.alert)
+        let confirmAction = UIAlertAction(title: "Yes", style: .default) { (uiAlertAction) in
+            print("ok was preseed")
+            self.deleteRecipeAndRefreshDisplay()
+        }
+        let cancelAction = UIAlertAction(title: "No", style: .cancel) { (uialertAction) in
+            print("cancel was preseed")
+        }
+        alertController.addAction(confirmAction)
+        alertController.addAction(cancelAction)
+        present(alertController, animated: true)
     }
     
     /*
