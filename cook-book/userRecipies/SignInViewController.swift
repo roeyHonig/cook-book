@@ -58,7 +58,9 @@ class SignInViewController: UIViewController, GIDSignInUIDelegate, FBSDKLoginBut
     @IBOutlet weak var googleCustomSignInBtn: UIView!
     @IBOutlet var googleIconForCustomSignInBtn: UIImageView!
     
-    @IBOutlet var facebookCustomSigninBtn: UIView!
+    @IBOutlet var contentView: UIView!
+    
+    @IBOutlet var facebookCustomSignInBtn: UIView!
     
     
     
@@ -72,6 +74,8 @@ class SignInViewController: UIViewController, GIDSignInUIDelegate, FBSDKLoginBut
         GIDSignIn.sharedInstance().signIn()
     }
     
+    let faceBookLoginButton = FBSDKLoginButton()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
@@ -84,31 +88,32 @@ class SignInViewController: UIViewController, GIDSignInUIDelegate, FBSDKLoginBut
         googleSignInBtn.frame = CGRect(x: 0, y: 500, width: view.frame.width, height: 50)
         //view.addSubview(googleSignInBtn)
         
-        let faceBookLoginButton = FBSDKLoginButton()
+        
         faceBookLoginButton.delegate = self
-        self.view.addSubview(faceBookLoginButton)
+        contentView.addSubview(faceBookLoginButton)
         // position at center
         
-        faceBookLoginButton.frame.size.height = googleCustomSignInBtn.frame.size.height
-        faceBookLoginButton.frame.size.width = googleCustomSignInBtn.frame.size.width
-        faceBookLoginButton.center = self.view.center
+        faceBookLoginButton.frame.size.height = facebookCustomSignInBtn.bounds.size.height
+        faceBookLoginButton.frame.size.width = facebookCustomSignInBtn.bounds.size.width
+        faceBookLoginButton.center = facebookCustomSignInBtn.center
         
-        
+        /*
         let fbButtonText = NSAttributedString(string: "your FB text here")
         faceBookLoginButton.setAttributedTitle(fbButtonText, for: .normal)
         faceBookLoginButton.titleLabel?.font = UIFont(name: "System", size: 160)
         faceBookLoginButton.titleLabel?.textColor = UIColor.black
+ */
         faceBookLoginButton.layer.cornerRadius = 8
         faceBookLoginButton.clipsToBounds = true
-        //faceBookLoginButton.
         
-        // init the google custom btn
+        
+        // init the google / FB custom btns
         googleCustomSignInBtn.layer.cornerRadius = 8
         googleCustomSignInBtn.clipsToBounds = true
         googleIconForCustomSignInBtn.layer.cornerRadius = 4
         googleIconForCustomSignInBtn.clipsToBounds = true
-        facebookCustomSigninBtn.layer.cornerRadius = 8
-        facebookCustomSigninBtn.clipsToBounds = true
+        facebookCustomSignInBtn.layer.cornerRadius = 8
+        facebookCustomSignInBtn.clipsToBounds = true
         
     }
 
