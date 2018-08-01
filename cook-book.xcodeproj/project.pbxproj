@@ -22,6 +22,7 @@
 		6DB056B020D6EC6A00A32956 /* CurrentUserRecipiesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6DB056AF20D6EC6A00A32956 /* CurrentUserRecipiesViewController.swift */; };
 		6DBA6E572100AD8300C827FE /* TrinagleUIView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6DBA6E562100AD8300C827FE /* TrinagleUIView.swift */; };
 		6DC574D320FDF34300456095 /* MyTestTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6DC574D220FDF34300456095 /* MyTestTableViewCell.swift */; };
+		6DC91DBE2112748B00D9791D /* RecipePropertiesTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6DC91DBD2112748B00D9791D /* RecipePropertiesTableViewCell.swift */; };
 		6DD7D0DE20FF1ECE007141DD /* OpeningScreenViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6DD7D0DD20FF1ECE007141DD /* OpeningScreenViewController.swift */; };
 		6DE10E4B21119CA50050E7E3 /* EditRecipeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6DE10E4A21119CA50050E7E3 /* EditRecipeViewController.swift */; };
 		6DEF7DB520FBCCDC00A45DD6 /* CustomUIView9.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6DEF7DB420FBCCDC00A45DD6 /* CustomUIView9.swift */; };
@@ -63,6 +64,7 @@
 		6DB056AF20D6EC6A00A32956 /* CurrentUserRecipiesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CurrentUserRecipiesViewController.swift; sourceTree = "<group>"; };
 		6DBA6E562100AD8300C827FE /* TrinagleUIView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrinagleUIView.swift; sourceTree = "<group>"; };
 		6DC574D220FDF34300456095 /* MyTestTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyTestTableViewCell.swift; sourceTree = "<group>"; };
+		6DC91DBD2112748B00D9791D /* RecipePropertiesTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecipePropertiesTableViewCell.swift; sourceTree = "<group>"; };
 		6DD7D0DD20FF1ECE007141DD /* OpeningScreenViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OpeningScreenViewController.swift; sourceTree = "<group>"; };
 		6DE10E4A21119CA50050E7E3 /* EditRecipeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditRecipeViewController.swift; sourceTree = "<group>"; };
 		6DEF7DB420FBCCDC00A45DD6 /* CustomUIView9.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomUIView9.swift; sourceTree = "<group>"; };
@@ -165,6 +167,7 @@
 				6DB056AD20D6EB9700A32956 /* SignInViewController.swift */,
 				6DB056AF20D6EC6A00A32956 /* CurrentUserRecipiesViewController.swift */,
 				6DE10E4A21119CA50050E7E3 /* EditRecipeViewController.swift */,
+				6DC91DBD2112748B00D9791D /* RecipePropertiesTableViewCell.swift */,
 			);
 			path = userRecipies;
 			sourceTree = "<group>";
@@ -383,6 +386,7 @@
 				6DFA7E1D2105A360008A8D0C /* QuickGuidePageViewController.swift in Sources */,
 				6DF192E120F1665700FD3EA4 /* customDraw5.swift in Sources */,
 				6DFFF48120D5737700368A45 /* cook_book.xcdatamodeld in Sources */,
+				6DC91DBE2112748B00D9791D /* RecipePropertiesTableViewCell.swift in Sources */,
 				6DF1ED6820E803C7005B614F /* IngridientTableViewCell.swift in Sources */,
 				6DF192D920F0C99B00FD3EA4 /* customDraw1.swift in Sources */,
 				6D5D4B1E20DA80EF00390BFB /* RecipeCollectionViewCell.swift in Sources */,

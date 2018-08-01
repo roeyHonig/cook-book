@@ -8,28 +8,55 @@
 
 import UIKit
 
-class EditRecipeViewController: UIViewController {
-
-    override func viewDidLoad() {
-        super.viewDidLoad()
-
-        // Do any additional setup after loading the view.
+class EditRecipeViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
+    
+    func numberOfSections(in tableView: UITableView) -> Int {
+        return 11 // title , prep time, cook time, serving, ingredient header 1,2,3   list 1,2,3  directions
     }
-
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
+    
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        if section == 7 {
+            
+        } else if section == 8 {
+            
+        } else if section == 9 {
+            
+        } else {
+            return 1
+        }
+    }
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        <#code#>
     }
     
 
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
+    
+    @IBAction func saveTheNewRecipe(_ sender: UIBarButtonItem) {
+        saveRecipeBasedOnTextFields()
     }
-    */
+    
+    @IBOutlet var recipePropertiesTableView: UITableView!
+    
+    var originalRecipeHeader: RecipeHeader?
+    
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        // Do any additional setup after loading the view.
+        recipePropertiesTableView.delegate = self
+        recipePropertiesTableView.dataSource = self
+        
+    }
+
+    func saveRecipeBasedOnTextFields(){
+        print("let's revise this recipe")
+        // TODO: we need to chack for invalid charcters
+        // if there are, alert dialog the usr and return
+        // if all chacks out, construct a new Recipe
+        // delete the old recipe based on it's id , invoke the delete function used in the previus viewController
+        // write the new recipyHeader
+        // refresh the recipe collection VC by invoking its refresh function
+        // pop both view controllers - might need app delegate for that
+    }
 
 }
