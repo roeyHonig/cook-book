@@ -26,6 +26,16 @@ class RecipeDetailsViewController: UIViewController, UITableViewDelegate, UITabl
         removeFromFavoritesByVirtuallyPressingTheFOllowing(UIBtn: inRecipyFavoriteBtn)
         DeleteRecipeHeaderFromSQLTableAPI(id: -recipeHeader!.id){() in
             print("callback")
+            // TODO: refresh the parentView
+            
+            for vc in self.navigationController!.viewControllers {
+                if vc is RecipiesViewController {
+                    let collectionOfRecipies = vc as! RecipiesViewController
+                    collectionOfRecipies.refrashData()
+                }
+            }
+            
+            self.navigationController!.popViewController(animated: true)
         }
     }
     
