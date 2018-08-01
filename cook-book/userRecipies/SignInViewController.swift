@@ -91,9 +91,14 @@ class SignInViewController: UIViewController, GIDSignInUIDelegate, FBSDKLoginBut
         faceBookLoginButton.frame.size.width = googleCustomSignInBtn.frame.size.width
         faceBookLoginButton.center = self.view.center
         
+        
         let fbButtonText = NSAttributedString(string: "your FB text here")
         faceBookLoginButton.setAttributedTitle(fbButtonText, for: .normal)
-        faceBookLoginButton.titleLabel?.font = UIFont(name: "System", size: 30)
+        faceBookLoginButton.titleLabel?.font = UIFont(name: "System", size: 160)
+        faceBookLoginButton.titleLabel?.textColor = UIColor.black
+        faceBookLoginButton.layer.cornerRadius = 8
+        faceBookLoginButton.clipsToBounds = true
+        //faceBookLoginButton.
         
         // init the google custom btn
         googleCustomSignInBtn.layer.cornerRadius = 8
