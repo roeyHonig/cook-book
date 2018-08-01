@@ -22,21 +22,7 @@ class RecipeDetailsViewController: UIViewController, UITableViewDelegate, UITabl
     @IBOutlet var deleteRecipeBtn: UIButton!
     
     @IBAction func deleteThisRecipe(_ sender: UIButton) {
-        print("let's delete this recipe")
-        removeFromFavoritesByVirtuallyPressingTheFOllowing(UIBtn: inRecipyFavoriteBtn)
-        DeleteRecipeHeaderFromSQLTableAPI(id: -recipeHeader!.id){() in
-            print("callback")
-            // TODO: refresh the parentView
-            
-            for vc in self.navigationController!.viewControllers {
-                if vc is RecipiesViewController {
-                    let collectionOfRecipies = vc as! RecipiesViewController
-                    collectionOfRecipies.refrashData()
-                }
-            }
-            
-            self.navigationController!.popViewController(animated: true)
-        }
+        deleteRecipeAndRefreshDisplay()
     }
     
     @IBOutlet var positionConstraineForDeleteBtn: NSLayoutConstraint!
@@ -497,6 +483,24 @@ class RecipeDetailsViewController: UIViewController, UITableViewDelegate, UITabl
             sender.setBackgroundImage(#imageLiteral(resourceName: "icons8-favorites-steel"), for: .normal)
             appDelegate.defults.set(false, forKey: "\(myRecipyHeader.id)")
             appDelegate.deletingThisRecipeFromMyFavoritesInCoreData(attribute: "id", whosValue: myRecipyHeader.id)
+        }
+    }
+    
+    func deleteRecipeAndRefreshDisplay() {
+        print("let's delete this recipe")
+        removeFromFavoritesByVirtuallyPressingTheFOllowing(UIBtn: inRecipyFavoriteBtn)
+        DeleteRecipeHeaderFromSQLTableAPI(id: -recipeHeader!.id){() in
+            print("callback")
+            // TODO: refresh the parentView
+            
+            for vc in self.navigationController!.viewControllers {
+                if vc is RecipiesViewController {
+                    let collectionOfRecipies = vc as! RecipiesViewController
+                    collectionOfRecipies.refrashData()
+                }
+            }
+            
+            self.navigationController!.popViewController(animated: true)
         }
     }
     
