@@ -1564,29 +1564,29 @@
                                 <rect key="frame" x="0.0" y="20" width="375" height="647"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Hds-V4-7fS">
-                                        <rect key="frame" x="20" y="40" width="335" height="81.5"/>
+                                        <rect key="frame" x="20" y="40" width="335" height="72"/>
                                         <string key="text">Wellcome to cook-book
 What are we having tonight?
-Choose from our collection of recipes, conveniently, arranged into 8 groups </string>
-                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+Choose from our collection of recipes</string>
+                                        <fontDescription key="fontDescription" type="system" pointSize="20"/>
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="icons8-tableware_filled" translatesAutoresizingMaskIntoConstraints="NO" id="ts2-Yo-Rjz">
-                                        <rect key="frame" x="137" y="141.5" width="100" height="100"/>
+                                        <rect key="frame" x="137" y="132" width="100" height="100"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="100" id="E2S-VQ-htC"/>
                                             <constraint firstAttribute="width" constant="100" id="VFo-Tt-VQV"/>
                                         </constraints>
                                     </imageView>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="If you love a particular recipe,  tap the heart icon to save it in your favorites " textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="2Bz-iK-vXY" userLabel="If you love a particular recipe  hit the heart icon to save it in your favorites">
-                                        <rect key="frame" x="20" y="261.5" width="335" height="41"/>
-                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="If you love a particular recipe,  tap the heart icon to save it in your favorites " textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="2Bz-iK-vXY" userLabel="If you love a particular recipe  hit the heart icon to save it in your favorites">
+                                        <rect key="frame" x="20" y="252" width="335" height="48"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="20"/>
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="icons8-favorites-red-marchino" translatesAutoresizingMaskIntoConstraints="NO" id="fAf-Bf-At5">
-                                        <rect key="frame" x="162.5" y="322.5" width="50" height="50"/>
+                                        <rect key="frame" x="162.5" y="320" width="50" height="50"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="50" id="eEB-Pw-avr"/>
                                             <constraint firstAttribute="width" constant="50" id="swz-c8-a2e"/>
@@ -1633,16 +1633,16 @@ Choose from our collection of recipes, conveniently, arranged into 8 groups </st
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Z8S-jl-qWG">
-                                <rect key="frame" x="20" y="60" width="335" height="81.5"/>
-                                <string key="text">On your way to the supermarket, add ingredients of recipes you’d like to cook this week to the shopping list.
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Z8S-jl-qWG">
+                                <rect key="frame" x="20" y="180" width="335" height="95.5"/>
+                                <string key="text">On your way to the supermarket, add ingredients of recipes  to the shopping list.
 This way, you’ll never run out </string>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="20"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="icons8-ingredients" translatesAutoresizingMaskIntoConstraints="NO" id="bCk-LL-Hhf">
-                                <rect key="frame" x="137" y="161.5" width="100" height="100"/>
+                                <rect key="frame" x="137" y="283.5" width="100" height="100"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="100" id="GnA-Y5-k7C"/>
                                     <constraint firstAttribute="width" constant="100" id="e5K-fq-bne"/>
@@ -1652,10 +1652,10 @@ This way, you’ll never run out </string>
                         <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstItem="bCk-LL-Hhf" firstAttribute="centerX" secondItem="6Lq-pL-RTw" secondAttribute="centerX" id="6x0-cI-Fdg"/>
+                            <constraint firstItem="bCk-LL-Hhf" firstAttribute="top" secondItem="Z8S-jl-qWG" secondAttribute="bottom" constant="8" id="7tw-E6-Uea"/>
                             <constraint firstItem="Z8S-jl-qWG" firstAttribute="leading" secondItem="9PB-Ui-ojG" secondAttribute="leading" constant="20" id="BcP-It-bW5"/>
+                            <constraint firstItem="bCk-LL-Hhf" firstAttribute="centerY" secondItem="6Lq-pL-RTw" secondAttribute="centerY" id="L7b-hC-rcY"/>
                             <constraint firstItem="9PB-Ui-ojG" firstAttribute="trailing" secondItem="Z8S-jl-qWG" secondAttribute="trailing" constant="20" id="ZJC-kP-f16"/>
-                            <constraint firstItem="Z8S-jl-qWG" firstAttribute="top" secondItem="9PB-Ui-ojG" secondAttribute="top" constant="40" id="b7M-zX-jd8"/>
-                            <constraint firstItem="bCk-LL-Hhf" firstAttribute="top" secondItem="Z8S-jl-qWG" secondAttribute="bottom" constant="20" id="hVs-6q-IRD"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="9PB-Ui-ojG"/>
                     </view>
@@ -1671,7 +1671,68 @@ This way, you’ll never run out </string>
                     <view key="view" contentMode="scaleToFill" id="Uzk-Ye-31M">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <stackView opaque="NO" contentMode="scaleToFill" distribution="fillProportionally" translatesAutoresizingMaskIntoConstraints="NO" id="AJa-gh-urc">
+                                <rect key="frame" x="0.0" y="283.5" width="375" height="100"/>
+                                <subviews>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="jo3-z7-fWO">
+                                        <rect key="frame" x="0.0" y="0.0" width="204" height="100"/>
+                                        <subviews>
+                                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="icons8-google_logo" translatesAutoresizingMaskIntoConstraints="NO" id="LHx-I8-Z5e">
+                                                <rect key="frame" x="54" y="1.5" width="96" height="96"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="width" secondItem="LHx-I8-Z5e" secondAttribute="height" id="PpW-Yz-0Mm"/>
+                                                </constraints>
+                                            </imageView>
+                                        </subviews>
+                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                        <constraints>
+                                            <constraint firstItem="LHx-I8-Z5e" firstAttribute="centerX" secondItem="jo3-z7-fWO" secondAttribute="centerX" id="s9g-9U-y4d"/>
+                                            <constraint firstItem="LHx-I8-Z5e" firstAttribute="centerY" secondItem="jo3-z7-fWO" secondAttribute="centerY" id="zB6-RJ-Ijo"/>
+                                        </constraints>
+                                    </view>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="GvQ-tg-jzx">
+                                        <rect key="frame" x="204" y="0.0" width="171" height="100"/>
+                                        <subviews>
+                                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="icons8-facebook-quickGuide" translatesAutoresizingMaskIntoConstraints="NO" id="5TB-sj-JFN">
+                                                <rect key="frame" x="37.5" y="1.5" width="96" height="96"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="width" secondItem="5TB-sj-JFN" secondAttribute="height" id="6wr-Ox-yeb"/>
+                                                </constraints>
+                                            </imageView>
+                                        </subviews>
+                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                        <constraints>
+                                            <constraint firstItem="5TB-sj-JFN" firstAttribute="centerX" secondItem="GvQ-tg-jzx" secondAttribute="centerX" id="Ivi-cg-eOu"/>
+                                            <constraint firstItem="5TB-sj-JFN" firstAttribute="centerY" secondItem="GvQ-tg-jzx" secondAttribute="centerY" id="Oaz-ka-73k"/>
+                                        </constraints>
+                                    </view>
+                                </subviews>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="100" id="k12-uA-fRQ"/>
+                                </constraints>
+                            </stackView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="a5b-HF-uUP">
+                                <rect key="frame" x="8" y="132" width="359" height="143.5"/>
+                                <string key="text">Now the fun begins,
+save recipes and edit them based on your own experience.
+Sign In and out easily with known service providers and never risk loosing your recipes again </string>
+                                <fontDescription key="fontDescription" type="system" pointSize="20"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
                         <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="AJa-gh-urc" firstAttribute="leading" secondItem="7f1-uU-QVp" secondAttribute="leading" id="CmW-bD-WQz"/>
+                            <constraint firstItem="a5b-HF-uUP" firstAttribute="centerX" secondItem="Uzk-Ye-31M" secondAttribute="centerX" id="Izn-0Z-bzu"/>
+                            <constraint firstItem="a5b-HF-uUP" firstAttribute="leading" secondItem="7f1-uU-QVp" secondAttribute="leading" constant="8" id="Wff-zy-9jC"/>
+                            <constraint firstItem="7f1-uU-QVp" firstAttribute="trailing" secondItem="AJa-gh-urc" secondAttribute="trailing" id="gfV-Xh-TT0"/>
+                            <constraint firstItem="AJa-gh-urc" firstAttribute="top" secondItem="a5b-HF-uUP" secondAttribute="bottom" constant="8" id="ng2-bx-DO4"/>
+                            <constraint firstItem="7f1-uU-QVp" firstAttribute="trailing" secondItem="a5b-HF-uUP" secondAttribute="trailing" constant="8" id="oEs-ev-7md"/>
+                            <constraint firstItem="AJa-gh-urc" firstAttribute="centerX" secondItem="Uzk-Ye-31M" secondAttribute="centerX" id="utV-E9-Eej"/>
+                            <constraint firstItem="AJa-gh-urc" firstAttribute="centerY" secondItem="Uzk-Ye-31M" secondAttribute="centerY" id="zCj-nx-TaN"/>
+                        </constraints>
                         <viewLayoutGuide key="safeArea" id="7f1-uU-QVp"/>
                     </view>
                 </viewController>
@@ -1776,6 +1837,7 @@ This way, you’ll never run out </string>
         <image name="icons8-edit_property_filled" width="50" height="50"/>
         <image name="icons8-expand_arrow_filled" width="50" height="50"/>
         <image name="icons8-expand_arrow_filled-1" width="50" height="50"/>
+        <image name="icons8-facebook-quickGuide" width="96" height="96"/>
         <image name="icons8-facebook_filled" width="50" height="50"/>
         <image name="icons8-favorites-red-marchino" width="50" height="50"/>
         <image name="icons8-filled_circle" width="24" height="24"/>
@@ -1783,6 +1845,7 @@ This way, you’ll never run out </string>
         <image name="icons8-gender_neutral_user_filled-1" width="25" height="25"/>
         <image name="icons8-git_filled_marchino" width="50" height="50"/>
         <image name="icons8-git_filled_stell" width="50" height="50"/>
+        <image name="icons8-google_logo" width="96" height="96"/>
         <image name="icons8-ingredients" width="96" height="96"/>
         <image name="icons8-ingredients_spring" width="50" height="50"/>
         <image name="icons8-kitchen_steel" width="50" height="50"/>
