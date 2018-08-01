@@ -515,18 +515,18 @@
                                                                         </constraints>
                                                                     </view>
                                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="tx3-bp-tgy">
-                                                                        <rect key="frame" x="33" y="0.0" width="199" height="43.5"/>
-                                                                        <color key="backgroundColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                                        <rect key="frame" x="33" y="8" width="199" height="27.5"/>
+                                                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                                         <nil key="textColor"/>
                                                                         <nil key="highlightedColor"/>
                                                                     </label>
                                                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="u0F-ff-f05" userLabel="nonAnimatedLayerView" customClass="CustomUIView7" customModule="cook_book" customModuleProvider="target">
-                                                                        <rect key="frame" x="33" y="0.0" width="189" height="43.5"/>
+                                                                        <rect key="frame" x="33" y="8" width="189" height="27.5"/>
                                                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                                                     </view>
                                                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="doE-7j-IKj" userLabel="animatedLayerUIVIew">
-                                                                        <rect key="frame" x="33" y="0.0" width="189" height="43.5"/>
+                                                                        <rect key="frame" x="33" y="8" width="189" height="27.5"/>
                                                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                                                     </view>
                                                                 </subviews>
@@ -536,14 +536,14 @@
                                                                     <constraint firstItem="u0F-ff-f05" firstAttribute="leading" secondItem="YXm-QT-wmN" secondAttribute="trailing" constant="8" id="6lQ-tg-XYG"/>
                                                                     <constraint firstItem="doE-7j-IKj" firstAttribute="top" secondItem="u0F-ff-f05" secondAttribute="top" id="HoU-uq-TRe"/>
                                                                     <constraint firstItem="doE-7j-IKj" firstAttribute="bottom" secondItem="u0F-ff-f05" secondAttribute="bottom" id="Kmm-LG-cLA"/>
-                                                                    <constraint firstItem="tx3-bp-tgy" firstAttribute="top" secondItem="IcF-ny-9gG" secondAttribute="top" id="MtV-jg-LMt"/>
-                                                                    <constraint firstAttribute="bottom" secondItem="u0F-ff-f05" secondAttribute="bottom" id="NVB-aU-AK2"/>
+                                                                    <constraint firstItem="tx3-bp-tgy" firstAttribute="top" secondItem="IcF-ny-9gG" secondAttribute="top" constant="8" id="MtV-jg-LMt"/>
+                                                                    <constraint firstAttribute="bottom" secondItem="u0F-ff-f05" secondAttribute="bottom" constant="8" id="NVB-aU-AK2"/>
                                                                     <constraint firstItem="doE-7j-IKj" firstAttribute="leading" secondItem="u0F-ff-f05" secondAttribute="leading" id="QSI-6z-rqP"/>
                                                                     <constraint firstItem="YXm-QT-wmN" firstAttribute="top" secondItem="IcF-ny-9gG" secondAttribute="top" id="SxR-Yg-uH5"/>
                                                                     <constraint firstItem="doE-7j-IKj" firstAttribute="trailing" secondItem="u0F-ff-f05" secondAttribute="trailing" id="WHQ-2j-eka"/>
                                                                     <constraint firstAttribute="bottom" secondItem="YXm-QT-wmN" secondAttribute="bottom" id="arT-w8-lnn"/>
-                                                                    <constraint firstItem="u0F-ff-f05" firstAttribute="top" secondItem="IcF-ny-9gG" secondAttribute="top" id="eWL-mu-cn3"/>
-                                                                    <constraint firstAttribute="bottom" secondItem="tx3-bp-tgy" secondAttribute="bottom" id="o5j-Bo-Csm"/>
+                                                                    <constraint firstItem="u0F-ff-f05" firstAttribute="top" secondItem="IcF-ny-9gG" secondAttribute="top" constant="8" id="eWL-mu-cn3"/>
+                                                                    <constraint firstAttribute="bottom" secondItem="tx3-bp-tgy" secondAttribute="bottom" constant="8" id="o5j-Bo-Csm"/>
                                                                     <constraint firstAttribute="trailingMargin" secondItem="tx3-bp-tgy" secondAttribute="trailing" id="pfz-ET-aQj"/>
                                                                     <constraint firstItem="YXm-QT-wmN" firstAttribute="leading" secondItem="IcF-ny-9gG" secondAttribute="leading" id="r2c-sz-NAC"/>
                                                                 </constraints>
@@ -629,7 +629,7 @@
                                                 </view>
                                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="q1H-yq-uTo" userLabel="insideTableContainer">
                                                     <rect key="frame" x="8" y="50" width="359" height="379.5"/>
-                                                    <color key="backgroundColor" red="0.80000001190000003" green="0.80000001190000003" blue="0.80000001190000003" alpha="1" colorSpace="calibratedRGB"/>
+                                                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                                 </view>
                                             </subviews>
                                             <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
