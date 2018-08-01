@@ -23,7 +23,7 @@ class RecipeDetailsViewController: UIViewController, UITableViewDelegate, UITabl
     
     @IBAction func deleteThisRecipe(_ sender: UIButton) {
         print("let's delete this recipe")
-        // TODO: 1st thing, remove from favorites
+        removeFromFavoritesByVirtuallyPressingTheFOllowing(UIBtn: inRecipyFavoriteBtn)
     }
     
     @IBOutlet var positionConstraineForDeleteBtn: NSLayoutConstraint!
@@ -472,6 +472,18 @@ class RecipeDetailsViewController: UIViewController, UITableViewDelegate, UITabl
             sender.setBackgroundImage(#imageLiteral(resourceName: "icons8-favorites-red-marchino"), for: .normal)
             appDelegate.defults.set(true, forKey: "\(myRecipyHeader.id)")
             appDelegate.saveThisFavoriteRecipyToCoreData(recipe: myRecipyHeader)
+        }
+    }
+    
+    func removeFromFavoritesByVirtuallyPressingTheFOllowing(UIBtn sender: UIButton) {
+        guard let appDelegate = UIApplication.shared.delegate as? AppDelegate, let myRecipyHeader = recipeHeader else {
+            return
+        }
+        
+        if sender.currentBackgroundImage == #imageLiteral(resourceName: "icons8-favorites-red-marchino") {
+            sender.setBackgroundImage(#imageLiteral(resourceName: "icons8-favorites-steel"), for: .normal)
+            appDelegate.defults.set(false, forKey: "\(myRecipyHeader.id)")
+            appDelegate.deletingThisRecipeFromMyFavoritesInCoreData(attribute: "id", whosValue: myRecipyHeader.id)
         }
     }
     
