@@ -230,6 +230,34 @@ func writeRecipeHeaderIntoSQLTableAPI(myRecipe: RecipeHeader, newAuthor: String 
     
 }
 
+
+// delete API
+func DeleteRecipeHeaderFromSQLTableAPI(id: Int, callback: @escaping ()-> Void) {
+    
+    myDataTask?.cancel() // cancel any previus tasks
+    var apiAddress: String
+    
+    // TODO: change the api to the new                      insertRecipeStrings1   // insertRecipeStrings1
+    apiAddress = "https://enigmatic-oasis-37206.herokuapp.com/deleteRecord?id=\(id)"
+    let apiUrl = URL(string: apiAddress)! // this time we're not affraid, because the url will allways be valid, it's very simple as you can see abouve
+    
+    myDataTask = session.dataTask(with: apiUrl) { (data, res, err) in
+        guard let data = data else {return}
+        // if we got here, we have data
+        let decoder = JSONDecoder()
+        guard let result = try? decoder.decode(serverResponseToAnSQLQuary.self, from: data) else {return /*SHOW DIALOG*/}
+        
+        // Run code on the UI Thread
+        DispatchQueue.main.async {
+            callback()
+        }
+        
+    }
+    
+    myDataTask?.resume()
+    
+}
+
 func elimanateLineBreakes(fromTheFollowingString str: String) -> String {
     let components = str.components(separatedBy: "\n")
     return components.joined(separator: "newLine")

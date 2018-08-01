@@ -24,6 +24,9 @@ class RecipeDetailsViewController: UIViewController, UITableViewDelegate, UITabl
     @IBAction func deleteThisRecipe(_ sender: UIButton) {
         print("let's delete this recipe")
         removeFromFavoritesByVirtuallyPressingTheFOllowing(UIBtn: inRecipyFavoriteBtn)
+        DeleteRecipeHeaderFromSQLTableAPI(id: -recipeHeader!.id){() in
+            print("callback")
+        }
     }
     
     @IBOutlet var positionConstraineForDeleteBtn: NSLayoutConstraint!
