@@ -27,16 +27,16 @@
                                         <rect key="frame" x="0.0" y="0.0" width="375" height="554"/>
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                         <prototypes>
-                                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="cellToBeDequed" rowHeight="208" id="7en-zY-DBh" customClass="MyTestTableViewCell" customModule="cook_book" customModuleProvider="target">
-                                                <rect key="frame" x="0.0" y="28" width="375" height="208"/>
+                                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="cellToBeDequed" rowHeight="338" id="7en-zY-DBh" customClass="MyTestTableViewCell" customModule="cook_book" customModuleProvider="target">
+                                                <rect key="frame" x="0.0" y="28" width="375" height="338"/>
                                                 <autoresizingMask key="autoresizingMask"/>
                                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" ambiguous="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="7en-zY-DBh" id="06d-MQ-s7q">
-                                                    <rect key="frame" x="0.0" y="0.0" width="375" height="207.5"/>
+                                                    <rect key="frame" x="0.0" y="0.0" width="375" height="337.5"/>
                                                     <autoresizingMask key="autoresizingMask"/>
                                                     <subviews>
                                                         <view contentMode="scaleToFill" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="dFo-A0-1JA" userLabel="topSpacer">
                                                             <rect key="frame" x="0.0" y="0.0" width="375" height="5"/>
-                                                            <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                                                            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                                             <constraints>
                                                                 <constraint firstAttribute="height" constant="5" id="XJm-lR-Ojn"/>
                                                             </constraints>
@@ -102,7 +102,7 @@
                                                         </view>
                                                         <view contentMode="scaleToFill" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="DPd-Ml-Jq7" userLabel="bottomSpacer">
                                                             <rect key="frame" x="0.0" y="410" width="375" height="5"/>
-                                                            <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                                                            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                                             <constraints>
                                                                 <constraint firstAttribute="height" constant="5" id="Z9W-ga-mMI"/>
                                                             </constraints>
@@ -157,7 +157,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="rcr-9c-YQh" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="113" y="956"/>
+            <point key="canvasLocation" x="112.8" y="955.77211394302856"/>
         </scene>
         <!--My Recipies View Controller-->
         <scene sceneID="tne-QT-ifu">
