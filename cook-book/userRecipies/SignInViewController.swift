@@ -56,8 +56,10 @@ class SignInViewController: UIViewController, GIDSignInUIDelegate, FBSDKLoginBut
     
    
     @IBOutlet weak var googleCustomSignInBtn: UIView!
-    
     @IBOutlet var googleIconForCustomSignInBtn: UIImageView!
+    
+    @IBOutlet var facebookCustomSigninBtn: UIView!
+    
     
     
     @IBAction func signInWithCustomButtone(_ sender: UITapGestureRecognizer) {
@@ -105,6 +107,8 @@ class SignInViewController: UIViewController, GIDSignInUIDelegate, FBSDKLoginBut
         googleCustomSignInBtn.clipsToBounds = true
         googleIconForCustomSignInBtn.layer.cornerRadius = 4
         googleIconForCustomSignInBtn.clipsToBounds = true
+        facebookCustomSigninBtn.layer.cornerRadius = 8
+        facebookCustomSigninBtn.clipsToBounds = true
         
     }
 

@@ -1289,13 +1289,22 @@
                                     <outletCollection property="gestureRecognizers" destination="asb-Cs-Kc6" appends="YES" id="LVP-Bc-JKE"/>
                                 </connections>
                             </view>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="xiA-Cx-rYE" userLabel="FBCustomBtn">
+                                <rect key="frame" x="32" y="242" width="311" height="60"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                            </view>
                         </subviews>
                         <color key="backgroundColor" red="1" green="0.65990817863924867" blue="0.087172153839438771" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
                             <constraint firstItem="fao-h7-R5g" firstAttribute="top" secondItem="Y8B-n2-NHO" secondAttribute="top" constant="50" id="87l-TA-pEt"/>
                             <constraint firstItem="Y8B-n2-NHO" firstAttribute="trailing" secondItem="fao-h7-R5g" secondAttribute="trailing" id="DXe-wz-i14"/>
+                            <constraint firstItem="xiA-Cx-rYE" firstAttribute="height" secondItem="vUY-Aq-Vtk" secondAttribute="height" id="M6F-mY-TYS"/>
                             <constraint firstItem="fao-h7-R5g" firstAttribute="leading" secondItem="Y8B-n2-NHO" secondAttribute="leading" id="MDq-3Q-jal"/>
+                            <constraint firstItem="xiA-Cx-rYE" firstAttribute="trailing" secondItem="vUY-Aq-Vtk" secondAttribute="trailing" id="Tyl-P9-9Iw"/>
                             <constraint firstItem="Y8B-n2-NHO" firstAttribute="trailing" secondItem="vUY-Aq-Vtk" secondAttribute="trailing" constant="32" id="Yg9-Wv-lSQ"/>
+                            <constraint firstItem="xiA-Cx-rYE" firstAttribute="top" secondItem="vUY-Aq-Vtk" secondAttribute="bottom" constant="32" id="dJ9-Pk-1Zf"/>
+                            <constraint firstItem="xiA-Cx-rYE" firstAttribute="leading" secondItem="vUY-Aq-Vtk" secondAttribute="leading" id="jg8-v5-gdu"/>
+                            <constraint firstItem="xiA-Cx-rYE" firstAttribute="width" secondItem="vUY-Aq-Vtk" secondAttribute="width" id="n44-Pf-hJ7"/>
                             <constraint firstItem="vUY-Aq-Vtk" firstAttribute="top" secondItem="fao-h7-R5g" secondAttribute="bottom" constant="50" id="qBH-kL-0b9"/>
                             <constraint firstItem="vUY-Aq-Vtk" firstAttribute="leading" secondItem="Y8B-n2-NHO" secondAttribute="leading" constant="32" id="yDT-KS-xLh"/>
                         </constraints>
@@ -1303,6 +1312,7 @@
                     </view>
                     <connections>
                         <outlet property="customGoogleButtonIconImage" destination="6Gi-sD-ami" id="c7t-6d-Gfe"/>
+                        <outlet property="facebookCustomSigninBtn" destination="xiA-Cx-rYE" id="CFM-Nd-sfV"/>
                         <outlet property="googleCustomSignInBtn" destination="vUY-Aq-Vtk" id="xaY-xR-pL3"/>
                         <outlet property="googleIconForCustomSignInBtn" destination="6Gi-sD-ami" id="xfn-3B-suz"/>
                     </connections>
