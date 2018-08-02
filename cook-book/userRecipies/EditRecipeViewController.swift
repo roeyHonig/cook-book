@@ -46,6 +46,11 @@ class EditRecipeViewController: UIViewController, UITableViewDelegate, UITableVi
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "recipeProperty") as! RecipePropertiesTableViewCell
+        guard let myRecipe = originalRecipeHeader else {
+            return cell
+        }
+        
+        //cell.propertyTextView.text = returnTheCorrectText(forSection: indexPath.section, andRow: indexPath.row, fromTheRecipe: myRecipe)
         
         return cell
     }
@@ -65,7 +70,9 @@ class EditRecipeViewController: UIViewController, UITableViewDelegate, UITableVi
         // Do any additional setup after loading the view.
         recipePropertiesTableView.delegate = self
         recipePropertiesTableView.dataSource = self
-        
+        recipePropertiesTableView.reloadData()
+        print("hello from edit")
+        print("the title is: \(originalRecipeHeader?.title)")
     }
 
     func saveRecipeBasedOnTextFields(){
@@ -105,6 +112,58 @@ class EditRecipeViewController: UIViewController, UITableViewDelegate, UITableVi
             return "Directions:"
         default:
             return nil
+        }
+    }
+    
+    func returnTheCorrectText(forSection i: Int, andRow j: Int, fromTheRecipe recipe: RecipeHeader) -> String {
+        switch i {
+        case 0:
+            guard let stringToReturn = recipe.title else {return ""}
+            return stringToReturn
+        case 1:
+            guard let valueToReturn = recipe.prep_time else {return ""}
+            return "\(valueToReturn)"
+        case 2:
+            guard let valueToReturn = recipe.cook_time else {return ""}
+            return "\(valueToReturn)"
+        case 3:
+            guard let valueToReturn = recipe.serving else {return ""}
+            return "\(valueToReturn)"
+        case 4:
+            guard let stringToReturn = recipe.ingredient_header1 else {return ""}
+            return stringToReturn
+        case 5:
+            guard let stringToReturn = recipe.ingredient_header2 else {return ""}
+            return stringToReturn
+        case 6:
+            guard let stringToReturn = recipe.ingredient_header3 else {return ""}
+            return stringToReturn
+        case 7:
+            guard let ingredientsArray = recipe.list1 else {return ""}
+            if ingredientsArray.count > j {
+                return ingredientsArray[j]
+            } else {
+                return ""
+            }
+        case 8:
+            guard let ingredientsArray = recipe.list2 else {return ""}
+            if ingredientsArray.count > j {
+                return ingredientsArray[j]
+            } else {
+                return ""
+            }
+        case 9:
+            guard let ingredientsArray = recipe.list3 else {return ""}
+            if ingredientsArray.count > j {
+                return ingredientsArray[j]
+            } else {
+                return ""
+            }
+        case 10:
+            guard let stringToReturn = recipe.directions else {return ""}
+            return stringToReturn
+        default:
+            return ""
         }
     }
 

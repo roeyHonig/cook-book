@@ -10,6 +10,10 @@ import UIKit
 
 class RecipePropertiesTableViewCell: UITableViewCell {
 
+    
+    @IBOutlet var propertyTextView: UITextView!
+    
+    
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
