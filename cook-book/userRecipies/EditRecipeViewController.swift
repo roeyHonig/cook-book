@@ -57,7 +57,7 @@ class EditRecipeViewController: UIViewController, UITableViewDelegate, UITableVi
             cell.propertyTextView.sizeToFit()
             cell.propertyTextView.isScrollEnabled = false
         
-        
+        //cell.propertyTextView.accessibilityIdentifier = "roey"
         
         
         /*
@@ -79,7 +79,7 @@ class EditRecipeViewController: UIViewController, UITableViewDelegate, UITableVi
         return cell
     }
     
-
+   
     
     @IBAction func saveTheNewRecipe(_ sender: UIBarButtonItem) {
         saveRecipeBasedOnTextFields()
@@ -105,7 +105,9 @@ class EditRecipeViewController: UIViewController, UITableViewDelegate, UITableVi
     }
     
     func textViewDidEndEditing(_ textView: UITextView) {
+        textView.supe
         print("editing ended")
+        print(textView.text)
     }
     
     func saveRecipeBasedOnTextFields(){
