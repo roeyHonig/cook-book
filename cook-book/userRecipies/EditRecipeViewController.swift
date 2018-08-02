@@ -50,12 +50,15 @@ class EditRecipeViewController: UIViewController, UITableViewDelegate, UITableVi
             return cell
         }
         
-        cell.propertyTextView.delegate = self
+        //cell.propertyTextView.delegate = self
         cell.propertyTextView.text = returnTheCorrectText(forSection: indexPath.section, andRow: indexPath.row, fromTheRecipe: myRecipe)
         
             cell.propertyTextView.translatesAutoresizingMaskIntoConstraints = false
             cell.propertyTextView.sizeToFit()
             cell.propertyTextView.isScrollEnabled = false
+        
+        cell.mySection = indexPath.section
+        cell.myRow = indexPath.row
         
         //cell.propertyTextView.accessibilityIdentifier = "roey"
         
@@ -104,12 +107,13 @@ class EditRecipeViewController: UIViewController, UITableViewDelegate, UITableVi
         recipePropertiesTableView.reloadData()
     }
     
+    /*
     func textViewDidEndEditing(_ textView: UITextView) {
-        textView.supe
+     
         print("editing ended")
         print(textView.text)
     }
-    
+    */
     func saveRecipeBasedOnTextFields(){
         print("let's revise this recipe")
         // TODO: we need to chack for invalid charcters

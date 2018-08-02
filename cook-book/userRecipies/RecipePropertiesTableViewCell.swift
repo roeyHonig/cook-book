@@ -8,9 +8,10 @@
 
 import UIKit
 
-class RecipePropertiesTableViewCell: UITableViewCell {
+class RecipePropertiesTableViewCell: UITableViewCell , UITextViewDelegate{
 
-    
+    var mySection: Int!
+    var myRow: Int!
     
     var didResizeOnce = false // delete this
     
@@ -22,8 +23,14 @@ class RecipePropertiesTableViewCell: UITableViewCell {
         super.awakeFromNib()
         // Initialization code
         //textHeightConstraint.constant = propertyTextView.intrinsicContentSize.height
+        propertyTextView.delegate = self
     }
 
+    func textViewDidEndEditing(_ textView: UITextView) {
+        print(textView.text)
+        print("for section: \(mySection) and row: \(myRow)")
+    }
+    
     override func setSelected(_ selected: Bool, animated: Bool) {
         super.setSelected(selected, animated: animated)
 
