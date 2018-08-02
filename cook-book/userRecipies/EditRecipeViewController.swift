@@ -50,7 +50,10 @@ class EditRecipeViewController: UIViewController, UITableViewDelegate, UITableVi
             return cell
         }
         
-        //cell.propertyTextView.text = returnTheCorrectText(forSection: indexPath.section, andRow: indexPath.row, fromTheRecipe: myRecipe)
+        //cell.propertyTextView.intrinsicContentSize
+        cell.propertyTextView.text = returnTheCorrectText(forSection: indexPath.section, andRow: indexPath.row, fromTheRecipe: myRecipe)
+        cell.propertyTextView.sizeToFit()
+        //cell.textHeightConstraint.constant = cell.propertyTextView.intrinsicContentSize.height
         
         return cell
     }
@@ -70,11 +73,16 @@ class EditRecipeViewController: UIViewController, UITableViewDelegate, UITableVi
         // Do any additional setup after loading the view.
         recipePropertiesTableView.delegate = self
         recipePropertiesTableView.dataSource = self
-        recipePropertiesTableView.reloadData()
+        
         print("hello from edit")
         print("the title is: \(originalRecipeHeader?.title)")
     }
 
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        recipePropertiesTableView.reloadData()
+    }
+    
     func saveRecipeBasedOnTextFields(){
         print("let's revise this recipe")
         // TODO: we need to chack for invalid charcters

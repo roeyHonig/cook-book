@@ -1235,30 +1235,42 @@
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="recipeProperty" rowHeight="119" id="dBb-dC-bra" customClass="RecipePropertiesTableViewCell" customModule="cook_book" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="28" width="375" height="119"/>
                                         <autoresizingMask key="autoresizingMask"/>
-                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="dBb-dC-bra" id="Lh7-vC-Xzn">
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" ambiguous="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="dBb-dC-bra" id="Lh7-vC-Xzn">
                                             <rect key="frame" x="0.0" y="0.0" width="375" height="118.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="kxj-pa-qyK">
-                                                    <rect key="frame" x="8" y="8" width="359" height="50"/>
+                                                <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" ambiguous="YES" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="kxj-pa-qyK">
+                                                    <rect key="frame" x="8" y="8" width="359" height="100"/>
                                                     <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                     <constraints>
-                                                        <constraint firstAttribute="height" constant="50" id="0G5-7S-FxY"/>
+                                                        <constraint firstAttribute="height" constant="100" id="0G5-7S-FxY"/>
                                                     </constraints>
                                                     <string key="text">Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Nam liber te conscient to factor tum poen legum odioque civiuda.</string>
                                                     <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                     <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                                                 </textView>
+                                                <view contentMode="scaleToFill" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="54Q-CH-KrP">
+                                                    <rect key="frame" x="0.0" y="110.5" width="375" height="8"/>
+                                                    <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="height" constant="8" id="2ff-fO-5er"/>
+                                                    </constraints>
+                                                </view>
                                             </subviews>
                                             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                             <constraints>
+                                                <constraint firstItem="54Q-CH-KrP" firstAttribute="top" secondItem="kxj-pa-qyK" secondAttribute="bottom" id="5t5-JW-ZQf"/>
                                                 <constraint firstItem="kxj-pa-qyK" firstAttribute="top" secondItem="Lh7-vC-Xzn" secondAttribute="top" constant="8" id="Aun-Nd-WPL"/>
                                                 <constraint firstItem="kxj-pa-qyK" firstAttribute="leading" secondItem="Lh7-vC-Xzn" secondAttribute="leading" constant="8" id="Wg9-hS-CkF"/>
                                                 <constraint firstAttribute="trailing" secondItem="kxj-pa-qyK" secondAttribute="trailing" constant="8" id="YOO-Zi-fB7"/>
+                                                <constraint firstAttribute="bottom" secondItem="54Q-CH-KrP" secondAttribute="bottom" id="bSu-dT-meB"/>
+                                                <constraint firstAttribute="trailing" secondItem="54Q-CH-KrP" secondAttribute="trailing" id="jac-Bz-7O7"/>
+                                                <constraint firstItem="54Q-CH-KrP" firstAttribute="leading" secondItem="Lh7-vC-Xzn" secondAttribute="leading" id="wNc-2w-wKd"/>
                                             </constraints>
                                         </tableViewCellContentView>
                                         <connections>
                                             <outlet property="propertyTextView" destination="kxj-pa-qyK" id="lx5-bP-Opz"/>
+                                            <outlet property="textHeightConstraint" destination="0G5-7S-FxY" id="xfC-RP-7EC"/>
                                         </connections>
                                     </tableViewCell>
                                 </prototypes>

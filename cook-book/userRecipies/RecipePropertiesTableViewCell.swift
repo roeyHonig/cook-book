@@ -13,10 +13,12 @@ class RecipePropertiesTableViewCell: UITableViewCell {
     
     @IBOutlet var propertyTextView: UITextView!
     
+    @IBOutlet var textHeightConstraint: NSLayoutConstraint!
     
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
+        //textHeightConstraint.constant = propertyTextView.intrinsicContentSize.height
     }
 
     override func setSelected(_ selected: Bool, animated: Bool) {
