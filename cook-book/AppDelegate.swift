@@ -9,9 +9,8 @@
 // UI gestureRecogniazer is active there
 
 
-// TODO: design the last screen of the quickGuide
-// TODO: design the shopping list secondary table cells
-// TODO: design the edit screen
+
+// TODO: design the edit screen getting there a comment
 
 import UIKit
 import CoreData
