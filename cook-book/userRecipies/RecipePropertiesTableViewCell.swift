@@ -10,7 +10,9 @@ import UIKit
 
 class RecipePropertiesTableViewCell: UITableViewCell {
 
-    var didResizeOnce = false
+    
+    
+    var didResizeOnce = false // delete this
     
     @IBOutlet var propertyTextView: UITextView!
     

@@ -50,7 +50,7 @@ class EditRecipeViewController: UIViewController, UITableViewDelegate, UITableVi
             return cell
         }
         
-        //cell.propertyTextView.delegate = self
+        cell.propertyTextView.delegate = self
         cell.propertyTextView.text = returnTheCorrectText(forSection: indexPath.section, andRow: indexPath.row, fromTheRecipe: myRecipe)
         
             cell.propertyTextView.translatesAutoresizingMaskIntoConstraints = false
@@ -104,9 +104,34 @@ class EditRecipeViewController: UIViewController, UITableViewDelegate, UITableVi
         recipePropertiesTableView.reloadData()
     }
     
+    func textViewDidEndEditing(_ textView: UITextView) {
+        print("editing ended")
+    }
+    
     func saveRecipeBasedOnTextFields(){
         print("let's revise this recipe")
         // TODO: we need to chack for invalid charcters
+        var invalidCharctersFound = false
+        for i in 1...recipePropertiesTableView.numberOfSections {
+            for j in 1...recipePropertiesTableView.numberOfRows(inSection: i - 1) {
+                let tempIndexPath = IndexPath(row: j - 1, section: i - 1)
+                let cell = recipePropertiesTableView.dequeueReusableCell(withIdentifier: "recipeProperty", for: tempIndexPath) as! RecipePropertiesTableViewCell
+                print(cell.propertyTextView.text)
+                if cell.propertyTextView.text.contains("[") || cell.propertyTextView.text.contains("]") || cell.propertyTextView.text.contains("{") || cell.propertyTextView.text.contains("}") || cell.propertyTextView.text.contains("""
+                                                        "
+                                                        """) || cell.propertyTextView.text.contains("'") {
+                    invalidCharctersFound = true
+                }
+            }
+        }
+        
+        if invalidCharctersFound {
+            print("invalid charcter found")
+            return
+        } else {
+            print("valid")
+        }
+        
         // if there are, alert dialog the usr and return
         // if all chacks out, construct a new Recipe
         // delete the old recipe based on it's id , invoke the delete function used in the previus viewController
