@@ -10,10 +10,11 @@ import UIKit
 
 class RecipePropertiesTableViewCell: UITableViewCell {
 
+    var didResizeOnce = false
     
     @IBOutlet var propertyTextView: UITextView!
     
-    @IBOutlet var textHeightConstraint: NSLayoutConstraint!
+   
     
     override func awakeFromNib() {
         super.awakeFromNib()

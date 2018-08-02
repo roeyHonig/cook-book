@@ -8,7 +8,7 @@
 
 import UIKit
 
-class EditRecipeViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
+class EditRecipeViewController: UIViewController, UITableViewDelegate, UITableViewDataSource, UITextViewDelegate {
     
     func numberOfSections(in tableView: UITableView) -> Int {
         return 11 // title , prep time, cook time, serving, ingredient header 1,2,3   list 1,2,3  directions
@@ -50,11 +50,32 @@ class EditRecipeViewController: UIViewController, UITableViewDelegate, UITableVi
             return cell
         }
         
-        //cell.propertyTextView.intrinsicContentSize
+        //cell.propertyTextView.delegate = self
         cell.propertyTextView.text = returnTheCorrectText(forSection: indexPath.section, andRow: indexPath.row, fromTheRecipe: myRecipe)
-        cell.propertyTextView.sizeToFit()
-        //cell.textHeightConstraint.constant = cell.propertyTextView.intrinsicContentSize.height
         
+            cell.propertyTextView.translatesAutoresizingMaskIntoConstraints = false
+            cell.propertyTextView.sizeToFit()
+            cell.propertyTextView.isScrollEnabled = false
+        
+        
+        
+        
+        /*
+        arg.translatesAutoresizingMaskIntoConstraints = true
+        arg.sizeToFit()
+        arg.scrollEnabled = false
+        */
+        
+        /*
+        let fixedWidth = cell.propertyTextView.frame.size.width
+        let newSize = cell.propertyTextView.sizeThatFits(CGSize(width: fixedWidth, height: CGFloat(MAXFLOAT)))
+        print("\(newSize.height)")
+        var newFrame = cell.propertyTextView.frame
+        newFrame.size = CGSize(width: fixedWidth, height: newSize.height)
+        cell.propertyTextView.frame = newFrame
+        //cell.textHeightConstraint.constant = cell.propertyTextView.intrinsicContentSize.height
+         */
+ 
         return cell
     }
     
