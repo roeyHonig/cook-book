@@ -40,7 +40,8 @@ class EditRecipeViewController: UIViewController, UITableViewDelegate, UITableVi
     }
     
     func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
-        <#code#>
+        
+        return titleOfSection(forIndex: section)
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -78,39 +79,32 @@ class EditRecipeViewController: UIViewController, UITableViewDelegate, UITableVi
         // pop both view controllers - might need app delegate for that
     }
     
-    func titleOfSection(forIndex i: Int, withDataSource recep: RecipeHeader) -> String? {
+    func titleOfSection(forIndex i: Int) -> String? {
         switch i {
         case 0:
             return "Title:"
         case 1:
-            guard let t = recep.prep_time else {return nil}
-            return "\(t)"
+            return "Preparations Time:"
         case 2:
-            guard let t = recep.cook_time else {return nil}
-            return "\(t)"
+            return "Cooking Time:"
         case 3:
-            guard let t = recep.serving else {return nil}
-            return "\(t)"
+            return "Serving:"
         case 4:
-            return recep.ingredient_header1
+            return "1st Ingredients List’s title:"
         case 5:
-            return recep.ingredient_header2
+            return "2nd Ingredients List’s title:"
         case 6:
-            return recep.ingredient_header3
+            return "3rd Ingredients List’s title:"
         case 7:
-            return recep.title
+            return "1st Ingredients List"
         case 8:
-            return recep.title
+            return "2nd Ingredients List:"
         case 9:
-            return recep.title
+            return "3rd Ingredients List:"
         case 10:
-            return recep.title
-        case 11:
-            return recep.title
-            
+            return "Directions:"
         default:
-            print("don't know")
-            self.navigationItem.title = "don't know"
+            return nil
         }
     }
 
