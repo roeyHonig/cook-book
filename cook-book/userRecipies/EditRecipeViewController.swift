@@ -65,7 +65,7 @@ class EditRecipeViewController: UIViewController, UITableViewDelegate, UITableVi
     
    
     @IBAction func hideKeyboard(_ sender: UIBarButtonItem) {
-        hideTheKeyboard()
+        hideTheKeyboard(inView: view)
     }
     
     @IBAction func saveTheNewRecipe(_ sender: UIBarButtonItem) {
@@ -246,7 +246,18 @@ class EditRecipeViewController: UIViewController, UITableViewDelegate, UITableVi
         }
     }
     
-    func hideTheKeyboard() {
+    func hideTheKeyboard(inView v: UIView) {
+        v.subviews.forEach { (subView) in
+            if let textView = subView as? UITextView{
+                textView.resignFirstResponder()
+            }
+            else{
+                hideTheKeyboard(inView: subView)
+                
+            }
+        }
+        
+        /*
         for v in view.subviews {
             if v is UITextView {
                 v.resignFirstResponder()
@@ -255,6 +266,7 @@ class EditRecipeViewController: UIViewController, UITableViewDelegate, UITableVi
                 hideTheKeyboard()
             }
         }
+ */
     }
 
 }
