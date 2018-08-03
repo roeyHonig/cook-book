@@ -56,7 +56,8 @@ class EditRecipeViewController: UIViewController, UITableViewDelegate, UITableVi
         cell.propertyTextView.translatesAutoresizingMaskIntoConstraints = false
         cell.propertyTextView.sizeToFit()
         cell.propertyTextView.isScrollEnabled = false
-        
+    
+        cell.parentView = self
         cell.mySection = indexPath.section
         cell.myRow = indexPath.row
     
@@ -88,12 +89,11 @@ class EditRecipeViewController: UIViewController, UITableViewDelegate, UITableVi
             let maxJ = returnTheMaxIndexOfInnerArray(section: i)
             for j in 0...maxJ {
                 theCurrentDataSource[i].append(returnTheCorrectText(forSection: i, andRow: j, fromTheRecipe: originalRecipeHeader!))
-                print("The DataSource says: " + theCurrentDataSource[i][j])
+                //print("The DataSource says: " + theCurrentDataSource[i][j])
             }
         }
         
-        print("hello from edit")
-        print("the title is: \(originalRecipeHeader?.title)")
+        
     }
 
     override func viewWillAppear(_ animated: Bool) {
@@ -112,19 +112,16 @@ class EditRecipeViewController: UIViewController, UITableViewDelegate, UITableVi
         print("let's revise this recipe")
         // TODO: we need to chack for invalid charcters
         var invalidCharctersFound = false
-        for i in 1...recipePropertiesTableView.numberOfSections {
-            for j in 1...recipePropertiesTableView.numberOfRows(inSection: i - 1) {
-                let tempIndexPath = IndexPath(row: j - 1, section: i - 1)
-                let cell = recipePropertiesTableView.dequeueReusableCell(withIdentifier: "recipeProperty", for: tempIndexPath) as! RecipePropertiesTableViewCell
-                print(cell.propertyTextView.text)
-                if cell.propertyTextView.text.contains("[") || cell.propertyTextView.text.contains("]") || cell.propertyTextView.text.contains("{") || cell.propertyTextView.text.contains("}") || cell.propertyTextView.text.contains("""
-                                                        "
-                                                        """) || cell.propertyTextView.text.contains("'") {
+        for i in 0...(theCurrentDataSource.count - 1) {
+            for j in 0...(theCurrentDataSource[i].count - 1) {
+                if theCurrentDataSource[i][j].contains("[") || theCurrentDataSource[i][j].contains("]") || theCurrentDataSource[i][j].contains("{") || theCurrentDataSource[i][j].contains("}") || theCurrentDataSource[i][j].contains("'") {
                     invalidCharctersFound = true
                 }
             }
         }
-        
+        /*theCurrentDataSource[i][j].contains("""
+         "
+         """) */
         if invalidCharctersFound {
             print("invalid charcter found")
             return

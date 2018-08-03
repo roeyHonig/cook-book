@@ -10,6 +10,7 @@ import UIKit
 
 class RecipePropertiesTableViewCell: UITableViewCell , UITextViewDelegate{
 
+    var parentView: EditRecipeViewController!
     var mySection: Int!
     var myRow: Int!
     
@@ -29,8 +30,10 @@ class RecipePropertiesTableViewCell: UITableViewCell , UITextViewDelegate{
     
     
     func textViewDidEndEditing(_ textView: UITextView) {
-        print(textView.text)
-        print("for section: \(mySection) and row: \(myRow)")
+        //print(textView.text)
+        //print("for section: \(mySection) and row: \(myRow)")
+        parentView.theCurrentDataSource[mySection][myRow] = textView.text
+        print(parentView.theCurrentDataSource)
     }
     
     override func setSelected(_ selected: Bool, animated: Bool) {
