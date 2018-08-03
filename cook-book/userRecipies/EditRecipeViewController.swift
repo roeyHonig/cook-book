@@ -110,38 +110,19 @@ class EditRecipeViewController: UIViewController, UITableViewDelegate, UITableVi
     */
     func saveRecipeBasedOnTextFields(){
         print("let's revise this recipe")
-        // TODO: we need to chack for invalid charcters
-        var invalidCharctersFound = false
-        for i in 0...(theCurrentDataSource.count - 1) {
-            for j in 0...(theCurrentDataSource[i].count - 1) {
-                        if theCurrentDataSource[i][j].contains("[") || theCurrentDataSource[i][j].contains("]") || theCurrentDataSource[i][j].contains("{") || theCurrentDataSource[i][j].contains("}") {
-                            invalidCharctersFound = true
-                        }
-                
-                        for v in theCurrentDataSource[i][j].unicodeScalars {
-                            //print(v.value)
-                            if v.value == 8220 || v.value == 8221 || v.value == 8216 || v.value == 8217 {
-                                invalidCharctersFound = true
-                            }
-                        }
-            }
-     
-        }
         
-        if invalidCharctersFound {
-            print("invalid charcter found")
-            // TODO present dialog alert
+        if !isValidURLString() {
             let invalidMassag: String = """
-                                    Invalid characters found!
-                                    Please refrained from using the following: " ' [ ] { }
-                                    Our SQL Data Base don’t like that 😀
-                                    """
+         Invalid characters found!
+         Please avoid from using the following: " ' [ ] { }
+         Our SQL Data Base don’t like that 😀
+         """
             showAlertDialog(withMassage: invalidMassag)
             return
-        } else {
-            print("valid")
         }
         
+        
+
         // if there are, alert dialog the usr and return
         // if all chacks out, construct a new Recipe
         // delete the old recipe based on it's id , invoke the delete function used in the previus viewController
@@ -274,6 +255,27 @@ class EditRecipeViewController: UIViewController, UITableViewDelegate, UITableVi
         let confirmAction = UIAlertAction(title: "Ok", style: .default, handler: nil)
         alertController.addAction(confirmAction)
         self.present(alertController, animated: true)
+    }
+    
+    func isValidURLString() -> Bool {
+        var invalidCharctersFound = false
+        for i in 0...(theCurrentDataSource.count - 1) {
+            for j in 0...(theCurrentDataSource[i].count - 1) {
+                if theCurrentDataSource[i][j].contains("[") || theCurrentDataSource[i][j].contains("]") || theCurrentDataSource[i][j].contains("{") || theCurrentDataSource[i][j].contains("}") {
+                    invalidCharctersFound = true
+                }
+                
+                for v in theCurrentDataSource[i][j].unicodeScalars {
+                    //print(v.value)
+                    if v.value == 8220 || v.value == 8221 || v.value == 8216 || v.value == 8217 {
+                        invalidCharctersFound = true
+                    }
+                }
+            }
+            
+        }
+        
+        return !invalidCharctersFound
     }
 
 }
