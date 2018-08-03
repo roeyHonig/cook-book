@@ -130,6 +130,13 @@ class EditRecipeViewController: UIViewController, UITableViewDelegate, UITableVi
         
         if invalidCharctersFound {
             print("invalid charcter found")
+            // TODO present dialog alert
+            let invalidMassag: String = """
+                                    Invalid characters found!
+                                    Please refrained from using the following: " ' [ ] { }
+                                    Our SQL Data Base don’t like that 😀
+                                    """
+            showAlertDialog(withMassage: invalidMassag)
             return
         } else {
             print("valid")
@@ -260,16 +267,13 @@ class EditRecipeViewController: UIViewController, UITableViewDelegate, UITableVi
             }
         }
         
-        /*
-        for v in view.subviews {
-            if v is UITextView {
-                v.resignFirstResponder()
-            }
-            if v.subviews.count > 0 {
-                hideTheKeyboard()
-            }
-        }
- */
+    }
+    
+    func showAlertDialog(withMassage str: String) {
+        let alertController = UIAlertController(title: nil, message: str, preferredStyle: UIAlertControllerStyle.alert)
+        let confirmAction = UIAlertAction(title: "Ok", style: .default, handler: nil)
+        alertController.addAction(confirmAction)
+        self.present(alertController, animated: true)
     }
 
 }
