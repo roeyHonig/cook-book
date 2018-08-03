@@ -8,6 +8,7 @@
         <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
         <capability name="Constraints with non-1.0 multipliers" minToolsVersion="5.1"/>
+        <capability name="Navigation items with more than one left or right bar item" minToolsVersion="7.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -1272,11 +1273,18 @@
                         <viewLayoutGuide key="safeArea" id="vLN-CB-o09"/>
                     </view>
                     <navigationItem key="navigationItem" title="recipe" id="qXB-qq-th3">
-                        <barButtonItem key="rightBarButtonItem" systemItem="save" id="Wmu-TR-PTj">
-                            <connections>
-                                <action selector="saveTheNewRecipe:" destination="PVT-zq-pqi" id="4YN-OT-VH3"/>
-                            </connections>
-                        </barButtonItem>
+                        <rightBarButtonItems>
+                            <barButtonItem systemItem="save" id="Wmu-TR-PTj">
+                                <connections>
+                                    <action selector="saveTheNewRecipe:" destination="PVT-zq-pqi" id="4YN-OT-VH3"/>
+                                </connections>
+                            </barButtonItem>
+                            <barButtonItem image="icons8-keyboard32" id="lWf-Mi-qIb">
+                                <connections>
+                                    <action selector="hideKeyboard:" destination="PVT-zq-pqi" id="0NV-LO-yDw"/>
+                                </connections>
+                            </barButtonItem>
+                        </rightBarButtonItems>
                     </navigationItem>
                     <connections>
                         <outlet property="recipePropertiesTableView" destination="5PL-S4-mWO" id="8Gk-iP-QlY"/>
@@ -1899,6 +1907,7 @@ Sign In and out easily with known service providers and never risk loosing your 
         <image name="icons8-google_logo" width="96" height="96"/>
         <image name="icons8-ingredients" width="96" height="96"/>
         <image name="icons8-ingredients_spring" width="50" height="50"/>
+        <image name="icons8-keyboard32" width="32" height="32"/>
         <image name="icons8-kitchen_steel" width="50" height="50"/>
         <image name="icons8-like_filled" width="25" height="25"/>
         <image name="icons8-menu25" width="24" height="24"/>

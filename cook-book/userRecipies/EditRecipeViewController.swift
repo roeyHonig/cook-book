@@ -51,38 +51,22 @@ class EditRecipeViewController: UIViewController, UITableViewDelegate, UITableVi
         }
         
         //cell.propertyTextView.delegate = self
-        cell.propertyTextView.text = returnTheCorrectText(forSection: indexPath.section, andRow: indexPath.row, fromTheRecipe: myRecipe)
+        cell.propertyTextView.text = theCurrentDataSource[indexPath.section][indexPath.row]
         
-            cell.propertyTextView.translatesAutoresizingMaskIntoConstraints = false
-            cell.propertyTextView.sizeToFit()
-            cell.propertyTextView.isScrollEnabled = false
+        cell.propertyTextView.translatesAutoresizingMaskIntoConstraints = false
+        cell.propertyTextView.sizeToFit()
+        cell.propertyTextView.isScrollEnabled = false
         
         cell.mySection = indexPath.section
         cell.myRow = indexPath.row
-        
-        //cell.propertyTextView.accessibilityIdentifier = "roey"
-        
-        
-        /*
-        arg.translatesAutoresizingMaskIntoConstraints = true
-        arg.sizeToFit()
-        arg.scrollEnabled = false
-        */
-        
-        /*
-        let fixedWidth = cell.propertyTextView.frame.size.width
-        let newSize = cell.propertyTextView.sizeThatFits(CGSize(width: fixedWidth, height: CGFloat(MAXFLOAT)))
-        print("\(newSize.height)")
-        var newFrame = cell.propertyTextView.frame
-        newFrame.size = CGSize(width: fixedWidth, height: newSize.height)
-        cell.propertyTextView.frame = newFrame
-        //cell.textHeightConstraint.constant = cell.propertyTextView.intrinsicContentSize.height
-         */
- 
+    
         return cell
     }
     
    
+    @IBAction func hideKeyboard(_ sender: UIBarButtonItem) {
+        hideTheKeyboard()
+    }
     
     @IBAction func saveTheNewRecipe(_ sender: UIBarButtonItem) {
         saveRecipeBasedOnTextFields()
@@ -262,5 +246,15 @@ class EditRecipeViewController: UIViewController, UITableViewDelegate, UITableVi
         }
     }
     
+    func hideTheKeyboard() {
+        for v in view.subviews {
+            if v is UITextView {
+                v.resignFirstResponder()
+            }
+            if v.subviews.count > 0 {
+                hideTheKeyboard()
+            }
+        }
+    }
 
 }

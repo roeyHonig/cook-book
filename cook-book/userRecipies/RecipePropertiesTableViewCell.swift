@@ -26,6 +26,8 @@ class RecipePropertiesTableViewCell: UITableViewCell , UITextViewDelegate{
         propertyTextView.delegate = self
     }
 
+    
+    
     func textViewDidEndEditing(_ textView: UITextView) {
         print(textView.text)
         print("for section: \(mySection) and row: \(myRow)")
