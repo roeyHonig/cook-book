@@ -144,6 +144,7 @@ class EditRecipeViewController: UIViewController, UITableViewDelegate, UITableVi
         newRevisedRecipe.user_recipe = true
         
         // delete the old recipe based on it's id , invoke the delete function used in the previus viewController
+        // TODO: should also mind regrading removing from favirites if in there
         DeleteRecipeHeaderFromSQLTableAPI(id: -newRevisedRecipe.id){() in
             print("callback")
             // refresh the collection View
@@ -155,7 +156,7 @@ class EditRecipeViewController: UIViewController, UITableViewDelegate, UITableVi
             }
             
             // write the new recipyHeader
-            writeRecipeHeaderIntoSQLTableAPI(myRecipe: newRevisedRecipe, newAuthor: self.originalRecipeHeader!.author!) { (err , result, recipeyDetailsResultInInvalidURL) in
+            writeRevisedRecipeHeaderIntoSQLTableAPI(myRecipe: newRevisedRecipe, newAuthor: self.originalRecipeHeader!.author!) { (err , result, recipeyDetailsResultInInvalidURL) in
                 if recipeyDetailsResultInInvalidURL {
                     print("Error, Cheack to make sure recipe details don't include URL invalid charcters!!!!")
                     // TODO: failure alert dialog

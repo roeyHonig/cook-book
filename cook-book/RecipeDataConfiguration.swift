@@ -231,6 +231,105 @@ func writeRecipeHeaderIntoSQLTableAPI(myRecipe: RecipeHeader, newAuthor: String 
 }
 
 
+
+
+
+
+// this is basically the same as the preiuvous function except that we don't add the "My" at the begining of the title
+func writeRevisedRecipeHeaderIntoSQLTableAPI(myRecipe: RecipeHeader, newAuthor: String ,callback: @escaping (Error?, serverResponseToAnSQLQuary, Bool)-> Void) {
+    
+    myDataTask?.cancel() // cancel any previus tasks
+    
+    // choose between 2 diffrent API web adress, 1 for public recipes (there is no autor) & 1 for a specific user
+    var apiAddress: String
+    
+    // user based recipes
+    // https://enigmatic-oasis-37206.herokuapp.com/insertRecipe?title='very delicios3'&img='img.url'&recipeType='Pork'&prepTime=20&cookTime=10&serving=5&author='roeyhonig100@walla.com'&ingredientHeader1='ingredients for cake'&ingredientHeader2='ingredients for icing on the cake'&ingredientHeader3='ingredients for topincs on the cake'&list1='{"parcelly","lemon and lymes", "donats"}'&list2='{"parcelly","lemon and lymes, with jelly beans", "donats"}'&list3='{"parcelly","lemon and lymes, with jelly beans", "donats"}'&directions='Place meat in slow cooker. In a small bowl mix together the flour, salt, and pepper; pour over meat, and stir'
+    let newTitle : String
+    if let originTitle = myRecipe.title {
+        newTitle = originTitle
+    } else {
+        newTitle = ""
+    }
+    
+    var title = preperForSql(TheFollwingString: newTitle)
+    var img = preperForSql(TheFollwingString: myRecipe.img)
+    var recipeType = preperForSql(TheFollwingString: myRecipe.recipe_type)
+    var prepTime = preperForSql(TheFollwingInt: myRecipe.prep_time)
+    var cookTime = preperForSql(TheFollwingInt: myRecipe.cook_time)
+    var serving = preperForSql(TheFollwingInt: myRecipe.serving)
+    var author = preperForSql(TheFollwingString: newAuthor)
+    var ingredientHeader1 = preperForSql(TheFollwingString: myRecipe.ingredient_header1)
+    var ingredientHeader2 = preperForSql(TheFollwingString: myRecipe.ingredient_header2)
+    var ingredientHeader3 = preperForSql(TheFollwingString: myRecipe.ingredient_header3)
+    var list1 = preperForSql(TheFollwingStringArray: myRecipe.list1)
+    var list2 = preperForSql(TheFollwingStringArray: myRecipe.list2)
+    var list3 = preperForSql(TheFollwingStringArray: myRecipe.list3)
+    var directions = preperForSql(TheFollwingString: myRecipe.directions)
+    
+    
+    // TODO: change the api to the new                      insertRecipeStrings1   // insertRecipeStrings1
+    apiAddress = "https://enigmatic-oasis-37206.herokuapp.com/insertRecipeStrings1?title="
+    apiAddress = apiAddress + title
+    apiAddress = apiAddress + "&img=" + img
+    apiAddress = apiAddress + "&recipeType=" + recipeType
+    apiAddress = apiAddress + "&prepTime=" + "\(prepTime)"
+    apiAddress = apiAddress + "&cookTime=" + "\(cookTime)"
+    apiAddress = apiAddress + "&serving=" + "\(serving)"
+    apiAddress = apiAddress + "&author=" + author
+    apiAddress = apiAddress + "&ingredientHeader1="+ingredientHeader1
+    apiAddress = apiAddress + "&ingredientHeader2="+ingredientHeader2
+    apiAddress = apiAddress + "&ingredientHeader3="+ingredientHeader3
+    apiAddress = apiAddress + "&list1="+list1
+    apiAddress = apiAddress + "&list2="+list2
+    apiAddress = apiAddress + "&list3="+list3
+    apiAddress = apiAddress + "&directions="+directions
+    
+    
+    //let components = NSURL(string: apiAddress)
+    
+    print(apiAddress)
+    // TODO: !!!! very important you must guard of nil values due to invalid adress
+    var nonOptionalApiUrl: URL
+    var recipeyDetailsResultInInvalidURL = false
+    if let apiUrl = URL(string: apiAddress)  {
+        nonOptionalApiUrl = apiUrl
+    } else {
+        nonOptionalApiUrl = URL(string: "https://enigmatic-oasis-37206.herokuapp.com/insertRecipeStrings1?title=My")!
+        recipeyDetailsResultInInvalidURL = true
+    }
+    
+    
+    
+    myDataTask = session.dataTask(with: nonOptionalApiUrl) { (data, res, err) in
+        guard let data = data else {return}
+        // if we got here, we have data
+        let decoder = JSONDecoder()
+        guard let result = try? decoder.decode(serverResponseToAnSQLQuary.self, from: data) else {return /*SHOW DIALOG*/}
+        
+        
+        // Run code on the UI Thread
+        
+        DispatchQueue.main.async {
+            callback(err, result, recipeyDetailsResultInInvalidURL)
+        }
+        
+        
+        
+        //print(result.rows)
+    }
+    
+    myDataTask?.resume()
+    
+}
+
+
+
+
+
+
+
+
 // delete API
 func DeleteRecipeHeaderFromSQLTableAPI(id: Int, callback: @escaping ()-> Void) {
     
