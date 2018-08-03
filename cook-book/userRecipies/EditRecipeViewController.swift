@@ -114,10 +114,51 @@ class EditRecipeViewController: UIViewController, UITableViewDelegate, UITableVi
         var invalidCharctersFound = false
         for i in 0...(theCurrentDataSource.count - 1) {
             for j in 0...(theCurrentDataSource[i].count - 1) {
-                if theCurrentDataSource[i][j].contains("[") || theCurrentDataSource[i][j].contains("]") || theCurrentDataSource[i][j].contains("{") || theCurrentDataSource[i][j].contains("}") || theCurrentDataSource[i][j].contains("'") {
+                if theCurrentDataSource[i][j].contains("[") || theCurrentDataSource[i][j].contains("]") || theCurrentDataSource[i][j].contains("{") || theCurrentDataSource[i][j].contains("}") || theCurrentDataSource[i][j].contains("\"" + ",") {
                     invalidCharctersFound = true
+                    
                 }
-            }
+                
+                //for uniCodeScalr in theCurrentDataSource[i][j].
+                
+                    for v in theCurrentDataSource[i][j].unicodeScalars {
+                        //print(v.value)
+                        if v.value == 8220 || v.value == 8221 {
+                            invalidCharctersFound = true
+                        }
+                    }
+                    
+                    /*
+                    for c in theCurrentDataSource[i][j].characters {
+                        
+                        if c.unicodeScalars.first?.value == 8220 {
+                            print("double qutation found")
+                            //invalidCharctersFound = true
+                        } else  {
+                            print(c)
+                        }
+ 
+                        
+                     
+                        
+                        //print("\(c.unicodeScalars.first?.value)")
+                        /*
+                         if c == Character(UnicodeScalar(8220)) {
+                         print("fucked")
+                         } else {
+                         print("\(c.unicodeScalars.first?.value)")
+                         
+                         //UnicodeScalar(34)?.value
+                         }
+                         */
+                        
+                    }
+ */
+                }
+                
+                
+                
+            
         }
         /*theCurrentDataSource[i][j].contains("""
          "
