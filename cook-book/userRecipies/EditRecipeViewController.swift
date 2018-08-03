@@ -153,24 +153,27 @@ class EditRecipeViewController: UIViewController, UITableViewDelegate, UITableVi
                     collectionOfRecipies.refrashData()
                 }
             }
+            
+            // write the new recipyHeader
+            writeRecipeHeaderIntoSQLTableAPI(myRecipe: newRevisedRecipe, newAuthor: self.originalRecipeHeader!.author!) { (err , result, recipeyDetailsResultInInvalidURL) in
+                if recipeyDetailsResultInInvalidURL {
+                    print("Error, Cheack to make sure recipe details don't include URL invalid charcters!!!!")
+                    // TODO: failure alert dialog
+                    self.showAlertDialog(withMassage: "Ooops, something went wrong :(")
+                } else if result.rowCount == nil {
+                    print("seems the url went fine but no INSERT succefull")
+                    // TODO: failure alert dialog
+                    self.showAlertDialog(withMassage: "Ooops, something went wrong :(")
+                } else {
+                    print("i think we wrote it")
+                    // TODO: sucess alert dialog
+                    self.showAlertDialog(withMassage: "Recipe added to your pesonal section :)")
+                }
+            }
+            
         }
         
-        // write the new recipyHeader
-        writeRecipeHeaderIntoSQLTableAPI(myRecipe: newRevisedRecipe, newAuthor: originalRecipeHeader!.author!) { (err , result, recipeyDetailsResultInInvalidURL) in
-            if recipeyDetailsResultInInvalidURL {
-                print("Error, Cheack to make sure recipe details don't include URL invalid charcters!!!!")
-                // TODO: failure alert dialog
-                self.showAlertDialog(withMassage: "Ooops, something went wrong :(")
-            } else if result.rowCount == nil {
-                print("seems the url went fine but no INSERT succefull")
-                // TODO: failure alert dialog
-                self.showAlertDialog(withMassage: "Ooops, something went wrong :(")
-            } else {
-                print("i think we wrote it")
-                // TODO: sucess alert dialog
-                self.showAlertDialog(withMassage: "Recipe added to your pesonal section :)")
-            }
-        }
+        
         
         // refresh the recipe collection VC by invoking its refresh function
         // pop both view controllers - might need app delegate for that
