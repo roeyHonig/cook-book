@@ -91,12 +91,22 @@ class EditRecipeViewController: UIViewController, UITableViewDelegate, UITableVi
     @IBOutlet var recipePropertiesTableView: UITableView!
     
     var originalRecipeHeader: RecipeHeader?
+    var theCurrentDataSource: [[String]] = [[],[],[],[],[],[],[],[],[],[],[]]
     
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
         recipePropertiesTableView.delegate = self
         recipePropertiesTableView.dataSource = self
+        
+        // init the dataSource
+        for i in 0...10 {
+            let maxJ = returnTheMaxIndexOfInnerArray(section: i)
+            for j in 0...maxJ {
+                theCurrentDataSource[i].append(returnTheCorrectText(forSection: i, andRow: j, fromTheRecipe: originalRecipeHeader!))
+                print("The DataSource says: " + theCurrentDataSource[i][j])
+            }
+        }
         
         print("hello from edit")
         print("the title is: \(originalRecipeHeader?.title)")
@@ -226,5 +236,31 @@ class EditRecipeViewController: UIViewController, UITableViewDelegate, UITableVi
             return ""
         }
     }
+    
+    func returnTheMaxIndexOfInnerArray(section: Int) -> Int {
+        guard let myRecipe = originalRecipeHeader else {
+            return -1
+        }
+        
+        if section == 7 {
+            guard let mylist1 = myRecipe.list1 else {
+                return 4
+            }
+            return mylist1.count + 4
+        } else if section == 8 {
+            guard let mylist2 = myRecipe.list2 else {
+                return 4
+            }
+            return mylist2.count + 4
+        } else if section == 9 {
+            guard let mylist3 = myRecipe.list3 else {
+                return 4
+            }
+            return mylist3.count + 4
+        } else {
+            return 0
+        }
+    }
+    
 
 }
