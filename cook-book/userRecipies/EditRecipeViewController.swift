@@ -121,10 +121,29 @@ class EditRecipeViewController: UIViewController, UITableViewDelegate, UITableVi
             return
         }
         
-        
-
-        // if there are, alert dialog the usr and return
+        // TODO: cheack cooking times are Int
         // if all chacks out, construct a new Recipe
+        let id = 3
+        let title = "t"
+        let img = "df"
+        let recipe_type = "dfg"
+        let prep_time = 4
+        let cook_time = 4
+        let serving = 4
+        let author = "fdsg"
+        let ingredient_header1 = "dfg"
+        let ingredient_header2 = "dfg"
+        let ingredient_header3 = "dfgdfg"
+        let list1 :[String]? = nil
+        let list2 :[String]? = nil
+        let list3 :[String]? = nil
+        let directions = "dfg"
+        
+        var newRevidedRecipe = RecipeHeader(id: id, title: title, img: img, recipe_type: recipe_type, prep_time: prep_time, cook_time: cook_time, serving: serving, author: author, ingredient_header1: ingredient_header1, ingredient_header2: ingredient_header2, ingredient_header3: ingredient_header3, list1: list1, list2: list2, list3: list3, directions: directions)
+        
+        newRevidedRecipe.user_recipe = true
+        
+        
         // delete the old recipe based on it's id , invoke the delete function used in the previus viewController
         // write the new recipyHeader
         // refresh the recipe collection VC by invoking its refresh function
