@@ -123,9 +123,9 @@ class EditRecipeViewController: UIViewController, UITableViewDelegate, UITableVi
         
         // TODO: cheack cooking times are Int
         // TODO: cheack to see no blank spaces in the ingrediets
-        // if all chacks out, construct a new Recipe
-        // (hasHeader ? 50 : 20)
-        let id = originalRecipeHeader!.id
+        
+        // construct a new Recipe
+        let id = originalRecipeHeader!.id // it doesn't matter because we're going to delete this id and issiue a new one
         let title: String? = (theCurrentDataSource[0][0] != "" ? theCurrentDataSource[0][0] : nil)
         let img = originalRecipeHeader!.img
         let recipe_type = originalRecipeHeader!.recipe_type
@@ -140,14 +140,38 @@ class EditRecipeViewController: UIViewController, UITableViewDelegate, UITableVi
         let list2 :[String]? = (theCurrentDataSource[8].count > 0 ? theCurrentDataSource[8] : nil)
         let list3 :[String]? = (theCurrentDataSource[9].count > 0 ? theCurrentDataSource[9] : nil)
         let directions: String? = (theCurrentDataSource[10][0] != "" ? theCurrentDataSource[6][0] : nil)
-        
-        var newRevidedRecipe = RecipeHeader(id: id, title: title, img: img, recipe_type: recipe_type, prep_time: prep_time, cook_time: cook_time, serving: serving, author: author, ingredient_header1: ingredient_header1, ingredient_header2: ingredient_header2, ingredient_header3: ingredient_header3, list1: list1, list2: list2, list3: list3, directions: directions)
-        
-        newRevidedRecipe.user_recipe = true
-        
+        var newRevisedRecipe = RecipeHeader(id: id, title: title, img: img, recipe_type: recipe_type, prep_time: prep_time, cook_time: cook_time, serving: serving, author: author, ingredient_header1: ingredient_header1, ingredient_header2: ingredient_header2, ingredient_header3: ingredient_header3, list1: list1, list2: list2, list3: list3, directions: directions)
+        newRevisedRecipe.user_recipe = true
         
         // delete the old recipe based on it's id , invoke the delete function used in the previus viewController
+        DeleteRecipeHeaderFromSQLTableAPI(id: -newRevisedRecipe.id){() in
+            print("callback")
+            // refresh the collection View
+            for vc in self.navigationController!.viewControllers {
+                if vc is RecipiesViewController {
+                    let collectionOfRecipies = vc as! RecipiesViewController
+                    collectionOfRecipies.refrashData()
+                }
+            }
+        }
+        
         // write the new recipyHeader
+        writeRecipeHeaderIntoSQLTableAPI(myRecipe: newRevisedRecipe, newAuthor: originalRecipeHeader!.author!) { (err , result, recipeyDetailsResultInInvalidURL) in
+            if recipeyDetailsResultInInvalidURL {
+                print("Error, Cheack to make sure recipe details don't include URL invalid charcters!!!!")
+                // TODO: failure alert dialog
+                self.showAlertDialog(withMassage: "Ooops, something went wrong :(")
+            } else if result.rowCount == nil {
+                print("seems the url went fine but no INSERT succefull")
+                // TODO: failure alert dialog
+                self.showAlertDialog(withMassage: "Ooops, something went wrong :(")
+            } else {
+                print("i think we wrote it")
+                // TODO: sucess alert dialog
+                self.showAlertDialog(withMassage: "Recipe added to your pesonal section :)")
+            }
+        }
+        
         // refresh the recipe collection VC by invoking its refresh function
         // pop both view controllers - might need app delegate for that
     }
