@@ -7,6 +7,8 @@
 //
 
 import UIKit
+import Photos
+import  PhotosUI
 
 class ImagePickerTutorialViewController: UIViewController, UIImagePickerControllerDelegate , UINavigationControllerDelegate{
 
@@ -15,9 +17,34 @@ class ImagePickerTutorialViewController: UIViewController, UIImagePickerControll
         // TOOD: Make this work
         imagePicker.allowsEditing = false
         imagePicker.sourceType = .photoLibrary
-        present(imagePicker, animated: true) {
-            // compleation code
+        
+        switch PHPhotoLibrary.authorizationStatus() {
+        case .authorized:
+        // proceed with image picker
+            present(imagePicker, animated: true) {
+                // compleation code
+            }
+        case .denied:
+            // TOOD: alert dialog box
+            return
+        case .notDetermined:
+            // request access
+            PHPhotoLibrary.requestAuthorization({ (status) in
+                if status == PHAuthorizationStatus.authorized {
+                    // proceed with image picker
+                    self.present(self.imagePicker, animated: true) {
+                        // compleation code
+                    }
+                } else {
+                    return
+                }
+            })
+        default:
+            return
         }
+        
+        
+       
     }
     let imagePicker = UIImagePickerController()
     
@@ -26,9 +53,11 @@ class ImagePickerTutorialViewController: UIViewController, UIImagePickerControll
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
+        imagePicker.delegate = self
     }
 
-    func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [String : Any]) {
+func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [String : Any]) {
+       
         if let imagePicked = info[UIImagePickerControllerOriginalImage] as? UIImage {
             imageView.image = imagePicked
             print("was here")
