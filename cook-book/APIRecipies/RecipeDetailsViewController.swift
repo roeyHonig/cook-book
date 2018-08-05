@@ -622,20 +622,39 @@ class RecipeDetailsViewController: UIViewController, UITableViewDelegate, UITabl
         // setup metadata
         let uploadMetadata = StorageMetadata()
         imgRef.putData(myData, metadata: uploadMetadata) { (myStorageMetadata, err) in
-            if err != nil {
-                print("I recived an error! \(err!.localizedDescription)")
-            } else {
-                print("upload complete, here is some metadata! \(myStorageMetadata)")
-                
-                imgRef.downloadURL(completion: { (url, err) in
-                    if err != nil {
-                        print("oops we have a problem")
-                    } else {
-                        print("here is the img url:")
-                        print(url!)
-                    }
-                })
-            }
+                // uploade completed
+                if err != nil {
+                    print("I recived an error! \(err!.localizedDescription)")
+                } else {
+                        print("upload complete, here is some metadata! \(myStorageMetadata)")
+                    
+                        imgRef.downloadURL(completion: { (url, err) in
+                            if err != nil {
+                                print("oops we have a problem")
+                            } else {
+                                    print("here is the img url:")
+                                    print(url!.absoluteString)
+                                
+                                    UpdateTheImgRecordInTheSQLTableAPI(id: -self.recipeHeader!.id, urlString: url!.absoluteString, callback: { (err, myServerResponse) in
+                                        if myServerResponse.rowCount == nil {
+                                            self.showAlertDialog(withMassage: "Ooops, something went wrong :(")
+                                        } else {
+                                                    // everything went ok, now we can finally load the new image using the SDWebImage, next time the app loads it will be automatically
+                                                    self.backgroundImage.sd_setImage(with: URL(string: url!.absoluteString), completed: {
+                                                        (uiImage, error, sdimagecatchtype, url) in
+                                                        guard let err = error else {
+                                                            return
+                                                        }
+                                                        print("error error loading picture: \(err)")
+                                                        self.backgroundImage.image = #imageLiteral(resourceName: "icons8-cooking_pot_filled")
+                                                    })
+                                        }
+                                    })
+                        
+                                
+                            }
+                        })
+                }
         }
     }
 

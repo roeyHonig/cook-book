@@ -76,7 +76,7 @@ struct RecipeHeaderAPI: Codable {
 }
 
 // we will use this struct to determin whter the sql qurty of inserting (we want to insert recipe details into the DB) went succecfull
-// if we indeed succedded to inser a recipe , rowCount will be 1
+// if we indeed succedded to inser a recipe , rowCount will be 1, this is also true when we update
 struct serverResponseToAnSQLQuary: Codable {
     var rowCount: Int?
 }
@@ -87,6 +87,7 @@ struct serverResponseToAnSQLQuary: Codable {
 
 let session = URLSession.shared // sheared session for the app
 var myDataTask: URLSessionDataTask?
+var myUpdateTableRecordDataTask: URLSessionDataTask?
 
 // https://www.raywenderlich.com/158106/urlsession-tutorial-getting-started
 
@@ -354,6 +355,34 @@ func DeleteRecipeHeaderFromSQLTableAPI(id: Int, callback: @escaping ()-> Void) {
     }
     
     myDataTask?.resume()
+    
+}
+
+
+
+// update API
+func UpdateTheImgRecordInTheSQLTableAPI(id: Int, urlString: String ,callback: @escaping (Error?, serverResponseToAnSQLQuary)-> Void) {
+    
+    myUpdateTableRecordDataTask?.cancel() // cancel any previus tasks
+    var apiAddress: String
+    // https://enigmatic-oasis-37206.herokuapp.com/updateRecord?id=5&newValue=newUrlValue
+    apiAddress = "https://enigmatic-oasis-37206.herokuapp.com/updateRecord?id=\(id)&newValue=\(urlString)"
+    let apiUrl = URL(string: apiAddress)! // this time we're not affraid, because the url will allways be valid, it's very simple as you can see abouve
+    
+    myUpdateTableRecordDataTask = session.dataTask(with: apiUrl) { (data, res, err) in
+        guard let data = data else {return}
+        // if we got here, we have data
+        let decoder = JSONDecoder()
+        guard let result = try? decoder.decode(serverResponseToAnSQLQuary.self, from: data) else {return /*SHOW DIALOG*/}
+        
+        // Run code on the UI Thread
+        DispatchQueue.main.async {
+            callback(err, result)
+        }
+        
+    }
+    
+    myUpdateTableRecordDataTask?.resume()
     
 }
 
