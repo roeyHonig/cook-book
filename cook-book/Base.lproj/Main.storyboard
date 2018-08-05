@@ -1113,6 +1113,14 @@
                                     <constraint firstItem="Hdn-2d-axz" firstAttribute="top" secondItem="0wV-9Y-5R2" secondAttribute="top" constant="10" id="xt3-q3-o9d"/>
                                 </constraints>
                             </view>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="gdU-bO-MdF" userLabel="replacePhotoBtn">
+                                <rect key="frame" x="93" y="72" width="50" height="50"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="50" id="HpY-m2-PAt"/>
+                                    <constraint firstAttribute="height" constant="50" id="rj4-Lh-rDz"/>
+                                </constraints>
+                                <state key="normal" title="Button" image="icons8-ios_photos"/>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
@@ -1121,12 +1129,14 @@
                             <constraint firstItem="VWQ-JX-eiW" firstAttribute="leading" secondItem="AXb-pI-aM6" secondAttribute="leading" id="CXT-TM-TSe"/>
                             <constraint firstItem="T5p-MA-gFT" firstAttribute="top" secondItem="AXb-pI-aM6" secondAttribute="top" id="EFG-c8-SsM"/>
                             <constraint firstItem="AXb-pI-aM6" firstAttribute="bottom" secondItem="0wV-9Y-5R2" secondAttribute="bottom" id="FRY-e7-gaX"/>
+                            <constraint firstItem="gdU-bO-MdF" firstAttribute="trailing" secondItem="CFr-lw-Fd3" secondAttribute="leading" constant="-8" id="GGX-DR-co4"/>
                             <constraint firstItem="n0j-XY-3Lp" firstAttribute="leading" secondItem="AXb-pI-aM6" secondAttribute="leading" id="GeL-kq-NCz"/>
                             <constraint firstItem="AXb-pI-aM6" firstAttribute="bottom" secondItem="VWQ-JX-eiW" secondAttribute="bottom" id="KGz-bj-KiO"/>
                             <constraint firstItem="7GQ-YA-ZXV" firstAttribute="leading" secondItem="nO3-fS-4dq" secondAttribute="trailing" constant="8" id="MV8-AW-3v8"/>
                             <constraint firstItem="AXb-pI-aM6" firstAttribute="trailing" secondItem="7GQ-YA-ZXV" secondAttribute="trailing" id="Sgn-kl-b2k"/>
                             <constraint firstItem="n0j-XY-3Lp" firstAttribute="height" secondItem="AXb-pI-aM6" secondAttribute="height" multiplier="0.05" id="Tak-D4-Yt6"/>
                             <constraint firstItem="eeJ-fZ-PBc" firstAttribute="top" secondItem="n0j-XY-3Lp" secondAttribute="bottom" id="Xcb-fS-V3B"/>
+                            <constraint firstItem="gdU-bO-MdF" firstAttribute="top" secondItem="nO3-fS-4dq" secondAttribute="top" id="ZAz-iY-chv"/>
                             <constraint firstItem="n0j-XY-3Lp" firstAttribute="width" secondItem="BeK-QD-9mD" secondAttribute="width" id="aEE-a4-ujc"/>
                             <constraint firstItem="eeJ-fZ-PBc" firstAttribute="height" secondItem="BeK-QD-9mD" secondAttribute="width" multiplier="0.1" id="aMj-OU-vQo"/>
                             <constraint firstItem="0wV-9Y-5R2" firstAttribute="top" secondItem="eeJ-fZ-PBc" secondAttribute="bottom" id="f6J-cO-qnz"/>
@@ -1957,6 +1967,7 @@ Sign In and out easily with known service providers and never risk loosing your 
         <image name="icons8-google_logo" width="96" height="96"/>
         <image name="icons8-ingredients" width="96" height="96"/>
         <image name="icons8-ingredients_spring" width="50" height="50"/>
+        <image name="icons8-ios_photos" width="50" height="50"/>
         <image name="icons8-keyboard32" width="32" height="32"/>
         <image name="icons8-kitchen_steel" width="50" height="50"/>
         <image name="icons8-like_filled" width="25" height="25"/>
