@@ -5,7 +5,8 @@
 	<key>NSAppleMusicUsageDescription</key>
 	<string>please</string>
 	<key>NSPhotoLibraryUsageDescription</key>
-	<string>please give us</string>
+	<string>We need access to your photo library to allow you fully customize your recipes 
+</string>
 	<key>CFBundleGetInfoString</key>
 	<string></string>
 	<key>CFBundleDisplayName</key>

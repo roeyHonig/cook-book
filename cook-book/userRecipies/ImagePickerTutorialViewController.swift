@@ -26,6 +26,8 @@ class ImagePickerTutorialViewController: UIViewController, UIImagePickerControll
             }
         case .denied:
             // TOOD: alert dialog box
+            // TODO: https://stackoverflow.com/questions/44465904/photopicker-discovery-error-error-domain-pluginkit-code-13/46928992
+            // there is an explanaition there about how to send the usr for the settings of the device
             return
         case .notDetermined:
             // request access
@@ -57,11 +59,15 @@ class ImagePickerTutorialViewController: UIViewController, UIImagePickerControll
     }
 
 func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [String : Any]) {
-       
         if let imagePicked = info[UIImagePickerControllerOriginalImage] as? UIImage {
             imageView.image = imagePicked
-            print("was here")
         }
+        dismiss(animated: true) {
+            //completion closer code
+        }
+    }
+    
+    func imagePickerControllerDidCancel(_ picker: UIImagePickerController) {
         dismiss(animated: true) {
             //completion closer code
         }
