@@ -16,6 +16,7 @@ import FBSDKLoginKit
 
 class RecipiesViewController: UIViewController, UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout, UINavigationControllerDelegate, GIDSignInUIDelegate  {
    
+    @IBOutlet var oneTimeActivityIndicator: UIActivityIndicatorView!
     
     @IBOutlet var refreshBtn: UIBarButtonItem!
     
@@ -105,6 +106,9 @@ class RecipiesViewController: UIViewController, UICollectionViewDelegate, UIColl
         recipiesCollection.refreshControl = myRefreshControl
         recipiesCollection.refreshControl?.beginRefreshing()
         
+        // init the one time activity indicator, otherwisw , there is no indicatio, like in the refresegBegins, that something is appeaning
+        oneTimeActivityIndicator.hidesWhenStopped = true
+        oneTimeActivityIndicator.startAnimating()
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -216,6 +220,7 @@ class RecipiesViewController: UIViewController, UICollectionViewDelegate, UIColl
                 self.recipiesCollection.reloadData()
                 self.recipiesCollection.refreshControl?.endRefreshing()
                 self.yet2bePreseedOnce[theRecipyType]! = false
+                self.oneTimeActivityIndicator.stopAnimating()
             }
         }
         

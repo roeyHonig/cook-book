@@ -371,13 +371,22 @@
                                                     <autoresizingMask key="autoresizingMask"/>
                                                 </collectionReusableView>
                                             </collectionView>
+                                            <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" style="gray" translatesAutoresizingMaskIntoConstraints="NO" id="rhL-AX-Aca">
+                                                <rect key="frame" x="167" y="16" width="40" height="40"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="height" constant="40" id="av3-S0-ETE"/>
+                                                    <constraint firstAttribute="width" constant="40" id="y6r-NS-77k"/>
+                                                </constraints>
+                                            </activityIndicatorView>
                                         </subviews>
                                         <color key="backgroundColor" red="1" green="0.25357913100000001" blue="0.96946313760000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <constraints>
                                             <constraint firstAttribute="trailing" secondItem="aeg-CB-Buq" secondAttribute="trailing" id="8RO-YB-azk"/>
                                             <constraint firstItem="aeg-CB-Buq" firstAttribute="top" secondItem="l8M-I4-aab" secondAttribute="top" id="IJ0-1g-L8A"/>
+                                            <constraint firstItem="rhL-AX-Aca" firstAttribute="centerX" secondItem="l8M-I4-aab" secondAttribute="centerX" id="Rck-WG-vc9"/>
                                             <constraint firstItem="aeg-CB-Buq" firstAttribute="leading" secondItem="l8M-I4-aab" secondAttribute="leading" id="eSA-lg-E6d"/>
                                             <constraint firstAttribute="bottom" secondItem="aeg-CB-Buq" secondAttribute="bottom" id="nYS-jb-8JM"/>
+                                            <constraint firstItem="rhL-AX-Aca" firstAttribute="top" secondItem="l8M-I4-aab" secondAttribute="top" constant="16" id="wbW-kL-uUt"/>
                                         </constraints>
                                     </view>
                                     <visualEffectView opaque="NO" alpha="0.80000000000000004" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="7fZ-Vm-Rli" userLabel="blurView">
@@ -447,6 +456,7 @@
                         <outlet property="emailLabel" destination="41B-ee-F9G" id="41A-ST-Eve"/>
                         <outlet property="framForProfileImage" destination="hSg-iz-lXu" id="gIM-SY-VDS"/>
                         <outlet property="menuBarItem" destination="wC0-aL-QfV" id="n90-y5-XRa"/>
+                        <outlet property="oneTimeActivityIndicator" destination="rhL-AX-Aca" id="ZYA-PX-wzR"/>
                         <outlet property="parentView" destination="0FF-ZS-9lx" id="7CL-0K-1DP"/>
                         <outlet property="recipiesCollection" destination="aeg-CB-Buq" id="Nya-hm-Jnd"/>
                         <outlet property="recipyType" destination="ytq-cj-mNP" id="72i-Vf-GgV"/>
@@ -1230,7 +1240,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="5PL-S4-mWO">
-                                <rect key="frame" x="0.0" y="68" width="375" height="550"/>
+                                <rect key="frame" x="0.0" y="64" width="375" height="554"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="recipeProperty" rowHeight="119" id="dBb-dC-bra" customClass="RecipePropertiesTableViewCell" customModule="cook_book" customModuleProvider="target">
@@ -1529,7 +1539,7 @@
                     <tabBarItem key="tabBarItem" title="APIRecipies" image="icons8-cooking_pot" id="iWa-fe-Pwb"/>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="b4Y-LD-FFX">
-                        <rect key="frame" x="0.0" y="20" width="375" height="48"/>
+                        <rect key="frame" x="0.0" y="20" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
                     <nil name="viewControllers"/>
@@ -1827,7 +1837,7 @@ Sign In and out easily with known service providers and never risk loosing your 
                     <tabBarItem key="tabBarItem" title="Favorites" image="icons8-like_filled" id="N1w-mT-A1X"/>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="Hcx-XO-Pqi">
-                        <rect key="frame" x="0.0" y="20" width="375" height="48"/>
+                        <rect key="frame" x="0.0" y="20" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
                     <nil name="viewControllers"/>
@@ -1846,7 +1856,7 @@ Sign In and out easily with known service providers and never risk loosing your 
                     <tabBarItem key="tabBarItem" title="Shopping List" image="icons8-shopping_25Steel" id="QaT-tj-fbZ"/>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="Ux6-kF-cMv">
-                        <rect key="frame" x="0.0" y="20" width="375" height="48"/>
+                        <rect key="frame" x="0.0" y="20" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
                     <nil name="viewControllers"/>
@@ -1865,7 +1875,7 @@ Sign In and out easily with known service providers and never risk loosing your 
                     <tabBarItem key="tabBarItem" title="myRecipes" image="icons8-gender_neutral_user_filled-1" id="clo-5n-7M7"/>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="eau-mR-eww">
-                        <rect key="frame" x="0.0" y="20" width="375" height="48"/>
+                        <rect key="frame" x="0.0" y="20" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
                     <nil name="viewControllers"/>
