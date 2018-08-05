@@ -28,6 +28,16 @@ class ImagePickerTutorialViewController: UIViewController, UIImagePickerControll
         // Do any additional setup after loading the view.
     }
 
+    func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [String : Any]) {
+        if let imagePicked = info[UIImagePickerControllerOriginalImage] as? UIImage {
+            imageView.image = imagePicked
+            print("was here")
+        }
+        dismiss(animated: true) {
+            //completion closer code
+        }
+    }
+    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
