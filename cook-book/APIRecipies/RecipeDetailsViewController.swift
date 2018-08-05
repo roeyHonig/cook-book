@@ -589,7 +589,7 @@ class RecipeDetailsViewController: UIViewController, UITableViewDelegate, UITabl
     
     func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [String : Any]) {
         if let imagePicked = info[UIImagePickerControllerOriginalImage] as? UIImage {
-            backgroundImage.image = imagePicked // not really what i want to do
+            //backgroundImage.image = imagePicked // not really what i want to do
             let data = UIImageJPEGRepresentation(imagePicked, 1)
             uploadIntoFireBaseCloudStorage(theFollowingData: data)
         }
@@ -619,7 +619,15 @@ class RecipeDetailsViewController: UIViewController, UITableViewDelegate, UITabl
         let folderName = "imagesOfUsr" + signedUser!.email!
         let fileName = "\(-recipeHeader!.id)"
         var imgRef = storageRef.child(folderName+"/"+fileName+".jpg")
-
+        // setup metadata
+        let uploadMetadata = StorageMetadata()
+        imgRef.putData(myData, metadata: uploadMetadata) { (myStorageMetadata, err) in
+            if err != nil {
+                print("I recived an error! \(err!.localizedDescription)")
+            } else {
+                print("upload complete, here is some metadata! \(myStorageMetadata)")
+            }
+        }
     }
 
     // In a storyboard-based application, you will often want to do a little preparation before navigation
