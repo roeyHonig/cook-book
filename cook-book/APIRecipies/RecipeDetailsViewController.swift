@@ -626,6 +626,15 @@ class RecipeDetailsViewController: UIViewController, UITableViewDelegate, UITabl
                 print("I recived an error! \(err!.localizedDescription)")
             } else {
                 print("upload complete, here is some metadata! \(myStorageMetadata)")
+                
+                imgRef.downloadURL(completion: { (url, err) in
+                    if err != nil {
+                        print("oops we have a problem")
+                    } else {
+                        print("here is the img url:")
+                        print(url!)
+                    }
+                })
             }
         }
     }
