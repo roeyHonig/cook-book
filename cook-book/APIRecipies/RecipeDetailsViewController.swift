@@ -14,9 +14,17 @@ import GoogleSignIn
 import FBSDKCoreKit
 import FBSDKLoginKit
 
-class RecipeDetailsViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
+class RecipeDetailsViewController: UIViewController, UITableViewDelegate, UITableViewDataSource, UIImagePickerControllerDelegate , UINavigationControllerDelegate {
     
     var sender: Any?
+    
+    @IBOutlet var replacePhotoBtn: UIButton!
+    
+    @IBAction func replacePhoto(_ sender: UIButton) {
+        chackPermissionAndEnterPhotoLibrary()
+    }
+    
+    let imagePicker = UIImagePickerController()
     
     @IBOutlet var editRecipeBtn: UIButton!
     
@@ -125,6 +133,7 @@ class RecipeDetailsViewController: UIViewController, UITableViewDelegate, UITabl
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
+        imagePicker.delegate = self // assign the delegate to the image picker
         ingridentsTapGesture.addTarget(self, action: #selector(showIngridents))
         ingridentsBtnView.addGestureRecognizer(ingridentsTapGesture)
         directionsTapGesture.addTarget(self, action: #selector(showDirections))
@@ -256,6 +265,8 @@ class RecipeDetailsViewController: UIViewController, UITableViewDelegate, UITabl
         deleteRecipeBtn.alpha = 0
         editRecipeBtn.isUserInteractionEnabled = false
         editRecipeBtn.alpha = 0
+        replacePhotoBtn.isUserInteractionEnabled = false
+        replacePhotoBtn.alpha = 0
         guard let usr = signedUser else {return}
         // we got this far --> There is a user!!
         if tabBarController!.selectedIndex == 0 {
@@ -265,11 +276,15 @@ class RecipeDetailsViewController: UIViewController, UITableViewDelegate, UITabl
             deleteRecipeBtn.alpha = 0
             editRecipeBtn.isUserInteractionEnabled = false
             editRecipeBtn.alpha = 0
+            replacePhotoBtn.isUserInteractionEnabled = false
+            replacePhotoBtn.alpha = 0
         } else if tabBarController!.selectedIndex == 3 {
             deleteRecipeBtn.isUserInteractionEnabled = true
             deleteRecipeBtn.alpha = 1
             editRecipeBtn.isUserInteractionEnabled = true
             editRecipeBtn.alpha = 1
+            replacePhotoBtn.isUserInteractionEnabled = true
+            replacePhotoBtn.alpha = 1
             positionConstraineForDeleteBtn.constant = -58
         } else {
             branchBtn.isUserInteractionEnabled = false
@@ -278,6 +293,8 @@ class RecipeDetailsViewController: UIViewController, UITableViewDelegate, UITabl
             deleteRecipeBtn.alpha = 0
             editRecipeBtn.isUserInteractionEnabled = false
             editRecipeBtn.alpha = 0
+            replacePhotoBtn.isUserInteractionEnabled = false
+            replacePhotoBtn.alpha = 0
         }
     }
     
@@ -532,7 +549,10 @@ class RecipeDetailsViewController: UIViewController, UITableViewDelegate, UITabl
         present(alertController, animated: true)
     }
     
-    
+    func chackPermissionAndEnterPhotoLibrary(){
+        //TODO: make It Works
+        print("let's replace this pic")
+    }
 
     // In a storyboard-based application, you will often want to do a little preparation before navigation
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {

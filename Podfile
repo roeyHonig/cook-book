@@ -8,6 +8,7 @@ target 'cook-book' do
   # Pods for cook-book
 pod 'Firebase/Core'
 pod 'Firebase/Auth'
+pod 'Firebase/Storage'
 pod 'GoogleSignIn'
 pod 'FBSDKLoginKit'
 pod 'SDWebImage', '~> 4.0'
