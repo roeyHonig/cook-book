@@ -1551,20 +1551,45 @@
             </objects>
             <point key="canvasLocation" x="-2932" y="-293"/>
         </scene>
-        <!--View Controller-->
+        <!--Image Picker Tutorial View Controller-->
         <scene sceneID="uhu-ZG-Uxg">
             <objects>
-                <viewController id="mRu-uY-WVn" sceneMemberID="viewController">
+                <viewController id="mRu-uY-WVn" customClass="ImagePickerTutorialViewController" customModule="cook_book" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="Xkp-6T-Q5Y">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="gln-0L-Km0">
+                                <rect key="frame" x="8" y="28" width="359" height="517.5"/>
+                            </imageView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="gKu-0R-8KS">
+                                <rect key="frame" x="0.0" y="553.5" width="375" height="105.5"/>
+                                <state key="normal" title="Pick an Image"/>
+                                <connections>
+                                    <action selector="pickAnImageFromUsrLibary:" destination="mRu-uY-WVn" eventType="touchUpInside" id="bhQ-h6-fMZ"/>
+                                </connections>
+                            </button>
+                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="v8h-9w-wYo" firstAttribute="trailing" secondItem="gln-0L-Km0" secondAttribute="trailing" constant="8" id="MCo-Ut-EP1"/>
+                            <constraint firstItem="v8h-9w-wYo" firstAttribute="bottom" secondItem="gKu-0R-8KS" secondAttribute="bottom" constant="8" id="XE9-Uq-1oq"/>
+                            <constraint firstItem="gKu-0R-8KS" firstAttribute="top" secondItem="gln-0L-Km0" secondAttribute="bottom" constant="8" id="ZQc-tG-Dui"/>
+                            <constraint firstItem="gln-0L-Km0" firstAttribute="top" secondItem="v8h-9w-wYo" secondAttribute="top" constant="8" id="Zuf-fx-q0L"/>
+                            <constraint firstItem="gln-0L-Km0" firstAttribute="leading" secondItem="v8h-9w-wYo" secondAttribute="leading" constant="8" id="eak-z1-a3E"/>
+                            <constraint firstItem="v8h-9w-wYo" firstAttribute="trailing" secondItem="gKu-0R-8KS" secondAttribute="trailing" id="pUC-1r-TZb"/>
+                            <constraint firstItem="gKu-0R-8KS" firstAttribute="leading" secondItem="v8h-9w-wYo" secondAttribute="leading" id="rPS-2V-liq"/>
+                            <constraint firstItem="gln-0L-Km0" firstAttribute="height" secondItem="v8h-9w-wYo" secondAttribute="height" multiplier="0.8" id="zVe-bo-qi6"/>
+                        </constraints>
                         <viewLayoutGuide key="safeArea" id="v8h-9w-wYo"/>
                     </view>
+                    <connections>
+                        <outlet property="imageView" destination="gln-0L-Km0" id="UFA-BL-hew"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="E5G-1g-WlC" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-3418" y="-2556"/>
+            <point key="canvasLocation" x="-3418.4000000000001" y="-2556.0719640179914"/>
         </scene>
         <!--Opening Screen View Controller-->
         <scene sceneID="U9z-Io-QnA">
