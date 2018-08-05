@@ -13,6 +13,8 @@ import Firebase
 import GoogleSignIn
 import FBSDKCoreKit
 import FBSDKLoginKit
+import Photos
+import  PhotosUI
 
 class RecipeDetailsViewController: UIViewController, UITableViewDelegate, UITableViewDataSource, UIImagePickerControllerDelegate , UINavigationControllerDelegate {
     
@@ -552,6 +554,51 @@ class RecipeDetailsViewController: UIViewController, UITableViewDelegate, UITabl
     func chackPermissionAndEnterPhotoLibrary(){
         //TODO: make It Works
         print("let's replace this pic")
+        imagePicker.allowsEditing = false
+        imagePicker.sourceType = .photoLibrary
+        
+        switch PHPhotoLibrary.authorizationStatus() {
+        case .authorized:
+            // proceed with image picker
+            present(imagePicker, animated: true) {
+                // compleation code
+            }
+        case .denied:
+            // TOOD: alert dialog box
+            // TODO: https://stackoverflow.com/questions/44465904/photopicker-discovery-error-error-domain-pluginkit-code-13/46928992
+            // there is an explanaition there about how to send the usr for the settings of the device
+            return
+        case .notDetermined:
+            // request access
+            PHPhotoLibrary.requestAuthorization({ (status) in
+                if status == PHAuthorizationStatus.authorized {
+                    // proceed with image picker
+                    self.present(self.imagePicker, animated: true) {
+                        // compleation code
+                    }
+                } else {
+                    return
+                }
+            })
+        default:
+            return
+        }
+    }
+    
+    
+    func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [String : Any]) {
+        if let imagePicked = info[UIImagePickerControllerOriginalImage] as? UIImage {
+            backgroundImage.image = imagePicked // not really what i want to do
+        }
+        dismiss(animated: true) {
+            //completion closer code
+        }
+    }
+    
+    func imagePickerControllerDidCancel(_ picker: UIImagePickerController) {
+        dismiss(animated: true) {
+            //completion closer code
+        }
     }
 
     // In a storyboard-based application, you will often want to do a little preparation before navigation
