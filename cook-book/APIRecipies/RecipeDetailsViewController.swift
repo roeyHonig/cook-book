@@ -10,6 +10,7 @@ import UIKit
 import CoreData
 import SDWebImage
 import Firebase
+import FirebaseStorage
 import GoogleSignIn
 import FBSDKCoreKit
 import FBSDKLoginKit
@@ -589,6 +590,8 @@ class RecipeDetailsViewController: UIViewController, UITableViewDelegate, UITabl
     func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [String : Any]) {
         if let imagePicked = info[UIImagePickerControllerOriginalImage] as? UIImage {
             backgroundImage.image = imagePicked // not really what i want to do
+            let data = UIImageJPEGRepresentation(imagePicked, 1)
+            uploadIntoFireBaseCloudStorage(theFollowingData: data)
         }
         dismiss(animated: true) {
             //completion closer code
@@ -599,6 +602,24 @@ class RecipeDetailsViewController: UIViewController, UITableViewDelegate, UITabl
         dismiss(animated: true) {
             //completion closer code
         }
+    }
+    
+    func uploadIntoFireBaseCloudStorage(theFollowingData data: Data?){
+        //TODO: make this works
+        guard let myData = data, signedUser!.email != nil else {
+            return
+        }
+        // safe to proceed
+
+        // Get a reference to the storage service using the default Firebase App
+        let storage = Storage.storage()
+        // Create a storage reference from our storage service
+        let storageRef = storage.reference()
+        // Create a child reference
+        let folderName = "imagesOfUsr" + signedUser!.email!
+        let fileName = "\(-recipeHeader!.id)"
+        var imgRef = storageRef.child(folderName+"/"+fileName+".jpg")
+
     }
 
     // In a storyboard-based application, you will often want to do a little preparation before navigation
