@@ -8,7 +8,7 @@
 
 import UIKit
 
-class EditRecipeViewController: UIViewController, UITableViewDelegate, UITableViewDataSource, UITextViewDelegate {
+class EditRecipeViewController: UIViewController, UITableViewDelegate, UITableViewDataSource, UITextViewDelegate, UINavigationControllerDelegate {
     
     func numberOfSections(in tableView: UITableView) -> Int {
         return 11 // title , prep time, cook time, serving, ingredient header 1,2,3   list 1,2,3  directions
@@ -79,6 +79,8 @@ class EditRecipeViewController: UIViewController, UITableViewDelegate, UITableVi
     var originalRecipeHeader: RecipeHeader?
     var theCurrentDataSource: [[String]] = [[],[],[],[],[],[],[],[],[],[],[]]
     
+    let customBackButton = UIBarButtonItem(title: "Back", style: UIBarButtonItemStyle.done, target: self, action: nil)
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
@@ -96,12 +98,20 @@ class EditRecipeViewController: UIViewController, UITableViewDelegate, UITableVi
         
         // init the inital state of the dismiss keyboard bar btn
         hideKeyboardBarBtn.isEnabled = false
+        
+        // init the bacg bar btn
+        self.navigationItem.backBarButtonItem = customBackButton
+        self.navigationController?.delegate = self
     }
 
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         recipePropertiesTableView.reloadData()
+        
     }
+    
+    
+    
     
     /*
     func textViewDidEndEditing(_ textView: UITextView) {
