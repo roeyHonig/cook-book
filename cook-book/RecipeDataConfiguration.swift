@@ -160,8 +160,14 @@ func writeRecipeHeaderIntoSQLTableAPI(myRecipe: RecipeHeader, newAuthor: String 
         newTitle = "My"
     }
     
+    // TODO: basically every one of this strings need to be tacken care like the img for elimanating %, ? , =, & which can harm GET request
+    // TOOD: and also in the server sie they all need to be brought back
     var title = preperForSql(TheFollwingString: newTitle)
     var img = preperForSql(TheFollwingString: myRecipe.img)
+            img = elimanateTheFollowing(charcter: "%", fromTheString: img)
+            img = elimanateTheFollowing(charcter: "?", fromTheString: img)
+            img = elimanateTheFollowing(charcter: "=", fromTheString: img)
+            img = elimanateTheFollowing(charcter: "&", fromTheString: img)
     var recipeType = preperForSql(TheFollwingString: myRecipe.recipe_type)
     var prepTime = preperForSql(TheFollwingInt: myRecipe.prep_time)
     var cookTime = preperForSql(TheFollwingInt: myRecipe.cook_time)
@@ -253,8 +259,14 @@ func writeRevisedRecipeHeaderIntoSQLTableAPI(myRecipe: RecipeHeader, newAuthor: 
         newTitle = ""
     }
     
+    // TODO: basically every one of this strings need to be tacken care like the img for elimanating %, ? , =, & which can harm GET request
+    // TOOD: and also in the server sie they all need to be brought back
     var title = preperForSql(TheFollwingString: newTitle)
     var img = preperForSql(TheFollwingString: myRecipe.img)
+                img = elimanateTheFollowing(charcter: "%", fromTheString: img)
+                img = elimanateTheFollowing(charcter: "?", fromTheString: img)
+                img = elimanateTheFollowing(charcter: "=", fromTheString: img)
+                img = elimanateTheFollowing(charcter: "&", fromTheString: img)
     var recipeType = preperForSql(TheFollwingString: myRecipe.recipe_type)
     var prepTime = preperForSql(TheFollwingInt: myRecipe.prep_time)
     var cookTime = preperForSql(TheFollwingInt: myRecipe.cook_time)
