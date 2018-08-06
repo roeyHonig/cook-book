@@ -21,6 +21,12 @@ class RecipeDetailsViewController: UIViewController, UITableViewDelegate, UITabl
     
     var sender: Any?
     
+   
+    @IBOutlet var uploadingLabel: UILabel!
+    
+    
+    @IBOutlet var prograssBar: UIProgressView!
+    
     @IBOutlet var uploadingPicBlurView: UIVisualEffectView!
     
     
@@ -139,6 +145,8 @@ class RecipeDetailsViewController: UIViewController, UITableViewDelegate, UITabl
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
+        uploadingLabel.translatesAutoresizingMaskIntoConstraints = false // very important so our constraint will be respected
+        prograssBar.translatesAutoresizingMaskIntoConstraints = false // very important so our constraint will be respected
         uploadingPicBlurView.translatesAutoresizingMaskIntoConstraints = false // very important so our constraint will be respected
         imagePicker.delegate = self // assign the delegate to the image picker
         ingridentsTapGesture.addTarget(self, action: #selector(showIngridents))
@@ -626,23 +634,14 @@ class RecipeDetailsViewController: UIViewController, UITableViewDelegate, UITabl
         // setup metadata
         let uploadMetadata = StorageMetadata()
         
-        
-        // blur the background
+        // blur the background, show "uploading..."
         //--------------
-        self.view.addSubview(self.uploadingPicBlurView)
-        // constraints
-        let top = NSLayoutConstraint(item: self.uploadingPicBlurView, attribute: NSLayoutAttribute.top, relatedBy: .equal, toItem: self.backgroundImage, attribute: NSLayoutAttribute.top , multiplier: 1, constant: 0)
-        let bottom = NSLayoutConstraint(item: self.uploadingPicBlurView, attribute: NSLayoutAttribute.bottom, relatedBy: .equal, toItem: self.backgroundImage, attribute: NSLayoutAttribute.bottom , multiplier: 1, constant: 0)
-        let trailing = NSLayoutConstraint(item: self.uploadingPicBlurView, attribute: NSLayoutAttribute.trailing, relatedBy: .equal, toItem: self.backgroundImage, attribute: NSLayoutAttribute.trailing , multiplier: 1, constant: 0)
-        let leading = NSLayoutConstraint(item: self.uploadingPicBlurView, attribute: NSLayoutAttribute.leading, relatedBy: .equal, toItem: self.backgroundImage, attribute: NSLayoutAttribute.leading , multiplier: 1, constant: 0)
-        // assign the constraint to a coummon annssector
-        self.view.addConstraint(top)
-        self.view.addConstraint(bottom)
-        self.view.addConstraint(trailing)
-        self.view.addConstraint(leading)
-        
+        addBlurViewAsSubView()
+        addUploadingLabelViewAsSubView()
+        addPrograssBarViewAsSubView()
         self.uploadingPicBlurView.alpha = 0.9
         //--------------------
+        
         imgRef.putData(myData, metadata: uploadMetadata) { (myStorageMetadata, err) in
                 // uploade completed
                 if err != nil {
@@ -669,6 +668,8 @@ class RecipeDetailsViewController: UIViewController, UITableViewDelegate, UITabl
                                                         //----------
                                                         self.uploadingPicBlurView.alpha = 0
                                                         self.uploadingPicBlurView.removeFromSuperview()
+                                                        self.uploadingLabel.removeFromSuperview()
+                                                        self.prograssBar.removeFromSuperview()
                                                         //---------------
                                                         
                                                         guard let err = error else {
@@ -707,6 +708,48 @@ class RecipeDetailsViewController: UIViewController, UITableViewDelegate, UITabl
             
         }
      
+    }
+    
+    func addBlurViewAsSubView(){
+        self.view.addSubview(self.uploadingPicBlurView)
+        // constraints
+        let top = NSLayoutConstraint(item: self.uploadingPicBlurView, attribute: NSLayoutAttribute.top, relatedBy: .equal, toItem: self.backgroundImage, attribute: NSLayoutAttribute.top , multiplier: 1, constant: 0)
+        let bottom = NSLayoutConstraint(item: self.uploadingPicBlurView, attribute: NSLayoutAttribute.bottom, relatedBy: .equal, toItem: self.backgroundImage, attribute: NSLayoutAttribute.bottom , multiplier: 1, constant: 0)
+        let trailing = NSLayoutConstraint(item: self.uploadingPicBlurView, attribute: NSLayoutAttribute.trailing, relatedBy: .equal, toItem: self.backgroundImage, attribute: NSLayoutAttribute.trailing , multiplier: 1, constant: 0)
+        let leading = NSLayoutConstraint(item: self.uploadingPicBlurView, attribute: NSLayoutAttribute.leading, relatedBy: .equal, toItem: self.backgroundImage, attribute: NSLayoutAttribute.leading , multiplier: 1, constant: 0)
+        // assign the constraint to a coummon annssector
+        self.view.addConstraint(top)
+        self.view.addConstraint(bottom)
+        self.view.addConstraint(trailing)
+        self.view.addConstraint(leading)
+    }
+    
+    func addUploadingLabelViewAsSubView(){
+        self.view.addSubview(self.uploadingLabel)
+        // constraints
+        let top = NSLayoutConstraint(item: self.uploadingLabel, attribute: NSLayoutAttribute.centerX, relatedBy: .equal, toItem: self.backgroundImage, attribute: NSLayoutAttribute.centerX , multiplier: 1, constant: 0)
+        let bottom = NSLayoutConstraint(item: self.uploadingLabel, attribute: NSLayoutAttribute.centerY, relatedBy: .equal, toItem: self.backgroundImage, attribute: NSLayoutAttribute.centerY , multiplier: 1, constant: 0)
+        let trailing = NSLayoutConstraint(item: self.uploadingLabel, attribute: NSLayoutAttribute.trailing, relatedBy: .equal, toItem: self.backgroundImage, attribute: NSLayoutAttribute.trailing , multiplier: 1, constant: 0)
+        let leading = NSLayoutConstraint(item: self.uploadingLabel, attribute: NSLayoutAttribute.leading, relatedBy: .equal, toItem: self.backgroundImage, attribute: NSLayoutAttribute.leading , multiplier: 1, constant: 0)
+        // assign the constraint to a coummon annssector
+        self.view.addConstraint(top)
+        self.view.addConstraint(bottom)
+        self.view.addConstraint(trailing)
+        self.view.addConstraint(leading)
+    }
+    
+    func addPrograssBarViewAsSubView(){
+        self.view.addSubview(self.prograssBar)
+        // constraints
+        let top = NSLayoutConstraint(item: self.prograssBar, attribute: NSLayoutAttribute.top, relatedBy: .equal, toItem: self.uploadingLabel, attribute: NSLayoutAttribute.bottom , multiplier: 1, constant: 0)
+        //let bottom = NSLayoutConstraint(item: self.prograssBar, attribute: NSLayoutAttribute.bottom, relatedBy: .equal, toItem: self.backgroundImage, attribute: NSLayoutAttribute.bottom , multiplier: 1, constant: 0)
+        let trailing = NSLayoutConstraint(item: self.prograssBar, attribute: NSLayoutAttribute.trailing, relatedBy: .equal, toItem: self.backgroundImage, attribute: NSLayoutAttribute.trailing , multiplier: 1, constant: 0)
+        let leading = NSLayoutConstraint(item: self.prograssBar, attribute: NSLayoutAttribute.leading, relatedBy: .equal, toItem: self.backgroundImage, attribute: NSLayoutAttribute.leading , multiplier: 1, constant: 0)
+        // assign the constraint to a coummon annssector
+        self.view.addConstraint(top)
+        //self.view.addConstraint(bottom)
+        self.view.addConstraint(trailing)
+        self.view.addConstraint(leading)
     }
     
 

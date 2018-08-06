@@ -1184,6 +1184,7 @@
                         <outlet property="ingridentsiconImage" destination="jFD-H4-khW" id="3bj-Ds-Cpj"/>
                         <outlet property="positionConstraineForDeleteBtn" destination="ln3-9j-qr7" id="Dh2-Ry-fM7"/>
                         <outlet property="prepTimeLabel" destination="f8R-4v-Pmd" id="ZYd-bv-9Og"/>
+                        <outlet property="prograssBar" destination="xgg-6T-Hgj" id="TzN-ea-BJS"/>
                         <outlet property="recipeHeaderView" destination="eeJ-fZ-PBc" id="xxR-uL-AkB"/>
                         <outlet property="replacePhotoBtn" destination="gdU-bO-MdF" id="pjP-R7-0Uj"/>
                         <outlet property="servingLabel" destination="zTe-Bv-YIf" id="jCY-Ic-TC1"/>
@@ -1192,6 +1193,7 @@
                         <outlet property="sliderControllerBtnTapGesture" destination="E7p-aC-SQW" id="nOI-RE-Uci"/>
                         <outlet property="sliderIconImage" destination="HWc-1N-es3" id="Uju-pT-vbA"/>
                         <outlet property="sliderPosition" destination="qyp-am-Oqx" id="Dnr-v3-eoB"/>
+                        <outlet property="uploadingLabel" destination="g60-EM-nJc" id="fAW-ji-QGZ"/>
                         <outlet property="uploadingPicBlurView" destination="XgE-Ud-BO3" id="uFN-G8-RMQ"/>
                     </connections>
                 </viewController>
@@ -1240,6 +1242,17 @@
                     </prototypes>
                 </tableView>
                 <tapGestureRecognizer id="r1J-bL-88c"/>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Uploading..." textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="g60-EM-nJc">
+                    <rect key="frame" x="0.0" y="0.0" width="42" height="21"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                    <nil key="textColor"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <progressView opaque="NO" contentMode="scaleToFill" verticalHuggingPriority="750" progress="0.5" id="xgg-6T-Hgj">
+                    <rect key="frame" x="0.0" y="0.0" width="150" height="2"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                </progressView>
                 <visualEffectView opaque="NO" alpha="0.0" contentMode="scaleToFill" id="XgE-Ud-BO3">
                     <rect key="frame" x="0.0" y="0.0" width="375" height="554"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
