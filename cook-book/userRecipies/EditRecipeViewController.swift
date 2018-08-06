@@ -94,7 +94,8 @@ class EditRecipeViewController: UIViewController, UITableViewDelegate, UITableVi
             }
         }
         
-        
+        // init the inital state of the dismiss keyboard bar btn
+        hideKeyboardBarBtn.isEnabled = false
     }
 
     override func viewWillAppear(_ animated: Bool) {
