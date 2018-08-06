@@ -148,6 +148,11 @@ class RecipeDetailsViewController: UIViewController, UITableViewDelegate, UITabl
         uploadingLabel.translatesAutoresizingMaskIntoConstraints = false // very important so our constraint will be respected
         prograssBar.translatesAutoresizingMaskIntoConstraints = false // very important so our constraint will be respected
         uploadingPicBlurView.translatesAutoresizingMaskIntoConstraints = false // very important so our constraint will be respected
+        
+        prograssBar.trackTintColor = UIColor.lightGray
+        prograssBar.tintColor = UIColor.blue
+        uploadingLabel.textColor = UIColor.blue
+        
         imagePicker.delegate = self // assign the delegate to the image picker
         ingridentsTapGesture.addTarget(self, action: #selector(showIngridents))
         ingridentsBtnView.addGestureRecognizer(ingridentsTapGesture)
