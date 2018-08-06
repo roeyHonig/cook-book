@@ -1192,6 +1192,7 @@
                         <outlet property="sliderControllerBtnTapGesture" destination="E7p-aC-SQW" id="nOI-RE-Uci"/>
                         <outlet property="sliderIconImage" destination="HWc-1N-es3" id="Uju-pT-vbA"/>
                         <outlet property="sliderPosition" destination="qyp-am-Oqx" id="Dnr-v3-eoB"/>
+                        <outlet property="uploadingPicBlurView" destination="XgE-Ud-BO3" id="uFN-G8-RMQ"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="253-MQ-322" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -1239,11 +1240,20 @@
                     </prototypes>
                 </tableView>
                 <tapGestureRecognizer id="r1J-bL-88c"/>
+                <visualEffectView opaque="NO" alpha="0.0" contentMode="scaleToFill" id="XgE-Ud-BO3">
+                    <rect key="frame" x="0.0" y="0.0" width="375" height="554"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                    <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="Obz-uS-TZ4">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="554"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                    </view>
+                    <blurEffect style="light"/>
+                </visualEffectView>
                 <tapGestureRecognizer id="5Cd-oZ-bCS"/>
                 <tapGestureRecognizer id="E7p-aC-SQW"/>
                 <tapGestureRecognizer id="CJr-Bk-JsK"/>
             </objects>
-            <point key="canvasLocation" x="-2014" y="956"/>
+            <point key="canvasLocation" x="-2015.2" y="955.77211394302856"/>
         </scene>
         <!--Edit Recipe-->
         <scene sceneID="hjK-37-S4i">

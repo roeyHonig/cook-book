@@ -21,6 +21,9 @@ class RecipeDetailsViewController: UIViewController, UITableViewDelegate, UITabl
     
     var sender: Any?
     
+    @IBOutlet var uploadingPicBlurView: UIVisualEffectView!
+    
+    
     @IBOutlet var replacePhotoBtn: UIButton!
     
     @IBAction func replacePhoto(_ sender: UIButton) {
@@ -136,6 +139,7 @@ class RecipeDetailsViewController: UIViewController, UITableViewDelegate, UITabl
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
+        uploadingPicBlurView.translatesAutoresizingMaskIntoConstraints = false // very important so our constraint will be respected
         imagePicker.delegate = self // assign the delegate to the image picker
         ingridentsTapGesture.addTarget(self, action: #selector(showIngridents))
         ingridentsBtnView.addGestureRecognizer(ingridentsTapGesture)
@@ -621,6 +625,24 @@ class RecipeDetailsViewController: UIViewController, UITableViewDelegate, UITabl
         var imgRef = storageRef.child(folderName+"/"+fileName+".jpg")
         // setup metadata
         let uploadMetadata = StorageMetadata()
+        
+        
+        // blur the background
+        //--------------
+        self.view.addSubview(self.uploadingPicBlurView)
+        // constraints
+        let top = NSLayoutConstraint(item: self.uploadingPicBlurView, attribute: NSLayoutAttribute.top, relatedBy: .equal, toItem: self.backgroundImage, attribute: NSLayoutAttribute.top , multiplier: 1, constant: 0)
+        let bottom = NSLayoutConstraint(item: self.uploadingPicBlurView, attribute: NSLayoutAttribute.bottom, relatedBy: .equal, toItem: self.backgroundImage, attribute: NSLayoutAttribute.bottom , multiplier: 1, constant: 0)
+        let trailing = NSLayoutConstraint(item: self.uploadingPicBlurView, attribute: NSLayoutAttribute.trailing, relatedBy: .equal, toItem: self.backgroundImage, attribute: NSLayoutAttribute.trailing , multiplier: 1, constant: 0)
+        let leading = NSLayoutConstraint(item: self.uploadingPicBlurView, attribute: NSLayoutAttribute.leading, relatedBy: .equal, toItem: self.backgroundImage, attribute: NSLayoutAttribute.leading , multiplier: 1, constant: 0)
+        // assign the constraint to a coummon annssector
+        self.view.addConstraint(top)
+        self.view.addConstraint(bottom)
+        self.view.addConstraint(trailing)
+        self.view.addConstraint(leading)
+        
+        self.uploadingPicBlurView.alpha = 0.9
+        //--------------------
         imgRef.putData(myData, metadata: uploadMetadata) { (myStorageMetadata, err) in
                 // uploade completed
                 if err != nil {
@@ -635,6 +657,7 @@ class RecipeDetailsViewController: UIViewController, UITableViewDelegate, UITabl
                                     print("here is the img url:")
                                     print(url!.absoluteString)
                                 
+                                
                                     UpdateTheImgRecordInTheSQLTableAPI(id: -self.recipeHeader!.id, urlString: url!.absoluteString, callback: { (err, myServerResponse) in
                                         if myServerResponse.rowCount == nil {
                                             self.showAlertDialog(withMassage: "Ooops, something went wrong :(")
@@ -642,6 +665,12 @@ class RecipeDetailsViewController: UIViewController, UITableViewDelegate, UITabl
                                                     // everything went ok, now we can finally load the new image using the SDWebImage, next time the app loads it will be automatically
                                                     self.backgroundImage.sd_setImage(with: URL(string: url!.absoluteString), completed: {
                                                         (uiImage, error, sdimagecatchtype, url) in
+                                                        // relase back the blur background
+                                                        //----------
+                                                        self.uploadingPicBlurView.alpha = 0
+                                                        self.uploadingPicBlurView.removeFromSuperview()
+                                                        //---------------
+                                                        
                                                         guard let err = error else {
                                                             return
                                                         }
