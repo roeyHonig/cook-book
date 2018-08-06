@@ -648,6 +648,13 @@ class RecipeDetailsViewController: UIViewController, UITableViewDelegate, UITabl
                                                         print("error error loading picture: \(err)")
                                                         self.backgroundImage.image = #imageLiteral(resourceName: "icons8-cooking_pot_filled")
                                                     })
+                                                    // let's also auto refresh the collection View
+                                                    for vc in self.navigationController!.viewControllers {
+                                                        if vc is RecipiesViewController {
+                                                           let collectionViewController = vc as! RecipiesViewController
+                                                            collectionViewController.refrashData()
+                                                        }
+                                                    }
                                         }
                                     })
                         
