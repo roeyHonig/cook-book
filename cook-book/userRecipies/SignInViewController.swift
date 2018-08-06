@@ -19,6 +19,8 @@ import FBSDKLoginKit
 
 class SignInViewController: UIViewController, GIDSignInUIDelegate, FBSDKLoginButtonDelegate {
     
+    @IBOutlet var propmtLabel: UILabel!
+    
     @IBOutlet var googleCustomBtnTitle: UILabel!
     @IBOutlet var googleCustomBtnSubTtile: UILabel!
 
@@ -87,11 +89,12 @@ class SignInViewController: UIViewController, GIDSignInUIDelegate, FBSDKLoginBut
         super.viewDidLoad()
         // Do any additional setup after loading the view.
         
-        //set customBtn's font size
+        //set customBtn's and prompt label font size
         googleCustomBtnTitle.adjustsFontSizeToFitWidth = true
         googleCustomBtnSubTtile.adjustsFontSizeToFitWidth = true
         FBCustomBtnTitle.adjustsFontSizeToFitWidth = true
         FBCustomBtnSubTitle.adjustsFontSizeToFitWidth = true
+        propmtLabel.adjustsFontSizeToFitWidth = true
         
         // set image
         
