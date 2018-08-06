@@ -28,12 +28,17 @@ class RecipePropertiesTableViewCell: UITableViewCell , UITextViewDelegate{
     }
 
     
+    func textViewDidBeginEditing(_ textView: UITextView) {
+        parentView.hideKeyboardBarBtn.isEnabled = true
+        
+    }
     
     func textViewDidEndEditing(_ textView: UITextView) {
         //print(textView.text)
         //print("for section: \(mySection) and row: \(myRow)")
         parentView.theCurrentDataSource[mySection][myRow] = textView.text
         print(parentView.theCurrentDataSource)
+        parentView.hideKeyboardBarBtn.isEnabled = false
     }
     
     override func setSelected(_ selected: Bool, animated: Bool) {

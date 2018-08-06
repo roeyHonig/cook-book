@@ -64,7 +64,8 @@ class EditRecipeViewController: UIViewController, UITableViewDelegate, UITableVi
         return cell
     }
     
-   
+    @IBOutlet var hideKeyboardBarBtn: UIBarButtonItem!
+    
     @IBAction func hideKeyboard(_ sender: UIBarButtonItem) {
         hideTheKeyboard(inView: view)
     }
