@@ -151,7 +151,7 @@ class EditRecipeViewController: UIViewController, UITableViewDelegate, UITableVi
         let list1 :[String]? = (theCurrentDataSource[7].count > 0 ? theCurrentDataSource[7] : nil)
         let list2 :[String]? = (theCurrentDataSource[8].count > 0 ? theCurrentDataSource[8] : nil)
         let list3 :[String]? = (theCurrentDataSource[9].count > 0 ? theCurrentDataSource[9] : nil)
-        let directions: String? = (theCurrentDataSource[10][0] != "" ? theCurrentDataSource[6][0] : nil)
+        let directions: String? = (theCurrentDataSource[10][0] != "" ? theCurrentDataSource[10][0] : nil)
         var newRevisedRecipe = RecipeHeader(id: id, title: title, img: img, recipe_type: recipe_type, prep_time: prep_time, cook_time: cook_time, serving: serving, author: author, ingredient_header1: ingredient_header1, ingredient_header2: ingredient_header2, ingredient_header3: ingredient_header3, list1: list1, list2: list2, list3: list3, directions: directions)
         newRevisedRecipe.user_recipe = true
         

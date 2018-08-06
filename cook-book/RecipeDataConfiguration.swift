@@ -278,7 +278,7 @@ func writeRevisedRecipeHeaderIntoSQLTableAPI(myRecipe: RecipeHeader, newAuthor: 
     var list1 = preperForSql(TheFollwingStringArray: myRecipe.list1)
     var list2 = preperForSql(TheFollwingStringArray: myRecipe.list2)
     var list3 = preperForSql(TheFollwingStringArray: myRecipe.list3)
-    var directions = preperForSql(TheFollwingString: myRecipe.directions)
+    var directions = preperForSqlFromTextView(TheFollwingString: myRecipe.directions)
     
     
     // TODO: change the api to the new                      insertRecipeStrings1   // insertRecipeStrings1
@@ -310,6 +310,7 @@ func writeRevisedRecipeHeaderIntoSQLTableAPI(myRecipe: RecipeHeader, newAuthor: 
     } else {
         nonOptionalApiUrl = URL(string: "https://enigmatic-oasis-37206.herokuapp.com/insertRecipeStrings1?title=My")!
         recipeyDetailsResultInInvalidURL = true
+        print("yes thers's a problem")
     }
     
     
@@ -430,6 +431,13 @@ func elimanateLineBreakes(fromTheFollowingString str: String) -> String {
     return components.joined(separator: "newLine")
 }
 
+func elimanateLineBreakesInTextViewString(fromTheFollowingString str: String) -> String {
+    let stringToReturn = str.replacingOccurrences(of: "\r\n", with: "newLine")
+    //let components = str.components(separatedBy: "\n")
+    //return components.joined(separator: "newLine")
+    return stringToReturn
+}
+
 func elimanateWhiteSpaces(fromTheFollowingString aString: String) -> String {
     let newString = aString.replacingOccurrences(of: " ", with: "whiteSpace")
     return newString
@@ -481,6 +489,15 @@ func preperForSql(TheFollwingString str: String?) -> String {
     }
 
     let stringToReturn = "'" + elimanateWhiteSpaces(fromTheFollowingString: elimanateLineBreakes(fromTheFollowingString: str1)) + "'"
+    return stringToReturn
+}
+
+func preperForSqlFromTextView(TheFollwingString str: String?) -> String {
+    guard let str1 = str else {
+        return "null"
+    }
+    
+    let stringToReturn = "'" + elimanateWhiteSpaces(fromTheFollowingString: elimanateLineBreakesInTextViewString(fromTheFollowingString: str1)) + "'"
     return stringToReturn
 }
 
