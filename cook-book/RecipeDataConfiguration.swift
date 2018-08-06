@@ -366,7 +366,15 @@ func UpdateTheImgRecordInTheSQLTableAPI(id: Int, urlString: String ,callback: @e
     myUpdateTableRecordDataTask?.cancel() // cancel any previus tasks
     var apiAddress: String
     // https://enigmatic-oasis-37206.herokuapp.com/updateRecord?id=5&newValue=newUrlValue
-    apiAddress = "https://enigmatic-oasis-37206.herokuapp.com/updateRecord?id=\(id)&newValue=\(urlString)"
+    var prepereForGetRequestUrlString = urlString
+    prepereForGetRequestUrlString = elimanateTheFollowing(charcter: "%", fromTheString: prepereForGetRequestUrlString)
+    prepereForGetRequestUrlString = elimanateTheFollowing(charcter: "?", fromTheString: prepereForGetRequestUrlString)
+    prepereForGetRequestUrlString = elimanateTheFollowing(charcter: "=", fromTheString: prepereForGetRequestUrlString)
+    prepereForGetRequestUrlString = elimanateTheFollowing(charcter: "&", fromTheString: prepereForGetRequestUrlString)
+    
+    apiAddress = "https://enigmatic-oasis-37206.herokuapp.com/updateRecord?id=\(id)&newValue=\(prepereForGetRequestUrlString)"
+    print("The apiadress is:")
+    print(apiAddress)
     let apiUrl = URL(string: apiAddress)! // this time we're not affraid, because the url will allways be valid, it's very simple as you can see abouve
     
     myUpdateTableRecordDataTask = session.dataTask(with: apiUrl) { (data, res, err) in
@@ -384,6 +392,25 @@ func UpdateTheImgRecordInTheSQLTableAPI(id: Int, urlString: String ,callback: @e
     
     myUpdateTableRecordDataTask?.resume()
     
+}
+
+func elimanateTheFollowing(charcter c: String, fromTheString s: String) -> String {
+    var replacment = ""
+    switch c {
+    case "%":
+        replacment = "pctSign"
+    case "?":
+        replacment = "qmSign"
+    case "=":
+        replacment = "eqSign"
+    case "&":
+        replacment = "andSign"
+    default:
+        return ""
+    }
+    
+    let newString = s.replacingOccurrences(of: c, with: replacment)
+    return newString
 }
 
 func elimanateLineBreakes(fromTheFollowingString str: String) -> String {
