@@ -10,7 +10,7 @@
 
 
 
-// TODO: design the edit screen getting there a comment
+
 
 import UIKit
 import CoreData
