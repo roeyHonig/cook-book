@@ -170,7 +170,9 @@ class EditRecipeViewController: UIViewController, UITableViewDelegate, UITableVi
                 } else {
                     print("i think we wrote it")
                     // TODO: sucess alert dialog
-                    self.showAlertDialog(withMassage: "Recipe added to your pesonal section :)")
+                    //self.showAlertDialog(withMassage: "Recipe added to your pesonal section :)")
+                    self.showAlertDialogOfSucessInsertingRecipe(withMassage: "Recipe added to your pesonal section :)")
+                    
                 }
             }
             
@@ -178,8 +180,7 @@ class EditRecipeViewController: UIViewController, UITableViewDelegate, UITableVi
         
         
         
-        // refresh the recipe collection VC by invoking its refresh function
-        // pop both view controllers - might need app delegate for that
+        
     }
     
     func titleOfSection(forIndex i: Int) -> String? {
@@ -304,6 +305,25 @@ class EditRecipeViewController: UIViewController, UITableViewDelegate, UITableVi
     func showAlertDialog(withMassage str: String) {
         let alertController = UIAlertController(title: nil, message: str, preferredStyle: UIAlertControllerStyle.alert)
         let confirmAction = UIAlertAction(title: "Ok", style: .default, handler: nil)
+        alertController.addAction(confirmAction)
+        self.present(alertController, animated: true)
+    }
+    
+    func showAlertDialogOfSucessInsertingRecipe(withMassage str: String) {
+        let alertController = UIAlertController(title: nil, message: str, preferredStyle: UIAlertControllerStyle.alert)
+        //let confirmAction = UIAlertAction(title: "Ok", style: .default, handler: nil)
+        let confirmAction = UIAlertAction(title: "Ok", style: .default) { (uiAlertAction) in
+            // refresh the recipe collection VC by invoking its refresh function
+            // pop both view controllers - might need app delegate for that
+            var collectionOfRecipies: RecipiesViewController?
+            for vc in self.navigationController!.viewControllers {
+                if vc is RecipiesViewController {
+                    collectionOfRecipies = vc as! RecipiesViewController
+                    collectionOfRecipies!.refrashData()
+                    self.navigationController!.popToViewController(collectionOfRecipies!, animated: true)
+                }
+            }
+        }
         alertController.addAction(confirmAction)
         self.present(alertController, animated: true)
     }
