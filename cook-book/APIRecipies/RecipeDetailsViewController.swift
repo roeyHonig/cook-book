@@ -648,49 +648,7 @@ class RecipeDetailsViewController: UIViewController, UITableViewDelegate, UITabl
                     print("I recived an error! \(err!.localizedDescription)")
                 } else {
                         print("upload complete, here is some metadata! \(myStorageMetadata)")
-                    
-                        imgRef.downloadURL(completion: { (url, err) in
-                            if err != nil {
-                                print("oops we have a problem")
-                            } else {
-                                    print("here is the img url:")
-                                    print(url!.absoluteString)
-                                
-                                
-                                    UpdateTheImgRecordInTheSQLTableAPI(id: -self.recipeHeader!.id, urlString: url!.absoluteString, callback: { (err, myServerResponse) in
-                                        if myServerResponse.rowCount == nil {
-                                            self.showAlertDialog(withMassage: "Ooops, something went wrong :(")
-                                        } else {
-                                                    // everything went ok, now we can finally load the new image using the SDWebImage, next time the app loads it will be automatically
-                                                    self.backgroundImage.sd_setImage(with: URL(string: url!.absoluteString), completed: {
-                                                        (uiImage, error, sdimagecatchtype, url) in
-                                                        // relase back the blur background
-                                                        //----------
-                                                        self.uploadingPicBlurView.alpha = 0
-                                                        self.uploadingPicBlurView.removeFromSuperview()
-                                                        self.uploadingLabel.removeFromSuperview()
-                                                        self.prograssBar.removeFromSuperview()
-                                                        //---------------
-                                                        
-                                                        guard let err = error else {
-                                                            return
-                                                        }
-                                                        print("error error loading picture: \(err)")
-                                                        self.backgroundImage.image = #imageLiteral(resourceName: "icons8-cooking_pot_filled")
-                                                    })
-                                                    // let's also auto refresh the collection View
-                                                    for vc in self.navigationController!.viewControllers {
-                                                        if vc is RecipiesViewController {
-                                                           let collectionViewController = vc as! RecipiesViewController
-                                                            collectionViewController.refrashData()
-                                                        }
-                                                    }
-                                        }
-                                    })
-                        
-                                
-                            }
-                        })
+                        self.downloadTheNewUploadedPicURLAndPutItIntoTheSQLTable(downloadFromTheFollowinfStorageRefference: imgRef)
                 }
         }
     }
@@ -743,8 +701,8 @@ class RecipeDetailsViewController: UIViewController, UITableViewDelegate, UITabl
         // constraints
         let top = NSLayoutConstraint(item: self.prograssBar, attribute: NSLayoutAttribute.top, relatedBy: .equal, toItem: self.uploadingLabel, attribute: NSLayoutAttribute.bottom , multiplier: 1, constant: 0)
         //let bottom = NSLayoutConstraint(item: self.prograssBar, attribute: NSLayoutAttribute.bottom, relatedBy: .equal, toItem: self.backgroundImage, attribute: NSLayoutAttribute.bottom , multiplier: 1, constant: 0)
-        let trailing = NSLayoutConstraint(item: self.prograssBar, attribute: NSLayoutAttribute.trailing, relatedBy: .equal, toItem: self.backgroundImage, attribute: NSLayoutAttribute.trailing , multiplier: 1, constant: 0)
-        let leading = NSLayoutConstraint(item: self.prograssBar, attribute: NSLayoutAttribute.leading, relatedBy: .equal, toItem: self.backgroundImage, attribute: NSLayoutAttribute.leading , multiplier: 1, constant: 0)
+        let trailing = NSLayoutConstraint(item: self.prograssBar, attribute: NSLayoutAttribute.trailing, relatedBy: .equal, toItem: self.backgroundImage, attribute: NSLayoutAttribute.trailing , multiplier: 1, constant: -8)
+        let leading = NSLayoutConstraint(item: self.prograssBar, attribute: NSLayoutAttribute.leading, relatedBy: .equal, toItem: self.backgroundImage, attribute: NSLayoutAttribute.leading , multiplier: 1, constant: 8)
         // assign the constraint to a coummon annssector
         self.view.addConstraint(top)
         //self.view.addConstraint(bottom)
@@ -752,5 +710,48 @@ class RecipeDetailsViewController: UIViewController, UITableViewDelegate, UITabl
         self.view.addConstraint(leading)
     }
     
+    func putTheNewUploadedPicIntoOurSQLTable(picOnlinePathLocation url: URL?) {
+        UpdateTheImgRecordInTheSQLTableAPI(id: -self.recipeHeader!.id, urlString: url!.absoluteString, callback: { (err, myServerResponse) in
+            if myServerResponse.rowCount == nil {
+                self.showAlertDialog(withMassage: "Ooops, something went wrong :(")
+            } else {
+                // everything went ok, now we can finally load the new image using the SDWebImage, next time the app loads it will be automatically
+                self.backgroundImage.sd_setImage(with: URL(string: url!.absoluteString), completed: {
+                    (uiImage, error, sdimagecatchtype, url) in
+                    // relase back the blur background
+                    //----------
+                    self.uploadingPicBlurView.alpha = 0
+                    self.uploadingPicBlurView.removeFromSuperview()
+                    self.uploadingLabel.removeFromSuperview()
+                    self.prograssBar.removeFromSuperview()
+                    //---------------
+                    
+                    guard let err = error else {
+                        return
+                    }
+                    print("error error loading picture: \(err)")
+                    self.backgroundImage.image = #imageLiteral(resourceName: "icons8-cooking_pot_filled")
+                })
+                // let's also auto refresh the collection View
+                for vc in self.navigationController!.viewControllers {
+                    if vc is RecipiesViewController {
+                        let collectionViewController = vc as! RecipiesViewController
+                        collectionViewController.refrashData()
+                    }
+                }
+            }
+        })
+    }
+    
+    func downloadTheNewUploadedPicURLAndPutItIntoTheSQLTable(downloadFromTheFollowinfStorageRefference imgRef: StorageReference){
+        imgRef.downloadURL(completion: { (url, err) in
+            if err != nil {
+                print("oops we have a problem")
+            } else {
+                self.putTheNewUploadedPicIntoOurSQLTable(picOnlinePathLocation: url)
+                
+            }
+        })
+    }
 
 }
