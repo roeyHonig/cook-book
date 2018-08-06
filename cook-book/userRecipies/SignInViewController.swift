@@ -18,6 +18,14 @@ import FBSDKLoginKit
 
 
 class SignInViewController: UIViewController, GIDSignInUIDelegate, FBSDKLoginButtonDelegate {
+    
+    @IBOutlet var googleCustomBtnTitle: UILabel!
+    @IBOutlet var googleCustomBtnSubTtile: UILabel!
+
+    @IBOutlet var FBCustomBtnTitle: UILabel!
+    @IBOutlet var FBCustomBtnSubTitle: UILabel!
+    
+    
     @IBOutlet weak var customGoogleButtonIconImage: UIImageView!
     func loginButton(_ loginButton: FBSDKLoginButton!, didCompleteWith result: FBSDKLoginManagerLoginResult!, error: Error!) {
         if let error = error {
@@ -78,6 +86,13 @@ class SignInViewController: UIViewController, GIDSignInUIDelegate, FBSDKLoginBut
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
+        
+        //set customBtn's font size
+        googleCustomBtnTitle.adjustsFontSizeToFitWidth = true
+        googleCustomBtnSubTtile.adjustsFontSizeToFitWidth = true
+        FBCustomBtnTitle.adjustsFontSizeToFitWidth = true
+        FBCustomBtnSubTitle.adjustsFontSizeToFitWidth = true
+        
         // set image
         
         sketchImgView.sd_setImage(with: URL(string: "https://cdn.pixabay.com/photo/2012/04/11/18/07/chef-29205_960_720.png"), completed: nil)
