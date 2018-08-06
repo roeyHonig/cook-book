@@ -640,9 +640,10 @@ class RecipeDetailsViewController: UIViewController, UITableViewDelegate, UITabl
         addUploadingLabelViewAsSubView()
         addPrograssBarViewAsSubView()
         self.uploadingPicBlurView.alpha = 0.9
+        self.prograssBar.progress = 0
         //--------------------
         
-        imgRef.putData(myData, metadata: uploadMetadata) { (myStorageMetadata, err) in
+        let uploadTsk = imgRef.putData(myData, metadata: uploadMetadata) { (myStorageMetadata, err) in
                 // uploade completed
                 if err != nil {
                     print("I recived an error! \(err!.localizedDescription)")
@@ -650,6 +651,11 @@ class RecipeDetailsViewController: UIViewController, UITableViewDelegate, UITabl
                         print("upload complete, here is some metadata! \(myStorageMetadata)")
                         self.downloadTheNewUploadedPicURLAndPutItIntoTheSQLTable(downloadFromTheFollowinfStorageRefference: imgRef)
                 }
+        }
+        // update the prograss Bar
+        uploadTsk.observe(.progress) { (snapShot) in
+            guard let prograss = snapShot.progress else {return}
+            self.prograssBar.progress = Float(prograss.fractionCompleted)
         }
     }
 
