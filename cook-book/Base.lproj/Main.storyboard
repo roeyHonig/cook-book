@@ -1338,6 +1338,7 @@
                     <connections>
                         <outlet property="hideKeyboardBarBtn" destination="lWf-Mi-qIb" id="v3z-Yj-8WK"/>
                         <outlet property="recipePropertiesTableView" destination="5PL-S4-mWO" id="8Gk-iP-QlY"/>
+                        <outlet property="tableViewBottomConstraint" destination="MfK-4Z-9lR" id="PlD-7w-FvR"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="hkv-iy-ftP" userLabel="First Responder" sceneMemberID="firstResponder"/>

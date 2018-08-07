@@ -28,6 +28,7 @@ class RecipePropertiesTableViewCell: UITableViewCell , UITextViewDelegate{
     }
 
     
+    
     func textViewDidBeginEditing(_ textView: UITextView) {
         parentView.hideKeyboardBarBtn.isEnabled = true
         

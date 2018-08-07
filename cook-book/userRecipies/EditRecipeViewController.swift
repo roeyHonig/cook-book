@@ -10,6 +10,12 @@ import UIKit
 
 class EditRecipeViewController: UIViewController, UITableViewDelegate, UITableViewDataSource, UITextViewDelegate, UINavigationControllerDelegate {
     
+    
+    @IBOutlet var tableViewBottomConstraint: NSLayoutConstraint!
+    let center = NotificationCenter.default
+    
+    
+    
     func numberOfSections(in tableView: UITableView) -> Int {
         return 11 // title , prep time, cook time, serving, ingredient header 1,2,3   list 1,2,3  directions
     }
@@ -102,8 +108,20 @@ class EditRecipeViewController: UIViewController, UITableViewDelegate, UITableVi
         // init the bacg bar btn
         self.navigationItem.backBarButtonItem = customBackButton
         self.navigationController?.delegate = self
+        
+        // init observer for keyboard appearnce
+        center.addObserver(self, selector: #selector(keyboardWillBeShown(note:)), name: NSNotification.Name.UIKeyboardWillShow, object: nil)
+        center.addObserver(self, selector: #selector(keyboardWillBeHidden(note:)), name: NSNotification.Name.UIKeyboardWillHide, object: nil)
     }
 
+    @objc func keyboardWillBeShown(note: Notification) {
+        print("keyboard is coming")
+    }
+    
+    @objc func keyboardWillBeHidden(note: Notification) {
+        print("keyboard is finishing")
+    }
+    
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         recipePropertiesTableView.reloadData()
