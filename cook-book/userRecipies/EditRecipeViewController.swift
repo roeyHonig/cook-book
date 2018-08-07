@@ -347,9 +347,11 @@ class EditRecipeViewController: UIViewController, UITableViewDelegate, UITableVi
                 }
                 
                 for v in theCurrentDataSource[i][j].unicodeScalars {
+                    if i == 10 && j == 0 {print(v.value)}
                     //print(v.value)
                     if v.value == 8220 || v.value == 8221 || v.value == 8216 || v.value == 8217 {
                         invalidCharctersFound = true
+                        
                     }
                 }
             }

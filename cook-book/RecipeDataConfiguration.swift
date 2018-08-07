@@ -432,7 +432,9 @@ func elimanateLineBreakes(fromTheFollowingString str: String) -> String {
 }
 
 func elimanateLineBreakesInTextViewString(fromTheFollowingString str: String) -> String {
-    let stringToReturn = str.replacingOccurrences(of: "\r\n", with: "newLine")
+    let chackStr: String = String(Character(UnicodeScalar(13)))
+    let stringToReturn = str.replacingOccurrences(of: chackStr, with: "newLine")
+    
     //let components = str.components(separatedBy: "\n")
     //return components.joined(separator: "newLine")
     return stringToReturn
