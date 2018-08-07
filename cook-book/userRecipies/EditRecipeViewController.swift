@@ -131,7 +131,17 @@ class EditRecipeViewController: UIViewController, UITableViewDelegate, UITableVi
     }
     
     
-    
+    func navigationController(_ navigationController: UINavigationController, willShow viewController: UIViewController, animated: Bool) {
+        if viewController is EditRecipeViewController  {
+            let font = UIFont(name: "Helvetica", size: 36)! // TODO: it might be wise to provide some fallback fonts in case not all devices carry this
+            navigationController.navigationBar.titleTextAttributes = [ NSAttributedStringKey.font: font]
+            
+        } else if viewController is RecipeDetailsViewController {
+            let font = UIFont(name: "Helvetica", size: 12)! // TODO: it might be wise to provide some fallback fonts in case not all devices carry this
+            navigationController.navigationBar.titleTextAttributes = [ NSAttributedStringKey.font: font]
+        }
+        
+    }
     
     /*
     func textViewDidEndEditing(_ textView: UITextView) {

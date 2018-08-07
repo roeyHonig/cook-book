@@ -174,7 +174,7 @@ class RecipiesViewController: UIViewController, UICollectionViewDelegate, UIColl
         self.recipiesCollection.reloadData()
        
         // how many db results do we want and freom where to count them
-        let limit = 3
+        let limit = 8
         var offset = 0
         if let temp = self.recipHeaderApi {
             offset = temp.rows.count
