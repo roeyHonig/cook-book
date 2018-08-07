@@ -112,6 +112,8 @@ class EditRecipeViewController: UIViewController, UITableViewDelegate, UITableVi
         // init observer for keyboard appearnce
         center.addObserver(self, selector: #selector(keyboardWillBeShown(note:)), name: NSNotification.Name.UIKeyboardWillShow, object: nil)
         center.addObserver(self, selector: #selector(keyboardWillBeHidden(note:)), name: NSNotification.Name.UIKeyboardWillHide, object: nil)
+        // TODO: follow: https://medium.com/@shenghuawu/observe-ios-keyboard-notifications-a49323813656
+        // TOOD: follow: https://stackoverflow.com/questions/25428997/keyboard-overlaps-text-view
     }
 
     @objc func keyboardWillBeShown(note: Notification) {
