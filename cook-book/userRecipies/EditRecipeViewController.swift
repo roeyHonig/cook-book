@@ -118,10 +118,18 @@ class EditRecipeViewController: UIViewController, UITableViewDelegate, UITableVi
 
     @objc func keyboardWillBeShown(note: Notification) {
         print("keyboard is coming")
+        let userInfo = note.userInfo
+        let keyboardFrame = userInfo?[UIKeyboardFrameEndUserInfoKey] as! CGRect
+        let keyboardHeight = keyboardFrame.height
+        print("keyboardHeigt is: \(keyboardHeight)")
+        tableViewBottomConstraint.constant = -keyboardHeight
+        view.layoutIfNeeded()
     }
     
     @objc func keyboardWillBeHidden(note: Notification) {
         print("keyboard is finishing")
+        tableViewBottomConstraint.constant = 0
+        view.layoutIfNeeded()
     }
     
     override func viewWillAppear(_ animated: Bool) {
