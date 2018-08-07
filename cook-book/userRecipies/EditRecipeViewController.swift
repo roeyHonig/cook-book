@@ -193,17 +193,7 @@ class EditRecipeViewController: UIViewController, UITableViewDelegate, UITableVi
         var newRevisedRecipe = RecipeHeader(id: id, title: title, img: img, recipe_type: recipe_type, prep_time: prep_time, cook_time: cook_time, serving: serving, author: author, ingredient_header1: ingredient_header1, ingredient_header2: ingredient_header2, ingredient_header3: ingredient_header3, list1: list1, list2: list2, list3: list3, directions: directions)
         newRevisedRecipe.user_recipe = true
         
-        // delete the old recipe based on it's id , invoke the delete function used in the previus viewController
-        // TODO: should also mind regrading removing from favirites if in there
-        DeleteRecipeHeaderFromSQLTableAPI(id: -newRevisedRecipe.id){() in
-            print("callback")
-            // refresh the collection View
-            for vc in self.navigationController!.viewControllers {
-                if vc is RecipiesViewController {
-                    let collectionOfRecipies = vc as! RecipiesViewController
-                    collectionOfRecipies.refrashData()
-                }
-            }
+        
             
             // write the new recipyHeader
             writeRevisedRecipeHeaderIntoSQLTableAPI(myRecipe: newRevisedRecipe, newAuthor: self.originalRecipeHeader!.author!) { (err , result, recipeyDetailsResultInInvalidURL) in
@@ -217,8 +207,18 @@ class EditRecipeViewController: UIViewController, UITableViewDelegate, UITableVi
                     self.showAlertDialog(withMassage: "Ooops, something went wrong :(")
                 } else {
                     print("i think we wrote it")
-                    // TODO: sucess alert dialog
-                    //self.showAlertDialog(withMassage: "Recipe added to your pesonal section :)")
+                    // delete the old recipe based on it's id , invoke the delete function used in the previus viewController
+                    // TODO: should also mind regrading removing from favirites if in there
+                    DeleteRecipeHeaderFromSQLTableAPI(id: -newRevisedRecipe.id){() in
+                        print("callback")
+                        // refresh the collection View
+                        for vc in self.navigationController!.viewControllers {
+                            if vc is RecipiesViewController {
+                                let collectionOfRecipies = vc as! RecipiesViewController
+                                collectionOfRecipies.refrashData()
+                            }
+                        }
+                        
                     self.showAlertDialogOfSucessInsertingRecipe(withMassage: "Recipe added to your pesonal section :)")
                     
                 }
