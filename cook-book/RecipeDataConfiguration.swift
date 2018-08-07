@@ -435,9 +435,9 @@ func elimanateLineBreakesInTextViewString(fromTheFollowingString str: String) ->
     let chackStr: String = String(Character(UnicodeScalar(13)))
     let stringToReturn = str.replacingOccurrences(of: chackStr, with: "newLine")
     
-    //let components = str.components(separatedBy: "\n")
-    //return components.joined(separator: "newLine")
-    return stringToReturn
+    let components = stringToReturn.components(separatedBy: "\n")
+    return components.joined(separator: "newLine")
+    //return stringToReturn
 }
 
 func elimanateWhiteSpaces(fromTheFollowingString aString: String) -> String {
