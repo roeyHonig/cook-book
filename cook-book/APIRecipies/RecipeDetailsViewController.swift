@@ -625,7 +625,7 @@ class RecipeDetailsViewController: UIViewController, UITableViewDelegate, UITabl
     
     func uploadIntoFireBaseCloudStorage(theFollowingData data: Data?){
         //TODO: make this works
-        guard let myData = data, signedUser!.email != nil else {
+        guard let myData = data else {
             return
         }
         // safe to proceed
@@ -635,8 +635,10 @@ class RecipeDetailsViewController: UIViewController, UITableViewDelegate, UITabl
         // Create a storage reference from our storage service
         let storageRef = storage.reference()
         // Create a child reference
-        let folderName = "imagesOfUsr" + signedUser!.email!
         let fileName = "\(-recipeHeader!.id)"
+        let userInfo = Auth.auth().currentUser!.providerData[0]
+        let signedUserEmail = userInfo.email! // if we got this far, we can be sure the user has a valid email adress
+        let folderName = "imagesOfUsr" + signedUserEmail
         var imgRef = storageRef.child(folderName+"/"+fileName+".jpg")
         // setup metadata
         let uploadMetadata = StorageMetadata()

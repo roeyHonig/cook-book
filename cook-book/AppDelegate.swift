@@ -101,7 +101,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate, GIDSignInDelegate {
         }
         
         print("Succesfully logged into google: \(user)")
-        
+        self.defults.set(true, forKey: "haveWeJustFinishLoginProcessSuccefully")
         
         guard let authentication = user.authentication else { return }
         let credential = GoogleAuthProvider.credential(withIDToken: authentication.idToken,
