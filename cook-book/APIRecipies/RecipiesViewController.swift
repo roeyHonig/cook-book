@@ -133,6 +133,15 @@ class RecipiesViewController: UIViewController, UICollectionViewDelegate, UIColl
                 self.retriveData()
             }
         }
+        
+        // cheack to see if a diffrent user has just signed in
+        guard let appDelegate = UIApplication.shared.delegate as? AppDelegate else {
+            return
+        }
+        if appDelegate.defults.value(forKey: "haveWeJustFinishLoginProcessSuccefully") as! Bool {
+            refrashDataOneTimeWheneverANewUserJustSignedIn()
+        }
+        
     }
     
     override func viewWillDisappear(_ animated: Bool) {
@@ -236,6 +245,19 @@ class RecipiesViewController: UIViewController, UICollectionViewDelegate, UIColl
         recipes[recipyTypeString]! = nil
         yet2bePreseedOnce[recipyTypeString]! = true
         retriveData()
+    }
+    
+    func refrashDataOneTimeWheneverANewUserJustSignedIn() {
+        for i in 0...7 {
+            let recipyTypeString =  getRecipeTypeOfSelectedIndex(number: i)
+            recipes[recipyTypeString]! = nil
+            yet2bePreseedOnce[recipyTypeString]! = true
+        }
+        retriveData()
+        guard let appDelegate = UIApplication.shared.delegate as? AppDelegate else {
+            return
+        }
+        appDelegate.defults.set(false, forKey: "haveWeJustFinishLoginProcessSuccefully")
     }
     
     // we've manually configuered this func to return the CGSize we want for the cells in the collection view - and not the hardcoded dimension

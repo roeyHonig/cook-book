@@ -54,6 +54,10 @@ class SignInViewController: UIViewController, GIDSignInUIDelegate, FBSDKLoginBut
                 // ...
                 
                 print("Success Loggedin to firebase with facebook user: \(Auth.auth().currentUser!.displayName!)")
+                guard let appDelegate = UIApplication.shared.delegate as? AppDelegate else {
+                    return
+                }
+                appDelegate.defults.set(true, forKey: "haveWeJustFinishLoginProcessSuccefully")
             }
             
         

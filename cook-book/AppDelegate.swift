@@ -53,7 +53,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate, GIDSignInDelegate {
         
         defults.setValue(true, forKey: "areCoreDataChangesPending")
         defults.set("Google", forKey: "firebaseAuthAttemptedVia") // init last attempted method to login
-        
+        defults.set(false, forKey: "haveWeJustFinishLoginProcessSuccefully") // when we switch bwtween users, we want to make sure to refreseh the recipies, so, users don't accedintally gain access to other user's recipes in the same device (multi users in 1 device, like you have your google account and facebook account, and these are 2 differnt accounts, firebase wise)
         
         // init firt FireBase
         FirebaseApp.configure()
@@ -115,7 +115,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate, GIDSignInDelegate {
             // User is signed in
             // ...
             print("Succesfully logged into FireBase with google: \(user.userID)")
-            
+            self.defults.set(true, forKey: "haveWeJustFinishLoginProcessSuccefully")
         }
         
     }
