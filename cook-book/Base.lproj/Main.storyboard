@@ -773,7 +773,7 @@
                                                 <rect key="frame" x="160.5" y="0.0" width="54" height="27.5"/>
                                                 <subviews>
                                                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="icons8-expand_arrow_filled" translatesAutoresizingMaskIntoConstraints="NO" id="HWc-1N-es3">
-                                                        <rect key="frame" x="16.5" y="3" width="22" height="22"/>
+                                                        <rect key="frame" x="16.5" y="3" width="22" height="21.5"/>
                                                     </imageView>
                                                 </subviews>
                                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -828,7 +828,7 @@
                                                                 <rect key="frame" x="0.0" y="0.0" width="37.5" height="37.5"/>
                                                             </imageView>
                                                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="icons8-clock_filled" translatesAutoresizingMaskIntoConstraints="NO" id="DVc-Lc-ZlT" userLabel="smallIcon">
-                                                                <rect key="frame" x="37.5" y="0.0" width="19" height="19"/>
+                                                                <rect key="frame" x="37.5" y="0.0" width="19" height="18.5"/>
                                                                 <constraints>
                                                                     <constraint firstAttribute="width" secondItem="DVc-Lc-ZlT" secondAttribute="height" id="sBz-lQ-yGr"/>
                                                                 </constraints>
@@ -862,7 +862,7 @@
                                                                 <rect key="frame" x="0.0" y="0.0" width="37.5" height="37.5"/>
                                                             </imageView>
                                                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="icons8-clock_filled" translatesAutoresizingMaskIntoConstraints="NO" id="9KW-m9-rgG" userLabel="smallIcon">
-                                                                <rect key="frame" x="37.5" y="0.0" width="19" height="19"/>
+                                                                <rect key="frame" x="37.5" y="0.0" width="19" height="18.5"/>
                                                                 <constraints>
                                                                     <constraint firstAttribute="width" secondItem="9KW-m9-rgG" secondAttribute="height" id="wGv-IQ-M4t"/>
                                                                 </constraints>
@@ -896,13 +896,13 @@
                                                                 <rect key="frame" x="0.0" y="0.0" width="37.5" height="37.5"/>
                                                             </imageView>
                                                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="icons8-pie_chart" translatesAutoresizingMaskIntoConstraints="NO" id="kpe-2r-LGA" userLabel="smallIcon">
-                                                                <rect key="frame" x="37.5" y="0.0" width="19" height="18.5"/>
+                                                                <rect key="frame" x="37.5" y="0.0" width="19.5" height="19"/>
                                                                 <constraints>
                                                                     <constraint firstAttribute="width" secondItem="kpe-2r-LGA" secondAttribute="height" id="hG7-3h-Cn3"/>
                                                                 </constraints>
                                                             </imageView>
                                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="4" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="zTe-Bv-YIf">
-                                                                <rect key="frame" x="56.5" y="0.0" width="30.5" height="37.5"/>
+                                                                <rect key="frame" x="57" y="0.0" width="30" height="37.5"/>
                                                                 <fontDescription key="fontDescription" type="system" pointSize="13"/>
                                                                 <nil key="textColor"/>
                                                                 <nil key="highlightedColor"/>
@@ -944,7 +944,7 @@
                                                         <rect key="frame" x="0.0" y="0.0" width="47" height="38"/>
                                                         <subviews>
                                                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="icons8-ingredients_spring" translatesAutoresizingMaskIntoConstraints="NO" id="jFD-H4-khW">
-                                                                <rect key="frame" x="7.5" y="4" width="30.5" height="30"/>
+                                                                <rect key="frame" x="8" y="4" width="30.5" height="30"/>
                                                             </imageView>
                                                         </subviews>
                                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
@@ -963,7 +963,7 @@
                                                         <rect key="frame" x="47" y="0.0" width="46.5" height="38"/>
                                                         <subviews>
                                                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="icons8-kitchen_steel" translatesAutoresizingMaskIntoConstraints="NO" id="DUS-l2-cYu">
-                                                                <rect key="frame" x="7.5" y="4" width="30.5" height="30"/>
+                                                                <rect key="frame" x="8" y="4" width="30.5" height="30"/>
                                                             </imageView>
                                                         </subviews>
                                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>

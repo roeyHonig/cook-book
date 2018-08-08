@@ -52,6 +52,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate, GIDSignInDelegate {
         
         
         defults.setValue(true, forKey: "areCoreDataChangesPending")
+        defults.set("Google", forKey: "firebaseAuthAttemptedVia") // init last attempted method to login
+        
         
         // init firt FireBase
         FirebaseApp.configure()
@@ -77,9 +79,18 @@ class AppDelegate: UIResponder, UIApplicationDelegate, GIDSignInDelegate {
     @available(iOS 9.0, *)
     func application(_ application: UIApplication, open url: URL, options: [UIApplicationOpenURLOptionsKey : Any])
         -> Bool {
-            return GIDSignIn.sharedInstance().handle(url,
-                                                     sourceApplication:options[UIApplicationOpenURLOptionsKey.sourceApplication] as? String,
-                                                     annotation: [:])
+            
+            if defults.value(forKey: "firebaseAuthAttemptedVia") as? String == "Facebook" {
+                print("The user is attempting to signIn using his Facebook account")
+                return FBSDKApplicationDelegate.sharedInstance().application(application,  open: url, sourceApplication:options[UIApplicationOpenURLOptionsKey.sourceApplication] as! String!,annotation: options[UIApplicationOpenURLOptionsKey.annotation])
+            }
+            else {
+                print("The user is attempting to signIn using his Google account")
+                return GIDSignIn.sharedInstance().handle(url,
+                                                         sourceApplication:options[UIApplicationOpenURLOptionsKey.sourceApplication] as? String,
+                                                         annotation: [:])
+            }
+            
     }
     
     func sign(_ signIn: GIDSignIn!, didSignInFor user: GIDGoogleUser!, withError error: Error?) {

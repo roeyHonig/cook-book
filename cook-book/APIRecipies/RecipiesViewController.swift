@@ -424,10 +424,22 @@ class RecipiesViewController: UIViewController, UICollectionViewDelegate, UIColl
 
     
     func addTheSideMenuAsSubView(withTheFollowingSignedUser usr: User) {
-        
+        let userInfo = Auth.auth().currentUser!.providerData[0]
+        var signedUserProfileImageUrl: URL?
+        if let userPictureString = userInfo.photoURL?.absoluteString {
+            signedUserProfileImageUrl = URL(string: userPictureString + "?type=large")
+        } else {
+            signedUserProfileImageUrl = URL(string: "No User Profile Picture")
+        }
         
         // set the image
-        sideMenuProfileImage.sd_setImage(with: signedUser!.photoURL, completed: nil)
+        if signedUserProfileImageUrl != nil {
+            sideMenuProfileImage.sd_setImage(with: signedUserProfileImageUrl, completed: nil)
+        } else {
+            // TODO: replace this and setup a generic USER icon insted
+            sideMenuProfileImage.sd_setImage(with: signedUserProfileImageUrl, completed: nil)
+        }
+        
         sideMenuProfileImage.layer.cornerRadius = sideMenuProfileImage.bounds.size.height / 2
         sideMenuProfileImage.clipsToBounds = true
         self.blurView.alpha = 0
@@ -435,8 +447,9 @@ class RecipiesViewController: UIViewController, UICollectionViewDelegate, UIColl
         framForProfileImage.layer.cornerRadius = sideMenuProfileImage.bounds.size.height / 2
         framForProfileImage.clipsToBounds = true
         // set display name & email
+        let signedUserEmail = userInfo.email
         displayNameLabel.text = signedUser!.displayName
-        emailLabel.text = signedUser!.email
+        emailLabel.text = signedUserEmail
         
         self.view.layoutIfNeeded()
         

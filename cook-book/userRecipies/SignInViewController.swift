@@ -74,12 +74,24 @@ class SignInViewController: UIViewController, GIDSignInUIDelegate, FBSDKLoginBut
     
     
     @IBAction func signInWithCustomButtone(_ sender: UITapGestureRecognizer) {
+        // notify the app delegate that we're trying to login via FB
+        // important disitincation, espacially for lower ios then 11
+        guard let appDelegate = UIApplication.shared.delegate as? AppDelegate else {
+            return
+        }
+        appDelegate.defults.set("Google", forKey: "firebaseAuthAttemptedVia")
         print("custome Button!!!!!")
         GIDSignIn.sharedInstance().signIn()
     }
     
     
     @IBAction func signIn(_ sender: UIButton) {
+        // notify the app delegate that we're trying to login via FB
+        // important disitincation, espacially for lower ios then 11
+        guard let appDelegate = UIApplication.shared.delegate as? AppDelegate else {
+            return
+        }
+        appDelegate.defults.set("Google", forKey: "firebaseAuthAttemptedVia")
         GIDSignIn.sharedInstance().signIn()
     }
     
@@ -114,6 +126,8 @@ class SignInViewController: UIViewController, GIDSignInUIDelegate, FBSDKLoginBut
         tapGestureOnCustomFBSiginInBtn.addTarget(self, action: #selector(SiginInWithFaceBook))
         facebookCustomSignInBtn.addGestureRecognizer(tapGestureOnCustomFBSiginInBtn)
         
+        // init the FB native button
+        faceBookLoginButton.readPermissions = ["email"]
         faceBookLoginButton.delegate = self
         contentView.addSubview(faceBookLoginButton)
         // position at center
@@ -143,6 +157,13 @@ class SignInViewController: UIViewController, GIDSignInUIDelegate, FBSDKLoginBut
     }
 
     @objc func SiginInWithFaceBook() {
+        // notify the app delegate that we're trying to login via FB
+        // important disitincation, espacially for lower ios then 11
+        guard let appDelegate = UIApplication.shared.delegate as? AppDelegate else {
+            return
+        }
+        appDelegate.defults.set("Facebook", forKey: "firebaseAuthAttemptedVia")
+        
         // programetcally trigger the FB button, because we won't be able to press it, because it's alpha is 0 , because we want to see our custom FB btn
         faceBookLoginButton.sendActions(for: .touchUpInside)
     }
