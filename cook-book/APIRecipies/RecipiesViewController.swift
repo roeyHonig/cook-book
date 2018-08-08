@@ -448,7 +448,6 @@ class RecipiesViewController: UIViewController, UICollectionViewDelegate, UIColl
     }
     */
 
-    
     func addTheSideMenuAsSubView(withTheFollowingSignedUser usr: User) {
         let userInfo = Auth.auth().currentUser!.providerData[0]
         var signedUserProfileImageUrl: URL?

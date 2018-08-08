@@ -50,7 +50,9 @@ class RecipeDetailsViewController: UIViewController, UITableViewDelegate, UITabl
     
     @IBAction func makeItYourOwn(_ sender: UIButton) {
         print("make it your own")
-        guard let usrEmail = signedUser!.email else {
+        let userInfo = Auth.auth().currentUser!.providerData[0]
+        let signedUserEmail = userInfo.email
+        guard let usrEmail = signedUserEmail else {
             print("There seems to be a problem with your email adress") //TODO: alert dialog box
             return
         }
