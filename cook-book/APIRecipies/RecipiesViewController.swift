@@ -186,7 +186,11 @@ class RecipiesViewController: UIViewController, UICollectionViewDelegate, UIColl
         
         if self.tabBarController?.selectedIndex == 3 {
             tableName = "recipes_of_users"
-            autor = signedUser?.email
+            if signedUser != nil {
+                let userInfo = Auth.auth().currentUser!.providerData[0]
+                let signedUserEmail = userInfo.email
+                autor = signedUserEmail
+            } 
         }
         
         
