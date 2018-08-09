@@ -495,7 +495,7 @@
                                             <rect key="frame" x="0.0" y="0.0" width="375" height="438.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <tableView clipsSubviews="YES" tag="200" contentMode="scaleToFill" fixedFrame="YES" dataMode="prototypes" style="plain" separatorStyle="default" allowsSelection="NO" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="bbT-HB-4IU" userLabel="secondaryTable">
+                                                <tableView clipsSubviews="YES" alpha="0.0" tag="200" contentMode="scaleToFill" fixedFrame="YES" dataMode="prototypes" style="plain" separatorStyle="default" allowsSelection="NO" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="bbT-HB-4IU" userLabel="secondaryTable">
                                                     <rect key="frame" x="67" y="155" width="240" height="128"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                     <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -520,7 +520,7 @@
                                                                                 <rect key="frame" x="6" y="15" width="13.5" height="13.5"/>
                                                                             </imageView>
                                                                         </subviews>
-                                                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                                                        <color key="backgroundColor" red="1" green="0.9085422259" blue="0.76233909470000005" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                                         <constraints>
                                                                             <constraint firstItem="9nm-Iy-All" firstAttribute="centerX" secondItem="YXm-QT-wmN" secondAttribute="centerX" id="0tC-Pb-sQh"/>
                                                                             <constraint firstAttribute="width" constant="25" id="81D-Qv-16U"/>
@@ -548,6 +548,7 @@
                                                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                                                     </view>
                                                                 </subviews>
+                                                                <color key="backgroundColor" red="1" green="0.90854222591306" blue="0.76233909467559247" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                                 <constraints>
                                                                     <constraint firstItem="u0F-ff-f05" firstAttribute="width" secondItem="tx3-bp-tgy" secondAttribute="width" multiplier="0.95" id="5Pm-EK-GZd"/>
                                                                     <constraint firstItem="tx3-bp-tgy" firstAttribute="leading" secondItem="YXm-QT-wmN" secondAttribute="trailing" constant="8" id="5en-2t-9oB"/>
@@ -566,6 +567,7 @@
                                                                     <constraint firstItem="YXm-QT-wmN" firstAttribute="leading" secondItem="IcF-ny-9gG" secondAttribute="leading" id="r2c-sz-NAC"/>
                                                                 </constraints>
                                                             </tableViewCellContentView>
+                                                            <color key="backgroundColor" red="1" green="0.9085422259" blue="0.76233909470000005" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                             <connections>
                                                                 <outlet property="animatedLayerUIView" destination="doE-7j-IKj" id="7uT-wP-FhQ"/>
                                                                 <outlet property="innerCircleImageView" destination="9nm-Iy-All" id="ZOP-gC-M0N"/>
@@ -600,7 +602,7 @@
                                                             <rect key="frame" x="50" y="0.0" width="275" height="50"/>
                                                             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                                            <color key="textColor" red="0.0" green="1" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                                            <color key="textColor" red="0.0" green="0.50196081400000003" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                                             <nil key="highlightedColor"/>
                                                         </label>
                                                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ehc-Xb-CHq" userLabel="deleteImageContainer">
@@ -638,16 +640,16 @@
                                                         <constraint firstItem="ehc-Xb-CHq" firstAttribute="top" secondItem="s6m-PE-5By" secondAttribute="top" id="s9Y-RS-xt4"/>
                                                     </constraints>
                                                 </view>
-                                                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Bwm-Zc-RQa" userLabel="bottomSpacer">
+                                                <view alpha="0.0" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Bwm-Zc-RQa" userLabel="bottomSpacer">
                                                     <rect key="frame" x="8" y="429.5" width="359" height="1"/>
-                                                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                                    <color key="backgroundColor" red="1" green="0.9085422259" blue="0.76233909470000005" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                     <constraints>
                                                         <constraint firstAttribute="height" constant="1" id="d34-Cf-zqU"/>
                                                     </constraints>
                                                 </view>
-                                                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="q1H-yq-uTo" userLabel="insideTableContainer">
+                                                <view alpha="0.0" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="q1H-yq-uTo" userLabel="insideTableContainer">
                                                     <rect key="frame" x="8" y="50" width="359" height="379.5"/>
-                                                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                                    <color key="backgroundColor" red="1" green="0.9085422259" blue="0.76233909470000005" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                 </view>
                                             </subviews>
                                             <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>

@@ -248,6 +248,9 @@ class ShoppingListViewController: UIViewController, UITableViewDelegate, UITable
             cell.secondaryTable.reloadData()
             //cell.showSecondaryTable()
             //tableView.selectRow(at: indexPath, animated: true, scrollPosition: UITableViewScrollPosition.bottom)
+        
+        cell.secondaryTable.alpha = 0
+        cell.bottomSpacer.alpha = 0
             return cell
         
         
@@ -264,6 +267,8 @@ class ShoppingListViewController: UIViewController, UITableViewDelegate, UITable
                     // animate stuff
                     tableView.beginUpdates()
                     cell.heightConstraint.constant = 0
+                    cell.secondaryTable.alpha = 0
+                    cell.bottomSpacer.alpha = 0
                     cell.expendingArrowImageView.transform = CGAffineTransform.identity
                     cell.layoutIfNeeded()
                     tableView.endUpdates()
@@ -279,6 +284,8 @@ class ShoppingListViewController: UIViewController, UITableViewDelegate, UITable
                     // animate stuff
                     tableView.beginUpdates()
                     cell.heightConstraint.constant = cell.secondaryTable.contentSize.height
+                    cell.secondaryTable.alpha = 1
+                    cell.bottomSpacer.alpha = 1
                     cell.expendingArrowImageView.transform = CGAffineTransform(rotationAngle: CGFloat.pi)
                     cell.layoutIfNeeded()
                     tableView.endUpdates()

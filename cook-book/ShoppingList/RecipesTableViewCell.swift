@@ -112,6 +112,8 @@ class RecipesTableViewCell: UITableViewCell, UITableViewDelegate, UITableViewDat
         
         secondaryTable.reloadData()
         heightConstraint.constant = self.secondaryTable.contentSize.height
+        secondaryTable.alpha = 1
+        bottomSpacer.alpha = 1
         
     }
     
