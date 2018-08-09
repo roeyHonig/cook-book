@@ -383,6 +383,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate, GIDSignInDelegate {
         } catch let error as NSError {
             print("Could not fetch. \(error), \(error.userInfo)")
         }
+        print("there are \(shoppingListTableToReturn.count) amount of shopping lists")
         return shoppingListTableToReturn
     }
     

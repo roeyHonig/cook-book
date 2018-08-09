@@ -93,7 +93,7 @@ class ShoppingListViewController: UIViewController, UITableViewDelegate, UITable
         guard let appDelegate = UIApplication.shared.delegate as? AppDelegate else {
             return
         }
-        
+       
         // did we actually changed anything , saved new recipy , update delete
         let areChangesPending = appDelegate.defults.value(forKey: "areCoreDataChangesPending") as! Bool
         
@@ -129,7 +129,8 @@ class ShoppingListViewController: UIViewController, UITableViewDelegate, UITable
             var tmpListOfFloats: [Float] = []
             var tmpListOfIntegers: [Int] = []
             
-            if shoppingListTable.count > 0 {
+            if shoppingListTable.count > 1 {
+                print("i've entered the gatering process")
                 // gather the data from coreData and put it into the tables data source arrays
                 for i in 1...shoppingListTable.count {
                     if i != 1 && i != shoppingListTable.count {
@@ -172,6 +173,31 @@ class ShoppingListViewController: UIViewController, UITableViewDelegate, UITable
                     
                 }
             }
+        
+        
+         tmp = 0
+         tmpList.removeAll()
+         tmpListOfFloats.removeAll()
+         tmpListOfIntegers.removeAll()
+        // interaeting case in which we have only 1 shoppingList with only 1 ingredient
+        if shoppingListTable.count == 1 {
+            print("i've entered the gatering process")
+            // gather the data from coreData and put it into the tables data source arrays
+            for i in 1...shoppingListTable.count {
+                // the 1st and last item
+                recipesTableDataSource.append(shoppingListTable[i-1].value(forKey: "title") as! String)
+                recipesGlobalDataBaseNumbers.append(shoppingListTable[i-1].value(forKey: "idOfRecipe") as! Int)
+                tmpList.append(shoppingListTable[i-1].value(forKey: "ingredient") as! String)
+                tmpListOfFloats.append(shoppingListTable[i-1].value(forKey: "cheacked") as! Float)
+                tmpListOfIntegers.append(shoppingListTable[i-1].value(forKey: "ingredientNumTextLines") as! Int)
+                ingridentsTableDataSource.append(tmpList)
+                ingridentsTableDataSourceInnerCircleImageAlpfa.append(tmpListOfFloats)
+                ingridentsTableDataSourceNumberOfTextLines.append(tmpListOfIntegers)
+                
+                tmp = shoppingListTable[i-1].value(forKey: "idOfRecipe") as! Int
+                
+            }
+        }
             
             mainTableView.reloadData()
         
