@@ -219,7 +219,7 @@ class EditRecipeViewController: UIViewController, UITableViewDelegate, UITableVi
                             }
                         }
                         
-                    self.showAlertDialogOfSucessInsertingRecipe(withMassage: "Recipe added to your pesonal section :)")
+                    self.showAlertDialogOfSucessInsertingRecipe(withMassage: "Recipe added to your personal section :)")
                     
                 }
             }

@@ -69,7 +69,7 @@ class RecipeDetailsViewController: UIViewController, UITableViewDelegate, UITabl
             } else {
                 print("i think we wrote it")
                 // TODO: sucess alert dialog
-                self.showAlertDialog(withMassage: "Recipe added to your pesonal section :)")
+                self.showAlertDialog(withMassage: "Recipe added to your personal section :)")
             }
         }
     }
