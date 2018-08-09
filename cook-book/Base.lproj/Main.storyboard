@@ -1732,9 +1732,9 @@
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Hds-V4-7fS">
                                         <rect key="frame" x="20" y="40" width="335" height="72"/>
-                                        <string key="text">Welcome to cook-book
+                                        <string key="text">Welcome to cook-book,
 What are we having tonight?
-Choose from our collection of recipes</string>
+Choose from our collection of recipes.</string>
                                         <fontDescription key="fontDescription" type="system" pointSize="20"/>
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
