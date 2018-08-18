@@ -18,6 +18,7 @@
 		6D3F01C1211703DB007228DB /* ImagePickerTutorialViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6D3F01C0211703DB007228DB /* ImagePickerTutorialViewController.swift */; };
 		6D5D4B1C20D95DC800390BFB /* RecipiesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6D5D4B1B20D95DC800390BFB /* RecipiesViewController.swift */; };
 		6D5D4B1E20DA80EF00390BFB /* RecipeCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6D5D4B1D20DA80EF00390BFB /* RecipeCollectionViewCell.swift */; };
+		6DA9A17A21283665009DBEF1 /* Poultry.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 6DA9A17921283665009DBEF1 /* Poultry.jpg */; };
 		6DB056AE20D6EB9700A32956 /* SignInViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6DB056AD20D6EB9700A32956 /* SignInViewController.swift */; };
 		6DB056B020D6EC6A00A32956 /* CurrentUserRecipiesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6DB056AF20D6EC6A00A32956 /* CurrentUserRecipiesViewController.swift */; };
 		6DBA6E572100AD8300C827FE /* TrinagleUIView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6DBA6E562100AD8300C827FE /* TrinagleUIView.swift */; };
@@ -60,6 +61,7 @@
 		6D3F01C0211703DB007228DB /* ImagePickerTutorialViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImagePickerTutorialViewController.swift; sourceTree = "<group>"; };
 		6D5D4B1B20D95DC800390BFB /* RecipiesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecipiesViewController.swift; sourceTree = "<group>"; };
 		6D5D4B1D20DA80EF00390BFB /* RecipeCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecipeCollectionViewCell.swift; sourceTree = "<group>"; };
+		6DA9A17921283665009DBEF1 /* Poultry.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; name = Poultry.jpg; path = ../../../../Downloads/Poultry.jpg; sourceTree = "<group>"; };
 		6DB056AD20D6EB9700A32956 /* SignInViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignInViewController.swift; sourceTree = "<group>"; };
 		6DB056AF20D6EC6A00A32956 /* CurrentUserRecipiesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CurrentUserRecipiesViewController.swift; sourceTree = "<group>"; };
 		6DBA6E562100AD8300C827FE /* TrinagleUIView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrinagleUIView.swift; sourceTree = "<group>"; };
@@ -197,6 +199,7 @@
 				6DD7D0DC20FF1E5A007141DD /* OpeningAndQuickGuide */,
 				6D0E255C20F1F315000C5174 /* ShoppingList */,
 				6D15368320D7E7CC007B311C /* googleSignIn.png */,
+				6DA9A17921283665009DBEF1 /* Poultry.jpg */,
 				6DFFF48D20D57A0200368A45 /* GoogleService-Info.plist */,
 				6DFFF47820D5737700368A45 /* AppDelegate.swift */,
 				6DFFF47C20D5737700368A45 /* Main.storyboard */,
@@ -286,6 +289,7 @@
 				6DFFF48620D5737700368A45 /* LaunchScreen.storyboard in Resources */,
 				6DFFF48E20D57A0300368A45 /* GoogleService-Info.plist in Resources */,
 				6D15368420D7E7CC007B311C /* googleSignIn.png in Resources */,
+				6DA9A17A21283665009DBEF1 /* Poultry.jpg in Resources */,
 				6DFFF48320D5737700368A45 /* Assets.xcassets in Resources */,
 				6DFFF47E20D5737700368A45 /* Main.storyboard in Resources */,
 			);
