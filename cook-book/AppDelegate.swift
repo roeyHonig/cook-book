@@ -8,7 +8,7 @@
 // it seems that when tranlating the navigation controller view (that is the navigation bar) we step into no man's land and no
 // UI gestureRecogniazer is active there
 
-
+// this branch is ready to be merged into master
 
 
 
