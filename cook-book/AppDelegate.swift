@@ -9,6 +9,7 @@
 // UI gestureRecogniazer is active there
 
 // this branch is ready to be merged into master
+// delete the Poultry.jpg
 
 
 

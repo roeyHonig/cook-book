@@ -10,7 +10,6 @@
 		6D015D132105C4C3004BFA49 /* QuicGuidCookViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6D015D122105C4C3004BFA49 /* QuicGuidCookViewController.swift */; };
 		6D0CF14A20E6639F00A2B670 /* favoriteRecipesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6D0CF14920E6639F00A2B670 /* favoriteRecipesViewController.swift */; };
 		6D0CF14C20E6688800A2B670 /* RecipeDataConfiguration.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6D0CF14B20E6688800A2B670 /* RecipeDataConfiguration.swift */; };
-		6D0CF15020E6BC3000A2B670 /* Poultry.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 6D0CF14F20E6BC3000A2B670 /* Poultry.jpg */; };
 		6D0E255E20F20F57000C5174 /* ShoppingListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6D0E255D20F20F57000C5174 /* ShoppingListViewController.swift */; };
 		6D0E256020F2176C000C5174 /* RecipesTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6D0E255F20F2176C000C5174 /* RecipesTableViewCell.swift */; };
 		6D0E256220F217C3000C5174 /* ingredientsForEachShoopingListRecipeTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6D0E256120F217C3000C5174 /* ingredientsForEachShoopingListRecipeTableViewCell.swift */; };
@@ -53,7 +52,6 @@
 		6D015D122105C4C3004BFA49 /* QuicGuidCookViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuicGuidCookViewController.swift; sourceTree = "<group>"; };
 		6D0CF14920E6639F00A2B670 /* favoriteRecipesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = favoriteRecipesViewController.swift; sourceTree = "<group>"; };
 		6D0CF14B20E6688800A2B670 /* RecipeDataConfiguration.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecipeDataConfiguration.swift; sourceTree = "<group>"; };
-		6D0CF14F20E6BC3000A2B670 /* Poultry.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; name = Poultry.jpg; path = ../../../../Downloads/Poultry.jpg; sourceTree = "<group>"; };
 		6D0E255D20F20F57000C5174 /* ShoppingListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShoppingListViewController.swift; sourceTree = "<group>"; };
 		6D0E255F20F2176C000C5174 /* RecipesTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecipesTableViewCell.swift; sourceTree = "<group>"; };
 		6D0E256120F217C3000C5174 /* ingredientsForEachShoopingListRecipeTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ingredientsForEachShoopingListRecipeTableViewCell.swift; sourceTree = "<group>"; };
@@ -198,7 +196,6 @@
 			children = (
 				6DD7D0DC20FF1E5A007141DD /* OpeningAndQuickGuide */,
 				6D0E255C20F1F315000C5174 /* ShoppingList */,
-				6D0CF14F20E6BC3000A2B670 /* Poultry.jpg */,
 				6D15368320D7E7CC007B311C /* googleSignIn.png */,
 				6DFFF48D20D57A0200368A45 /* GoogleService-Info.plist */,
 				6DFFF47820D5737700368A45 /* AppDelegate.swift */,
@@ -289,7 +286,6 @@
 				6DFFF48620D5737700368A45 /* LaunchScreen.storyboard in Resources */,
 				6DFFF48E20D57A0300368A45 /* GoogleService-Info.plist in Resources */,
 				6D15368420D7E7CC007B311C /* googleSignIn.png in Resources */,
-				6D0CF15020E6BC3000A2B670 /* Poultry.jpg in Resources */,
 				6DFFF48320D5737700368A45 /* Assets.xcassets in Resources */,
 				6DFFF47E20D5737700368A45 /* Main.storyboard in Resources */,
 			);
