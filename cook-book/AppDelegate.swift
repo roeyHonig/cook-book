@@ -4,20 +4,125 @@
 //
 //  Created by hackeru on 3 Tamuz 5778.
 //  Copyright © 5778 student.roey.honig. All rights reserved.
-//
+// lets bring the sideMenu as a reusable View, not easy, we did but everything else falls apart
+// it seems that when tranlating the navigation controller view (that is the navigation bar) we step into no man's land and no
+// UI gestureRecogniazer is active there
+
+// this branch is ready to be merged into master
+
+
 
 import UIKit
 import CoreData
+import Firebase
+import GoogleSignIn
+
+
+
+import FBSDKCoreKit
+import FBSDKLoginKit
 
 @UIApplicationMain
-class AppDelegate: UIResponder, UIApplicationDelegate {
+class AppDelegate: UIResponder, UIApplicationDelegate, GIDSignInDelegate {
 
     var window: UIWindow?
-
+    var defults = UserDefaults.standard // init UserDefults - kind like sheared instance
+    
+    var sheredRecipyHeader: RecipeHeader? // just a test , delete this
+    
+    var firstRec: RecipeHeader = RecipeHeader(id: 1)
+    var secondRec: RecipeHeader = RecipeHeader(id: 2)
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
+        // init UserDefults - kind like sheared instance
+        //let defults = UserDefaults.standard
+        firstRec.title = "Delicious Meet"
+        firstRec.img = "https://images.media-allrecipes.com/userphotos/560x315/966899.jpg"
+        firstRec.ingredient_header1 = "Ingredients"
+        firstRec.list1 = ["meet","yams","lemon"]
+        firstRec.directions = "cook very slowlly"
+        
+        secondRec.title = "Delicious Pork"
+        secondRec.img = "https://images.media-allrecipes.com/userphotos/560x315/966899.jpg"
+        secondRec.ingredient_header1 = "Ingredients"
+        secondRec.list1 = ["pork","potatos","cream"]
+        secondRec.directions = "cook very fast"
+        
+        
+        
+        defults.setValue(true, forKey: "areCoreDataChangesPending")
+        defults.set("Google", forKey: "firebaseAuthAttemptedVia") // init last attempted method to login
+        defults.set(false, forKey: "haveWeJustFinishLoginProcessSuccefully") // when we switch bwtween users, we want to make sure to refreseh the recipies, so, users don't accedintally gain access to other user's recipes in the same device (multi users in 1 device, like you have your google account and facebook account, and these are 2 differnt accounts, firebase wise)
+        
+        // init firt FireBase
+        FirebaseApp.configure()
+        //Google SignIn
+        GIDSignIn.sharedInstance().clientID = FirebaseApp.app()?.options.clientID
+        GIDSignIn.sharedInstance().delegate = self
+        
+        
+        //Facebook
+        FBSDKApplicationDelegate.sharedInstance().application(application, didFinishLaunchingWithOptions: launchOptions)
+        
         return true
+    }
+    
+    
+    // Facebook
+    func application(_ application: UIApplication, open url: URL, sourceApplication: String?, annotation: Any) -> Bool {
+        return FBSDKApplicationDelegate.sharedInstance().application(application ,open: url,sourceApplication: sourceApplication, annotation: annotation)
+    }
+    
+    
+    
+    @available(iOS 9.0, *)
+    func application(_ application: UIApplication, open url: URL, options: [UIApplicationOpenURLOptionsKey : Any])
+        -> Bool {
+            
+            if defults.value(forKey: "firebaseAuthAttemptedVia") as? String == "Facebook" {
+                print("The user is attempting to signIn using his Facebook account")
+                return FBSDKApplicationDelegate.sharedInstance().application(application,  open: url, sourceApplication:options[UIApplicationOpenURLOptionsKey.sourceApplication] as! String!,annotation: options[UIApplicationOpenURLOptionsKey.annotation])
+            }
+            else {
+                print("The user is attempting to signIn using his Google account")
+                return GIDSignIn.sharedInstance().handle(url,
+                                                         sourceApplication:options[UIApplicationOpenURLOptionsKey.sourceApplication] as? String,
+                                                         annotation: [:])
+            }
+            
+    }
+    
+    func sign(_ signIn: GIDSignIn!, didSignInFor user: GIDGoogleUser!, withError error: Error?) {
+        // Error logging to google
+        if let error = error {
+            print("failed to log into Google with error: \(error)")
+            return
+        }
+        
+        print("Succesfully logged into google: \(user)")
+        self.defults.set(true, forKey: "haveWeJustFinishLoginProcessSuccefully")
+        
+        guard let authentication = user.authentication else { return }
+        let credential = GoogleAuthProvider.credential(withIDToken: authentication.idToken,
+                                                       accessToken: authentication.accessToken)
+        
+        Auth.auth().signInAndRetrieveData(with: credential) { (authResult, error) in
+            if let error = error {
+                print("failed to log into FireBase with error: \(error)")
+                return
+            }
+            // User is signed in
+            // ...
+            print("Succesfully logged into FireBase with google: \(user.userID)")
+            self.defults.set(true, forKey: "haveWeJustFinishLoginProcessSuccefully")
+        }
+        
+    }
+    
+    func sign(_ signIn: GIDSignIn!, didDisconnectWith user: GIDGoogleUser!, withError error: Error!) {
+        // Perform any operations when the user disconnects from app here.
+        // ...
     }
 
     func applicationWillResignActive(_ application: UIApplication) {
@@ -73,6 +178,10 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         return container
     }()
 
+    
+    lazy var managedContext = persistentContainer.viewContext
+    
+    
     // MARK: - Core Data Saving support
 
     func saveContext () {
@@ -80,6 +189,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         if context.hasChanges {
             do {
                 try context.save()
+                
             } catch {
                 // Replace this implementation with code to handle the error appropriately.
                 // fatalError() causes the application to generate a crash log and terminate. You should not use this function in a shipping application, although it may be useful during development.
@@ -88,6 +198,334 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             }
         }
     }
+    
+    // saving a recipy and adding it to myFavorites
+    func saveThisFavoriteRecipyToCoreData(recipe: RecipeHeader) {
+        // 1st, let's cheack if it's allready saved in coreData and delete it
+        deletingThisRecipeFromMyFavoritesInCoreData(attribute: "id", whosValue: recipe.id)
+        
+        // now save it
+        let entity = NSEntityDescription.entity(forEntityName: "FavoriteRecipes", in: managedContext)!
+        let newEntery = NSManagedObject(entity: entity, insertInto: managedContext)
+        
+        //TODO: cheack if allready exsists
+        
+        newEntery.setValue(recipe.author, forKey: "author")
+        newEntery.setValue(recipe.cook_time, forKey: "cook_time")
+        newEntery.setValue(recipe.directions, forKey: "directions")
+        newEntery.setValue(recipe.id, forKey: "id")
+        newEntery.setValue(recipe.img, forKey: "img")
+        newEntery.setValue(recipe.ingredient_header1, forKey: "ingredient_header1")
+        newEntery.setValue(recipe.ingredient_header2, forKey: "ingredient_header2")
+        newEntery.setValue(recipe.ingredient_header3, forKey: "ingredient_header3")
+        newEntery.setValue(recipe.list1, forKey: "list1")
+        newEntery.setValue(recipe.list2, forKey: "list2")
+        newEntery.setValue(recipe.list3, forKey: "list3")
+        newEntery.setValue(recipe.prep_time, forKey: "prep_time")
+        newEntery.setValue(recipe.recipe_type, forKey: "recipe_type")
+        newEntery.setValue(recipe.serving, forKey: "serving")
+        newEntery.setValue(recipe.title, forKey: "title")
+        
+        do {
+            try managedContext.save()
+        } catch let error as NSError {
+            print("Could not save. \(error), \(error.userInfo)")
+        }
+    }
+    
+    // deleting, we'll delete according to the id of a recipy
+    func deletingThisRecipeFromMyFavoritesInCoreData(attribute txt: String, whosValue num: Any?) {
+        var myFetchedEntites: [NSManagedObject] = []
+        let myPredicate = NSPredicate(format: txt + " = %@", argumentArray: [(num as! Int)])
+        let fetchRequest = NSFetchRequest<NSManagedObject>(entityName: "FavoriteRecipes")
+        fetchRequest.predicate = myPredicate
+        
+        do {
+            let fetchedEntities = try managedContext.fetch(fetchRequest)
+            myFetchedEntites = fetchedEntities
+        } catch let error as NSError {
+            print("Could not fetch. \(error), \(error.userInfo)")
+        }
+        for entity in myFetchedEntites {
+            managedContext.delete(entity)
+        }
+        
+        do {
+            try managedContext.save()
+        } catch let error as NSError {
+            print("Could not save. \(error), \(error.userInfo)")
+        }
+    }
+    
+    // saving an ingredient list and adding it to my Shopping
+    func didSaveToCoreDataWasSuccefull(myRecipeHeader: RecipeHeader) -> Bool {
+        var didSaveActionWentOk = false
+        var index = 1
+        
+        let entity = NSEntityDescription.entity(forEntityName: "ShoppingList", in: managedContext)!
+        
+        if let listOfIngredients1 = myRecipeHeader.list1 {
+            for ingrdientInList in listOfIngredients1 {
+                let newEntery = NSManagedObject(entity: entity, insertInto: managedContext)
+                let title = myRecipeHeader.title ?? ""
+                newEntery.setValue(myRecipeHeader.id, forKeyPath: "idOfRecipe")
+                newEntery.setValue(title, forKeyPath: "title")
+                newEntery.setValue(ingrdientInList, forKeyPath: "ingredient")
+                newEntery.setValue(0, forKeyPath: "cheacked")
+                newEntery.setValue(0, forKeyPath: "ingredientNumTextLines")
+                newEntery.setValue(index, forKeyPath: "index")
+                index += 1
+                print("This was written")
+                print(newEntery)
+            }
+        }
+        
+        if let listOfIngredients2 = myRecipeHeader.list2 {
+            for ingrdientInList in listOfIngredients2 {
+                let newEntery = NSManagedObject(entity: entity, insertInto: managedContext)
+                let title = myRecipeHeader.title ?? ""
+                newEntery.setValue(myRecipeHeader.id, forKeyPath: "idOfRecipe")
+                newEntery.setValue(title, forKeyPath: "title")
+                newEntery.setValue(ingrdientInList, forKeyPath: "ingredient")
+                newEntery.setValue(0, forKeyPath: "cheacked")
+                newEntery.setValue(0, forKeyPath: "ingredientNumTextLines")
+                newEntery.setValue(index, forKeyPath: "index")
+                index += 1
+                print("This was written")
+                print(newEntery)
+            }
+        }
+        
+        if let listOfIngredients3 = myRecipeHeader.list3 {
+            for ingrdientInList in listOfIngredients3 {
+                let newEntery = NSManagedObject(entity: entity, insertInto: managedContext)
+                let title = myRecipeHeader.title ?? ""
+                newEntery.setValue(myRecipeHeader.id, forKeyPath: "idOfRecipe")
+                newEntery.setValue(title, forKeyPath: "title")
+                newEntery.setValue(ingrdientInList, forKeyPath: "ingredient")
+                newEntery.setValue(0, forKeyPath: "cheacked")
+                newEntery.setValue(0, forKeyPath: "ingredientNumTextLines")
+                newEntery.setValue(index, forKeyPath: "index")
+                index += 1
+                print("This was written")
+                print(newEntery)
+            }
+        }
+        
+        do {
+            try managedContext.save()
+            defults.setValue(true, forKey: "areCoreDataChangesPending")
+            didSaveActionWentOk = true
+        } catch let error as NSError {
+            print("Could not save. \(error), \(error.userInfo)")
+        }
+        
+        return didSaveActionWentOk
+    }
+    
+    // fetching from coreData all my favorite recipes
+    func readCoreDataSavedFavoriteRecipies() -> [RecipeHeader] {
+        var ArrayToReturn: [RecipeHeader] = []
+        var myManagedObjectToReturn: [NSManagedObject] = []
+        // fetch the coreData
+        let fetchRequest = NSFetchRequest<NSManagedObject>(entityName: "FavoriteRecipes")
+        
+         // sort by
+         let descriptor1 = NSSortDescriptor(key: "id", ascending: true)
+         let descriptors = [descriptor1]
+         fetchRequest.sortDescriptors = descriptors
+        
+        // fetch
+        do {
+            let favoriesTable = try managedContext.fetch(fetchRequest)
+            myManagedObjectToReturn = favoriesTable
+        } catch let error as NSError {
+            print("Could not fetch. \(error), \(error.userInfo)")
+        }
+        
+        // iterate, constrct RecipyHeader and append
+        for obj in myManagedObjectToReturn {
+            let title: String? = obj.value(forKey: "title") as! String?
+            let img: String? = obj.value(forKey: "img") as! String?
+            let recipe_type: String? = obj.value(forKey: "recipe_type") as! String?
+            let prep_time: Int? = obj.value(forKey: "prep_time") as! Int?
+            let cook_time: Int? = obj.value(forKey: "cook_time") as! Int?
+            let serving: Int? = obj.value(forKey: "serving") as! Int?
+            let author: String? = obj.value(forKey: "author") as! String?
+            let ingredient_header1: String? = obj.value(forKey: "ingredient_header1") as! String?
+            let ingredient_header2: String? = obj.value(forKey: "ingredient_header2") as! String?
+            let ingredient_header3: String? = obj.value(forKey: "ingredient_header3") as! String?
+            let list1: [String]? = obj.value(forKey: "list1") as! [String]?
+            let list2: [String]? = obj.value(forKey: "list2") as! [String]?
+            let list3: [String]? = obj.value(forKey: "list3") as! [String]?
+            let directions: String? = obj.value(forKey: "directions") as! String?
+            let id: Int = obj.value(forKey: "id") as! Int
+            
+            let tmpRecipe = RecipeHeader(id: id, title: title, img: img, recipe_type: recipe_type, prep_time: prep_time, cook_time: cook_time, serving: serving, author: author, ingredient_header1: ingredient_header1, ingredient_header2: ingredient_header2, ingredient_header3: ingredient_header3, list1: list1, list2: list2, list3: list3, directions: directions)
+            ArrayToReturn.append(tmpRecipe)
+        }
+        
+        return ArrayToReturn
+    }
+    
+    // fetching from coreData my complete Sopping List
+    func loadCoreData() -> [NSManagedObject] {
+        var shoppingListTableToReturn: [NSManagedObject] = []
+        // fetch the coreData
+        let fetchRequest = NSFetchRequest<NSManagedObject>(entityName: "ShoppingList")
+        let descriptor1 = NSSortDescriptor(key: "idOfRecipe", ascending: true)
+        let descriptor2 = NSSortDescriptor(key: "index", ascending: true)
+        let descriptors = [descriptor1, descriptor2]
+        fetchRequest.sortDescriptors = descriptors
+        do {
+            let shoppingListTable = try managedContext.fetch(fetchRequest)
+            shoppingListTableToReturn = shoppingListTable
+        } catch let error as NSError {
+            print("Could not fetch. \(error), \(error.userInfo)")
+        }
+        print("there are \(shoppingListTableToReturn.count) amount of shopping lists")
+        return shoppingListTableToReturn
+    }
+    
+    func cheackForDuplicate(idToCompare: Int) -> Bool {
+        var isThereDuplicate = false
+        let shoppingListTableToReturn = loadCoreData()
+        
+        // now that you have all the data, checak if any entity allready has the recipey id?, if yes, that means it was allready added to the shopping list
+        for ingredient in shoppingListTableToReturn {
+            if let recipeGlobalDBIndex = ingredient.value(forKey: "idOfRecipe") as? Int {
+                if recipeGlobalDBIndex == idToCompare {
+                    // allready been added to the shoping list, it's true, there's a duplicate
+                    isThereDuplicate = true
+                }
+            }
+        }
+        return isThereDuplicate
+        
+    }
+    
+    func deleteFromCoreDataBasedOn(the attribute: String, whos value: Any?) {
+        var myFetchedEntites: [NSManagedObject] = []
+        let myPredicate = NSPredicate(format: attribute + " = %@", argumentArray: [(value as! Int)])
+        let fetchRequest = NSFetchRequest<NSManagedObject>(entityName: "ShoppingList")
+        fetchRequest.predicate = myPredicate
+        
+        do {
+            let fetchedEntities = try managedContext.fetch(fetchRequest)
+            myFetchedEntites = fetchedEntities
+        } catch let error as NSError {
+            print("Could not fetch. \(error), \(error.userInfo)")
+        }
+        for entity in myFetchedEntites {
+            managedContext.delete(entity)
+        }
+        
+        do {
+            try managedContext.save()
+            defults.setValue(true, forKey: "areCoreDataChangesPending")
+        } catch let error as NSError {
+            print("Could not save. \(error), \(error.userInfo)")
+        }
+        
+    }
+    
+    // updating Float Values
+    func updateDataInCoreDataEntitesMatchedBy(attribute1: String, attribute2: String, value1: Any?, value2: Any? , newValueAttribute: String, newValue: Float) {
+        var myFetchedEntites: [NSManagedObject] = []
+        let myPredicate = NSPredicate(format: attribute1 + " = %@ AND " + attribute2 + " = %@", argumentArray: [(value1 as! Int), (value2 as! Int)])
+        let fetchRequest = NSFetchRequest<NSManagedObject>(entityName: "ShoppingList")
+        fetchRequest.predicate = myPredicate
+        
+        do {
+            let fetchedEntities = try managedContext.fetch(fetchRequest)
+            myFetchedEntites = fetchedEntities
+        } catch let error as NSError {
+            print("Could not fetch. \(error), \(error.userInfo)")
+        }
+        for entity in myFetchedEntites {
+            entity.setValue(newValue, forKey: newValueAttribute)
+        }
+        
+        do {
+            try managedContext.save()
+            defults.setValue(true, forKey: "areCoreDataChangesPending")
+        } catch let error as NSError {
+            print("Could not save. \(error), \(error.userInfo)")
+        }
+    }
+    
+    // Updating Int values
+    func updateDataInCoreDataEntitesMatchedBy(attribute1: String, attribute2: String, value1: Any?, value2: Any? , newValueAttribute: String, newValue: Int) {
+        var myFetchedEntites: [NSManagedObject] = []
+        let myPredicate = NSPredicate(format: attribute1 + " = %@ AND " + attribute2 + " = %@", argumentArray: [(value1 as! Int), (value2 as! Int)])
+        let fetchRequest = NSFetchRequest<NSManagedObject>(entityName: "ShoppingList")
+        fetchRequest.predicate = myPredicate
+        
+        do {
+            let fetchedEntities = try managedContext.fetch(fetchRequest)
+            myFetchedEntites = fetchedEntities
+        } catch let error as NSError {
+            print("Could not fetch. \(error), \(error.userInfo)")
+        }
+        for entity in myFetchedEntites {
+            entity.setValue(newValue, forKey: newValueAttribute)
+        }
+        
+        do {
+            try managedContext.save()
+            defults.setValue(true, forKey: "areCoreDataChangesPending")
+        } catch let error as NSError {
+            print("Could not save. \(error), \(error.userInfo)")
+        }
+    }
+    
+    // writing a single ingredient into my custom shoppong list
+    func isAddingSingleIngredientToCustomShoppingListIntoCoreDataSuccesful(ingredient name: String) -> Bool {
+        var didSaveActionWentOk = false
+        var myFetchedEntites: [NSManagedObject] = []
+        // fetch all the ingredients assoiated with my custom shopping list (id of recipe is 0)
+        let myPredicate = NSPredicate(format: "idOfRecipe = %@", argumentArray: [0])
+        let fetchRequest = NSFetchRequest<NSManagedObject>(entityName: "ShoppingList")
+        fetchRequest.predicate = myPredicate
+        // sorting , i want to know the heighest index value by now
+        let descriptor1 = NSSortDescriptor(key: "index", ascending: true)
+        let descriptors = [descriptor1]
+        fetchRequest.sortDescriptors = descriptors
+        
+        do {
+            let fetchedEntities = try managedContext.fetch(fetchRequest)
+            myFetchedEntites = fetchedEntities
+        } catch let error as NSError {
+            print("Could not fetch. \(error), \(error.userInfo)")
+        }
+        
+        let indexToInsert = myFetchedEntites.count + 1 // index start at 1 appearantlly
+        
+        // ok so now let's save the ingredient to core data
+        let entity = NSEntityDescription.entity(forEntityName: "ShoppingList", in: managedContext)!
+       
+        let newEntery = NSManagedObject(entity: entity, insertInto: managedContext)
+        let title = "My Ingredients"
+        newEntery.setValue(0, forKeyPath: "idOfRecipe")
+        newEntery.setValue(title, forKeyPath: "title")
+        newEntery.setValue(name, forKeyPath: "ingredient")
+        newEntery.setValue(0, forKeyPath: "cheacked")
+        newEntery.setValue(0, forKeyPath: "ingredientNumTextLines")
+        newEntery.setValue(indexToInsert, forKeyPath: "index")
+       
+        print("This was written")
+        print(newEntery)
+      
+        do {
+            try managedContext.save()
+            didSaveActionWentOk = true
+        } catch let error as NSError {
+            print("Could not save. \(error), \(error.userInfo)")
+        }
+        
+        return didSaveActionWentOk
+    }
+    
 
 }
 
