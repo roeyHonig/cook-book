@@ -976,7 +976,7 @@
                                                         <rect key="frame" x="51.666666666666686" y="0.0" width="51.333333333333343" height="42"/>
                                                         <subviews>
                                                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="icons8-kitchen_steel" translatesAutoresizingMaskIntoConstraints="NO" id="DUS-l2-cYu">
-                                                                <rect key="frame" x="8.6666666666666288" y="4.6666666666666572" width="33.666666666666664" height="33"/>
+                                                                <rect key="frame" x="9.6666666666666288" y="4.6666666666666572" width="33.666666666666664" height="33"/>
                                                             </imageView>
                                                         </subviews>
                                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
